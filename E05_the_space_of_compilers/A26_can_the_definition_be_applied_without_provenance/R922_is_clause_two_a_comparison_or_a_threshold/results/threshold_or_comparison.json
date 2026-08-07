@@ -1,0 +1,875 @@
+{
+  "commit": "da5085111d7d7bbe032eaa0e98f271e4e5dfa19a",
+  "world": "A",
+  "seed": 921,
+  "nboot": 8000,
+  "n_arms": 99,
+  "n_prompts": 968,
+  "not_forced": {
+    "why": "lo is a quantile of the bootstrap distribution of a DIFFERENCE, so it depends on cov(M_a, M_c), not on mean A2(a) alone; an inversion is possible",
+    "chain_is_necessary_not_sufficient": "R921's nested admitted sets follow from threshold behaviour but do not imply it \u2014 sets can nest while their boundaries sit at different places in the mean ordering"
+  },
+  "plant": {
+    "g": 0.02,
+    "flagged_at_g": true,
+    "flagged_at_zero": false,
+    "sigma_diff": 0.5213595312862285,
+    "predicted_lo_P": -0.012843974800777917,
+    "achieved_lo_P": -0.01258082351486226,
+    "first_version_failed_because": "sigma 0.12 gave SE ~0.0039 at n=968, so lo(P) ~ +0.012 and P was admissible by construction \u2014 a PLANT TOO WEAK TO REACH THE THRESHOLD, the mirror of a threshold above the ceiling",
+    "mean_margin_P": 0.019999999999999685,
+    "mean_margin_Q": 0.009999999999999898,
+    "admitted_P": false,
+    "admitted_Q": true
+  },
+  "synthetic_threshold_world_inversions": 0,
+  "total_inversions_all": 24,
+  "total_inversions_candidates": 10,
+  "total_inversions_legitimate": 0,
+  "verdict_population": "legitimate (prompt-blind) comparators only",
+  "legitimate_comparators": [
+    "generic",
+    "genericpool16"
+  ],
+  "comparators_carrying_inversions": 11,
+  "machinery_is_capable": "the planted pair was detected and 24 inversions exist across all 99 comparators, so a zero on the legitimate pair is a fact about those comparators, not about the instrument",
+  "implied_cut_range": [
+    0.40840991829706097,
+    0.6283030528983486
+  ],
+  "rows": [
+    {
+      "comparator": "coval_core",
+      "n_admitted": 13,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5877754548982984,
+      "examples": []
+    },
+    {
+      "comparator": "coval_core_2bA",
+      "n_admitted": 13,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5877754548982984,
+      "examples": []
+    },
+    {
+      "comparator": "coval_core_2bB",
+      "n_admitted": 13,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5877754548982984,
+      "examples": []
+    },
+    {
+      "comparator": "coval_core_sham",
+      "n_admitted": 38,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5060476562311714,
+      "examples": []
+    },
+    {
+      "comparator": "full",
+      "n_admitted": 34,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5255816648194435,
+      "examples": []
+    },
+    {
+      "comparator": "full_sham",
+      "n_admitted": 63,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.47583299657806544,
+      "examples": []
+    },
+    {
+      "comparator": "gen",
+      "n_admitted": 30,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5460188667694975,
+      "examples": []
+    },
+    {
+      "comparator": "gen_sham",
+      "n_admitted": 47,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4951904202480708,
+      "examples": []
+    },
+    {
+      "comparator": "generic",
+      "n_admitted": 24,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5593110791885864,
+      "examples": []
+    },
+    {
+      "comparator": "generic_reprov",
+      "n_admitted": 24,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5593110791885864,
+      "examples": []
+    },
+    {
+      "comparator": "genericpool16",
+      "n_admitted": 28,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5513543391990778,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k12_fit1",
+      "n_admitted": 23,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5631762691595017,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k2_fit1",
+      "n_admitted": 5,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6226458102635263,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k4_fit1",
+      "n_admitted": 6,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6141628276205653,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k4_fit1_08b",
+      "n_admitted": 67,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.45955020627004994,
+      "examples": [
+        [
+          "full_sham",
+          "topw_k2_08b",
+          0.4604291155406027,
+          0.4600770864211368
+        ],
+        [
+          "full_sham",
+          "topw_k6_08b",
+          0.4604291155406027,
+          0.45955020627004994
+        ]
+      ]
+    },
+    {
+      "comparator": "greedy_k4_fit1_08bR",
+      "n_admitted": 24,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5593110791885864,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k4_greedy_kA",
+      "n_admitted": 3,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6283030528983486,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k4_greedy_kB",
+      "n_admitted": 3,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6283030528983486,
+      "examples": []
+    },
+    {
+      "comparator": "greedy_k8_fit1",
+      "n_admitted": 12,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.594064640728269,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k12_fit1",
+      "n_admitted": 25,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5547116990536,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k2_fit1",
+      "n_admitted": 8,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6106288918892805,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k4_fit1",
+      "n_admitted": 11,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.603115070031729,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k4_fit1_08b",
+      "n_admitted": 50,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.49317050436732895,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k4_fit1_08bR",
+      "n_admitted": 33,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5351733494230959,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k4_indep_kA",
+      "n_admitted": 8,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6106288918892805,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k4_indep_kB",
+      "n_admitted": 8,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6106288918892805,
+      "examples": []
+    },
+    {
+      "comparator": "indep_k8_fit1",
+      "n_admitted": 13,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5877754548982984,
+      "examples": []
+    },
+    {
+      "comparator": "oracle_k4",
+      "n_admitted": 0,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": null,
+      "examples": []
+    },
+    {
+      "comparator": "oracle_k4_08b",
+      "n_admitted": 67,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.45955020627004994,
+      "examples": [
+        [
+          "full_sham",
+          "topw_k2_08b",
+          0.4604291155406027,
+          0.4600770864211368
+        ],
+        [
+          "full_sham",
+          "topw_k6_08b",
+          0.4604291155406027,
+          0.45955020627004994
+        ]
+      ]
+    },
+    {
+      "comparator": "oracle_k4_08bR",
+      "n_admitted": 13,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5877754548982984,
+      "examples": []
+    },
+    {
+      "comparator": "oracle_k4_fit1",
+      "n_admitted": 5,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.6226458102635263,
+      "examples": []
+    },
+    {
+      "comparator": "oracle_k4_fit1_08b",
+      "n_admitted": 70,
+      "n_inversions": 1,
+      "implied_cut_mean_a2": 0.44842937432812263,
+      "examples": [
+        [
+          "promptecho",
+          "oracle_k4_08b",
+          0.4502400101433892,
+          0.44842937432812263
+        ]
+      ]
+    },
+    {
+      "comparator": "oracle_k4_oracle_kA",
+      "n_admitted": 0,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": null,
+      "examples": []
+    },
+    {
+      "comparator": "oracle_k4_oracle_kB",
+      "n_admitted": 0,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": null,
+      "examples": []
+    },
+    {
+      "comparator": "promptecho",
+      "n_admitted": 65,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4645540036921324,
+      "examples": []
+    },
+    {
+      "comparator": "promptecho_sham",
+      "n_admitted": 70,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4502400101433892,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s0",
+      "n_admitted": 34,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5255816648194435,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s0_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s1",
+      "n_admitted": 37,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5087225653570847,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s1_08b",
+      "n_admitted": 79,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.41918158401233524,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s2",
+      "n_admitted": 34,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5255816648194435,
+      "examples": []
+    },
+    {
+      "comparator": "random_k12_s2_08b",
+      "n_admitted": 82,
+      "n_inversions": 5,
+      "implied_cut_mean_a2": 0.4144598167707911,
+      "examples": [
+        [
+          "random_k2_s0_08b",
+          "random_k12_s0_08b",
+          0.4171029131824733,
+          0.4144598167707911
+        ],
+        [
+          "random_k3_s1_08b",
+          "random_k12_s0_08b",
+          0.41693096832014737,
+          0.4144598167707911
+        ],
+        [
+          "random_k4_s1_08b",
+          "random_k12_s0_08b",
+          0.41641970546829327,
+          0.4144598167707911
+        ]
+      ]
+    },
+    {
+      "comparator": "random_k2_s0",
+      "n_admitted": 56,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4884130641434137,
+      "examples": []
+    },
+    {
+      "comparator": "random_k2_s0_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k2_s1",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k2_s1_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k2_s2",
+      "n_admitted": 57,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4879997214919721,
+      "examples": []
+    },
+    {
+      "comparator": "random_k2_s2_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k3_s0",
+      "n_admitted": 43,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.49798624217545023,
+      "examples": [
+        [
+          "random_k4_s1_ctlS1",
+          "random_k8_s1",
+          0.4981459538326776,
+          0.49798624217545023
+        ],
+        [
+          "random_k4_s1",
+          "random_k8_s1",
+          0.4981459538326776,
+          0.49798624217545023
+        ]
+      ]
+    },
+    {
+      "comparator": "random_k3_s0_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k3_s1",
+      "n_admitted": 39,
+      "n_inversions": 1,
+      "implied_cut_mean_a2": 0.5036536192925719,
+      "examples": [
+        [
+          "topwvar_k4",
+          "random_k12_s1",
+          0.5039526127302921,
+          0.5036536192925719
+        ]
+      ]
+    },
+    {
+      "comparator": "random_k3_s1_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k3_s2",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k3_s2_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s0",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s0_08b",
+      "n_admitted": 83,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.41641970546829327,
+      "examples": [
+        [
+          "random_k2_s0_08b",
+          "random_k3_s1_08b",
+          0.4171029131824733,
+          0.41693096832014737
+        ],
+        [
+          "random_k2_s0_08b",
+          "random_k4_s1_08b",
+          0.4171029131824733,
+          0.41641970546829327
+        ]
+      ]
+    },
+    {
+      "comparator": "random_k4_s0_ctlS0",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s1",
+      "n_admitted": 37,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5087225653570847,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s1_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s1_ctlS1",
+      "n_admitted": 37,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5087225653570847,
+      "examples": []
+    },
+    {
+      "comparator": "random_k4_s2",
+      "n_admitted": 43,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.49798624217545023,
+      "examples": [
+        [
+          "random_k4_s1_ctlS1",
+          "random_k8_s1",
+          0.4981459538326776,
+          0.49798624217545023
+        ],
+        [
+          "random_k4_s1",
+          "random_k8_s1",
+          0.4981459538326776,
+          0.49798624217545023
+        ]
+      ]
+    },
+    {
+      "comparator": "random_k4_s2_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s0",
+      "n_admitted": 40,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5036536192925719,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s0_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s1",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s1_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s2",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "random_k6_s2_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s0",
+      "n_admitted": 37,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5087225653570847,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s0_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s1",
+      "n_admitted": 38,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5060476562311714,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s1_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s2",
+      "n_admitted": 37,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5087225653570847,
+      "examples": []
+    },
+    {
+      "comparator": "random_k8_s2_08b",
+      "n_admitted": 78,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.42336949914243954,
+      "examples": []
+    },
+    {
+      "comparator": "topabs_k4",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "topabs_k4_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "topvar_k4",
+      "n_admitted": 46,
+      "n_inversions": 1,
+      "implied_cut_mean_a2": 0.4951904202480708,
+      "examples": [
+        [
+          "coval_core_sham",
+          "random_k6_s0",
+          0.4956141881000692,
+          0.4951904202480708
+        ]
+      ]
+    },
+    {
+      "comparator": "topvar_k4_08b",
+      "n_admitted": 77,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4348844118799901,
+      "examples": []
+    },
+    {
+      "comparator": "topvar_k4_08bR",
+      "n_admitted": 98,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.40840991829706097,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k1",
+      "n_admitted": 32,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5380255759320977,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k12",
+      "n_admitted": 29,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5461324369616688,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k12_08b",
+      "n_admitted": 73,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4442643604213527,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k1_08b",
+      "n_admitted": 69,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4524430818638846,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k2",
+      "n_admitted": 23,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5631762691595017,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k2_08b",
+      "n_admitted": 64,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4679677561294098,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k3",
+      "n_admitted": 14,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5725801261929584,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k3_08b",
+      "n_admitted": 61,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4811044964736673,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k4",
+      "n_admitted": 14,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5725801261929584,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k4_08b",
+      "n_admitted": 61,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4811044964736673,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k4_detA",
+      "n_admitted": 14,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5725801261929584,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k4_detB",
+      "n_admitted": 14,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5725801261929584,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k4_sham",
+      "n_admitted": 42,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5023511837050603,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k6",
+      "n_admitted": 14,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.5725801261929584,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k6_08b",
+      "n_admitted": 65,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4645540036921324,
+      "examples": []
+    },
+    {
+      "comparator": "topw_k8",
+      "n_admitted": 18,
+      "n_inversions": 4,
+      "implied_cut_mean_a2": 0.5641173028790937,
+      "examples": [
+        [
+          "oracle_k4_08bR",
+          "topw_k6",
+          0.5649185744333531,
+          0.5641173028790937
+        ],
+        [
+          "topw_k4_detB",
+          "topw_k6",
+          0.5641806235396515,
+          0.5641173028790937
+        ],
+        [
+          "topw_k4_detA",
+          "topw_k6",
+          0.5641806235396515,
+          0.5641173028790937
+        ]
+      ]
+    },
+    {
+      "comparator": "topw_k8_08b",
+      "n_admitted": 67,
+      "n_inversions": 2,
+      "implied_cut_mean_a2": 0.45955020627004994,
+      "examples": [
+        [
+          "full_sham",
+          "topw_k2_08b",
+          0.4604291155406027,
+          0.4600770864211368
+        ],
+        [
+          "full_sham",
+          "topw_k6_08b",
+          0.4604291155406027,
+          0.45955020627004994
+        ]
+      ]
+    },
+    {
+      "comparator": "topwvar_k4",
+      "n_admitted": 35,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.515335681691229,
+      "examples": []
+    },
+    {
+      "comparator": "topwvar_k4_08b",
+      "n_admitted": 73,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.4442643604213527,
+      "examples": []
+    },
+    {
+      "comparator": "topwvar_k4_08bR",
+      "n_admitted": 79,
+      "n_inversions": 0,
+      "implied_cut_mean_a2": 0.41918158401233524,
+      "examples": []
+    }
+  ],
+  "unit_note": "counts are ARM PAIRS for inversions, ARMS for admitted; the cut is in mean A2 units",
+  "cannot_say": "what clause \u2461 would do on arms whose A2 co-varies with a comparator differently \u2014 no such arm exists on this release",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

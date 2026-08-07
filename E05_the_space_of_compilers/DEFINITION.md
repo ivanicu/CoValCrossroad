@@ -9459,3 +9459,54 @@ and printed **WORLD B**. All four arms in those pairs — `oracle_k4_fit1_08b`, 
 `random_k4_s0_08b`, `promptecho_sham` — are second-judge or apparatus arms this arc had already
 excluded. **The verdict's population was wider than the claim's.** Restricted to candidates the
 family is a perfect chain, 0 of 1378.
+
+---
+
+## ⛔ R922 · CLAUSE ② IS A THRESHOLD ON MEAN A2, NOT A COMPARISON — on its own admissible comparators
+
+R921 proved the arm ordering by mean margin is comparator-invariant and that the admitted sets nest.
+That leaves one possibility the definition never confronted: **if the admitted set is always the
+top-N of one fixed ordering, clause ② is a threshold and the comparator only places the cut.**
+
+⚠ **NOT FORCED, checked first.** `lo(M_a − M_c)` is a quantile of the bootstrap distribution of a
+*difference*, so it depends on `cov(M_a, M_c)` — an arm with a **higher** mean A2 can have a **lower**
+bound. An **inversion** (higher-mean arm rejected while a lower-mean arm passes) is possible, and
+whether any exist is the estimand. R921's nesting is *necessary* for threshold behaviour but not
+*sufficient*.
+
+**CONTROLS.** ① R921's admitted count reproduced for **all 99** comparators at the same seed. ②
+**plant, calibrated by arithmetic before running**: σ_diff **0.5214**, predicted `lo(P)` **−0.012844**,
+achieved **−0.012581**; at g=0.02 P is rejected while Q (half the mean margin) is admitted and the
+inversion is **FLAGGED**; at g=0 neither is admitted and nothing is flagged. ③ **synthetic threshold
+world** — every arm = comparator + a constant — returns **0 inversions**, so a zero is a measurement
+and not silence.
+
+| comparator population | comparators | inversions |
+|---|---|---|
+| all scored arms | 99 | **24** (11 carry ≥1) |
+| candidates (apparatus + second judge out) | 53 | **10** (5 carry ≥1) |
+| **legitimate (prompt-blind — all clause ② permits)** | **2** | **0** |
+
+⭐⭐⭐ **WORLD A on the population the clause permits.** Under both `generic` and `genericpool16` the
+admitted set is **exactly the top-N by mean A2**. **Clause ② as the definition actually uses it is a
+threshold with a calibration, not a contrast** — and "beats a named prompt-blind comparator" implies
+work that, here, is not being done.
+
+**The implied cut, per legitimate comparator:** `genericpool16` **0.5514** (28 admitted), `generic`
+**0.5593** (24 admitted). Spread between them **0.0080**; across all 99 comparators the cut ranges
+**0.4084–0.6283**, spread **0.2199**. **A cut quoted without its comparator is unscoped either way.**
+
+⚠ **THE MACHINERY IS NOT INCAPABLE — IT SIMPLY DOES NO WORK HERE.** 24 inversions exist across the
+full comparator set and the planted pair was detected, so the instrument can see non-threshold
+behaviour. **Clause ② *could* act as a comparison; on its own admissible comparators it does not.**
+
+⚠ **AND MY VERDICT STRING READ WORLD B OFF ALL 99 BEFORE THE FIX — the seventh time this session a
+verdict's population and a claim's population came apart.** This one was caught before publication
+rather than after, which is the only thing that has changed.
+
+⚠ **AND THE FIRST PLANT COULD NOT HAVE PASSED**, for a reason arithmetic settles in one line: with
+Gaussian noise σ=0.12 at n=968 the SE is ≈0.0039, so `lo(P) ≈ +0.012` and **P was admissible by
+construction** — no inversion could exist and control ② failed on its own design. That is §4's
+*control that cannot PASS* in a form the entry does not yet name: **not a threshold above the
+ceiling, but a plant too weak to reach the threshold.** The remedy is the same shape — compute what
+the design can return under the plant *before* running it.
