@@ -635,6 +635,15 @@ def main() -> int:
                       [r"(declared|declare).{0,120}(`?q`?).{0,300}(not fixed|never a value)",
                        r"(at least\s*`?q`?%|q%\s*of the certified)"]))
 
+    # ⛔⛔ R1038: the family is its own null; only q=90 of the scale-free set reaches nominal
+    #    false-admission, so the declared parameter gets an evidence-selected DEFAULT.
+    d = load("A27_*/R1038_*/results/false_admission_by_q.json")
+    if d:
+        facts.append(("R1038", "q defaults to 90 on false-admission evidence",
+                      f"best scale-free q={d['best_scale_free_q']} at {d['best_rate']:.4f}",
+                      [r"(false[- ]admission).{0,300}(q\s*=\s*90|only.{0,30}90)",
+                       r"(default).{0,120}(q\s*=\s*90)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

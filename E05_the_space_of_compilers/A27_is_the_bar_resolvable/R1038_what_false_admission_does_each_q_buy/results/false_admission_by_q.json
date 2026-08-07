@@ -1,0 +1,57 @@
+{
+  "round": "R1038",
+  "seeds": [
+    1034,
+    2068,
+    3102
+  ],
+  "members": 200,
+  "member_seed": 4242,
+  "family_size": 4261,
+  "scale_free_q": [
+    50,
+    75,
+    90
+  ],
+  "derivation": "a member at rank r of N beats ~r/N by construction, so the rate must fall in q; the SHAPE and LEVEL are what is measured",
+  "rates": {
+    "0": {
+      "mean": 1.0,
+      "spread": 0.0
+    },
+    "50": {
+      "mean": 0.255,
+      "spread": 0.0
+    },
+    "75": {
+      "mean": 0.12166666666666666,
+      "spread": 0.0050000000000000044
+    },
+    "90": {
+      "mean": 0.025000000000000005,
+      "spread": 0.0
+    },
+    "95": {
+      "mean": 0.02,
+      "spread": 0.0
+    },
+    "99": {
+      "mean": 0.005,
+      "spread": 0.0
+    },
+    "100": {
+      "mean": 0.0,
+      "spread": 0.0
+    }
+  },
+  "controls": {
+    "real_arm_clears": true,
+    "q0_is_one": true,
+    "monotone": true,
+    "placebo_q100_zero": true
+  },
+  "best_scale_free_q": 90,
+  "best_rate": 0.025000000000000005,
+  "world": "\u2b50 A A SCALE-FREE q BUYS A LOW RATE \u2014 q=90 admits family members at 0.0250, at or below twice the operator's nominal 0.025. So q IS selectable on evidence, and R1037's 'declared, not fixed' can be narrowed to a DEFAULT of 90 with its cost stated.",
+  "limitation": "a low rate would not make q RIGHT; that is construct validity and needs a criterion vocabulary this release does not carry (R1028)"
+}

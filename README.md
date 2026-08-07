@@ -65,7 +65,9 @@ per fact**, so nothing below restates the clause text.
 > **②′** it **resolvably beats at least `q`% of the certified prompt-blind comparator family**
 > — the 2.5th percentile of the bootstrapped paired difference is > 0 against that share,
 > computed on the prompts the arm **actually covers** and never on imputed values (R1024),
-> for a **declared `q`** (R1037; q=100 is excluded — the max never stabilises, R1036) — **and**
+> for a **declared `q`**, defaulting to **q = 90** — the only scale-free quantile whose
+> false-admission rate reaches nominal (R1038); q=100 is excluded, the max never
+> stabilises (R1036) — **and**
 > **③** it **consumes no prompt-specific human labels**.
 >
 > **Reported, never required:** its **size**, and its **margin over a declared response-only class**

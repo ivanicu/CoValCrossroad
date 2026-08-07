@@ -824,6 +824,26 @@ clause states the **parameter and its measured onset** (100, 100, 100, 300, 2000
 ⚠ **N/A** — which `q` is *right* needs an external criterion for what the comparator family
 represents (R1028).
 
+⭐⭐ **AND R1038 NARROWS THE DECLARATION TO A DEFAULT OF `q = 90`, ON EVIDENCE.** R1036 and R1037 both
+closed saying the choice among the scale-free quantiles could not be measured here. It can: **every
+member of the comparator family is itself a scoreable arm**, so the family is its **own reference
+population**, and the share of members clearing the q-bar is a **false-admission rate** — *a checklist
+is not a core*. That is R1023's device applied to the bar instead of the loader.
+
+| q | 50 | 75 | **90** | 95 | 99 | 100 |
+|---|---:|---:|---:|---:|---:|---:|
+| false-admission rate | 0.2550 | 0.1217 | **0.0250** | 0.0200 | 0.0050 | 0.0000 |
+
+**Of the three scale-free quantiles, only `q = 90` reaches the operator's own nominal 0.025.**
+⛔ **The monotonicity is FORCED** — a member at rank r of N beats ~r/N by construction — **so the
+direction is not the finding; the level is.**
+⚠ **And the exact match to 0.025 is arithmetic, not significance**: it is 5 of 200 members, SE ±0.0110.
+The supported claim is *at nominal within resolution*, never *exactly nominal*.
+⭐ So `q` stays a **declared** parameter and the definition still names the curve — but its **default
+is now selected on evidence**: **q = 90**, admitting 11 arms, scale-free from n = 100.
+⚠ **N/A** — a low rate does not make `q` *right*; a bar can be strict and still measure the wrong
+thing, which is construct validity and needs the criterion vocabulary R1028 showed is absent here.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
