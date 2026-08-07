@@ -335,6 +335,16 @@ def main() -> int:
                        r"(every certified|all certified|quantif).{0,300}"
                        r"(comparator).{0,200}(repair|9|excluded)"]))
 
+    # ⛔ R1010: the repair was committed at R921 and read by ONE later round. A statement that
+    #    presents R1009's repair as new is claiming a discovery that was sitting in an artifact.
+    d = load("A27_*/R1010_*/results/adoption_gap.json")
+    if d:
+        facts.append(("R1010", "the stronger criterion was committed at R921 and never adopted",
+                      f"adopted={d['adopted']}",
+                      [r"(committed at R921|already computed|already named).{0,300}"
+                       r"(never adopted|not adopted|1 reader|one reader)",
+                       r"(survives_all_legitimate).{0,300}(13|1\b|adopt)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

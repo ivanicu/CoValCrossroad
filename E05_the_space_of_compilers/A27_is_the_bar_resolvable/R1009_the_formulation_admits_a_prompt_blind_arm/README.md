@@ -1,3 +1,21 @@
+# ⛔⛔ CORRECTION BY R1010 — THE MEMBERSHIP FACT AND THE REPAIR WERE BOTH COMMITTED AT R921
+
+> R921's artifact already carries **`admitted_by_at_least_one_legitimate` (28)** and
+> **`survives_all_legitimate` (24)**, and their difference is exactly
+> `['generic', 'generic_reprov', 'greedy_k12_fit1', 'topw_k2']`. **So both this round's finding
+> — that `generic` is admitted — and its repair — quantify over ALL certified comparators —
+> were on disk before it ran**, and the repair's name was already the field's name.
+> ⭐ **What this round genuinely adds** is narrower and is what should have been claimed:
+> the **READING** (R921 framed it as comparator-choice sensitivity; that admitting a
+> prompt-blind arm means the definition admits its own null is not in R921), the
+> **RESOLVABILITY** of the admission (`lo = +0.0057`) with its self-comparison and sham
+> controls, and the repair's **cost at the full ②∧③ conjunction** (9 vs 12) where R921's
+> 24/28 are clause-② alone.
+> ⚠ The claim *"reading the extension arm by arm turned this up"* stands as a description of
+> how I found it and **not** as a claim that it was unknown.
+
+---
+
 # R1009 · the formulation admits an arm that never reads the conversation — and the repair costs three arms
 
 **THE DECISION THIS MAKES SAFE.** Whether clause ②, as written, excludes a criterion set that never

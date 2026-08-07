@@ -1,0 +1,49 @@
+{
+ "source_sha": "41f0946804d02d17",
+ "head": "a stronger criterion was committed at R921 and never adopted",
+ "n_scripts_after_r921": 68,
+ "controls": {
+  "positive_baseline_has_readers": true,
+  "negative_absent_field_zero": true,
+  "placebo_loose_ge_tight": true
+ },
+ "rows": [
+  {
+   "field": "survives_all_legitimate",
+   "tight_readers": 1,
+   "loose_mentions": 2,
+   "in_statement": false,
+   "readers": [
+    "R924_does_clause_one_exclude_anything_clause_two_does_not"
+   ]
+  },
+  {
+   "field": "legitimate_comparators",
+   "tight_readers": 13,
+   "loose_mentions": 14,
+   "in_statement": false,
+   "readers": [
+    "R1000_the_four_clauses_as_one_operator",
+    "R1001_the_operator_under_the_permissive_reading",
+    "R1003_which_wording_of_clause_four_survives_its_own_witnesses",
+    "R1004_the_formulation_and_what_it_costs",
+    "R1005_does_the_extension_converge_beyond_its_own_score_level",
+    "R1007_the_negative_control_r1005_declared_and_never_ran"
+   ]
+  },
+  {
+   "field": "admitted_by_at_least_one_legitimate",
+   "tight_readers": 1,
+   "loose_mentions": 2,
+   "in_statement": false,
+   "readers": [
+    "R924_does_clause_one_exclude_anything_clause_two_does_not"
+   ]
+  }
+ ],
+ "world": "B UNADOPTED \u2014 the stronger criterion has 1 reader(s) against the weaker one's 13, and appears in the statement: False",
+ "adopted": false,
+ "correction_to_r1009": "the membership fact and the repair's name were both committed in R921's artifact; R1009's genuine additions are the reading, the resolvability, and the repair's cost at the full conjunction",
+ "not_measured": "why it was not adopted \u2014 intent is not in the record",
+ "third_comparator_price": "15,488 judge calls (R914, quoted in R921's own artifact)"
+}

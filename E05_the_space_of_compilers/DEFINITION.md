@@ -278,6 +278,22 @@ which** — so naming the weaker one lets the stronger one through. **That silen
 it is the standard's own test answered badly: *name an admissible object this clause excludes.*
 Clause ② excludes 68–72 arms and does **not** exclude the comparator it is defined against.
 
+⛔⛔ **AND THE REPAIR WAS COMMITTED AT R921 AND NEVER ADOPTED (R1010).** R921's artifact carries
+**`survives_all_legitimate` (24 arms)** beside `admitted_by_at_least_one_legitimate` (28) — the
+repair below, already computed and already named, ~90 rounds earlier. Measured over the 68 round
+scripts written after R921:
+
+| field | rounds that READ it | in the statement |
+|---|---:|---|
+| `legitimate_comparators` (the weaker, per-comparator route) | **13** | no |
+| **`survives_all_legitimate`** (the stronger criterion) | **1** — R924 only | **no** |
+| a runtime-assembled absent field (negative control) | 0 | no |
+
+⭐ **The defect was never that nobody computed it. It is that nobody adopted it**, and the arc built
+its formulation on the weaker route while the stronger one sat in a committed artifact.
+⚠ **WHY it was not adopted is not measured and is not guessed** — intent is not in the record, and a
+reason invented here would be a narrative. What is measurable is that it was not, and from when.
+
 ### ⭐ THE REPAIR, WITH ITS COST MEASURED
 
 > **②′** it **resolvably beats EVERY comparator in the certified prompt-blind set** — not *a* named one.
