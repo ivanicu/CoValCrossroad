@@ -9294,3 +9294,50 @@ was unreachable inside [0, 1] and the control failed on its own arithmetic. Same
 operator, not by the data** — the third structural-zero error in this session, after R915 and
 R917's `random` placebo. The pattern is one habit: *I choose a boundary value without checking
 whether the comparison operator can reach it.*
+
+---
+
+## ⛔ R919 · SEVEN OF R917's EIGHT PLACEBOS COULD NEVER HAVE FIRED — "1 of 8" was really "1 of 1"
+
+R917 reported that its random-drop placebo put **7 of 8** per-rule corrections inside their own null,
+and concluded *"only `topw`'s correction is resolvable as a judge effect — the other seven are
+consistent with having simply dropped arms."* **That sentence is withdrawn.** "Consistent with"
+implies evidence of no effect. It was silence.
+
+⚠ **AND MY OWN NEXT WAS KILLED FIRST.** R917 proposed *"an MDE on the share, per rule"*. An MDE
+presumes a sampling distribution over arms, and **R906's artifact already says
+`not_an_admission_probability: "there is no sampling frame over arms"`.** The quantity is
+unidentified, not merely hard — G1's exact failure, committed in the closing sentence of the
+previous round, which is the sentence with no control attached.
+
+**What IS identified:** R917's placebo drops `d` of a rule's `N` arms uniformly, so the admitted
+count among the kept arms is **exactly hypergeometric(N, A, N−d)** — a finite-population fact
+needing no sampling frame. Its support is a finite integer set, so *"is any attainable value outside
+the 95% band?"* has a closed-form answer.
+
+| rule | N | A | dropped | attainable `a` | 95% band | detectable outcomes | verdict |
+|---|---|---|---|---|---|---|---|
+| `topw` | 16 | 7 | 7 | 0..7 | 2..6 | **3** | **RESOLVABLE**, MDE **0.326** share |
+| `greedy` | 8 | 6 | 2 | 4..6 | 4..6 | 0 | **BLIND** |
+| `indep` | 8 | 5 | 2 | 3..5 | 3..5 | 0 | **BLIND** |
+| `oracle` | 7 | 5 | 3 | 2..4 | 2..4 | 0 | **BLIND** |
+| `random` | 38 | 0 | 18 | 0..0 | 0..0 | 0 | **CONSTANT STATISTIC** |
+| `topabs` | 2 | 0 | 1 | 0..0 | 0..0 | 0 | **CONSTANT STATISTIC** |
+| `topvar` | 3 | 0 | 2 | 0..0 | 0..0 | 0 | **CONSTANT STATISTIC** |
+| `topwvar` | 3 | 0 | 2 | 0..0 | 0..0 | 0 | **CONSTANT STATISTIC** |
+
+**CONTROLS.** ① the exact hypergeometric band reproduces R917's 2000-draw Monte-Carlo band for
+**all eight** rules — different method, same object. ② at least one rule is resolvable, so the
+instrument is not uniformly blind. ③ every `UNRESOLVABLE` verdict traces mechanically to `A = 0` or
+`A = N`, named rather than inferred. ④ R917's observed values re-read from its artifact, not
+recomputed.
+
+⭐⭐⭐ **CORRECTED READING: `topw` is 1 hit out of 1 REAL TEST, not 1 of 8.** Its observed 0.778
+against an expected 0.438 clears a detectable threshold of 0.326 in share units. The multiplicity
+denominator in R917 was wrong by 8×, **in the direction that made me under-claim** — I reported a
+lone survivor among eight tests when seven of those were not tests.
+
+⚠ **THE THREE `BLIND` RULES ARE THE INTERESTING FAILURE**, because unlike the four constant ones
+they *look* testable: `greedy` 6/8 with 2 dropped has a real, non-degenerate null — and yet **every
+one of its 3 attainable outcomes lies inside that null.** A placebo can be non-degenerate and still
+have zero power, and nothing on its printed output distinguishes that from a genuine pass.

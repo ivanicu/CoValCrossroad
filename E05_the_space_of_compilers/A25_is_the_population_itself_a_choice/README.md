@@ -15,3 +15,4 @@ in `E05/DEFINITION.md`.
 | round | what it asked |
 |---|---|
 | `R918` the typing is a decision tree on two thresholds | are `exact > 0.95` and `lex > 0.25` degrees of freedom, or structural predicates wearing a threshold's clothes? |
+| `R919` which of the eight placebos could ever have fired | is R917's "7 of 8 inside the null" evidence of no effect, or a test with no power? |

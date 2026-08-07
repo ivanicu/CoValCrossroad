@@ -1,0 +1,274 @@
+{
+  "commit": "f89f3e898017d100387cdc45df744663f2e94989",
+  "world": "B",
+  "alpha": 0.05,
+  "mc_tol": 0.05,
+  "killed_my_own_next": {
+    "was": "compute an MDE on the admitted share, per rule",
+    "why_wrong": "an MDE presumes a sampling distribution over arms; R906's own artifact says not_an_admission_probability \u2014 there is no sampling frame. The quantity is unidentified, not merely hard",
+    "replaced_by": "the exact resolution of the finite-population drop test R917 ran, whose null is hypergeometric and needs no sampling frame"
+  },
+  "rules": [
+    {
+      "rule": "greedy",
+      "N": 8,
+      "A": 6,
+      "n_drop": 2,
+      "n_kept": 6,
+      "expected_share": 0.75,
+      "exact_band_counts": [
+        4,
+        6
+      ],
+      "exact_band_share": [
+        0.6666666666666666,
+        1.0
+      ],
+      "mc_band_share": [
+        0.6666666666666666,
+        1.0
+      ],
+      "observed_share": 1.0,
+      "attainable_counts": [
+        4,
+        6
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": false,
+      "verdict": "BLIND",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "indep",
+      "N": 8,
+      "A": 5,
+      "n_drop": 2,
+      "n_kept": 6,
+      "expected_share": 0.625,
+      "exact_band_counts": [
+        3,
+        5
+      ],
+      "exact_band_share": [
+        0.5,
+        0.8333333333333334
+      ],
+      "mc_band_share": [
+        0.5,
+        0.8333333333333334
+      ],
+      "observed_share": 0.8333333333333334,
+      "attainable_counts": [
+        3,
+        5
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": false,
+      "verdict": "BLIND",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "oracle",
+      "N": 7,
+      "A": 5,
+      "n_drop": 3,
+      "n_kept": 4,
+      "expected_share": 0.7142857142857143,
+      "exact_band_counts": [
+        2,
+        4
+      ],
+      "exact_band_share": [
+        0.5,
+        1.0
+      ],
+      "mc_band_share": [
+        0.5,
+        1.0
+      ],
+      "observed_share": 1.0,
+      "attainable_counts": [
+        2,
+        4
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": false,
+      "verdict": "BLIND",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "random",
+      "N": 38,
+      "A": 0,
+      "n_drop": 18,
+      "n_kept": 20,
+      "expected_share": 0.0,
+      "exact_band_counts": [
+        0,
+        0
+      ],
+      "exact_band_share": [
+        0.0,
+        0.0
+      ],
+      "mc_band_share": [
+        0.0,
+        0.0
+      ],
+      "observed_share": 0.0,
+      "attainable_counts": [
+        0,
+        0
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": true,
+      "verdict": "UNRESOLVABLE_CONSTANT",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "topabs",
+      "N": 2,
+      "A": 0,
+      "n_drop": 1,
+      "n_kept": 1,
+      "expected_share": 0.0,
+      "exact_band_counts": [
+        0,
+        0
+      ],
+      "exact_band_share": [
+        0.0,
+        0.0
+      ],
+      "mc_band_share": [
+        0.0,
+        0.0
+      ],
+      "observed_share": 0.0,
+      "attainable_counts": [
+        0,
+        0
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": true,
+      "verdict": "UNRESOLVABLE_CONSTANT",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "topvar",
+      "N": 3,
+      "A": 0,
+      "n_drop": 2,
+      "n_kept": 1,
+      "expected_share": 0.0,
+      "exact_band_counts": [
+        0,
+        0
+      ],
+      "exact_band_share": [
+        0.0,
+        0.0
+      ],
+      "mc_band_share": [
+        0.0,
+        0.0
+      ],
+      "observed_share": 0.0,
+      "attainable_counts": [
+        0,
+        0
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": true,
+      "verdict": "UNRESOLVABLE_CONSTANT",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "topw",
+      "N": 16,
+      "A": 7,
+      "n_drop": 7,
+      "n_kept": 9,
+      "expected_share": 0.4375,
+      "exact_band_counts": [
+        2,
+        6
+      ],
+      "exact_band_share": [
+        0.2222222222222222,
+        0.6666666666666666
+      ],
+      "mc_band_share": [
+        0.2222222222222222,
+        0.6666666666666666
+      ],
+      "observed_share": 0.7777777777777778,
+      "attainable_counts": [
+        0,
+        7
+      ],
+      "n_detectable_outcomes": 3,
+      "mde_share": 0.3263888888888889,
+      "statistic_is_constant": false,
+      "verdict": "RESOLVABLE",
+      "wiring_agrees_with_R917_mc": true
+    },
+    {
+      "rule": "topwvar",
+      "N": 3,
+      "A": 0,
+      "n_drop": 2,
+      "n_kept": 1,
+      "expected_share": 0.0,
+      "exact_band_counts": [
+        0,
+        0
+      ],
+      "exact_band_share": [
+        0.0,
+        0.0
+      ],
+      "mc_band_share": [
+        0.0,
+        0.0
+      ],
+      "observed_share": 0.0,
+      "attainable_counts": [
+        0,
+        0
+      ],
+      "n_detectable_outcomes": 0,
+      "mde_share": null,
+      "statistic_is_constant": true,
+      "verdict": "UNRESOLVABLE_CONSTANT",
+      "wiring_agrees_with_R917_mc": true
+    }
+  ],
+  "resolvable": [
+    "topw"
+  ],
+  "constant_statistic": [
+    "random",
+    "topabs",
+    "topvar",
+    "topwvar"
+  ],
+  "structurally_blind": [
+    "greedy",
+    "indep",
+    "oracle"
+  ],
+  "fired": [
+    "topw"
+  ],
+  "splits_R917_claim": "R917's '7 of 8 inside the null' is not one fact: some of those placebos could never have fired",
+  "unit_note": "counts are ARMS; MDE is in admitted-share units on the KEPT set",
+  "not_an_admission_probability": "inherited from R906; this round does not create one",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
