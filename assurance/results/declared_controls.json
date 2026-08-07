@@ -1,0 +1,160 @@
+{
+ "n_rounds_declaring": 8,
+ "n_flagged": 3,
+ "rows": [
+  {
+   "round": "R1000_the_four_clauses_as_one_operator",
+   "declared": [
+    "NEGATIVE CTRL",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "negative_all_off",
+    "placebo_idempotent",
+    "positive_clause1_topw_k1",
+    "positive_clause3_oracle_k4",
+    "positive_wiring_r922"
+   ],
+   "missing": [],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1000_the_four_clauses_as_one_operator/results/conjunction.json",
+   "why": ""
+  },
+  {
+   "round": "R1001_the_operator_under_the_permissive_reading",
+   "declared": [
+    "NEGATIVE CTRL",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "negative_bar0_admits_all",
+    "negative_bar1_admits_none",
+    "placebo_k0_no_unique",
+    "positive_clause1",
+    "positive_clause3",
+    "positive_k0_admits_core",
+    "positive_wiring_r922"
+   ],
+   "missing": [],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1001_the_operator_under_the_permissive_reading/results/permissive_operator.json",
+   "why": ""
+  },
+  {
+   "round": "R1002_is_the_repairs_reference_class_closed_under_its_own_clause",
+   "declared": [
+    "NEGATIVE CTRL",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "negative_inadmissible_rule_outside_R",
+    "placebo_bar_rule_is_member",
+    "positive_reenumeration_matches"
+   ],
+   "missing": [],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1002_is_the_repairs_reference_class_closed_under_its_own_clause/results/class_closure.json",
+   "why": ""
+  },
+  {
+   "round": "R1003_which_wording_of_clause_four_survives_its_own_witnesses",
+   "declared": [
+    "NEGATIVE CTRL",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "negative_constant_at_chance",
+    "placebo_single_rule_class",
+    "positive_core_a2_matches_r825",
+    "positive_r849_rule_top_decile",
+    "positive_r922_wiring"
+   ],
+   "missing": [],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1003_which_wording_of_clause_four_survives_its_own_witnesses/results/wording_grid.json",
+   "why": ""
+  },
+  {
+   "round": "R1004_the_formulation_and_what_it_costs",
+   "declared": [
+    "NEGATIVE CTRL",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "negative_all_off",
+    "placebo_order_independent",
+    "positive_derivation_drop4_is_zero",
+    "positive_oracle_fails_c3",
+    "positive_r922_wiring"
+   ],
+   "missing": [],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1004_the_formulation_and_what_it_costs/results/formulation.json",
+   "why": ""
+  },
+  {
+   "round": "R1005_does_the_extension_converge_beyond_its_own_score_level",
+   "declared": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "different_pair_agreement",
+    "positive_planted_duplicate",
+    "self_agreement"
+   ],
+   "missing": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR",
+    "PLACEBO"
+   ],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1005_does_the_extension_converge_beyond_its_own_score_level/results/convergence.json",
+   "why": ""
+  },
+  {
+   "round": "R1006_are_the_supervised_arms_unusually_heterogeneous",
+   "declared": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "positive_known_duplicates",
+    "positive_ok",
+    "saturation_mixed_family"
+   ],
+   "missing": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR",
+    "PLACEBO"
+   ],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1006_are_the_supervised_arms_unusually_heterogeneous/results/family_spread.json",
+   "why": ""
+  },
+  {
+   "round": "R1007_the_negative_control_r1005_declared_and_never_ran",
+   "declared": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR",
+    "PLACEBO",
+    "POSITIVE CTRL"
+   ],
+   "keys": [
+    "placebo_mean",
+    "placebo_sd",
+    "positive_ok",
+    "positive_planted_copies",
+    "positive_random_same_size"
+   ],
+   "missing": [
+    "NEGATIVE CTRL",
+    "NOISE FLOOR"
+   ],
+   "artifact": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1007_the_negative_control_r1005_declared_and_never_ran/results/membership_null.json",
+   "why": ""
+  }
+ ]
+}
