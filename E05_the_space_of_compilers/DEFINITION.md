@@ -911,7 +911,14 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ⛔ **AND THE PARTITION HAS A PRICE, WHICH IS WHY THE INVENTORY LOOKS THE WAY IT DOES
 > > (R906–R907).** Asking whether the bar FAVOURS a source is not answerable here: over the 99
 > > scored arms, `RUBRIC_SELECTOR` is 23/86 admitted (Wilson [0.185, 0.369]) and
-> > `FIXED_CHECKLIST` is **1/2** ([0.095, 0.905] — width 0.811). The intervals overlap, so
+> > `FIXED_CHECKLIST` is **1/1** ([0.207, 1.000] — width 0.793). The intervals overlap, so
+> > ⛔ *(R915 CORRECTION: R906 reported this as **1/2 = 0.500**. The second member was
+> > `genericpool16` — **the comparator itself**, whose margin against itself is exactly
+> > 0.000000, so it can never be admitted. It is an INELIGIBLE unit, a **structural zero in
+> > the denominator** — R902's finding one level up, with ARMS in place of prompts, hidden
+> > because the denominator was 2. ⚠ The width moves 0.811 → 0.793, both above the 0.60
+> > readability bound, so **the defect is real but NOT load-bearing** and the verdict
+> > below stands. The other three kinds are unchanged.)*
 > > **no source preference is demonstrable**; that is weaker than *the bar is source-agnostic*
 > > and is the statement the evidence carries.
 > > ⭐ **The limit is a PRICED WALL, not a missing run.** Every existing selection arm costs
