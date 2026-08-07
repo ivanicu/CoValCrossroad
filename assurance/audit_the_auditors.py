@@ -10,9 +10,7 @@ Four gates run both ways, all disagreeing. The table reports exit 2 with an EMPT
 `cwd=ROOT`, which is this file's own documented invocation -- all four exit 0. `DEFECTS.py` exits 0
 in 0.1s printing `16/46 checks came back clean`, i.e. a full population, while this file calls it
 EMPTY. Every one completes in 2.3s or less, so `TIMEOUT = 120
-# ⭐ R968: transcribed from run_all.py:54, not invented here. These HIDE the live E0* trees and
-#    restore in a `finally:` that SIGKILL does not run, so they are scheduled LAST and alone.
-MUTATES_TREE = {"attack_the_suite", "attack_every_check"}` is not the cause; that was measured,
+`TIMEOUT = 120` is not the cause; that was measured,
 not assumed.
 
 The consequence for the g=0 control: it asserts the REPAIRED `DEFECTS.py` must not be flagged and
@@ -161,6 +159,14 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 PY = str(ROOT / ".venv" / "bin" / "python")
 TIMEOUT = 120
+# ⭐ R968 transcribed this from run_all.py:54. ⛔ R969: THAT EDIT NEVER LANDED HERE. `TIMEOUT = 120`
+#    occurs THREE times in this file, and a scripted `.replace(x, y, 1)` hit the first — inside the
+#    module docstring — so the constant existed only in prose while line ~253 referenced it, and the
+#    file raised `NameError` on every run. R968 checked it with `ast.parse` and by re-implementing
+#    the ordering in a SEPARATE script; both passed, and **neither imports this file**. A name
+#    defined only in prose is precisely what a syntax check cannot see. The sweep then "left the
+#    tree intact" because it crashed before doing anything — silence, not a result.
+MUTATES_TREE = {"attack_the_suite", "attack_every_check"}
 SELF = pathlib.Path(__file__).resolve()
 EMPTY = re.compile(r"\b0\s*/\s*0\b|\b0 of 0\b|no (rounds|files|items|checks) (found|loaded)",
                    re.I)
