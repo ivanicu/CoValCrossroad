@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1068_*/results/clause_gate.json")
+    if d:
+        facts.append(("R1068", "a gate now covers the clause's declared constants, and fails closed",
+                      f"declared {d['declared']}, sham {d['sham_exit']}, "
+                      f"artifact-removed {d['artifact_removed_exit']}",
+                      [r"4\s+of\s+4\s+declared\s+clause\s+constants",
+                       r"the_clause_is_anchored\.py"]))
+
     d = load("A27_*/R1067_*/results/clause_coverage.json")
     if d:
         facts.append(("R1067", "the clause sits in the anchoring gate's uncovered remainder",

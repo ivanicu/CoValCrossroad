@@ -1422,6 +1422,21 @@ document still match their artifacts** (anchoring, R1066) — **and never that t
 ⚠ **Coverage is not correctness**: an unguarded constant is not thereby wrong. It is unguarded, which
 is a statement about the instrument and a licence the instrument does not grant.
 
+⭐⭐⭐ **AND R1068 BUILDS THE COVERAGE INSTEAD OF MEASURING ITS ABSENCE AGAIN: `4 of 4 declared clause
+constants` NOW TURN A GATE RED WHEN MUTATED.** `assurance/the_clause_is_anchored.py` re-derives each
+from the round that measured it — **certified family size `2`** and **q threshold family size `10`**
+(R1055), **k needed for q `10`** (R1056), **blind-comparator space cap `15`** (R1057) — and requires
+the statement to state it.
+⭐ **THE ACCEPTANCE TEST IS R1067's OWN SWEEP, WHICH THE OLD GATE FAILED 121 OF 121**, and the two
+controls that carry it are the last two: the **sham** (mutating an *undeclared* clause number, `74`)
+stays **green**, so the gate reacts to *these values* rather than to any edit — without it four reds
+would prove nothing; and the **negative** (deleting a source artifact) turns it **RED**, verifying it
+**fails closed** rather than repeating R1063's silent skip. That is checked here, not asserted.
+⛔ **AND IT COVERS NUMBERS, NOT PROSE, AND THE GATE'S OWN DOCSTRING SAYS SO. Four constants is not
+*the clause is anchored*** — R1067 counted **121** numeric tokens in the clause region, so this closes
+the **declared subset** and leaves the rest **exactly as exposed as before**. A gate that overstated
+its reach would be the failure it was built to fix.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

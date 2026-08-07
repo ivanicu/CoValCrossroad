@@ -1,0 +1,38 @@
+{
+  "round": "R1068",
+  "declared": 4,
+  "rows": [
+    {
+      "constant": "certified family size",
+      "value": "2",
+      "reds": true
+    },
+    {
+      "constant": "q threshold family size",
+      "value": "10",
+      "reds": true
+    },
+    {
+      "constant": "k needed for q",
+      "value": "10",
+      "reds": true
+    },
+    {
+      "constant": "blind-comparator space cap",
+      "value": "15",
+      "reds": true
+    }
+  ],
+  "sham_exit": 0,
+  "artifact_removed_exit": 1,
+  "baseline": 0,
+  "clause_region_constants_R1067": 121,
+  "world": "\u2b50 A THE GAP IS CLOSED FOR THE DECLARED CONSTANTS \u2014 all 4 red when mutated, an undeclared clause number stays green, and removing a source artifact reds rather than silently skipping. R1067's sweep, which the old gate failed 121 of 121, now has an instrument that answers it for these values.",
+  "gate": "assurance/the_clause_is_anchored.py",
+  "controls": {
+    "positive_baseline_green": true,
+    "sham_undeclared_stays_green": true,
+    "negative_fail_closed": true
+  },
+  "limitation": "covers declared numeric constants only, never the clause's prose"
+}
