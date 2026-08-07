@@ -26,3 +26,4 @@ in `E05/DEFINITION.md`.
 | `R935` which gates pass on silence | how many assurance checks have neither a plant nor any finding on the corpus, so their green means nothing? |
 | `R936` the restore must refuse to delete what it did not stash | does `attack_the_suite`'s restore destroy work created during its window, and does refusing to delete close it? |
 | `R937` the object test R936 refused to claim | does a sentinel planted inside a LIVE hide survive the patched restore? |
+| `R938` the `kept` branch has no control | does `repair_full` preserve work created during a hide, and is that property exercised by anything? |

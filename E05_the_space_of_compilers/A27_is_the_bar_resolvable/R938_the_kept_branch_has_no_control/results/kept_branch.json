@@ -1,0 +1,25 @@
+{
+  "commit": "b3eb7cc40405a9a8a0b4c384797033b12f54dcaa",
+  "world": "A",
+  "kept_in_repair_full": 4,
+  "kept_in_selftest": 0,
+  "canary_preserved_by_real": true,
+  "canary_listed_in_kept": false,
+  "kept_list": [],
+  "tracked_restored": true,
+  "broken_variant_preserved": false,
+  "next_was_refuted_by_reading": {
+    "proposed": "SIGKILL a live harness mid-hide and see if _repair drops the plant",
+    "why_wrong": [
+      "repair_full copies and refuses to overwrite (kept branch)",
+      "_repair.py:336 records the wiring bug already fixed 2026-08-06",
+      "selftest already plants the SIGKILL event in a worktree"
+    ],
+    "cost_avoided": "stranding five live campaign trees for no information"
+  },
+  "gap": "the `kept` branch is declared and documented in repair_full and exercised by no control in selftest",
+  "corrected_mechanism": "the canary is NOT saved by `kept` \u2014 it has no stash counterpart so the loop never visits it. It is saved by repair_full COPYING file-by-file rather than moving the tree, which is exactly the difference R936 had to add to restore() by hand",
+  "my_verdict_string_was_wrong": "it asserted the canary is listed in `kept`; the measurement says the list is empty",
+  "unit_note": "one canary file; counts are OCCURRENCES of `kept`",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
