@@ -1,0 +1,49 @@
+{
+  "commit": "a485a080d7b91e0a419605ea240a5428143b77e7",
+  "world": "A",
+  "seed": 899,
+  "n_prompts": 968,
+  "n_cells": 8,
+  "n_splits": 35,
+  "strata": [
+    {
+      "rules_separated": 1,
+      "n": 30,
+      "mean_r": 0.874970317283257,
+      "min": 0.7576585584017773,
+      "max": 0.9136226243505094,
+      "spearman_brown_DERIVED": 0.9333164468982608
+    },
+    {
+      "rules_separated": 2,
+      "n": 4,
+      "mean_r": 0.8549969733643219,
+      "min": 0.8423886547284386,
+      "max": 0.8693790514546684,
+      "spearman_brown_DERIVED": 0.9218311249464236
+    },
+    {
+      "rules_separated": 3,
+      "n": 1,
+      "mean_r": 0.8850906637153528,
+      "min": 0.8850906637153528,
+      "max": 0.8850906637153528,
+      "spearman_brown_DERIVED": 0.9390430717755661
+    }
+  ],
+  "all_splits": {
+    "mean_r": 0.8729768021620099,
+    "min": 0.7576585584017773,
+    "max": 0.9136226243505094,
+    "spearman_brown_DERIVED": 0.932181115275232
+  },
+  "controls": {
+    "positive_raw_margins_mean_r": 0.9439792299397886,
+    "placebo_permuted_max_abs_r": 0.05860746193978556
+  },
+  "spearman_brown_is_a_derivation": "2r/(1+r) assumes parallel halves of equal length; length holds (4 vs 4), parallel does not",
+  "stratification_rationale": "the 35 splits are NOT exchangeable \u2014 a split putting all four greedy cells on one side can be carried by a rule-family effect; the pooled mean would hide it",
+  "reliable_is_not_interesting": "split-half says STABLE, never MATTERS. R898's failure to name the component is not repaired here.",
+  "unit_note": "r is a correlation over PROMPTS; n is SPLITS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

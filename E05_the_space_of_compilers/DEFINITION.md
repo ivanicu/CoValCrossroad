@@ -857,6 +857,28 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ⚠ **Units, because six rounds just failed on them:** `28` and `25` are **arms**, `1.6` and
 > > `3.6` are **effective dimensions**, `0.28` is **MDE**. ⚠ And unchanged: *the definition
 > > describes the instance* stays live — one release, one core.
+> >
+> > ⭐⭐⭐ **WHAT THE LEAKAGE CONTRAST ACTUALLY MEASURES — THREE ROUNDS, ONE STANDING RESULT
+> > (R897–R899).** The gap is not mainly about the arms:
+> > · **SIZE — 57%.** `R²_LOO = 0.5669` of each cell's per-prompt gap is a component SHARED across
+> >   all 8 (rule, k) cells. Leave-one-out, because regressing a cell on a mean containing it is
+> >   circular; **the inflation is measured, not asserted: +0.0904** (0.6573 circular vs 0.5669).
+> > · **RELIABILITY — 0.87.** Split-half over all **35** balanced disjoint 4-vs-4 splits:
+> >   mean **r = 0.8730** [0.7577, 0.9136]; Spearman-Brown **0.9322** *(DERIVED — assumes parallel
+> >   halves; length holds, parallel does not)*. Stratified by how many rules a split separates,
+> >   it is flat — 0.8750 / 0.8550 / 0.8851 — so **it is not a rule-family effect.** Positive
+> >   control (raw margins) 0.9440; placebo (permuted half) 0.0586.
+> > · **NAME — none.** Against every arm-free property the release exposes, only `n_annotators`
+> >   survives BH, at **r = −0.0982** — smaller in magnitude than the largest null draw in that
+> >   round (0.1264). ⛔ `human_tie_rate` moves the leaky arm −0.5771 and the held-out arm
+> >   −0.5486 and **cancels in the difference (−0.0301)** — the difference-of-bounded-scores
+> >   artifact, observed. R877 found tie rate at **+0.5662** for the admitted set's PC1; **that is
+> >   a different object and the two share only the phrase "a prompt axis".**
+> > ⭐ **SO: a large, highly reliable, prompt-level quantity that this release cannot name.**
+> > A small real cell signature survives underneath it (residual cross-judge r +0.0952…+0.1984
+> > against a mismatched floor of [−0.0759, +0.0248], weakest at 3.0 SE).
+> > ⚠ Reliable is not interesting: split-half says STABLE, never MATTERS. And naming it would
+> > need a prompt property the release does not ship.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
