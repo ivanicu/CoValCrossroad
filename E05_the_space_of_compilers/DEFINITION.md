@@ -926,6 +926,21 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > selectors against 2 checklists — so *what got built* was steered by *what was free*. Stated
 > > as inference, not measurement.
 > >
+> > ⛔⛔ **A QUALIFIER ON EVERY NUMBER BELOW (R913): THE COMPARATOR IS ITSELF ONE OF THE ARMS.**
+> > Clause ② says *"beats a NAMED prompt-blind comparator"*, and every admission decision in
+> > this arc used exactly one — `genericpool16` — which **is one of R881's 99 scored arms.** So
+> > the set has been scored against one of its own members throughout. R913's self-inclusion
+> > control was written to catch that in the ALTERNATIVES and caught it in the incumbent.
+> > ⛔ **And the sweep that would have tested it is BLOCKED, for a reason that is not a
+> > shortage.** The release's four other named prompt-blind arms — `transport_generic`,
+> > `transport_randblind_s0/s1/s2` — are **on disk** but raise
+> > `ValueError: too many values to unpack` in `load_sat`: **a different key schema**, so this
+> > arc's instrument cannot read them at all.
+> > ⚠ Wiring anchor: under `genericpool16`, on R881's arms only, admission reproduces **28 vs
+> > 28** — so the numbers below are internally sound; what is untested is whether they SURVIVE a
+> > different comparator. **They are comparator-CONDITIONAL until that schema is bridged.**
+> > **IMPOSSIBILITY REGISTER:** *comparator robustness* — would require a loader for the
+> > `transport_*` satisfaction schema, or a prompt-blind arm outside the scored set.
 > > ⭐⭐⭐ **AND THE BAR DOES DISCRIMINATE — BY RULE (R908).** R906 asked the SOURCE axis and could
 > > not answer at n=2; R907 priced fixing that at 15,488 calls/arm. **Both treated the inventory
 > > as the obstacle. It is thin on the axis I chose and thick on one never looked at** — and the
