@@ -21,6 +21,25 @@ Swept across the project afterwards: **33 code lines in 29 files** do the same t
            the REPRODUCIBILITY claim and the SEED-SPREAD claim, not the estimate.
   DOES NOT generalise R841's 59% to the other 28 files. That is one measured case, not a rate.
 
+⛔⛔ FALSE POSITIVE FOUND AND FIXED, and the case is worth the paragraph. The line-based version
+flagged `R842_.../run.py:85`, which is **not a seed at all**: it is a STRING LITERAL inside R842's
+`synthetic_pair()`, the fixture R842 writes to a temp file to prove its OWN differ can separate an
+unstable script from a stable one. **One instrument flagged another instrument's positive control
+as a defect** — and had I "repaired" it, I would have disarmed R842's calibration.
+
+**The proxy failure, exactly:** this gate measures TEXT while the claim is about EXECUTED SEEDS, and
+a string containing the characters of a seed expression is not one. §4's `a search is an instrument`,
+in the form where the instrument sees the right characters in the wrong syntactic position — which
+no amount of positive control catches, because the pattern genuinely CAN see; it just cannot tell
+where it is looking.
+
+**The fix is structural, not a tighter regex.** Files are now tokenised with `tokenize`, and only
+NAME/OP/NUMBER tokens are joined for matching, so STRING and COMMENT tokens cannot contribute. A
+tighter regex would have been another guess; the tokeniser already knows what a string is.
+⚠ Files that will not tokenise are REPORTED and counted, never silently skipped — an unparseable
+file is UNEXAMINED, not clean, and a scan that quietly drops it reports a smaller number for the
+flattering reason.
+
 PROXY LEDGER
   PROPERTY    every RNG in a round is seeded reproducibly across processes
   PROXY       no code line constructs an RNG seed from `hash(...)`
@@ -29,6 +48,7 @@ PROXY LEDGER
               clock, an env var, or an unsorted set. This rules on ONE failure mode.
   SAFE SIDE   flags only the pattern it can prove unstable. Silence is not a certificate.
 """
+import io, tokenize
 import pathlib, re, sys, tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -36,17 +56,36 @@ FROZEN = pathlib.Path(__file__).resolve().parent / "KNOWN_UNSTABLE_SEEDS.json"
 RX = re.compile(r"(default_rng|RandomState|seed\s*=)\s*\(?[^)\n]*\bhash\s*\(")
 
 
+UNPARSED = []
+
+
+def code_lines(f):
+    """{lineno: code-token text}, with STRINGS and COMMENTS structurally excluded."""
+    try:
+        src = f.read_text(encoding="utf-8", errors="strict")
+    except (OSError, UnicodeDecodeError) as e:
+        UNPARSED.append((str(f), f"unreadable: {type(e).__name__}")); return None
+    buf = {}
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(src).readline):
+            if tok.type in (tokenize.NAME, tokenize.OP, tokenize.NUMBER):
+                buf.setdefault(tok.start[0], []).append(tok.string)
+    except (SyntaxError, tokenize.TokenError, IndentationError) as e:
+        # ⚠ NARROW ON PURPOSE. The first version caught bare `Exception`, so a NameError from a
+        # missing import in THIS FILE was reported as `untokenisable` against the scanned file --
+        # a broken instrument wearing a malformed object's name, and the positive control was the
+        # only thing that noticed. Anything that is not a real parse failure now propagates.
+        UNPARSED.append((str(f), f"untokenisable: {type(e).__name__}")); return None
+    return {ln: "".join(t) for ln, t in buf.items()}
+
+
 def offenders(paths):
     out = []
     for f in paths:
-        try:
-            lines = f.read_text(errors="ignore").splitlines()
-        except Exception:
+        lines = code_lines(f)
+        if lines is None:
             continue
-        for i, ln in enumerate(lines, 1):
-            if ln.lstrip().startswith("#"):
-                continue
-            code = ln.split("#")[0]
+        for i, code in sorted(lines.items()):
             if RX.search(code):
                 try:
                     name = str(f.relative_to(ROOT))
@@ -65,14 +104,26 @@ def synthetic_controls() -> bool:
     good.write_text("import numpy as np, zlib\n"
                     "rng = np.random.default_rng(7 + zlib.crc32(p.encode()) % 99)\n"
                     "# do not seed from hash(p) -- this COMMENT must not be flagged\n")
+    fixture = d / "fixture.py"
+    fixture.write_text(
+        "BODIES = (\n"
+        "    ('unstable', \"r=np.random.default_rng(hash('abc')%99991)\\n\"),\n"
+        "    ('stable',   \"r=np.random.default_rng(zlib.crc32(b'abc')%99991)\\n\"),\n"
+        ")\n")
     pos = len(offenders([bad])) == 1
     g0 = len(offenders([good])) == 0
+    g0b = len(offenders([fixture])) == 0
     print(f"  POSITIVE CONTROL  a hash()-seeded RNG is flagged: {pos}  {'PASS' if pos else 'FAIL'}")
     print(f"  g=0               a crc32 seed and a COMMENT mentioning hash(p) are NOT flagged: "
           f"{g0}  {'PASS' if g0 else 'FAIL'}")
-    print("    The g=0 arm is not decorative: the first version of this sweep matched its own")
-    print("    explanatory comment and reported a file that had already been repaired.")
-    return pos and g0
+    print(f"  g=0               a hash() seed inside a STRING LITERAL is NOT flagged: {g0b}  "
+          f"{'PASS' if g0b else 'FAIL'}")
+    print("    The g=0 arms are not decorative. The first version matched its own explanatory")
+    print("    comment; the second flagged R842's synthetic_pair() fixture -- another gate's")
+    print("    POSITIVE CONTROL -- and the third arm above is that real fixture, not an invented")
+    print("    one, because a control validated against cases I made up is validated against my")
+    print("    imagination.")
+    return pos and g0 and g0b
 
 
 def main() -> int:
@@ -100,6 +151,10 @@ def main() -> int:
 
     if fixed:
         print(f"  ⓘ {len(fixed)} previously-offending file(s) now use a stable seed: {fixed[:3]}")
+    if UNPARSED:
+        print(f"  ⚠ {len(UNPARSED)} file(s) could not be tokenised and are UNEXAMINED, not clean:")
+        for nm, why in UNPARSED[:5]:
+            print(f"      {nm}  ({why})")
     if new:
         print(f"\n  FAIL: {len(new)} NEW file(s) seed an RNG from hash():")
         for f in new[:10]:
