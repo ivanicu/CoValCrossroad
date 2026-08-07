@@ -925,6 +925,30 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ⭐ **[D5, inference]** That asymmetry very likely explains the inventory's shape — 86 rubric
 > > selectors against 2 checklists — so *what got built* was steered by *what was free*. Stated
 > > as inference, not measurement.
+> >
+> > ⭐⭐⭐ **AND THE BAR DOES DISCRIMINATE — BY RULE (R908).** R906 asked the SOURCE axis and could
+> > not answer at n=2; R907 priced fixing that at 15,488 calls/arm. **Both treated the inventory
+> > as the obstacle. It is thin on the axis I chose and thick on one never looked at** — and the
+> > thick axis is free, because every arm on it is a subset of `coval_full`:
+> >
+> > | rule | admitted/built | share | Wilson 95% | k range |
+> > |---|---|---|---|---|
+> > | `random_k` | **0/38** | **0.000** | **[0.000, 0.092]** | 2…12 |
+> > | `topw_k` | 7/16 | 0.438 | [0.231, 0.668] | 1…12 |
+> > | `greedy_k` | 6/8 | 0.750 | [0.409, 0.929] | 2…12 |
+> > | `oracle_k` | 5/7 | 0.714 | [0.359, 0.918] | 4 |
+> > | `indep_k` | 5/8 | 0.625 | [0.306, 0.863] | 2…12 |
+> >
+> > **Four disjoint Wilson pairs, every one against `random`.** So clause ②'s bar separates
+> > **informed selection from random selection**, decisively and for free.
+> > ⚠ **The zero is a MEASUREMENT, not an algebraic necessity** — a random k-subset could clear
+> > the bar by chance, and the control is that `topw` IS admitted at k = 2, 3, 4, 6, 8 where
+> > `random` is 0.
+> > ⛔ **And the k question closes for the third time by the same arithmetic.** Within `topw`,
+> > 16 arms over 7 k values is ~2 per cell; every per-k Wilson interval is ≥ 0.654 wide.
+> > Printed, never quoted. (R902 caught this at n=1, R906 at n=2, R908 at n≈2.)
+> > ⚠ **What it does NOT say: WHY.** It shows THAT the bar separates these rules — not what it
+> > separates on — and no share here is an admission probability, since the arms were built.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
