@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1057_*/results/q_in_its_own_world.json")
+    if d:
+        big = [r for r in d["rows"] if r["k"] >= 10]
+        facts.append(("R1057", "q buys arms in the world where it can act; keep it",
+                      f"cells {len(big)}, deltas {[r['symmetric_difference'] for r in big]}, "
+                      f"space {len(d['synthetic_family'])}",
+                      [r"buys 2 arms at .{0,20}k=10|2 arms at the two cells",
+                       r"caps at .{0,4}15|2. . 1 = 15"]))
+
     d = load("A27_*/R1056_*/results/certification_curve.json")
     if d:
         facts.append(("R1056", "q cannot be exercised: the family is 2 at every defensible threshold",

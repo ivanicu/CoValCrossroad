@@ -1,0 +1,152 @@
+{
+  "round": "R1057",
+  "prompts": 968,
+  "arms": 99,
+  "nboot": 2000,
+  "common_criteria": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "synthetic_family": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ]
+  ],
+  "rows": [
+    {
+      "k": 2,
+      "need_q90": 2,
+      "need_q100": 2,
+      "admitted_q90": 46,
+      "admitted_q100": 46,
+      "symmetric_difference": 0,
+      "unstable": 2,
+      "gained_by_q90": []
+    },
+    {
+      "k": 4,
+      "need_q90": 4,
+      "need_q100": 4,
+      "admitted_q90": 46,
+      "admitted_q100": 46,
+      "symmetric_difference": 0,
+      "unstable": 2,
+      "gained_by_q90": []
+    },
+    {
+      "k": 8,
+      "need_q90": 8,
+      "need_q100": 8,
+      "admitted_q90": 37,
+      "admitted_q100": 37,
+      "symmetric_difference": 0,
+      "unstable": 0,
+      "gained_by_q90": []
+    },
+    {
+      "k": 10,
+      "need_q90": 9,
+      "need_q100": 10,
+      "admitted_q90": 39,
+      "admitted_q100": 37,
+      "symmetric_difference": 2,
+      "unstable": 1,
+      "gained_by_q90": [
+        "random_k12_s1",
+        "random_k12_s2"
+      ]
+    },
+    {
+      "k": 12,
+      "need_q90": 11,
+      "need_q100": 12,
+      "admitted_q90": 37,
+      "admitted_q100": 37,
+      "symmetric_difference": 0,
+      "unstable": 0,
+      "gained_by_q90": []
+    },
+    {
+      "k": 15,
+      "need_q90": 14,
+      "need_q100": 15,
+      "admitted_q90": 37,
+      "admitted_q100": 35,
+      "symmetric_difference": 2,
+      "unstable": 0,
+      "gained_by_q90": [
+        "full",
+        "random_k12_s0"
+      ]
+    }
+  ],
+  "world": "\u2b50 A q BUYS SOMETHING WHERE IT CAN ACT \u2014 at k >= 10 the two settings differ in 2 of 3 cells, by [2, 0, 2] arms. So q is a real parameter awaiting a real family, and the clause should KEEP it with its precondition stated: q is inert below |family| = 10 and this release supplies 2.",
+  "controls": {
+    "positive_blind_by_construction": true,
+    "negative_small_k_agree": true,
+    "sham_identical_comparators": true,
+    "placebo_k0": true
+  },
+  "limitation": "the family is synthetic; whether a real release yields >=10 blind comparators is out-of-release"
+}

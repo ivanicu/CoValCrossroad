@@ -1186,6 +1186,33 @@ arm using few-but-more-than-one selections still conditions on the prompt, only 
 **Controls**: strictest cell equals the committed `fixed` set — True; most permissive contains all 95 —
 True; `coval_core` named untypable rather than dropped.
 
+⭐⭐⭐ **AND R1057 SETTLES WHETHER TO DROP `q`: KEEP IT, WITH ITS PRECONDITION WRITTEN INTO THE CLAUSE.**
+The proposal to restate the clause with and without `q` and re-ablate **cannot produce evidence** — at
+|family| = 2 the two are the same operator and the ablation returns Δ=0 by algebra. So instead the
+world where `q` acts was BUILT: a fixed criterion subset used on every prompt is prompt-blind under
+R918's own `fixed` predicate, by construction.
+
+| k | need @ q=90 / q=100 | admitted | Δ |
+|---:|---|---:|---:|
+| 2 · 4 · 8 | 2/2 · 4/4 · 8/8 | 46/46 · 46/46 · 37/37 | **0** |
+| **10** | **9 / 10** | 39 / 37 | **2** |
+| 12 | 11 / 12 | 37 / 37 | **0** |
+| **15** | **14 / 15** | 37 / 35 | **2** |
+
+⭐ **`q` buys 2 arms at the two cells where it bites and nothing at `k=12`** — the effect is **not
+monotone in k**, because it turns on whether any arm beats *exactly* `k−1` comparators, which is a
+property of the population rather than of `q`. **So `q` is a real parameter awaiting a real family,
+not a dead one, and the clause keeps it with the precondition stated: inert below |family| = 10, and
+this release supplies 2.**
+⛔⛔ **AND THE BLIND-COMPARATOR SPACE IS ITSELF CAPPED AT 15.** Only **4** criterion indices are present
+on every prompt, so the fixed subsets well-defined everywhere number **2⁴ − 1 = 15**. The first attempt
+asked for 20 and the round **refused to run**. **A clause needing k > 15 would be unsatisfiable by
+construction**, not merely unsupported.
+⚠ **The family is SYNTHETIC** — constructed, blind by construction, legitimate under R918's rule, and
+**not a release**. **Controls**: k<10 agree exactly (R1055's arithmetic) — True; 12 *identical*
+comparators leave `q` inert — True; k=0 admits nothing — True; 3 seeds, unstable arms excluded and
+counted.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
