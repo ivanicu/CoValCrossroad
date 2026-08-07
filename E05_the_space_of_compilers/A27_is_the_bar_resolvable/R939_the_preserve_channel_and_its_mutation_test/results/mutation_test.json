@@ -1,0 +1,34 @@
+{
+  "commit": "11b7f0da3b6f1317dceb410bddfa65e88e01611e",
+  "what": "added a PRESERVE channel to assurance/_repair.py's selftest and mutation-tested it",
+  "gap_measured_by_R938": {
+    "kept_in_repair_full": 4,
+    "kept_in_selftest": 0
+  },
+  "channel": "plant stash+breadcrumb, create a file at the LIVE path with no stash counterpart, call repair_full, require the file survives AND the stash still comes home",
+  "negative_inline": "a move-the-tree variant must destroy it, so the control cannot pass on an implementation that clobbers",
+  "negative_first_version_could_not_fail": {
+    "why": "it reused the positive's canary path, which lives INSIDE the campaign dir, so stashing the dir carried the canary along and restoring brought it back; it also deleted ep4.name while checking a path built from ep3.name",
+    "caught_by": "the control itself, reporting FAIL for its own reasons",
+    "fix": "the negative's canary is created AFTER the stash move under its own name"
+  },
+  "mutation_test": {
+    "method": "temporarily replace repair_full's per-file copy loop with rmtree+move of the whole tree, run --selftest, then ",
+    "mutated": {
+      "preserve_survives": false,
+      "channel": "FAIL",
+      "suite": "FAIL"
+    },
+    "restored": {
+      "preserve_survives": true,
+      "channel": "PASS",
+      "suite": "PASS, all 4 channels"
+    },
+    "conclusion": "the control rejects a broken repair_full, so it tests the FUNCTION and not the inline variant \u2014 the instrument-vs-claim unit mismatch that three earlier rounds in this arc turned up does not apply here",
+    "restoration_verified": "0 occurrences of the mutation marker remain"
+  },
+  "summary_count_now_computed": "the selftest printed 'all THREE channels'; it now prints len(CHANNELS) and the names, because this file already records that R428's hand-typed 'eight times, on BOTH channels' went stale",
+  "evidence_is_run_once": "this artifact RECORDS a mutation test performed by hand; no mutating script is shipped, because a script that edits a shared tool is a hazard of exactly the kind R935-R938 were about",
+  "unit_note": "counts are CHANNELS and occurrences",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
