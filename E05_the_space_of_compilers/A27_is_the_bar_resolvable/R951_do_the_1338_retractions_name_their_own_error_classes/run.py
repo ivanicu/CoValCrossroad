@@ -112,7 +112,9 @@ def main() -> int:
             cur.append(l)
     if num is not None:
         entries[num] = "\n".join(cur)
-    print(f"  {len(entries):,} numbered entries parsed")
+    n_headings = sum(1 for l in lines if l.startswith("## "))
+    print(f"  {len(entries):,} numbered entries parsed, from {n_headings:,} `## ` headings "
+          f"-- {n_headings - len(entries):,} headings are NOT numbered entries")
     if len(entries) < 100:
         print("  UNRUNNABLE: too few entries parsed; the entry pattern is wrong. Exit 2, never 0.")
         return 2
@@ -177,8 +179,13 @@ def main() -> int:
     if len(linked) < 10:
         print(f"\n  ⭐⭐⭐ WORLD C: only {len(linked)} entries participate in any self-declared "
               f"`same error as <entry>` link, out of {len(entries):,}. **The ledger does not record "
-              f"the relation in a machine-readable way**, so its 1,338 entries carry no class "
-              f"structure that can be read without a human going through them.")
+              f"the relation in a machine-readable way**, so its {len(entries):,} entries carry no "
+              f"class structure readable without a human going through them.")
+        print(f"     ⛔ AND MY OWN COUNT WAS WRONG BEFORE THIS PARSE. I wrote 1,338 entries from "
+              f"`grep -c '^## '`, which counts HEADINGS; only {len(entries):,} match "
+              f"`^## <n> · `. The instrument measured headings and the sentence asserted entries "
+              f"-- the failure this standard records verbatim -- and it reached a commit message "
+              f"and this script's own verdict string before the parse refuted it.")
         print(f"     entry->ROUND links do exist ({len(edges_r)}), but a round is not an error "
               f"class and treating it as one would be the namespace conflation control ③ forbids.")
         unlinked = len(entries) - len(linked)
@@ -189,6 +196,9 @@ def main() -> int:
         json.dump({"commit": head, "world": "C", "n_entries": len(entries),
                    "n_entry_entry_edges": len(edges_e), "n_entry_round_edges": len(edges_r),
                    "n_entries_linked": len(linked), "n_entries_unlinked": unlinked,
+                   "n_hash_headings": n_headings,
+                   "my_prior_count_was_headings_not_entries": {"claimed": 1338,
+                                                               "actual_entries": len(entries)},
                    "reading": "the ledger's class structure is not machine-readable; the §0.2 "
                               "question cannot be answered from its own text",
                    "bound": "this is a LOWER bound on class structure -- two entries can be the "
