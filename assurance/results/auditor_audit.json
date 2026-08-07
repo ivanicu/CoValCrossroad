@@ -1,5 +1,5 @@
 {
- "source_sha": "3c4f856e1c4ab14e",
+ "source_sha": "a8607807a58f37a4",
  "world": "ONLY-THE-TWO",
  "n_scripts": 73,
  "flagged": [],
@@ -18,14 +18,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.0
+   "seconds": 2.9
   },
   "a_commit_body_names_its_own_round.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.6
+   "seconds": 0.5
   },
   "a_control_that_cannot_fail.py": {
    "exit": 0,
@@ -53,7 +53,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.4
+   "seconds": 2.3
   },
   "a_retraction_declares_its_class.py": {
    "exit": 2,
@@ -81,7 +81,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.5
+   "seconds": 0.4
   },
   "a_statement_is_current_with_the_arc.py": {
    "exit": 0,
@@ -95,7 +95,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.3
+   "seconds": 1.2
   },
   "an_ear_label_matches_its_path.py": {
    "exit": 0,
@@ -137,14 +137,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.5
+   "seconds": 2.4
   },
   "attack_a_published_number_is_named.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 19.7
+   "seconds": 17.1
   },
   "attack_a_retraction_declares_its_class.py": {
    "exit": 0,
@@ -153,26 +153,19 @@
    "empty_tell": false,
    "seconds": 0.0
   },
-  "attack_every_check.py": {
-   "exit": 1,
-   "wrote": [],
-   "destroyed": [],
-   "empty_tell": false,
-   "seconds": 2.0
-  },
   "attack_no_withdrawn_framings.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 8.4
+   "seconds": 6.3
   },
   "attack_outcome_variable_declared.py": {
    "exit": 1,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 3.9
+   "seconds": 3.2
   },
   "attack_scope_reaches_the_reader.py": {
    "exit": 0,
@@ -181,21 +174,12 @@
    "empty_tell": false,
    "seconds": 0.1
   },
-  "attack_the_suite.py": {
-   "exit": 1,
-   "wrote": [
-    "created:.hide_in_progress.json"
-   ],
-   "destroyed": [],
-   "empty_tell": false,
-   "seconds": 47.8
-  },
   "backfilled_findings_are_rederivable.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 89.9
+   "seconds": 93.7
   },
   "clause3_as_written.py": {
    "exit": 0,
@@ -209,14 +193,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 5.0
+   "seconds": 4.9
   },
   "comparator_scope.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
   "consistency.py": {
    "exit": 0,
@@ -251,14 +235,14 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 0.2
+   "seconds": 0.1
   },
   "every_round_reaches_the_readme.py": {
    "exit": 0,
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.3
+   "seconds": 2.2
   },
   "frozen_frame_verifies.py": {
    "exit": 0,
@@ -279,7 +263,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.5
+   "seconds": 2.4
   },
   "kill_is_wired_into_the_branch.py": {
    "exit": 0,
@@ -429,7 +413,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 2.3
+   "seconds": 2.4
   },
   "retraction_reaches_the_artifact.py": {
    "exit": 0,
@@ -447,7 +431,9 @@
   },
   "run_all.py": {
    "exit": null,
-   "wrote": [],
+   "wrote": [
+    "created:.hide_in_progress.json"
+   ],
    "destroyed": [],
    "empty_tell": false,
    "seconds": 120.1
@@ -464,7 +450,7 @@
    "wrote": [],
    "destroyed": [],
    "empty_tell": false,
-   "seconds": 1.6
+   "seconds": 1.2
   },
   "source_stamp_is_current.py": {
    "exit": 0,
@@ -510,7 +496,9 @@
   },
   "verdict_cites_its_own_contrasts.py": {
    "exit": 2,
-   "wrote": [],
+   "wrote": [
+    "created:.hide_in_progress.json"
+   ],
    "destroyed": [],
    "empty_tell": false,
    "seconds": 0.1
@@ -521,6 +509,20 @@
    "destroyed": [],
    "empty_tell": false,
    "seconds": 0.0
+  },
+  "attack_every_check.py": {
+   "exit": 1,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 1.6
+  },
+  "attack_the_suite.py": {
+   "exit": null,
+   "wrote": [],
+   "destroyed": [],
+   "empty_tell": false,
+   "seconds": 120.1
   },
   "_poscontrol_defects_unrepaired.py": {
    "exit": 0,
