@@ -848,6 +848,38 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > its components are 25 per-arm loadings, not 968 per-prompt ones. The per-prompt axis is a
 > different object, and the matrix was in the artifact the whole time.
 
+> ⭐⭐⭐ **AND THE TIE-RATE READING IS EXCLUDED FOR THE CLAUSE'S VERDICT — R878, four controls PASS,
+> D8.** R877 left a live alternative: clause ② may be rewarding **tie-handling behaviour** rather
+> than criterion quality. Correlation cannot separate those; **stratification can.** Prompts split
+> into tie-rate terciles, ②'s admitted set recomputed inside each.
+>
+> | | mean pairwise Jaccard |
+> |---|---:|
+> | **TIE strata** (0.000–0.094 / 0.094–0.152 / 0.152–0.632) | **0.8998** — pairs 0.963, 0.852, 0.885 |
+> | **RANDOM splits** at matched sizes, 90 draws | **0.8640**, 95% [0.7007, 0.9692] |
+> | observed percentile in the reference | **60.0** |
+>
+> ⛔ **THE WHOLE DIFFICULTY WAS ONE CONFOUND, NAMED BEFORE THE RUN.** Stratifying cuts n from 968 to
+> ~322, so **membership moves from power loss alone** — a bare *"the admitted set changed"* would
+> have looked like a finding while measuring only the split. **Everything is read against random
+> splits at matched size, never against 1.0.**
+>
+> ⭐⭐ **WORLD A: membership moves no more than resampling explains.** So **clause ②'s VERDICT does
+> not track the tie rate**, and R877's `+0.5662` is a property of **the axis along which admitted
+> arms co-vary**, not of **who gets admitted**. ⭐ **The axis and the verdict are different objects,
+> and only this round could tell them apart.**
+>
+> ⚠ **BOUNDED BY ITS OWN POWER, and the bound is wide.** The reference CI is [0.7007, 0.9692], so
+> WORLD B needed the observed to fall below **0.70** — a large membership shift. **This design
+> excludes a big tie-rate dependence and cannot exclude a small one**, and 3 terciles is the only
+> stratification tested.
+> ⚠ Controls: `oracle_k4` admitted in **every** stratum — the arm that decides whether the split
+> left enough power to read anything; `random_k4_s0` in **none**; reference spread `sd = 0.0671`.
+> ⚠ `NBOOT` was cut 1500 → 500 and `NREF` 200 → 90 after the first run timed out — **applied to
+> BOTH arms**, because cheapening only the reference would put the observed value and its null on
+> different instruments. Both are noisier; they remain comparable to each other, which is all this
+> round needs.
+
 | clause | excludes | status | scope |
 |---|---:|---|---|
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |

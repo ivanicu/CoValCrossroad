@@ -1,0 +1,22 @@
+  prompts 968 · arms 99 · tie rate: min 0.000 median 0.119 max 0.632
+
+  TIE strata (by human tie rate), sizes [322, 323, 323]:
+    stratum 0  tie 0.000–0.094  admits  27 arm(s)
+    stratum 1  tie 0.094–0.152  admits  26 arm(s)
+    stratum 2  tie 0.152–0.632  admits  23 arm(s)
+  ① POSITIVE `oracle_k4` admitted in EVERY tie stratum: True  PASS
+     (if the ceiling cannot survive the split, the strata are underpowered and no
+      overlap number is readable — this arm decides whether the round can run)
+  ② NEGATIVE `random_k4_s0` admitted in NO stratum: True  PASS
+  ④ every stratum admits >=1 arm: True  PASS
+  ③ the random-split reference has non-zero spread: sd=0.0671  PASS  (per-seed [0.0642, 0.0827, 0.0466])
+
+  ⭐ mean pairwise Jaccard, TIE strata:    0.8998   pairs [0.963, 0.852, 0.885]
+  ⭐ mean pairwise Jaccard, RANDOM strata: 0.8640  95% [0.7007, 0.9692]  over 90 draws
+     the tie-strata value sits at the 60.0th percentile of the random reference
+  ⭐ WORLD A: tie-strata overlap is INSIDE the random-split reference — membership moves no more than resampling explains, so clause ② is NOT selecting on the tie rate and R877's correlation is a property of the axis rather than of the clause's verdict
+     ⚠ Everything is read against the RANDOM reference, never against 1.0. Cutting n
+       from 968 to ~322 moves membership by itself, and a bare 'membership
+       changed' would have looked like a finding while measuring only power loss.
+
+  artifact: results/tie_strata.json @ f0ef61a4
