@@ -1,0 +1,90 @@
+{
+ "source_sha": "155b1ac32df0c366",
+ "head": "d7a14f3b",
+ "artifacts_a24_only": 627,
+ "artifacts_all_arcs": 784,
+ "values_a24_only": 36362,
+ "values_all_arcs": 103502,
+ "r622_committed": {
+  "T1": 119,
+  "T2": 507,
+  "T3": 16,
+  "n": 642,
+  "T3_examples": [
+   "0.1695",
+   "0.1725",
+   "0.1829",
+   "0.2116",
+   "0.2124",
+   "0.2335",
+   "0.2482",
+   "0.2746",
+   "0.2868",
+   "0.4309"
+  ]
+ },
+ "reproduced_under_a24_scope": {
+  "T1": 140,
+  "T2": 498,
+  "T3": 4
+ },
+ "halves": {
+  "statement": {
+   "T1": 20,
+   "T2": 109,
+   "T3": 0,
+   "n": 129,
+   "T3_members": []
+  },
+  "record": {
+   "T1": 156,
+   "T2": 1968,
+   "T3": 7,
+   "n": 2131,
+   "T3_members": [
+    "0.2796",
+    "0.3528",
+    "0.7803",
+    "0.7999",
+    "0.8482",
+    "2.1458",
+    "5.3997"
+   ]
+  },
+  "whole": {
+   "T1": 157,
+   "T2": 2011,
+   "T3": 7,
+   "n": 2175,
+   "T3_members": [
+    "0.2796",
+    "0.3528",
+    "0.7803",
+    "0.7999",
+    "0.8482",
+    "2.1458",
+    "5.3997"
+   ]
+  }
+ },
+ "collision_floor": [
+  0.919,
+  0.92175,
+  0.9125
+ ],
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "ndraw": 4000,
+ "expected_t3_if_all_invented": 8.965250000000005,
+ "controls": {
+  "positive_reproduces_r622": true,
+  "negative_ghost_t3": true,
+  "placebo_artifact_value_t2": true,
+  "all_ok": true
+ },
+ "world": "A HYGIENE \u2014 every unbacked decimal sits in the evidence record; the statement carries none",
+ "note": "T2 means an artifact holds these digits, never that the claim is checked; R949 measured quantity-level agreement separately at 0.200. And T2 must be read against the collision floor above, not at face value."
+}
