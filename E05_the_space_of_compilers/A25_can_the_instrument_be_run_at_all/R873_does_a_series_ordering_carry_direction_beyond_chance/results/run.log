@@ -1,0 +1,51 @@
+  ① g=0/DIRECTION  R862 k=5 monotone -> |ρ|=1.0000, p=0.016667 (two-sided floor 2/120=0.016667): True  PASS
+  ② POSITIVE-NULL  five equal values -> ρ=0.0, p=1.0: True  PASS
+  ③ R871's own series [0.0, 0.0, 0.364, 0.0, 0.0, 0.273] -> p=0.6000 > 0.05, NOT informative: True  PASS
+    Arm ③ is the series that started this thread. A permutation test calling its
+    ordering meaningful would mean the predicate is wrong, not that the claim was right.
+
+  3697 series of length 3..40 across the corpus
+
+    k      n   p-floor  can reach q?  BH survivors
+    3   1978   0.33333         False             0
+    4    238   0.08333         False             0
+    5    275   0.01667          True             0
+    6     91   0.00278          True            27
+    7     34   0.00040          True            19
+    8     30   0.00005          True             9
+    9     56   0.00005          True             8
+   10     81   0.00005          True            17
+   11     38   0.00005          True             4
+   12     72   0.00005          True             9
+   13     54   0.00005          True             0
+   14     77   0.00005          True             2
+   15     74   0.00005          True             3
+   16    102   0.00005          True             4
+   17     98   0.00005          True             3
+   18     69   0.00005          True             5
+   19     84   0.00005          True             4
+   20     63   0.00005          True             1
+   21     46   0.00005          True             0
+   22     37   0.00005          True             2
+   23     27   0.00005          True             0
+   24     20   0.00005          True             3
+   25     21   0.00005          True             3
+   26     11   0.00005          True             2
+   27      9   0.00005          True             4
+   28      3   0.00005          True             0
+   29      4   0.00005          True             2
+   30      1   0.00005          True             1
+   31      1   0.00005          True             0
+   32      1   0.00005          True             0
+   33      1   0.00005          True             0
+   34      1   0.00005          True             0
+
+  ⭐ series whose length even PERMITS q=0.05: 1481 of 3697
+  ⭐ of those, orderings informative after BH within bucket: 132 = 0.089
+  ⭐ WORLD C: the corpus is dominated by length-3 series, whose permutation floor is 0.167 — they CANNOT reach q=0.05 at any data, so neither A nor B is measurable here
+     ⚠ k=3 series: 1978 of 3697 = 0.535. Their TWO-SIDED floor is
+       2/6 = 0.33333, so a length-3 series can never be significant however clean it
+       looks. I first wrote 1/6; control ① corrected it before any corpus number.
+       That is the DESIGN's limit, not the data's, and pooling across k would hide it.
+
+  artifact: results/ordering_informative.json @ eef59634
