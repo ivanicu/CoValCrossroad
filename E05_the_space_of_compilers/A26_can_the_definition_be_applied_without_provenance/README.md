@@ -15,3 +15,4 @@ in `E05/DEFINITION.md`.
 | round | what it asked |
 |---|---|
 | `R920` is clause ③ detectable from the artifact | does an arm's rank among all size-k subsets separate label-consumers from label-blind rules, without reading the generator? |
+| `R921` is the admitted set a property of the arms or of the comparator | does changing the comparator change WHICH arms pass, or only how many? |

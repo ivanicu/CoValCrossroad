@@ -9405,3 +9405,57 @@ what the working instrument returns.**
 over 6 comparisons is discrete, many subsets tie at a prompt's maximum, and the mid-rank percentile
 of a tied maximum is **strictly below 1** — so the ceiling is 0.9287 and my threshold sat above what
 a maximal plant can return. Restated as `floor < random < ceiling`, which the design can fail.
+
+---
+
+## ✅ R921 · THE COMPARATOR MOVES THE COUNT, NOT THE ORDER — and 2 of the 12 still flip
+
+Clause ② admits an arm when `lo(A2(arm) − A2(comparator)) > 0`, and every published admission used
+`genericpool16`, which R913 showed is itself one of the 99 scored arms. R914 priced an independent
+comparator at 15,488 judge calls. **The cheap question was never asked: what if the comparator is
+any arm already on disk?** Zero judge calls, and it bounds what the 15,488 would buy.
+
+⭐⭐⭐ **GAUGE TEST SPLITS THE ROUND.** `mean margin(A,C) = mean A2(A) − mean A2(C)`, and the second
+term is identical for every arm `A`. **So the ordering of arms by mean margin is invariant to the
+comparator, exactly, by linearity — a DERIVATION.** What is *not* forced is the admission decision:
+`lo` is a bootstrap quantile whose width depends on `cov(A2(A), A2(C))`, so the admitted sets need
+not be nested. That is the measurement. ⚠ It also makes the sweep nearly free — bootstrap the
+**per-arm** means once (99 × 8000) and every comparator pair is a subtraction.
+
+**CONTROLS.** ① R881's committed `lo` reproduced by a different code path *and* a different seed:
+`topw_k4` +0.014402 → +0.014252, `topabs_k4` −0.063677 → −0.063580, `topvar_k4` −0.066342 →
+−0.066258, `topwvar_k4` −0.048203 → −0.048328; all four decisions identical, max |Δ| = 0.00015
+against a stated tolerance of 3e-3. ② the derivation verified numerically against 6 random
+comparators — this tests the **code**, not the world. ③ **placebo:** every arm against itself,
+max |lo| = 0.0000000000, 0 of 99 admitted.
+
+**THE CHAIN TEST, ON THREE NESTED POPULATIONS:**
+
+| population | comparators | non-comparable pairs |
+|---|---|---|
+| all scored arms | 99 | **2 of 4851** |
+| candidates (apparatus + second judge removed) | 53 | **0 of 1378** |
+| legitimate (prompt-blind) | **2** | **0 of 1 — nested** |
+
+⭐ **Only 2 of 99 arms are legitimate comparators.** Clause ② needs a *prompt-blind* one, and an arm
+whose selection is identical on every prompt is prompt-blind by construction — R906's `fixed`
+predicate. Exactly `generic` and `genericpool16` qualify. `generic` admits **24**, `genericpool16`
+admits **28**, and 24 ⊂ 28.
+
+⭐⭐⭐ **WORLD A: the comparator slides a threshold along a fixed ordering.** It changes **how many**
+arms pass, not **which** — so `28` is a cut point, and R914's 15,488 judge calls would buy a
+different **count**, not a different **set**.
+
+⚠ **BUT THE FLIP IS NOT ZERO, AND IT REACHES THE DELIVERABLE.** Of the **12** arms the two-clause
+definition admits: **9 survive both legitimate comparators**, **2 genuinely flip** —
+`generic_reprov` and `topw_k2` — and **1 (`generic`) is unevaluable because it IS one of the two
+comparators** (a structural zero, R915's shape, and the reason a raw difference set names 4 arms
+when only 3 are real). **So `topw_k2`'s membership in the twelve is comparator-dependent and must
+be quoted with `genericpool16` named.**
+
+⚠ **AND MY VERDICT STRING OVER-CLAIMED BEFORE THE FIX — R917's DEFECT, ONE ROUND AFTER WRITING IT
+UP.** The first run computed the chain test over all 99 comparators, found 2 non-comparable pairs,
+and printed **WORLD B**. All four arms in those pairs — `oracle_k4_fit1_08b`, `random_k12_s2_08b`,
+`random_k4_s0_08b`, `promptecho_sham` — are second-judge or apparatus arms this arc had already
+excluded. **The verdict's population was wider than the claim's.** Restricted to candidates the
+family is a perfect chain, 0 of 1378.
