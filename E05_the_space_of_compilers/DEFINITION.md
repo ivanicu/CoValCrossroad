@@ -9242,3 +9242,55 @@ rules whose share is 0 the null is a **point mass at 0**, so the placebo there *
 certifies nothing (P6: UNVERIFIED, not acquitted).
 
 **⚠ EVERY per-rule number written above this section is the MIXED one and is superseded.**
+
+---
+
+## ✅ R918 · THE POPULATION IS NOT A CHOICE — the two "thresholds" are structural predicates
+
+R917 corrected every rate by restricting the population, reading **R906's typing as given**. R906 is
+where the population comes from — R908, R909, R910, R911 and R917 all read its `RUBRIC_SELECTOR`
+list — and its typing is a decision tree on two numbers chosen in the lines that used them:
+
+```
+fixed          -> FIXED_CHECKLIST
+exact > 0.95   -> RUBRIC_SELECTOR      <- the population of every rate in this arc
+lex   > 0.25   -> PARAPHRASING_GENERATOR
+else           -> OTHER_SOURCE
+```
+
+⭐ **The cheap hypothesis died before the round cost anything.** I expected the typing to restate my
+own arm names, which would make *"the partition is complete at three kinds"* a derivation about a
+naming scheme. It does not: it reads each arm's committed per-prompt selection.
+
+**GAUGE (run before the sweep, because it can end the round for free):** of 94 non-fixed arms,
+**86 sit at `exact` exactly 1.000, 7 at exactly 0.000, and 1 strictly between** (0.00103). The
+widest arm-free band containing the published 0.95 is **(0.001, 1.0], width 0.999**. For `lex`, one
+arm at 0.642 and the rest at 0, ≈0 or 1 — arm-free band **(0.033, 0.642], width 0.608**.
+
+**SPECIFICATION CURVE, 9 × 5 = 45 cells, all printed:** 4 distinct partitions, and **`topw`'s
+candidates-only share is 7/9 = 0.778 in every cell that has a population at all.**
+
+| `t_exact` | FIXED | RUBRIC | PARA | OTHER | `topw` |
+|---|---|---|---|---|---|
+| −0.001 (extreme) | 2 | 94 | 0 | 0 | **7/9** |
+| 0.00 | 2 | 87 | 0 | 7 | **7/9** |
+| 0.50 – 0.99 | 2 | **86** | 1 | 7 | **7/9** |
+| 1.00 | 2 | 0 | 87 | 7 | 0/0 |
+
+**CONTROLS.** ① recomputed R906's published four kinds and its 3 untypable arms exactly, from
+different code on the same objects. ② the gauge above. ③ **the sweep can move the answer** — at
+`t_exact` below the observed minimum, all 94 non-fixed arms become `RUBRIC_SELECTOR` and 8 arms
+change kind, so the flat curve is not a blind instrument.
+
+⭐⭐⭐ **VERDICT: `exact > 0.95` is a STRUCTURAL PREDICATE — "is the selection a subset of this
+prompt's rubric" — wearing a threshold's clothes.** Naming it as a threshold is what invited this
+attack. **R917's corrected numbers do not inherit a researcher degree of freedom from the typing.**
+
+⚠ **AND THE ROUND'S OWN CONTROL FIRED AGAINST ME FIRST.** I pre-registered the extreme as
+`t_exact = 0.0`. Seven arms have `exact` **exactly** 0.0 and the tree tests `exact > te` — **a
+strict inequality cannot fire on a structural zero at any `te ≥ 0`**, so the extreme I committed to
+was unreachable inside [0, 1] and the control failed on its own arithmetic. Same at the top end:
+`t_exact = 1.0` empties the kind for the same reason. **Both endpoints of my grid were forced by the
+operator, not by the data** — the third structural-zero error in this session, after R915 and
+R917's `random` placebo. The pattern is one habit: *I choose a boundary value without checking
+whether the comparison operator can reach it.*
