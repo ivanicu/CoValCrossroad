@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1052_*/results/stamp_vs_history.json")
+    if d:
+        facts.append(("R1052", "R1051's stamp census counted titles as hashes",
+                      f"checked {d['checked']} of {d['stamped']}, floor "
+                      f"{d['random_commit_floor_3_seeds'][0]:.3f}",
+                      # ⛔ tightened after this very fact passed GREEN on one loose pattern —
+                      #   the gate is `any()`, so EVERY pattern here must name the fact
+                      [r"census is retracted[^.]{0,40}9 stamps",
+                       r"45 of 67"]))
+
     d = load("A27_*/R1051_*/results/reran_the_flagged.json")
     if d:
         sc = d["stamp_census"]

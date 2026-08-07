@@ -1,0 +1,151 @@
+{
+  "round": "R1052",
+  "stamped": 13,
+  "unstamped": 3,
+  "checked": 9,
+  "not_ancestor": [],
+  "stamp_missing_from_history": [],
+  "pass_rate": 1.0,
+  "random_commit_floor_3_seeds": [
+    0.8888888888888888,
+    1.0
+  ],
+  "informative": false,
+  "controls": {
+    "positive_head_not_ancestor": true,
+    "negative_self_and_root": true
+  },
+  "R1049_recount": {
+    "gate_rule": "any",
+    "all_predicate": 21,
+    "any_predicate": 45,
+    "population": 67,
+    "newly_flagged": [
+      "R1003",
+      "R1006",
+      "R1009",
+      "R1010",
+      "R1013",
+      "R1016",
+      "R1019",
+      "R1020",
+      "R1021",
+      "R1022",
+      "R1023",
+      "R1024",
+      "R1025",
+      "R1028",
+      "R1029",
+      "R1033",
+      "R1038",
+      "R1039",
+      "R1042",
+      "R1043",
+      "R1044",
+      "R1046",
+      "R976",
+      "R979"
+    ],
+    "unreadable": 2
+  },
+  "detail": [
+    {
+      "round": "R1000",
+      "status": "NOT_A_HASH",
+      "intro": "3dc41012efb2badb7e10ee6e5d00be0ff94887fc",
+      "field": "the four clauses applied as "
+    },
+    {
+      "round": "R1001",
+      "status": "NOT_A_HASH",
+      "intro": "dff586c78e0d360bd17a211992b6ddfc405206bf",
+      "field": "the operator under clause \u2463'"
+    },
+    {
+      "round": "R1005",
+      "status": "NOT_A_HASH",
+      "intro": "c494fd4f3d232f76f553ccf4a0fe158aa0d10bb0",
+      "field": "does the extension agree wit"
+    },
+    {
+      "round": "R1012",
+      "status": "NOT_A_HASH",
+      "intro": "14446ebf76f82b8c2821b267da58710c8dc7d889",
+      "field": "does the load-bearing cut re"
+    },
+    {
+      "round": "R920",
+      "status": "CHECKED",
+      "intro": "070de9513190",
+      "stamp": "2172b350d759",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R921",
+      "status": "CHECKED",
+      "intro": "da5085111d7d",
+      "stamp": "070de9513190",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R922",
+      "status": "CHECKED",
+      "intro": "b73be0968b93",
+      "stamp": "da5085111d7d",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R925",
+      "status": "CHECKED",
+      "intro": "4f0f1f033c82",
+      "stamp": "0283d1de142b",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R926",
+      "status": "CHECKED",
+      "intro": "6ae35405b73b",
+      "stamp": "4f0f1f033c82",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R975",
+      "status": "CHECKED",
+      "intro": "1e9361e5f0db",
+      "stamp": "bce3011b",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R978",
+      "status": "CHECKED",
+      "intro": "1224756385b0",
+      "stamp": "de6a5bd5",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R986",
+      "status": "CHECKED",
+      "intro": "fe682be7f4c6",
+      "stamp": "8208089e",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    },
+    {
+      "round": "R989",
+      "status": "CHECKED",
+      "intro": "aa23d89b0e32",
+      "stamp": "1a45d5e6",
+      "stamp_exists": true,
+      "ancestor_of_intro": true
+    }
+  ],
+  "world": "\u26d4 UNVERIFIED \u2014 the observed pass rate 1.000 is not above the random-commit floor [0.889, 1.000]. Most commits in this history are ancestors of the introducing commit, so passing the ancestry test carries no information about the stamp and neither world is separable by this design.",
+  "limitation": "ancestry is necessary, not sufficient; re-derivation is the sufficient test and R1051 already has it for all 16"
+}

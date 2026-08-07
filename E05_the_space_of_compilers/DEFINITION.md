@@ -1079,6 +1079,29 @@ stamped round (measured, containment True)**; but 13 artifacts are stamped and o
 *differs*, so the value cell is the only admissible one. ⚠ **And the mirror defect: 3 artifacts carry
 no stamp at all and cannot be traced to their producing commit by any means.**
 
+⛔⛔ **AND R1052 RETRACTS TWO COUNTS, ONE OF THEM R1051's AND ONE OF THEM R1049's.**
+**① The census is retracted: 9 stamps, not 13.** Four artifacts have a `head` field holding a TITLE
+STRING — `the four cla…`, `the operator…`, `does the ext…`, `does the loa…` — which R1051 counted as
+provenance stamps. The instrument's unit was *a key called `commit`/`head`*; the claim's unit is *a
+git hash*. **The sixth unit mismatch this window.** ⭐⭐ And it supplies the mechanism R1051 could only
+scope: **the true-stamp set is EXACTLY the byte-mismatch set** — a stamp tracking HEAD changes on every
+re-run, a title does not.
+**② The ancestry test is UNVERIFIED against its own floor.** A stamp records HEAD at run time and the
+artifact is committed after, so an honest stamp must be an ancestor of its introducing commit. All
+**9 of 9** pass — but a **random** commit from this history passes at **`[0.889, 1.000]`** over 3 seeds,
+so passing carries no information. ⭐ **Ancestry is necessary, never sufficient. RE-DERIVATION is the
+sufficient test, and R1051 has it for all 16** — which is why the unstamped artifacts are no worse off
+than the stamped ones.
+**③ R1049's count is retracted, from a quarter to two thirds.** This round's own fact passed GREEN with
+nothing written and only one of its two patterns matching. The gate's source reads
+`ok = any(re.search(p, region) for p in pats)` — **it passes on ANY pattern.** R1049 used
+`all(homes >= 2)`, modelled from memory rather than read. Under the correct `any(homes >= 2)`:
+**`45 of 67`** registered facts are unattributable, against R1049's `21 of 67` under the wrong
+predicate. ⭐ **R1049 reported `0.254` and landed in neither band; the corrected `0.672` clears World
+B — the currency gate is permissive by construction.** ⚠ **This propagates to R1050**, whose `0.917`
+against `[0.490, 0.524]` used the 16-round set and must be recomputed before being quoted again; the
+direction of the change is not predictable from here.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
