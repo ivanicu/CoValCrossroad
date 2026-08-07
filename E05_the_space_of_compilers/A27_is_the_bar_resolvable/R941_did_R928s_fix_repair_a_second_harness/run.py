@@ -16,6 +16,14 @@ measuring that it had.** A fix credited for one repair may have made two; a fix 
 when it made one is the same error mirrored. Both are worth knowing, and only a measurement tells
 them apart.
 
+⛔ **AND MY FIRST REVERT WAS INCOMPLETE, WHICH CONTROL ① CAUGHT BEFORE ANY CONCLUSION.** R928 made
+TWO changes, not one: `fixture_dir`'s case normalisation in `covalx/rounds.py`, AND the glob in
+`assurance/no_withdrawn_framings.py` from `E*/A*/R*` to `E*/A*/[Rr]*`. Reverting only the first left
+the second in place, the gate still accepted lowercase, and the known harness stayed at 5/5 in both
+states — **a revert that does not restore the baseline makes the comparison meaningless**, and the
+positive control refused it rather than letting the second harness's number be read against a
+baseline that was never established. Both changes are reverted now.
+
 ⚠ **NOT FORCED.** `attack_no_withdrawn_framings` plants JSON that a corpus-scanning gate must find,
 so visibility is everything to it. `attack_outcome_variable_declared` plants a `run.py` — whether
 the gate it attacks discovers round SOURCES by the same uppercase glob is a fact about that gate, not
@@ -61,6 +69,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 OUT = pathlib.Path(__file__).resolve().parent / "results"
 OUT.mkdir(parents=True, exist_ok=True)
 ROUNDS = ROOT / "covalx/rounds.py"
+NWF = ROOT / "assurance/no_withdrawn_framings.py"
 PY = str(ROOT / ".venv/bin/python")
 FIXTURE_USERS = ("attack_no_withdrawn_framings", "attack_outcome_variable_declared")
 LIVE_PLANTERS = ("attack_every_check", "attack_scope_reaches_the_reader")
@@ -77,17 +86,21 @@ def run_harness(name, timeout=600):
 
 
 def set_normalisation(on: bool):
+    """R928 made TWO changes; reverting one leaves the other sufficient. Both, or neither."""
     s = ROUNDS.read_text()
-    fixed = '''    if name[0] == "r":
-        name = "R" + name[1:]
-'''
-    reverted = '''    if False:  # R941 TEMPORARY REVERT of R928's normalisation
-        name = "R" + name[1:]
-'''
+    fixed = '    if name[0] == "r":\n        name = "R" + name[1:]\n'
+    reverted = '    if False:  # R941 TEMPORARY REVERT\n        name = "R" + name[1:]\n'
     if on and reverted in s:
         ROUNDS.write_text(s.replace(reverted, fixed, 1))
     elif not on and fixed in s:
         ROUNDS.write_text(s.replace(fixed, reverted, 1))
+    g = NWF.read_text()
+    g_fixed = 'glob("E*/A*/[Rr]*/results/**/*.json")'
+    g_rev = 'glob("E*/A*/R*/results/**/*.json")'
+    if on and g_rev in g:
+        NWF.write_text(g.replace(g_rev, g_fixed, 1))
+    elif not on and g_fixed in g:
+        NWF.write_text(g.replace(g_fixed, g_rev, 1))
 
 
 def main() -> int:
@@ -115,11 +128,13 @@ def main() -> int:
             res[n]["reverted"] = run_harness(n)
             print(f"     {n:<38}{res[n]['reverted']}")
     finally:
-        subprocess.run(["git", "-C", str(ROOT), "checkout", "--", "covalx/rounds.py"], check=True)
+        subprocess.run(["git", "-C", str(ROOT), "checkout", "--", "covalx/rounds.py",
+                        "assurance/no_withdrawn_framings.py"], check=True)
 
-    clean = subprocess.run(["git", "-C", str(ROOT), "diff", "--quiet", "--", "covalx/rounds.py"])
+    clean = subprocess.run(["git", "-C", str(ROOT), "diff", "--quiet", "--",
+                            "covalx/rounds.py", "assurance/no_withdrawn_framings.py"])
     c3 = clean.returncode == 0
-    print(f"\n  ③ RESTORATION VERIFIED — covalx/rounds.py byte-identical to HEAD: {c3}  "
+    print(f"\n  ③ RESTORATION VERIFIED — both edited files byte-identical to HEAD: {c3}  "
           f"{'PASS' if c3 else 'FAIL'}")
 
     k = "attack_no_withdrawn_framings"

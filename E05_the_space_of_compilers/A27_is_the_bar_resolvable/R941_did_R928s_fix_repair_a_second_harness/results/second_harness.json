@@ -1,0 +1,66 @@
+{
+  "verdict": "UNVERIFIED",
+  "c1": false,
+  "c2": true,
+  "c3": true,
+  "res": {
+    "attack_no_withdrawn_framings": {
+      "fixed": {
+        "exit": 0,
+        "vectors": [
+          5,
+          5
+        ]
+      },
+      "reverted": {
+        "exit": 0,
+        "vectors": [
+          5,
+          5
+        ]
+      }
+    },
+    "attack_outcome_variable_declared": {
+      "fixed": {
+        "exit": 1,
+        "vectors": [
+          2,
+          4
+        ]
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": [
+          2,
+          4
+        ]
+      }
+    },
+    "attack_every_check": {
+      "fixed": {
+        "exit": 1,
+        "vectors": null
+      },
+      "reverted": {
+        "exit": 1,
+        "vectors": null
+      }
+    },
+    "attack_scope_reaches_the_reader": {
+      "fixed": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      },
+      "reverted": {
+        "exit": 0,
+        "vectors": [
+          4,
+          4
+        ]
+      }
+    }
+  }
+}
