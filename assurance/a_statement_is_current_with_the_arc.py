@@ -399,6 +399,16 @@ def main() -> int:
                        r"(post-?hoc|chosen after|discovered after).{0,300}"
                        r"(discriminat|candidate|clause)"]))
 
+    # ⭐ R1016: discriminativeness measures BELONGING, not merit. A statement carrying R1015's
+    #    separation without this bound is offering a fit test as a quality test.
+    d = load("A27_*/R1016_*/results/preregistered_exclusion.json")
+    if d:
+        facts.append(("R1016", "discriminativeness measures belonging, not merit",
+                      f"sham {d['shams_below']}/{d['n_shams']}, "
+                      f"random {d['random_below']}/{d['n_random']}",
+                      [r"(belong).{0,300}(not|rather than).{0,120}(merit|good|quality)",
+                       r"(random).{0,200}(18|47%|chance).{0,300}(discriminat|quality)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

@@ -1,0 +1,69 @@
+{
+ "source_sha": "ad04dcb6699874dd",
+ "head": "what discriminativeness excludes when the target is fixed before the sets",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 1016,
+ "n_arms": 129,
+ "controls": {
+  "positive_matches_r1015": true,
+  "negative_self_zero": true,
+  "placebo_det_pair": true,
+  "noise_floor": 0.0
+ },
+ "rest_median": 0.0256186397600888,
+ "n_shams": 5,
+ "shams_below": 5,
+ "n_random": 38,
+ "random_below": 18,
+ "sham_pairs": [
+  {
+   "sham": "coval_core_sham",
+   "parent": "coval_core",
+   "delta": 0.013993151882489672,
+   "lo": 0.012825241116936375,
+   "hi": 0.015149662028163093,
+   "verdict": "parent HIGHER"
+  },
+  {
+   "sham": "full_sham",
+   "parent": "full",
+   "delta": 0.010841878752426521,
+   "lo": 0.010095021006822143,
+   "hi": 0.011607290109475673,
+   "verdict": "parent HIGHER"
+  },
+  {
+   "sham": "gen_sham",
+   "parent": "gen",
+   "delta": 0.0067515258480615814,
+   "lo": 0.005609761998015286,
+   "hi": 0.007913494780599021,
+   "verdict": "parent HIGHER"
+  },
+  {
+   "sham": "promptecho_sham",
+   "parent": "promptecho",
+   "delta": 0.011653482936229335,
+   "lo": 0.010892407813761738,
+   "hi": 0.012436370132704593,
+   "verdict": "parent HIGHER"
+  },
+  {
+   "sham": "topw_k4_sham",
+   "parent": "topw_k4",
+   "delta": 0.010233046749574344,
+   "lo": 0.009178979846239489,
+   "hi": 0.011307644193190776,
+   "verdict": "parent HIGHER"
+  }
+ ],
+ "shams_resolvably_below_parent": 5,
+ "shams_above_parent": [],
+ "world": "C SPLIT \u2014 the SHAM prediction is CONFIRMED (5/5 below the rest's median and 5/5 resolvably below their OWN parent) and the RANDOM prediction is REFUTED (18/38, 47% \u2014 chance). So the quantity tracks whether criteria BELONG to this prompt, not whether they are GOOD",
+ "sham_prediction_confirmed": true,
+ "random_prediction_confirmed": false,
+ "preregistration": "LOW = every *_sham arm and every random_k* arm, named from the release's construction; NO prediction is made about topw or coval_core",
+ "reading": "the quantity tracks whether criteria BELONG to this prompt, not whether they are GOOD: shams fall resolvably, random draws from the prompt's own pool do not",
+ "limitation": "does not show the excluded objects should be excluded in any absolute sense"
+}

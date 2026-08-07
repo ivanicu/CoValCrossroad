@@ -258,6 +258,41 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⭐⭐ WHAT DISCRIMINATIVENESS ACTUALLY MEASURES: BELONGING, NOT MERIT (added 2026-08-07, R1016)
+
+R1015's candidate was post-hoc — chosen after `topw` was named as the rival. The pre-registered form
+fixes the quantity first and defines the sets it *should* separate **without mentioning `topw` or
+`coval_core`**:
+
+| pre-registered LOW set | reason it is named, from the release's construction | result |
+|---|---|---|
+| every `*_sham` arm | criteria pointed at the **wrong** prompt | **5 / 5 below** — and **5/5 resolvably below their own parent** |
+| every `random_k*` arm | criteria drawn at **random** from the pool | **18 / 38 (47%)** — chance |
+
+⭐⭐⭐ **The split is the finding.** Misdirected criteria fall, resolvably, every time:
+`coval_core_sham` −0.013993, `topw_k4_sham` −0.010233, `full_sham` −0.010842, `promptecho_sham`
+−0.011653, `gen_sham` −0.006752. **But criteria drawn at random from this prompt's own pool are as
+discriminative as anything else.**
+
+⛔ **So the quantity tracks whether criteria BELONG to this prompt — not whether they are GOOD.** It
+falls only when the criteria come from *another* prompt. **That bounds what any clause built on it
+could claim**, and it was invisible from R1015's comparison alone, which only ever contrasted arms
+that were all on the right prompt.
+
+⚠ **The verdict string of this round's first run was not a computation** — it printed *"the LOW sets
+do not sit below (shams 5/5, …)"*, self-contradictory, because it collapsed two pre-registered
+predictions into one sentence and described both with the text of the failing one. Each prediction now
+carries its own verdict and the world is composed from them.
+
+**Controls.** The core−sham difference reproduces R1015's **+0.013993** to 1e-6, so this is the same
+quantity; self-comparison is exactly 0; the deterministic pair is exactly 0 with interval width
+**0.00000000**, the measured floor.
+
+⚠ **This does not show the excluded objects should be excluded in any absolute sense.** The LOW sets
+are named from the release's own construction — a sham is misdirected *by definition*, a random draw
+is random *by definition* — which is the closest thing to a reason available without an external
+standard.
+
 ### ⭐⭐⭐ A PAIRING-DEPENDENT QUANTITY THAT DOES SEPARATE — AND IT IS POST-HOC (added 2026-08-07, R1015)
 
 R1014 closed the text-only class: content must read the criteria AND their own prompt. R1011 showed
