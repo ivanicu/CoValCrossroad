@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1073_*/results/carrier_cardinality.json")
+    if d:
+        facts.append(("R1073", "the recording gap is three gaps; only the attributable one is a write",
+                      f"single {d['single_carrier']}, many {d['many']}, none {d['none']}, "
+                      f"share {d['single_share']:.3f}",
+                      [r"exactly\s+one\*?\*?\s+upstream\s+README\s+carries\s+it\s*\|?\s*\*?\*?6",
+                       r"margin\s+over\s+the\s+floor\s+is\s+.\+0\.065"]))
+
     d = load("A27_*/R1071_*/results/prose_or_nowhere.json")
     if d:
         facts.append(("R1071", "the unstored clause decimals are a recording failure, not absent",

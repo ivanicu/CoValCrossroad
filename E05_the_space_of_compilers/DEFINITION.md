@@ -1497,6 +1497,22 @@ entirely the wrong reason — and reported it as a clean result.**
 found on the artifact side. This separates **in the record** from **absent**; it does not separate
 **measured** from **quoted**.
 
+⛔⛔ **AND R1073 SPLITS THAT RECORDING GAP INTO THREE, ONLY ONE OF WHICH IS A WRITE.** Of the 31
+unstored clause decimals: **exactly one upstream README carries it — 6**; **many carry it — 15**;
+**no upstream README carries it at all — 10** (those live only in `run.py` sources and commit bodies,
+which R1071's wider corpus could not distinguish). Single-carrier share **`0.194`** against a measured
+floor of **`[0.000, 0.129]`** and a **SHAM of `0 of 31`** in the release data. ⚠ **The margin over the
+floor is `+0.065` and the World-B threshold is `<= 0.20`, so the observation at `0.194` is close to
+both** — reported as resolved-and-propagated with the narrowness stated rather than rounded away.
+⭐ **So `write it down` repairs 6 values, not 31.** `0.5514` is carried by **12** rounds — propagation
+in action; `0.009103` by exactly one (`R981`); `0.005730`, `0.012488` and `0.009956` by none.
+⛔ **AND HALF OF R1071's OWN NEXT WAS FORCED AND WAS NOT RUN.** It proposed checking that the round
+reporting an unstored value also fails to store it — but **the population was DEFINED as `stored by no
+round`**, so that check could only ever return 100%. **It would have printed a clean-looking result
+that restates the selection criterion.** Named here so it is closed rather than dropped.
+⚠ **Corpus restricted to rounds before R1067**, carrying forward R1071's contamination lesson rather
+than relearning it.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

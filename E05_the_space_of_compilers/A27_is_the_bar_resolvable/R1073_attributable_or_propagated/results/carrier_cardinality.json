@@ -1,0 +1,261 @@
+{
+  "round": "R1073",
+  "candidates": 31,
+  "upstream_readmes": 657,
+  "single_carrier": 6,
+  "many": 15,
+  "none": 10,
+  "single_share": 0.1935483870967742,
+  "floor_3_seeds": [
+    0.0,
+    0.12903225806451613
+  ],
+  "sham_release_hits": 0,
+  "rows": [
+    {
+      "value": "0.009103",
+      "n": 1,
+      "carriers": [
+        "R981"
+      ]
+    },
+    {
+      "value": "0.005730",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.012488",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.5514",
+      "n": 12,
+      "carriers": [
+        "R1059",
+        "R1060",
+        "R1061",
+        "R1062"
+      ]
+    },
+    {
+      "value": "0.5593",
+      "n": 5,
+      "carriers": [
+        "R1060",
+        "R336",
+        "R521",
+        "R761"
+      ]
+    },
+    {
+      "value": "0.009956",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.0091",
+      "n": 8,
+      "carriers": [
+        "R1009",
+        "R362",
+        "R427",
+        "R432"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "n": 5,
+      "carriers": [
+        "R1009",
+        "R1010",
+        "R533",
+        "R806"
+      ]
+    },
+    {
+      "value": "0.0091",
+      "n": 8,
+      "carriers": [
+        "R1009",
+        "R362",
+        "R427",
+        "R432"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "n": 5,
+      "carriers": [
+        "R1009",
+        "R1010",
+        "R533",
+        "R806"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "n": 5,
+      "carriers": [
+        "R1009",
+        "R1010",
+        "R533",
+        "R806"
+      ]
+    },
+    {
+      "value": "0.0714",
+      "n": 2,
+      "carriers": [
+        "R1000",
+        "R516"
+      ]
+    },
+    {
+      "value": "0.0633",
+      "n": 4,
+      "carriers": [
+        "R1000",
+        "R434",
+        "R718",
+        "R804"
+      ]
+    },
+    {
+      "value": "0.482016",
+      "n": 2,
+      "carriers": [
+        "R1000",
+        "R1003"
+      ]
+    },
+    {
+      "value": "0.559311",
+      "n": 1,
+      "carriers": [
+        "R1000"
+      ]
+    },
+    {
+      "value": "0.572335",
+      "n": 4,
+      "carriers": [
+        "R1000",
+        "R1002",
+        "R825",
+        "R826"
+      ]
+    },
+    {
+      "value": "0.566477",
+      "n": 7,
+      "carriers": [
+        "R1000",
+        "R1001",
+        "R1002",
+        "R1003"
+      ]
+    },
+    {
+      "value": "0.0039",
+      "n": 6,
+      "carriers": [
+        "R243",
+        "R411",
+        "R424",
+        "R768"
+      ]
+    },
+    {
+      "value": "0.5514",
+      "n": 12,
+      "carriers": [
+        "R1059",
+        "R1060",
+        "R1061",
+        "R1062"
+      ]
+    },
+    {
+      "value": "0.5593",
+      "n": 5,
+      "carriers": [
+        "R1060",
+        "R336",
+        "R521",
+        "R761"
+      ]
+    },
+    {
+      "value": "0.009103",
+      "n": 1,
+      "carriers": [
+        "R981"
+      ]
+    },
+    {
+      "value": "0.005730",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.012488",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.009103",
+      "n": 1,
+      "carriers": [
+        "R981"
+      ]
+    },
+    {
+      "value": "0.012488",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.005730",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.559311",
+      "n": 1,
+      "carriers": [
+        "R1000"
+      ]
+    },
+    {
+      "value": "0.551354",
+      "n": 1,
+      "carriers": [
+        "R782"
+      ]
+    },
+    {
+      "value": "0.009956",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.008227",
+      "n": 0,
+      "carriers": []
+    },
+    {
+      "value": "0.011842",
+      "n": 0,
+      "carriers": []
+    }
+  ],
+  "world": "\u26d4 B PROPAGATED \u2014 only 0.194 have a single carrier; the rest appear in several READMEs, so presence does not name an origin and closing the gap needs a reading per value rather than a write.",
+  "not_run": "the artifact-side half of R1071's NEXT is forced by the population definition",
+  "controls": {
+    "positive_carrier_found": true,
+    "negative_absent_zero": true
+  },
+  "limitation": "a single carrier is an attribution, not a proof of authorship"
+}
