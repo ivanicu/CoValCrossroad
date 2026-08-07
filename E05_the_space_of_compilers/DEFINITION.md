@@ -982,6 +982,26 @@ asserts`; **20 of 24 rounds contributed nothing** and the cell would still have 
 ⚠ **What this does not say**: an unbacked number is **not re-derivable from its round's own persisted
 output**, which is not the same as being **wrong**.
 
+⛔⛔ **AND R1047 RETRACTS R1046's MAGNITUDE ONE ROUND LATER: THE BRACKET FALLS FROM `[0.164, 0.272]`
+TO `[0.057, 0.159]`, AND THE WORLD B VERDICT — WHICH REQUIRED `>= 0.25` — IS WITHDRAWN.** The defect
+is **display rounding**: a README prints `0.507` where the artifact stores `0.5071...`, and exact
+numeric containment calls that unbacked. **122** of the 178 numbers the exact test placed in no
+artifact are carried by the round's own artifact at the README's displayed precision; the residue is
+**43**, not 152.
+⭐⭐ **BOTH OF R1046's CONTROLS PASSED AND NEITHER COULD EVER HAVE CAUGHT THIS.** They drew their test
+value **from the artifact itself**, so it was exact by construction — **§4's row verbatim**: *a control
+that shares the instrument's blind spot confirms the instrument and licenses nothing.* The defect was
+found by reading the object: a `grep` located `0.507` inside R1023's JSON one command after the
+checker reported it absent. **That is the third consecutive round in which a control passed while the
+population or the precision it was defined over was wrong**, and the through-line is a single missing
+step — **name the instrument's unit and the claim's unit and require them equal, before the control is
+designed.**
+⭐ **WHAT SURVIVES R1046 IS THE SPECIFICATION CURVE, NOT THE MAGNITUDE**: the h1 and body cells still
+give opposite verdicts, and **READMEs are still guarded by nothing**. And R1047's own verdict lands in
+**neither pre-registered band** — in-source share `0.283` over `60` floating numbers — so **R1046's
+proposed gate is neither built nor abandoned**: what splits it is whether a number shared by source and
+README is a constant or a coincidence, which needs the **line**, not the value.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

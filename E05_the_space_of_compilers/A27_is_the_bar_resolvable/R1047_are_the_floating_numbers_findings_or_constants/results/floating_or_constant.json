@@ -1,0 +1,246 @@
+{
+  "round": "R1047",
+  "tests": "R1046's proposed README anchoring gate, before building it",
+  "rescued_by_rounding_alone": 122,
+  "floating_total": 60,
+  "in_own_source": 17,
+  "in_source_share_upper_bound": 0.2833333333333333,
+  "residue_lower_bound": 43,
+  "controls": {
+    "positive_runtime_source_value": true,
+    "negative_offset": true
+  },
+  "R1046_recomputed": {
+    "body_unbacked": 166,
+    "body_total": 1047,
+    "body_share": 0.15854823304680038,
+    "bracket": [
+      0.05730659025787966,
+      0.15854823304680038
+    ],
+    "was": [
+      0.164,
+      0.272
+    ]
+  },
+  "detail": [
+    {
+      "round": "R1022",
+      "floating": 7,
+      "in_own_source": 2,
+      "residue": 5,
+      "residue_values": [
+        "98",
+        "0.1247",
+        "79.3",
+        "0.0042",
+        "0.0021"
+      ]
+    },
+    {
+      "round": "R1023",
+      "floating": 1,
+      "in_own_source": 1,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1024",
+      "floating": 2,
+      "in_own_source": 1,
+      "residue": 1,
+      "residue_values": [
+        "0.092"
+      ]
+    },
+    {
+      "round": "R1025",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1026",
+      "floating": 4,
+      "in_own_source": 0,
+      "residue": 4,
+      "residue_values": [
+        "2904",
+        "0.0093",
+        "810",
+        "987"
+      ]
+    },
+    {
+      "round": "R1027",
+      "floating": 12,
+      "in_own_source": 1,
+      "residue": 11,
+      "residue_values": [
+        "872",
+        "744",
+        "616",
+        "61",
+        "952",
+        "368",
+        "3.9545",
+        "15.4793",
+        "3.9959",
+        "368",
+        "368"
+      ]
+    },
+    {
+      "round": "R1028",
+      "floating": 4,
+      "in_own_source": 2,
+      "residue": 2,
+      "residue_values": [
+        "371",
+        "172"
+      ]
+    },
+    {
+      "round": "R1029",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1030",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1032",
+      "floating": 1,
+      "in_own_source": 1,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1033",
+      "floating": 3,
+      "in_own_source": 0,
+      "residue": 3,
+      "residue_values": [
+        "484",
+        "485",
+        "700"
+      ]
+    },
+    {
+      "round": "R1034",
+      "floating": 6,
+      "in_own_source": 3,
+      "residue": 3,
+      "residue_values": [
+        "261",
+        "61",
+        "274"
+      ]
+    },
+    {
+      "round": "R1035",
+      "floating": 8,
+      "in_own_source": 0,
+      "residue": 8,
+      "residue_values": [
+        "99.98",
+        "0.000047",
+        "99.98",
+        "0.000098",
+        "99.98",
+        "0.000161",
+        "0.000301",
+        "0.000113"
+      ]
+    },
+    {
+      "round": "R1036",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1037",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1038",
+      "floating": 3,
+      "in_own_source": 2,
+      "residue": 1,
+      "residue_values": [
+        "0.0354"
+      ]
+    },
+    {
+      "round": "R1039",
+      "floating": 4,
+      "in_own_source": 2,
+      "residue": 2,
+      "residue_values": [
+        "7.5",
+        "7.5"
+      ]
+    },
+    {
+      "round": "R1040",
+      "floating": 2,
+      "in_own_source": 0,
+      "residue": 2,
+      "residue_values": [
+        "6.9",
+        "6.9"
+      ]
+    },
+    {
+      "round": "R1041",
+      "floating": 1,
+      "in_own_source": 0,
+      "residue": 1,
+      "residue_values": [
+        "52"
+      ]
+    },
+    {
+      "round": "R1042",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1043",
+      "floating": 2,
+      "in_own_source": 2,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1044",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    },
+    {
+      "round": "R1045",
+      "floating": 0,
+      "in_own_source": 0,
+      "residue": 0,
+      "residue_values": []
+    }
+  ],
+  "world": "\u2b50 NEITHER BAND \u2014 in-source 0.283 over 60 floating numbers, residue 43. Reported, neither world claimed. What splits it is whether a number shared by source and README is a constant or a coincidence, which needs the LINE, not the value.",
+  "limitation": "presence in run.py is an upper bound on legitimacy; a finding can coincide with a constant's digits, and only the LINE would separate them"
+}

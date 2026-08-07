@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1047_*/results/floating_or_constant.json")
+    if d:
+        rc = d["R1046_recomputed"]
+        facts.append(("R1047", "R1046's bracket was inflated by display rounding",
+                      f"rescued {d['rescued_by_rounding_alone']}, residue {d['residue_lower_bound']}, "
+                      f"bracket now {rc['bracket'][0]:.3f}-{rc['bracket'][1]:.3f}",
+                      [r"(122).{0,200}(round)",
+                       r"(0\.057|0\.159).{0,160}(0\.164|0\.272)"]))
+
     d = load("A27_*/R1046_*/results/headline_backing.json")
     if d:
         c, s = d["cells"], d["unbacked_split"]
