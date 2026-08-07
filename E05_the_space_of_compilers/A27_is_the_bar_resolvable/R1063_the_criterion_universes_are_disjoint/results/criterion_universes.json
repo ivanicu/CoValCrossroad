@@ -1,0 +1,25 @@
+{
+  "round": "R1063",
+  "prompts": 968,
+  "arc_prompt_ids": 968,
+  "rubric_conversation_ids": 986,
+  "id_intersection": 0,
+  "arc_key": "comparisons.jsonl:prompt_id",
+  "prior_art": "R466 already recorded rubric-text ids 986 vs ranking ids 1078, intersection 0",
+  "generic_distinct_texts": [
+    "the reply avoids harmful or unsafe content.",
+    "the reply is accurate and factually correct.",
+    "the reply is clear and easy to understand.",
+    "the reply is helpful and addresses what was asked."
+  ],
+  "generic_distinct_selections": 1,
+  "full_distinct_texts": 14808,
+  "shared_texts": [],
+  "world": "\u26d4 B THE JOIN IS BLOCKED AT THE KEY, AND THE UNIVERSES ARE DISJOINT ANYWAY. The rubric file is keyed by `conversation.id` (986 ids) and every artifact in this arc by `comparisons.jsonl:prompt_id` (968 ids); the two sets share NOTHING. So R1062's prescribed recovery is not executable on committed keys \u2014 it would need a bridge built from message TEXT, which is a different and larger task than the join it described. \u2b50\u2b50 BUT THE OBJECT ANSWERS THE QUESTION WITHOUT IT: `core_generic` uses 4 FIXED generic texts, the same selection on every prompt, sharing NOT ONE string with the 14808 rubric-derived texts `core_full` uses. The two arms draw from DISJOINT criterion universes, which fully explains R1062's index disagreement \u2014 there is no correspondence to recover, and criterion-level cross-arm claims are MEANINGLESS rather than merely unrecovered. \u2b50 AND THAT CLOSES THE LINE: the admission operator consumes a RANKING of the same four responses, never criteria, so score-level comparison was valid throughout and only R1061's criterion-index reasoning was ever void.",
+  "controls": {
+    "positive_arc_key_located": true,
+    "negative_ids_disjoint": true,
+    "placebo_self": true
+  },
+  "limitation": "exact text match measures string reuse, not semantic identity"
+}

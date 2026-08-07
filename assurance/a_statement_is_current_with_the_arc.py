@@ -696,6 +696,18 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1063_*/results/criterion_universes.json")
+    if d:
+        facts.append(("R1063", "the criterion universes are disjoint and the join is key-blocked",
+                      f"ids {d['arc_prompt_ids']}/{d['rubric_conversation_ids']} "
+                      f"inter {d['id_intersection']}, shared texts {len(d['shared_texts'])}",
+                      # ⛔ tightened after the first pair matched R466's OWN sentence and passed GREEN
+                      # with nothing written — the fact's patterns must name THIS fact
+                      # ⚠ \s+ not a literal space: markdown hard-wrapping splits multi-word anchors
+                      # across lines, which is one reason loose patterns get written in the first place
+                      [r"14,?808\s+rubric-derived\s+texts",
+                       r"4\s+fixed\s+generic\s+texts[\s\S]{0,120}0 shared"]))
+
     d = load("A27_*/R1062_*/results/index_locality.json")
     if d:
         facts.append(("R1062", "the criterion index is local to its file; cross-file numbers are void",

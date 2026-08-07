@@ -1328,6 +1328,29 @@ its own first four criteria**. Its bound stands as originally reported, **neithe
 unattempted**: `data/conversation_rubrics.jsonl` carries the rubric TEXT, so a global criterion
 identity is obtainable by joining on text rather than on position.
 
+⛔⛔ **AND R1063 RUNS THAT JOIN AND FINDS IT BLOCKED AT THE KEY — WHILE REDISCOVERING PRIOR ART THE
+DOCUMENT ALREADY HELD.** The rubric file is keyed by `conversation.id`; every artifact in this arc is
+keyed by **`comparisons.jsonl:prompt_id`** (located by measurement: 968 of 1,078 scanned rows carry
+one). ⚠ **R466 ALREADY RECORDED THE DISJOINTNESS** — *"rubric-text ids 986, ranking ids 1078,
+intersection 0"* — so half of R1063 is a rediscovery, and **the prior-art gate was not run before
+building it**. What surfaced the duplication was an accident: the currency gate went GREEN because my
+registered pattern coincidentally matched R466's own sentence. **A coincidence is not a mechanism.**
+⭐⭐ **WHAT IS GENUINELY NEW IS THE CRITERION SPACE, NOT THE ID SPACE.** `core_generic` uses **4 fixed
+generic texts** — *"the reply is accurate and factually correct."* and three like it — the **same
+selection on every one of 968 prompts**, sharing **0 shared** strings with the **14,808
+rubric-derived texts** `core_full` draws on. **The two arms range over DISJOINT CRITERION UNIVERSES**,
+which fully explains R1062's 96% index disagreement: there is no correspondence to recover, and
+criterion-level cross-arm claims are **meaningless** rather than merely unrecovered.
+⭐⭐⭐ **AND THAT CLOSES THE LINE INSTEAD OF EXTENDING IT: the admission operator consumes a RANKING of
+the same four responses, never criteria.** Two arms drawing from disjoint criterion universes still
+rank the same objects, so **score-level comparison was valid throughout** and only R1061's
+criterion-index reasoning was ever void.
+⛔⛔ **A THIRD DEFECT, IN THE REGISTRY ITSELF, AND IT HID ALL OF THIS FOR FIVE CONSECUTIVE CHECKS.**
+Every fact is registered under `if d:` where `d = load(<artifact glob>)`. **R1063's script was crashing
+before writing its artifact, so `load` returned `None`, no fact was registered, and the gate reported
+PASS — five times.** A missing artifact is therefore **indistinguishable from a satisfied fact**: it is
+§4's *empty population passes*, sitting inside the instrument that certifies every commit here.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
