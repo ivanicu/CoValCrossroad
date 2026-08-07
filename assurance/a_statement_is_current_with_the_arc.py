@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1046_*/results/headline_backing.json")
+    if d:
+        c, s = d["cells"], d["unbacked_split"]
+        facts.append(("R1046", "a README's numbers are not anchored to its own artifact",
+                      f"body {c['body']['unbacked']} of {c['body']['numbers']}, "
+                      f"bracket {s['bracket'][0]:.3f}-{s['bracket'][1]:.3f}",
+                      [r"(16\.4|0\.164).{0,120}(27\.2|0\.272)",
+                       r"(175).{0,200}(no artifact|nowhere)"]))
+
     d = load("A27_*/R1045_*/results/habit_or_incident.json")
     if d:
         s, a = d["axis_subprocess"], d["axis_artifact"]

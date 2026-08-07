@@ -965,6 +965,23 @@ subscripted. ⚠ **And 0 of 14 is `≤ 3/14 ≈ 0.21` at 95%, not "none exist"**
 license the conclusions built on them: **R1043 read artifact values throughout** and still reported an
 exit code as its finding.
 
+⛔⛔ **AND R1046 FINDS THE ASSERTION SURFACE ITSELF UNANCHORED: BETWEEN `0.164` AND `0.272` OF THE
+NUMBERS A ROUND README ASSERTS ARE NOT IN THAT ROUND'S OWN ARTIFACT.** `DEFINITION.md` is guarded by
+the anchoring gate; **READMEs are guarded by nothing**, and this arc has run 24 rounds that way. Of
+**289** unbacked numbers over **1064**, **114** appear in some *other* round's artifact — plausibly
+quoted, which is correct practice — and **175** appear in **no artifact in this arc at all**. Hence a
+bracket and not a point: no rule available here separates a legitimate citation from a true miss.
+⭐⭐ **THE SPECIFICATION CURVE IS THE FINDING, BECAUSE TWO CELLS GIVE OPPOSITE VERDICTS.** Scoring only
+the first heading line gives **0 of 7 unbacked — World A** — and admits **4 of 24 rounds**. Scoring
+every number in the README gives **World B**. **I built the h1 cell first, and its positive and
+negative controls both passed**, because they test the *containment rule* and never ask whether the
+population is the one the claim is about. **§4's search-instrument row with the control already in
+place**: *a control asks "can this instrument see?" and never "is what it sees the thing I am about to
+claim about?"* The instrument's unit was `first heading line`; the claim's unit is `numbers this round
+asserts`; **20 of 24 rounds contributed nothing** and the cell would still have carried a verdict.
+⚠ **What this does not say**: an unbacked number is **not re-derivable from its round's own persisted
+output**, which is not the same as being **wrong**.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
