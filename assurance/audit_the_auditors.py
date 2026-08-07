@@ -27,6 +27,31 @@ not being called the explanation.
 **The repair target is the per-gate RUNNER, not the detector.** The detector has never been tested,
 because nothing it was fed was measured correctly.
 
+⛔ R964 TRIED TO ISOLATE WHY AND FAILED, WITH FIVE CONDITIONS RULED OUT. Recorded so the next
+attempt starts here rather than at the beginning.
+
+The row under test is `DEFECTS.py {'exit': 2, 'seconds': 0.0, 'empty_tell': True}` in
+`results/auditor_audit.json`. Ruled out, each by running it:
+  · STALENESS -- the artifact's mtime is the run's own; it is not an old file being misread. (The
+    `source_sha` mismatch is a later annotation to THIS file, a known cause, not drift.)
+  · A MISREAD COLUMN -- the JSON records `exit: 2` structurally, so it is not a table alignment.
+  · THE POSITIVE-CONTROL PLANT -- writing `_poscontrol_defects_unrepaired.py` exactly as the
+    pre-loop step does, then running `DEFECTS.py`, gives exit 0 before, during and after.
+  · THE INTERPRETER AND PATH -- `PY` resolves, the target exists, and running
+    `[PY, str(HERE/"DEFECTS.py")]` with `cwd=ROOT` returns exit 0 with 192 lines of stdout.
+  · THE TIMEOUT -- `DEFECTS.py` completes in 0.1s against `TIMEOUT = 120`.
+  · ORDERING -- `sorted(HERE.glob("*.py"))` puts uppercase first, so `DEFECTS.py` runs FIRST and no
+    prior gate, no `restore()` call and no `apply_*` mutator has executed when it is measured. That
+    also kills the R963 candidate for this row: restore-after-each-gate cannot explain the first one.
+
+`DEFECTS.py` contains no `exit(2)` path at all, and Python returns 2 when it cannot open a script --
+but the script opens fine on every reconstruction. **So the recorded row is not reproducible, and
+why is NOT established.**
+
+WHAT ISOLATING IT WOULD REQUIRE: instrumenting this file to log argv, cwd, env and returncode per
+gate and re-running the sweep, which is ~7 minutes. Until then its per-gate table stays unquotable
+and its UNVERIFIED verdict stays correct.
+
 
 WHY, AND IT IS A MEASURED PRIOR, NOT A SUSPICION. `DEFECTS.py` and `consistency.py` resolved their
 inputs as `HERE / <round> / results / <file>`. The E/A/R migration (2026-08-02) moved every round
