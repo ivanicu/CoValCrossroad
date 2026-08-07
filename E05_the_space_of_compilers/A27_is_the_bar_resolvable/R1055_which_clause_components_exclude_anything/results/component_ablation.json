@@ -1,0 +1,79 @@
+{
+  "round": "R1055",
+  "arms": 99,
+  "prompts": 968,
+  "nboot": 4000,
+  "baseline_admitted": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "greedy_k8_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "indep_k8_fit1",
+    "oracle_k4",
+    "oracle_k4_08bR",
+    "oracle_k4_fit1",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "unstable_excluded": [],
+  "rows": [
+    {
+      "component": "resolvability (2.5th pct -> point estimate)",
+      "lost": [],
+      "gained": [
+        "greedy_k12_fit1",
+        "topw_k2"
+      ],
+      "symmetric_difference": 2
+    },
+    {
+      "component": "comparator FAMILY (two -> one)",
+      "lost": [],
+      "gained": [],
+      "symmetric_difference": 0
+    },
+    {
+      "component": "q = 90 -> q = 100 (EVERY, the pre-R1032 form)",
+      "lost": [],
+      "gained": [],
+      "symmetric_difference": 0
+    },
+    {
+      "component": "coverage (own prompts -> imputed)",
+      "lost": [
+        "coval_core_2bA",
+        "coval_core_2bB"
+      ],
+      "gained": [],
+      "symmetric_difference": 2
+    }
+  ],
+  "empty_components": [
+    "comparator FAMILY (two -> one)",
+    "q = 90 -> q = 100 (EVERY, the pre-R1032 form)"
+  ],
+  "q_ablation_is_a_derivation": true,
+  "family_size": 2,
+  "q_first_testable_at_family_size": 10,
+  "controls": {
+    "positive_resolvability_binds": true,
+    "negative_no_ablation": true,
+    "sham_seed_only": true
+  },
+  "world": "\u2b50 B SOME COMPONENT IS DECORATION IN THIS POPULATION (and for q it is FORCED: at |family|=2 the q ablation is a DERIVATION, not a measurement) \u2014 ['comparator FAMILY (two -> one)', 'q = 90 -> q = 100 (EVERY, the pre-R1032 form)'] change the admitted set by NOTHING across 99 arms. \u00a74: name an admissible object the clause excludes, or the clause is untested decoration. For these components no such object exists on disk. \u26a0 SCOPED: this is the only population we have, and a component excluding nothing here could still exclude something in a release we do not possess.",
+  "limitation": "an ablation shows what a component excludes IN THIS POPULATION; and binding is necessity, never correctness"
+}

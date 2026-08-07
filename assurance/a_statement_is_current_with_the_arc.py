@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1055_*/results/component_ablation.json")
+    if d:
+        facts.append(("R1055", "two clause components bind, q is inert at this family size",
+                      f"empty {len(d['empty_components'])}, family {d['family_size']}, "
+                      f"q testable at {d['q_first_testable_at_family_size']}",
+                      [r"q.{0,60}inert until.{0,40}10|first becomes testable at \*\*\|family\| =\s*10",
+                       r"greedy_k12_fit1[^.]{0,40}topw_k2"]))
+
     d = load("A27_*/R1054_*/results/declared_dependencies.json")
     if d:
         facts.append(("R1054", "at the sentence unit the clause shows no enrichment",

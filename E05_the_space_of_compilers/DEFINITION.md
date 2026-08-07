@@ -1135,6 +1135,30 @@ special; the gate is.
 would fail without it. Necessity needs the clause restated without each cited round and the admission
 operator re-run.
 
+⭐⭐⭐ **AND R1055 RUNS THAT NECESSITY TEST AGAINST THE REAL OPERATOR — 99 arms, 968 prompts, target
+A2 — ONE ABLATION PER CLAUSE COMPONENT. Two components bind with NAMED excluded arms; two do not.**
+
+| component | Δ admitted | what it excludes |
+|---|---:|---|
+| **resolvability** (2.5th pct → point estimate) | **2** | removing it ADMITS `greedy_k12_fit1`, `topw_k2` |
+| **coverage, not imputed** (own prompts → imputed) | **2** | imputing LOSES `coval_core_2bA`, `coval_core_2bB` |
+| comparator **family** (two → one) | **0** | nothing on disk |
+| `q = 90` → `q = 100` | **0** | ⛔ **algebraically forced** |
+
+⭐ **This is §4's remedy satisfied at last — *name an admissible object this clause EXCLUDES* — and no
+earlier round in this arc supplied one.** The coverage row also **independently reproduces R1032**: the
+twins are exactly the arms the imputing operator wrongly admitted.
+⛔⛔ **THE `q` ROW IS A DERIVATION, NOT A MEASUREMENT, AND THAT IS THE FINDING.** At family size *k*,
+`need(q=90) = ceil(0.9k)` and `need(q=100) = k`, and these are **equal for every k < 10**. The certified
+family has **2** members, so `q = 90` and `q = 100` are **the same operator** and Δ=0 could not have come
+out otherwise. ⭐ **The clause declares a parameter its own certified family is too small to exercise.**
+R1036–R1038 measured `q`'s onset curve and set its default at 90; none of that is wrong, and **none of
+it is exercised by the operator as the clause currently runs.** `q` first becomes testable at
+**`|family| = 10`** — five times the current family.
+⚠ **Binding is necessity, never correctness**: R1032 showed the pre-repair form also bound, and bound
+wrongly. **Controls**: resolvability must bind — True; ablating nothing reproduces the baseline — True;
+seed-only change leaves the set unchanged — True; 3-seed spread **24 in / 75 out / 0 unstable**.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
