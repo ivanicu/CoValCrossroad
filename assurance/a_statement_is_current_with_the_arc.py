@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1053_*/results/recomputed_dependence.json")
+    if d:
+        facts.append(("R1053", "R1050's direction survives but its magnitude is at the ceiling",
+                      f"ceiling {d['ceiling']:.3f}, saturating set {d['k_saturate']}, "
+                      f"flagged {len(d['flagged_any'])}",
+                      [r"at the CEILING|AT the ceiling",
+                       r"11 rounds[^.]{0,60}only 5 are flagged|5 of 11"]))
+
     d = load("A27_*/R1052_*/results/stamp_vs_history.json")
     if d:
         facts.append(("R1052", "R1051's stamp census counted titles as hashes",

@@ -1102,6 +1102,21 @@ B — the currency gate is permissive by construction.** ⚠ **This propagates t
 against `[0.490, 0.524]` used the 16-round set and must be recomputed before being quoted again; the
 direction of the change is not predictable from here.
 
+⭐⭐ **AND R1053 RECOMPUTES IT: THE DIRECTION SURVIVES, THE MAGNITUDE DOES NOT.** At the corrected
+`45`-round set the hit rate is **`0.917`** against a floor recomputed **at that size** of
+**`[0.719, 0.750]`** — still separable, so the clause region does cite flagged work more than chance.
+⛔ **But the observation is AT the CEILING.** Every arc round in the set also returns `0.917`, because
+3 of the 36 cells cite so little that no set can reach them; the g=0 floor is `0.000`. **Both
+predicates returned exactly `0.917` on sets of 45 and 21 — that identity was the tell.** §4's
+`floor == ceiling` applied to the observation: **a saturated statistic supports a DIRECTION and never
+a MAGNITUDE**, so R1050's `0.917` was never an effect size and cannot be read as one now.
+⛔⛔ **AND SATURATION IS CARRIED BY 11 ROUNDS, OF WHICH ONLY 5 ARE FLAGGED.** The smallest saturating
+set is `R1000 R1005 R924 R1004 R923 R1026 R1009 R1010 R1034 R1036 R1037`; six of those eleven are not
+flagged at all. ⭐ **So what the design licenses is narrow: the flagged set contains enough
+clause-proximate rounds to saturate, and a random set of the same size usually does not.** It does not
+license *"the clause depends on unattributable work"* at any stated strength. **R1050's downgrade
+stands as a direction; its number is withdrawn as a magnitude.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -1,0 +1,137 @@
+{
+  "round": "R1053",
+  "facts": 67,
+  "unreadable": 2,
+  "flagged_any": [
+    "R1000",
+    "R1001",
+    "R1002",
+    "R1003",
+    "R1005",
+    "R1006",
+    "R1009",
+    "R1010",
+    "R1011",
+    "R1012",
+    "R1013",
+    "R1015",
+    "R1016",
+    "R1017",
+    "R1019",
+    "R1020",
+    "R1021",
+    "R1022",
+    "R1023",
+    "R1024",
+    "R1025",
+    "R1027",
+    "R1028",
+    "R1029",
+    "R1033",
+    "R1036",
+    "R1038",
+    "R1039",
+    "R1042",
+    "R1043",
+    "R1044",
+    "R1045",
+    "R1046",
+    "R920",
+    "R921",
+    "R922",
+    "R925",
+    "R926",
+    "R975",
+    "R976",
+    "R978",
+    "R979",
+    "R986",
+    "R989",
+    "R990"
+  ],
+  "flagged_all": [
+    "R1000",
+    "R1001",
+    "R1002",
+    "R1005",
+    "R1011",
+    "R1012",
+    "R1015",
+    "R1017",
+    "R1027",
+    "R1036",
+    "R1045",
+    "R920",
+    "R921",
+    "R922",
+    "R925",
+    "R926",
+    "R975",
+    "R978",
+    "R986",
+    "R989",
+    "R990"
+  ],
+  "cells": 36,
+  "rows": [
+    {
+      "predicate": "any (corrected)",
+      "n_flagged": 45,
+      "observed": 0.9166666666666666,
+      "floor": [
+        0.7194444444444444,
+        0.750462962962963
+      ],
+      "separable": true
+    },
+    {
+      "predicate": "all (R1049's)",
+      "n_flagged": 21,
+      "observed": 0.9166666666666666,
+      "floor": [
+        0.5569444444444444,
+        0.6083333333333333
+      ],
+      "separable": true
+    }
+  ],
+  "smallest_saturating_set": [
+    "R1000",
+    "R1005",
+    "R924",
+    "R1004",
+    "R923",
+    "R1026",
+    "R1009",
+    "R1010",
+    "R1034",
+    "R1036",
+    "R1037"
+  ],
+  "k_saturate": 11,
+  "saturating_and_flagged": [
+    "R1000",
+    "R1005",
+    "R1009",
+    "R1010",
+    "R1036"
+  ],
+  "ceiling": 0.9166666666666666,
+  "floor_at_g0": 0.0,
+  "observation_at_ceiling": true,
+  "R1050_original": {
+    "observed": 0.917,
+    "floor": [
+      0.49,
+      0.524
+    ],
+    "n_flagged": 16
+  },
+  "controls": {
+    "positive": true,
+    "negative": true,
+    "placebo": true
+  },
+  "world": "\u2b50 A THE DEPENDENCE SURVIVES THE CORRECTION, WITH ITS CEILING STATED \u2014 AND THE OBSERVATION IS AT THAT CEILING \u2014 with the corrected 45-round set the hit rate is 0.917 against its own recomputed floor [0.7194444444444444, 0.750462962962963], so the clause still cites unattributable work more than a random set of the same size would. R1050's downgrade stands on a corrected basis.",
+  "limitation": "proximity in a document is not a dependency graph"
+}
