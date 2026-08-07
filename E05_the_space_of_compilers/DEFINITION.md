@@ -9341,3 +9341,67 @@ lone survivor among eight tests when seven of those were not tests.
 they *look* testable: `greedy` 6/8 with 2 dropped has a real, non-degenerate null — and yet **every
 one of its 3 attainable outcomes lies inside that null.** A placebo can be non-degenerate and still
 have zero power, and nothing on its printed output distinguishes that from a genuine pass.
+
+---
+
+## ⛔ R920 · CLAUSE ③ IS IRREDUCIBLY A PROVENANCE CLAIM — it cannot be checked on the artifact
+
+Every application of clause ③ in this project has been made by **reading
+`corebench/select_core.py:102`**, where `oracle_k`, `indep_k` and `greedy_k` open
+`data/comparisons.jsonl`. That is a fact about the producer. **This round asked whether the clause
+can be checked on the object instead**, and the answer is no.
+
+**The detector.** For each prompt, every size-`k` subset of its full rubric is a candidate core;
+their A2 scores form a distribution. Define `π(arm)` = mean over prompts of the arm's own percentile
+in that distribution. A label-consumer should sit high; a heuristic should sit where its heuristic
+lands. **π needs the labels but not the generator's source** — that is the weakening under test.
+
+**CONTROLS.** ① the measured ceiling **0.9287** and floor **0.0347** bound every real arm, and
+`floor < random 0.4962 < ceiling`. ② a uniformly random size-4 arm lands at **0.4962**, inside the
+pre-registered [0.40, 0.60] — calibrated, not merely monotone. ④ 965 prompts, **598 exhaustive**,
+367 sampled at M=2000, cap logged. Text→index misses: **0**.
+
+**③ THE CONTROL THAT DECIDED IT: `R² (π ~ A2 margin) = 0.9984` over 21 arms.** π orders the arms
+exactly as the margin does. It is **not a second instrument**.
+
+| arm | rule | labels? | π | mean A2 |
+|---|---|---|---|---|
+| `oracle_k4` (+`_oracle_kA/kB`) | oracle | **yes** | 0.8261 | 0.6287 |
+| `greedy_k4_greedy_kA/kB` | greedy | **yes** | 0.8163 | 0.6233 |
+| `oracle_k4_fit1` | oracle | **yes** | 0.7787 | 0.6145 |
+| `greedy_k4_fit1` | greedy | **yes** | 0.7723 | 0.6113 |
+| `indep_k4_indep_kA/kB` | indep | **yes** | 0.7680 | 0.6038 |
+| `indep_k4_fit1` | indep | **yes** | 0.7339 | 0.5948 |
+| `topw_k4` (+`_detA/detB`) | topw | no | 0.6672 | 0.5648 |
+| `topwvar_k4` | topwvar | no | 0.5276 | 0.5044 |
+| `random_k4_s0/s1/s2` (+ctl) | random | no | 0.4940–0.5161 | 0.4888–0.4986 |
+| `topabs_k4` | topabs | no | 0.4924 | 0.4898 |
+| `topvar_k4` | topvar | no | 0.4822 | 0.4867 |
+
+⭐⭐⭐ **The bands ARE disjoint — labelled [0.7339, 0.8261] vs blind [0.4822, 0.6672], gap +0.0667 —
+and that is not detection.** The separation is carried entirely by score. **At the level of the
+artifact, "this core consumed the labels" and "this core is simply better" are the same
+observation**, and by `R² = 0.9984` there is no room for a label-blind arm to score as high yet rank
+low. A genuinely excellent third-party core would land in the labelled band and be rejected.
+
+**CONSEQUENCE FOR THE DEFINITION:** clause ③ must be stated as a **provenance requirement** — *the
+producer must show that no prompt-specific label entered the selection* — and not as anything a
+scorer can verify. The definition certifies a **pipeline**, not an artifact, and every use of it on
+a core whose production is unknown is unsupported.
+
+⚠ **Register, new line:** *clause ③ verifiable from the artifact* → **N/A**. It would require a
+property of the criteria themselves that survives label-consumption, and no round has proposed one.
+
+⚠ **TWO OF MY OWN DEFECTS, BOTH CAUGHT BY THE ROUND'S OWN CONTROLS.**
+**① Fifth population error this session.** The first run filtered arms with `a.endswith("_k4")` and
+caught **5 of 21**, excluding **every `greedy_*` and `indep_*` arm** — two of the three
+label-consuming rules the round is about. Arm names carry suffixes (`_fit1`, `_detA`, `_s0`), so a
+suffix test silently selects the arms that happen to have none.
+**② A pre-registered WORLD wired into the KILL conditional.** Control ③ *is* the world selector, so
+its "failure" is the result — yet the first version exited `UNVERIFIED`, which would have reported a
+pre-registered outcome as an unfit instrument. **A kill asks whether the instrument works; a world is
+what the working instrument returns.**
+**③ And the first `π(max) > 0.98` threshold was §4's `control that cannot PASS`, built again**: A2
+over 6 comparisons is discrete, many subsets tie at a prompt's maximum, and the mid-rank percentile
+of a tied maximum is **strictly below 1** — so the ceiling is 0.9287 and my threshold sat above what
+a maximal plant can return. Restated as `floor < random < ceiling`, which the design can fail.
