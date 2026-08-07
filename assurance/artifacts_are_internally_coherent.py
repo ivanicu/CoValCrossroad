@@ -177,12 +177,27 @@ def scan(root: pathlib.Path):
             out["n_sole"] += 1
             if not (lo <= mv <= hi):
                 out["outside"].append((rid, path or "<root>", mk, mv, ck, [lo, hi]))
+        # ⛔ INVARIANT 2 USED SOLE CANDIDACY ALONE while invariant 1 carries three refusals, and
+        # `ci_spoken_for` — computed a few lines above — is one of them. R235's `E_verdict` root
+        # holds K1..K5 as SIBLING pre-registered kills; the guard paired `K4prime_..._ci` with
+        # `K2_majority_negative_significant` because they share a parent and match the two regexes.
+        # `ci_stem` there is `K4prime_core_minus_topw`, which IS a key in the node, so the refusal
+        # was already true and simply never applied to this branch — the guard's own docstring
+        # warns that cross-key pairs are what r58's harvester got wrong. Measured (R934): this
+        # refuses exactly ONE pair across the whole corpus, the R235 one; a planted
+        # `gap/gap_ci/gap_significant` contradiction is still caught; invariant 1's `outside` list
+        # is bit-identical, still finding its 6 R141 cells.
         if len(cks) == 1 and len(bks) == 1:                  # invariant 2, unambiguous only
             (ck, cv), (bk, bv) = cks[0], bks[0]
-            lo, hi = sorted(cv)
-            out["n_flagged"] += 1
-            if bool(lo > 0 or hi < 0) != bv:
-                out["contradict"].append((rid, path or "<root>", ck, [lo, hi], bk, bv))
+            _bstem = re.sub(r"_significant$|^significant_?", "", bk, flags=re.I)
+            _cstem = re.sub(r"_ci$|^ci_", "", ck, flags=re.I)
+            _named_together = bool(_bstem and _cstem and (_bstem.lower() in _cstem.lower()
+                                                          or _cstem.lower() in _bstem.lower()))
+            if not (ci_spoken_for and not _named_together):
+                lo, hi = sorted(cv)
+                out["n_flagged"] += 1
+                if bool(lo > 0 or hi < 0) != bv:
+                    out["contradict"].append((rid, path or "<root>", ck, [lo, hi], bk, bv))
         for k, v in o.items():
             walk(v, rid, f"{path}.{k}" if path else k)
 
