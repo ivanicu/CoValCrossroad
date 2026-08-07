@@ -150,7 +150,13 @@ def main() -> int:
         return 2
 
     # decoy modes: the ledger's own vocabulary, matched on mode count and per-mode token count
-    vocab = [w for t in titles.values() for w in toks(t)]
+    # ⛔ SORTED, AND THE FIRST VERSION WAS NOT. `toks()` returns a SET, and iterating a set of
+    #    strings follows PYTHONHASHSEED, which is randomised per process. The decoy floor therefore
+    #    moved between two runs of identical code with identical seeds -- [0.040, 0.078] then
+    #    [0.046, 0.074] -- and a floor that is not reproducible cannot be a threshold anything is
+    #    judged against. The checklist asks for two hash seeds byte-identical; this failed it
+    #    silently, and only comparing two runs of the same script exposed it.
+    vocab = [w for t in titles.values() for w in sorted(toks(t))]
     curve, decoy_curve = {}, {}
     for t in THRESHOLDS:
         assigned = {n: best(ti, mode_toks, t) for n, ti in titles.items()}
@@ -197,6 +203,23 @@ def main() -> int:
     for n in unmatched[:6]:
         print(f"        {n}  {titles[n][:88]}")
 
+    # ⭐ ⑥ ARE THE TWO SIDES EVEN THE SAME KIND OF OBJECT? The unmatched titles read like
+    #    `"A global core transfers to prompts it was never fitted to" -- R240, retracted by R247`:
+    #    they state the WITHDRAWN CLAIM, not the mechanism that killed it. §4 names MECHANISMS. If
+    #    most unmatched titles are claim-statements, low coverage is a units mismatch and NOT a
+    #    measure of the taxonomy's completeness -- which is what the verdict was about to assert.
+    CLAIMY = re.compile(r'^\s*["“]|retracted by|withdrawn|R\d+\s*(?:→|->)\s*R\d+')
+    claimy_un = sum(1 for n in unmatched if CLAIMY.search(titles[n]))
+    claimy_all = sum(1 for t_ in titles.values() if CLAIMY.search(t_))
+    share_claimy_un = claimy_un / len(unmatched) if unmatched else float("nan")
+    share_claimy_all = claimy_all / len(titles)
+    print(f"\n  ⑥ ARE THE TWO SIDES THE SAME KIND OF OBJECT — titles that state a CLAIM rather than "
+          f"a mechanism (quoted, or naming a retraction):")
+    print(f"     among the {len(unmatched):,} UNMATCHED: {claimy_un:,} = {share_claimy_un:.3f}")
+    print(f"     among all {len(titles):,} titles:      {claimy_all:,} = {share_claimy_all:.3f}")
+    c6 = share_claimy_un <= share_claimy_all + 0.05
+    print(f"     {'PASS — unmatched titles are not disproportionately claim-statements, so coverage speaks to the taxonomy' if c6 else 'FAIL — the unmatched are disproportionately CLAIM statements. The ledger titles name what was WITHDRAWN; the taxonomy names MECHANISMS. Low coverage is then a units mismatch, and it is NOT evidence that the taxonomy is incomplete.'}")
+
     top3 = sum(sorted(counts.values(), reverse=True)[:3]) / len(titles)  # ATTRIBUTIONS / titles
     world = "B" if not c3 else ("A" if cov >= 0.5 else "C")
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
@@ -210,10 +233,19 @@ def main() -> int:
         f"stands: the question needs a read."
         if world == "B" else
         f"coverage is {cov:.3f} — above the decoy floor [{fl_lo:.3f}, {fl_hi:.3f}], so the signal is "
-        f"real, but a MINORITY. §4 was written from this programme and describes itself as `a real, "
-        f"dated event, not a hypothetical`, yet its 20 modes name only {cov:.0%} of what its own "
-        f"source recorded. **That is a finding about the standard, not about the ledger**, and the "
-        f"top three modes still carry {top3:.3f} of all entries."))
+        f"real, but a MINORITY, and at t=1 the real taxonomy scores BELOW its decoys "
+        f"({curve[1]['coverage']:.3f} vs up to {max(decoy_curve[1]):.3f}). "
+        + (f"⛔ AND CONTROL ⑥ FORBIDS THE READING I WAS ABOUT TO GIVE THIS. The unmatched titles are "
+           f"disproportionately CLAIM statements ({share_claimy_un:.3f} against {share_claimy_all:.3f} "
+           f"overall): the ledger's titles name WHAT WAS WITHDRAWN, §4 names MECHANISMS, and the two "
+           f"are different objects. **So 9% is not a measure of the taxonomy's completeness** — it is "
+           f"mostly a units mismatch, and `§4 under-represents its own source` is NOT supported."
+           if not c6 else
+           f"Control ⑥ holds — the unmatched are not disproportionately claim-statements "
+           f"({share_claimy_un:.3f} vs {share_claimy_all:.3f}) — so the coverage does speak to the "
+           f"taxonomy: §4, written from this programme, lexically names {cov:.0%} of what its own "
+           f"source recorded.")
+        + f" The top three modes carry {top3:.3f} of all entries."))
     print(f"     ⚠ BOUND FROM ABOVE: shared tokens are not shared mechanism. An entry using the word "
           f"`control` is not thereby an instance of a control failure.")
 
@@ -225,12 +257,24 @@ def main() -> int:
                "decoy_floor_by_threshold": {str(k): v for k, v in decoy_curve.items()},
                "counts_at_t2": counts, "top3_share": top3,
                "ambiguous_at_t2": curve[2]["ambiguous"],
+               "claim_vs_mechanism": {"share_claimy_unmatched": share_claimy_un,
+                                      "share_claimy_all": share_claimy_all,
+                                      "same_kind_of_object": bool(c6),
+                                      "reading": ("coverage speaks to the taxonomy" if c6 else
+                                                  "the ledger titles name WITHDRAWN CLAIMS and §4 "
+                                                  "names MECHANISMS; low coverage is a units "
+                                                  "mismatch, not taxonomy incompleteness")},
                "units": {"titles_matched": n_matched, "mode_attributions": n_attr,
                          "note": "a tied title contributes one attribution per tied mode; the two "
                                  "counts are never summed"},
                "n_unmatched_at_t2": len(unmatched),
                "unmatched_examples": {str(n): titles[n] for n in unmatched[:20]},
                "taxonomy_source": str(SKILL),
+               "reproducibility": {"defect": "vocab was built by iterating sets of strings, so the "
+                                             "decoy floor followed PYTHONHASHSEED and moved between "
+                                             "identical runs",
+                                   "fix": "tokens sorted before the vocabulary list is built",
+                                   "caught_by": "running the same script twice and diffing the floor"},
                "bound": "shared tokens are not shared mechanism; coverage is bounded from ABOVE",
                "unit_note": "counts are LEDGER ENTRIES",
                "live_limitation": "the definition describes the instance; one release, one core"},

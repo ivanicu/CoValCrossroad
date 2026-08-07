@@ -1,0 +1,113 @@
+{
+  "commit": "30dc5980fcd48dc6afa259877bb22a3018d19980",
+  "world": "C",
+  "n_titles": 1149,
+  "n_modes": 20,
+  "modes": [
+    "check that cannot fail",
+    "control that cannot PASS",
+    "empty population passes",
+    "control validated on imagined cases",
+    "determinism read as currency",
+    "Bonferroni logic on BH",
+    "conditioning on the outcome",
+    "difference of two bounded scores",
+    "absolute claim off a centred quantity",
+    "truncated string read as data",
+    "a wall never checked",
+    "a contaminated control prints the same string as a real leak",
+    "a control validated by its own instrument's noise",
+    "a search is an instrument and has no positive control",
+    "the sham is a poison, not a placebo",
+    "the definition describes the instance",
+    "the control fails for its own reasons",
+    "the verdict string is not a computation",
+    "the closing sentence is a claim and never gets a control",
+    "min/max of N draws quoted as an interval"
+  ],
+  "coverage_by_threshold": {
+    "1": 0.5239338555265448,
+    "2": 0.09312445604873804,
+    "3": 0.007832898172323759
+  },
+  "decoy_floor_by_threshold": {
+    "1": [
+      0.6997389033942559,
+      0.6866840731070496,
+      0.7571801566579635
+    ],
+    "2": [
+      0.06788511749347259,
+      0.03655352480417755,
+      0.05657093124456049
+    ],
+    "3": [
+      0.0008703220191470844,
+      0.0017406440382941688,
+      0.0008703220191470844
+    ]
+  },
+  "counts_at_t2": {
+    "control that cannot PASS": 20,
+    "the closing sentence is a claim and never gets a control": 8,
+    "the verdict string is not a computation": 14,
+    "a search is an instrument and has no positive control": 32,
+    "the sham is a poison, not a placebo": 1,
+    "check that cannot fail": 7,
+    "empty population passes": 6,
+    "a contaminated control prints the same string as a real leak": 10,
+    "min/max of N draws quoted as an interval": 2,
+    "the control fails for its own reasons": 13,
+    "a wall never checked": 5,
+    "difference of two bounded scores": 2,
+    "truncated string read as data": 2,
+    "a control validated by its own instrument's noise": 2,
+    "the definition describes the instance": 2,
+    "determinism read as currency": 1
+  },
+  "top3_share": 0.057441253263707574,
+  "ambiguous_at_t2": 16,
+  "claim_vs_mechanism": {
+    "share_claimy_unmatched": 0.11612284069097889,
+    "share_claimy_all": 0.10966057441253264,
+    "same_kind_of_object": true,
+    "reading": "coverage speaks to the taxonomy"
+  },
+  "units": {
+    "titles_matched": 107,
+    "mode_attributions": 127,
+    "note": "a tied title contributes one attribution per tied mode; the two counts are never summed"
+  },
+  "n_unmatched_at_t2": 1042,
+  "unmatched_examples": {
+    "236": "\"A global core transfers to prompts it was never fitted to\" \u2014 R240, retracted by R247",
+    "237": "\"provenance is 0.00 and cannot be repaired from this release\" \u2014 R232\u2192R249, retracted by R250",
+    "238": "\"The admissibility gate is `C(n,k) \u2264 A_real`\" \u2014 R248, retracted by R253 five rounds later",
+    "239": "\"The compilation adds no selection value\" \u2014 R235, retracted by R234's leakage control",
+    "240": "\"Entries 43\u201347 never existed; the numbering skipped\" \u2014 asserted and retracted the same day, 2026-08-03",
+    "241": "\"A core is admissible only if `C(n,k) \u2264 a(m)`\" \u2014 R248, retracted by R278 \u2192 R279",
+    "242": "\"The fidelity axis can certify competence but cannot rank competent cores\" \u2014 retracted the same hour, by sweeping the dimension I never swept",
+    "243": "Ten retractions of 2026-08-04, and the four modes they collapse into",
+    "244": "\"The R427\u2194R429 ranking gap is a NULL-construction bias\" \u2014 R429, retracted by R430 two hours later",
+    "245": "\"Clause \u2461 is emptied by a change of judge\" \u2014 R301, corrected by R447",
+    "247": "GATE 0 compared the wrong two quantities \u2014 a knife-edge verdict on an invented threshold (R449, caught in-round)",
+    "249": "A floor anchor wrong twice in one round, and both fixes were computations (R450, caught in-round)",
+    "250": "\"the extension of 1 is a fact about which arms were built\" \u2014 R450, narrowed by R451 one round later",
+    "251": "A g=0 control written so convolutedly it returned the wrong world (R451, caught in-round)",
+    "252": "A permutation null for a statistic that is permutation-invariant (R452, caught in-round)",
+    "253": "An attack that would have retracted a TRUE claim, caught by matching its two sides (R453)",
+    "254": "A share compared across two different sample sizes \u2014 third time in four rounds (R453)",
+    "255": "A discriminator built from two collinear variables \u2014 the granularity test (R454, caught in-round)",
+    "257": "The definition gate caught a loose anchor pattern \u2014 second time in three rounds (R454)",
+    "258": "An anchor that dropped a sign \u2014 third sign-related anchor bug, caught by the gate (R455)"
+  },
+  "taxonomy_source": "/home/ivan/.claude/skills/realstat/SKILL.md",
+  "reproducibility": {
+    "defect": "vocab was built by iterating sets of strings, so the decoy floor followed PYTHONHASHSEED and moved between identical runs",
+    "fix": "tokens sorted before the vocabulary list is built",
+    "caught_by": "running the same script twice and diffing the floor"
+  },
+  "bound": "shared tokens are not shared mechanism; coverage is bounded from ABOVE",
+  "unit_note": "counts are LEDGER ENTRIES",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
