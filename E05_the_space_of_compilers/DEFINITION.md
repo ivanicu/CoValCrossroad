@@ -120,6 +120,55 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⭐⭐ THE EXTENSION CONVERGES BEYOND ITS SCORE LEVEL — AND ITS COUNT WAS INFLATED (added 2026-08-07, R1005)
+
+**Two results, and the second corrects the section below it.**
+
+#### ⛔ FIRST, THE CORRECTION: `9` and `12` counted the same arms twice
+
+Over the 96-arm population there are **14 effectively identical pairs** — arms whose per-prompt
+orderings agree at **exactly 1.000** on every prompt. `coval_core == coval_core_2bA ==
+coval_core_2bB`; `generic == generic_reprov`; `oracle_k4 == oracle_k4_oracle_kA == …`. **The
+population is 96 arms but 85 distinct objects.**
+
+| | as counted (R1000/R1004) | **distinct** |
+|---|---:|---:|
+| `generic` | 8 | **4** |
+| `genericpool16` | 11 | **6** |
+
+⭐ **Roughly half the extension is the same object under another name.** R1004's *"admits 9 / 12"*
+should be read as **4 / 6 distinct criterion-selection procedures**, and under `generic` the
+extension is essentially **`coval_core` plus the `topw_k*` family**.
+
+#### ⭐ SECOND: the convergence, with both confounds sized
+
+Membership decided on half the prompts, agreement measured on the other half, 5 partitions × 3
+calipers × 2 comparators = **30 cells, all reported**:
+
+```
+Δ  =  within-extension agreement  −  level-matched non-member agreement
+   =  +0.0828   [+0.0499, +0.1169]     noise floor 0.0183     effect / floor = 4.5
+```
+
+⛔ **Two confounds, both real, both removed and sized rather than argued away:**
+- **level** — clause ② admits high-A2 arms, and two arms that agree with the human *must* agree with
+  each other. Unmatched Δ is **+0.1362**; the level effect is **+0.0533**. The unmatched number is a
+  DERIVATION and is never the estimate.
+- **duplication** — duplicates agree at 1.000 by construction. Full-population Δ is **+0.0996**;
+  deduplicating costs **+0.0168**. Only the deduplicated column is an estimate.
+
+⚠ **CONVERGENCE IS NOT TRUTH**, and this is labelled a convergence test throughout. A family can
+agree because it shares a bias. **And the level-matched comparison set is dominated by the SUPERVISED
+arms** — that is *why* they clear the level — so matching controls **level** but **not family**.
+Δ > 0 could mean members cohere, or that supervised arms are unusually heterogeneous among
+themselves; the round states both readings rather than picking one.
+
+**Controls.** A planted duplicate of `coval_core` returns agreement **1.000000**, and the instrument
+returns **0.523072** for a genuinely different arm — so it can see identity *and* is not saturated.
+⚠ That control **failed on its first run for its own reasons**: the arm I named as "different",
+`coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
+to trust an arm I picked by hand.
+
 ### ⭐⭐⭐ THE FORMULATION THIS ARC HAS EARNED — two conditions, and both of them bind (added 2026-08-07, R1004)
 
 Twenty-nine rounds of this arc killed wordings. **This is the one that survives all of them**, and it

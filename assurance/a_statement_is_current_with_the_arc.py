@@ -291,6 +291,18 @@ def main() -> int:
                        r"(both conditions bind|each condition removes).{0,400}"
                        r"(churn|N\s*=\s*726|stable)"]))
 
+    # ⛔ R1005: the extension CONVERGES beyond its score level -- and roughly half of it is the same
+    #    arms counted twice. The second half of that corrects R1004's own count, so a statement
+    #    carrying R1004's 9 and 12 without it is quoting duplicates as distinct objects.
+    d = load("A27_*/R1005_*/results/convergence.json")
+    if d:
+        facts.append(("R1005", "the extension converges beyond level, and its count was inflated "
+                               "by effectively identical arms",
+                      f"delta {d['delta_mean']:.4f} at {d['effect_over_floor']:.1f}x floor; "
+                      f"{d['population_full']}->{d['population_dedup']} distinct",
+                      [r"(14|eleven|11).{0,200}(identical|duplicat).{0,300}(85|distinct)",
+                       r"(0\.0828|\+0\.08).{0,300}(4\.5|floor|level)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
