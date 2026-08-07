@@ -795,6 +795,27 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > **0.000**. **Same verdict after dropping 57% of the extension** — so the definition admits
 > > several KINDS (8, not 3 as the arm NAMES suggest) that nonetheless span **less than two
 > > effective dimensions**, more concentrated than any random draw of the same size.
+> > ⛔⛔ **DOWNGRADED R891 — THAT CONCENTRATION IS CLAUSE ②'s, NOT THE DEFINITION'S.**
+> > All three rounds above compared the admitted set against a **UNIFORM** random subset of the
+> > 99. But the admitted arms are **by construction the high-scoring ones**, and if there are few
+> > ways to be right and many to be wrong, any high-scoring subset is concentrated. **The sham:
+> > draw 12 at random from the 28 that clause ② already admits** — score-matched by construction,
+> > with only clause ③'s label criterion removed.
+> > · uniform null (12 of 99): median **3.2101** → observed percentile **0.000**
+> > · **score-matched null (12 of the 28): median 1.7672 → observed percentile 0.710**
+> > **The observed 1.8751 sits comfortably INSIDE the score-matched null.** Contributions, reported
+> > apart and NOT summed: clause ② **−1.4429**, clause ③ **+0.1079** — clause ③ does not
+> > concentrate the set at all, and if anything mildly diversifies it.
+> > ⭐ **So the finding is RE-SCOPED, not retracted: the admitted set IS one direction wide, but
+> > that is what scoring well does, not what the two-clause definition does.** Any sentence
+> > crediting the DEFINITION with the concentration is withdrawn.
+> > ⚠ The matching is REAL, not nominal: the 12's margins (median +0.0219, range +0.0091…+0.0326)
+> > are spread through the 28's (+0.0326, +0.0091…+0.0861), so the pool is not a top-slice.
+> > ⚠ Controls: the uniform null reproduced R890's median to 4 decimals at the same seed; PR of 5
+> > identical vectors = 1.000000; the score-matched null went both ways around the observed
+> > (290 above, 710 below), so the contrast could have failed.
+> > ⛔ DERIVATION, not evidence: `PR < n` means the arms are not mutually independent — forced by
+> > the algebra. The measured question is only ever *concentrated RELATIVE TO WHAT*.
 > > ⚠ My own prefix reading — *"3 `coval_core*`, 2 `generic*`, 7 `topw_k*`, so three procedures"*
 > > — was **measured and OVERTURNED**: `topw_k2/k3/k6/k8` are not aliases of one another. A
 > > prefix is not a measurement, including when it is my own suspicion.
