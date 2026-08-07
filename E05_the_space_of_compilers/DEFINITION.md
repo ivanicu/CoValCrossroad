@@ -1351,6 +1351,20 @@ before writing its artifact, so `load` returned `None`, no fact was registered, 
 PASS — five times.** A missing artifact is therefore **indistinguishable from a satisfied fact**: it is
 §4's *empty population passes*, sitting inside the instrument that certifies every commit here.
 
+⭐⭐ **AND R1064 AUDITS THAT INSTRUMENT'S OWN INPUTS AND SHIPS THE FIX: all 79 globs resolve, dead 0**,
+and none matches more than one file. ⚠ **That is true NOW only because R1063's artifact was written
+minutes earlier** — it was false while that script was crashing, and nothing in the currency gate
+would have said so. The count reassures about the past only because the past has just been repaired.
+⭐ **The remedy is shipped, not merely proposed**: `assurance/a_registered_fact_must_load.py` exits
+**1** on any unresolved glob and names it. A round that leaves the defect in place is cost recovery;
+the gate is the production.
+⭐ **AND THE LOCK WAS ATTACKED BEFORE BEING TRUSTED.** Redirecting one glob to a nonexistent round →
+**exit 1** with the dead glob named; a registry containing **no** `load()` calls at all → **exit 2**,
+because a gate over nothing must not pass; restoring the registry → **exit 0**, 79 of 79. **The second
+attack is the load-bearing one**: without it, emptying the registry would have turned the new gate
+green. ⚠ **Existence is not correctness** — a resolving glob may still point at the wrong artifact,
+which is the currency gate's own pattern check and not this one's.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -696,6 +696,13 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1064_*/results/registry_inputs.json")
+    if d:
+        facts.append(("R1064", "every registered artifact glob resolves, and the skip is now loud",
+                      f"globs {d['globs']}, dead {len(d['dead'])}",
+                      [r"79\s+globs\s+resolve|all\s+79\s+globs",
+                       r"a_registered_fact_must_load\.py"]))
+
     d = load("A27_*/R1063_*/results/criterion_universes.json")
     if d:
         facts.append(("R1063", "the criterion universes are disjoint and the join is key-blocked",

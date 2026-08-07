@@ -1,0 +1,410 @@
+{
+  "round": "R1064",
+  "globs": 79,
+  "dead": [],
+  "multi_hit": [],
+  "rows": [
+    {
+      "glob": "A26_*/R921_*/results/comparator_sweep.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R921_is_the_admitted_set_a_property_of_the_arms_or_of_the_comparator/results/comparator_sweep.json"
+    },
+    {
+      "glob": "A26_*/R922_*/results/threshold_or_comparison.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R922_is_clause_two_a_comparison_or_a_threshold/results/threshold_or_comparison.json"
+    },
+    {
+      "glob": "A27_*/R923_*/results/bar_resolution.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R923_run_clause_two_on_its_own_comparators/results/bar_resolution.json"
+    },
+    {
+      "glob": "A26_*/R920_*/results/clause3_detectability.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A26_can_the_definition_be_applied_without_provenance/R920_is_clause_three_detectable_from_the_artifact/results/clause3_detectability.json"
+    },
+    {
+      "glob": "A27_*/R925_*/results/label_blind_k1_sweep.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R925_can_any_label_blind_size_one_selector_clear_the_bar/results/label_blind_k1_sweep.json"
+    },
+    {
+      "glob": "A27_*/R926_*/results/clause3_price_curve.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R926_the_price_of_clause_three_across_k/results/clause3_price_curve.json"
+    },
+    {
+      "glob": "A27_*/R975_*/results/overlap_bar.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R975_where_clause_fours_bar_sits_as_per_prompt_overlap_grows/results/overlap_bar.json"
+    },
+    {
+      "glob": "A27_*/R976_*/results/phi_star_scaling.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R976_phi_star_is_design_resolution_not_a_property_of_the_clause/results/phi_star_scaling.json"
+    },
+    {
+      "glob": "A27_*/R978_*/results/extension_vs_n.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R978_does_the_definitions_extension_depend_on_how_many_prompts_were_scored/results/extension_vs_n.json"
+    },
+    {
+      "glob": "A27_*/R979_*/results/clause3_ordering.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R979_does_clause_three_order_arms_differently_from_clause_two/results/clause3_ordering.json"
+    },
+    {
+      "glob": "A27_*/R980_*/results/instance_power.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R980_how_many_prompts_the_definition_needs_to_admit_its_own_instance/results/instance_power.json"
+    },
+    {
+      "glob": "A27_*/R986_*/results/size_decomposition.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R986_the_definition_names_a_scalar_size_the_released_core_does_not_have/results/size_decomposition.json"
+    },
+    {
+      "glob": "A27_*/R987_*/results/size_recoverable.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R987_the_size_reading_is_decided_and_it_needs_no_provenance/results/size_recoverable.json"
+    },
+    {
+      "glob": "A27_*/R988_*/results/cap_and_missing_clauses.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R988_the_card_caps_size_and_names_two_properties_the_definition_has_no_clause_for/results/cap_and_missing_clauses.json"
+    },
+    {
+      "glob": "A27_*/R989_*/results/dissent_erased.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R989_how_much_dissent_a_core_erases_and_whether_that_is_more_than_chance/results/dissent_erased.json"
+    },
+    {
+      "glob": "A27_*/R990_*/results/redundancy_did.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R990_does_the_cores_construction_actually_remove_redundancy/results/redundancy_did.json"
+    },
+    {
+      "glob": "A27_*/R994_*/results/cap_refused.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R994_the_cap_is_refused_because_its_boundary_is_below_resolution/results/cap_refused.json"
+    },
+    {
+      "glob": "A27_*/R1000_*/results/conjunction.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1000_the_four_clauses_as_one_operator/results/conjunction.json"
+    },
+    {
+      "glob": "A27_*/R1001_*/results/permissive_operator.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1001_the_operator_under_the_permissive_reading/results/permissive_operator.json"
+    },
+    {
+      "glob": "A27_*/R1002_*/results/class_closure.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1002_is_the_repairs_reference_class_closed_under_its_own_clause/results/class_closure.json"
+    },
+    {
+      "glob": "A27_*/R1003_*/results/wording_grid.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1003_which_wording_of_clause_four_survives_its_own_witnesses/results/wording_grid.json"
+    },
+    {
+      "glob": "A27_*/R1004_*/results/formulation.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1004_the_formulation_and_what_it_costs/results/formulation.json"
+    },
+    {
+      "glob": "A27_*/R1005_*/results/convergence.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1005_does_the_extension_converge_beyond_its_own_score_level/results/convergence.json"
+    },
+    {
+      "glob": "A27_*/R1006_*/results/family_spread.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1006_are_the_supervised_arms_unusually_heterogeneous/results/family_spread.json"
+    },
+    {
+      "glob": "A27_*/R1007_*/results/membership_null.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1007_the_negative_control_r1005_declared_and_never_ran/results/membership_null.json"
+    },
+    {
+      "glob": "A27_*/R1009_*/results/prompt_blind_admitted.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1009_the_formulation_admits_a_prompt_blind_arm/results/prompt_blind_admitted.json"
+    },
+    {
+      "glob": "A27_*/R1010_*/results/adoption_gap.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1010_the_stronger_criterion_was_committed_and_never_adopted/results/adoption_gap.json"
+    },
+    {
+      "glob": "A27_*/R1011_*/results/instance_rank.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1011_does_the_definition_single_out_its_own_instance/results/instance_rank.json"
+    },
+    {
+      "glob": "A27_*/R1012_*/results/cut_provenance.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1012_does_the_load_bearing_cut_rest_on_imputed_data/results/cut_provenance.json"
+    },
+    {
+      "glob": "A27_*/R1013_*/results/text_properties.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1013_no_text_only_property_can_be_definitional/results/text_properties.json"
+    },
+    {
+      "glob": "A27_*/R1014_*/results/instance_sham.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1014_is_the_instances_sham_an_exact_repairing/results/instance_sham.json"
+    },
+    {
+      "glob": "A27_*/R1015_*/results/discriminativeness.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1015_is_clause_two_the_only_pairing_dependent_content/results/discriminativeness.json"
+    },
+    {
+      "glob": "A27_*/R1016_*/results/preregistered_exclusion.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1016_what_discriminativeness_excludes_when_the_target_is_fixed_first/results/preregistered_exclusion.json"
+    },
+    {
+      "glob": "A27_*/R1017_*/results/belonging_vs_clause_two.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1017_does_a_belonging_clause_add_anything_to_clause_two/results/belonging_vs_clause_two.json"
+    },
+    {
+      "glob": "A27_*/R1019_*/results/target_scope.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1019_the_extension_is_A2s_answer_and_the_statement_never_said_so/results/target_scope.json"
+    },
+    {
+      "glob": "A27_*/R1020_*/results/a1_at_full_population.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1020_does_the_definition_admit_anything_under_A1_at_full_population/results/a1_at_full_population.json"
+    },
+    {
+      "glob": "A27_*/R1021_*/results/coverage_or_target.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1021_is_the_cores_exclusion_a_target_effect_or_the_imputation/results/coverage_or_target.json"
+    },
+    {
+      "glob": "A27_*/R1022_*/results/coverage_threshold_curve.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1022_does_the_coverage_guard_select_the_extension/results/coverage_threshold_curve.json"
+    },
+    {
+      "glob": "A27_*/R1023_*/results/false_admission_rate.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1023_what_false_admission_rate_does_the_guard_buy/results/false_admission_rate.json"
+    },
+    {
+      "glob": "A27_*/R1024_*/results/estimator_vs_threshold.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1024_is_the_threshold_the_wrong_instrument/results/estimator_vs_threshold.json"
+    },
+    {
+      "glob": "A27_*/R1025_*/results/quantifier_work.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1025_does_the_universal_quantifier_do_any_work/results/quantifier_work.json"
+    },
+    {
+      "glob": "A27_*/R1026_*/results/certification_predicate.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1026_is_the_certification_predicate_discriminating/results/certification_predicate.json"
+    },
+    {
+      "glob": "A27_*/R1027_*/results/cost_by_k.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1027_is_the_impossibility_registers_cost_a_constant/results/cost_by_k.json"
+    },
+    {
+      "glob": "A27_*/R1028_*/results/second_file_or_second_release.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1028_is_the_second_file_a_second_release/results/second_file_or_second_release.json"
+    },
+    {
+      "glob": "A27_*/R1029_*/results/requirement_class.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1029_does_one_wrong_requirement_invalidate_a_class/results/requirement_class.json"
+    },
+    {
+      "glob": "A27_*/R1030_*/results/next_novelty_live.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1030_the_novelty_gate_is_a_selftest_not_a_monitor/results/next_novelty_live.json"
+    },
+    {
+      "glob": "A27_*/R1031_*/results/flag_usage_and_repair_recall.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1031_the_caller_existed_and_i_never_passed_the_flag/results/flag_usage_and_repair_recall.json"
+    },
+    {
+      "glob": "A27_*/R1032_*/results/two_readings.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1032_is_the_stale_clause_text_cosmetic_or_operational/results/two_readings.json"
+    },
+    {
+      "glob": "A27_*/R1033_*/results/free_third_comparator.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1033_a_third_comparator_costs_zero/results/free_third_comparator.json"
+    },
+    {
+      "glob": "A27_*/R1034_*/results/closure_satisfiability.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1034_is_clause_two_satisfiable_under_closure/results/closure_satisfiability.json"
+    },
+    {
+      "glob": "A27_*/R1035_*/results/quantile_bound_curve.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1035_is_the_vacuity_a_max_over_search/results/quantile_bound_curve.json"
+    },
+    {
+      "glob": "A27_*/R1036_*/results/scale_free_q.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1036_which_q_is_scale_free/results/scale_free_q.json"
+    },
+    {
+      "glob": "A27_*/R1037_*/results/stated_form_verifies.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1037_state_the_clause_with_its_parameter/results/stated_form_verifies.json"
+    },
+    {
+      "glob": "A27_*/R1038_*/results/false_admission_by_q.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1038_what_false_admission_does_each_q_buy/results/false_admission_by_q.json"
+    },
+    {
+      "glob": "A27_*/R1039_*/results/own_impossibility_rate.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1039_this_sessions_own_impossibility_rate/results/own_impossibility_rate.json"
+    },
+    {
+      "glob": "A27_*/R1040_*/results/target_choice_in_release.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1040_is_the_target_choice_measurable_in_release/results/target_choice_in_release.json"
+    },
+    {
+      "glob": "A27_*/R1041_*/results/fallen_wall_signal.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1041_is_a_fallen_wall_distinguishable_in_advance/results/fallen_wall_signal.json"
+    },
+    {
+      "glob": "A27_*/R1042_*/results/field_and_gate.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1042_the_field_that_makes_the_gate_runnable/results/field_and_gate.json"
+    },
+    {
+      "glob": "A27_*/R1043_*/results/mutation_test.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1043_can_the_gates_that_pass_actually_fail/results/mutation_test.json"
+    },
+    {
+      "glob": "A27_*/R1063_*/results/criterion_universes.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1063_the_criterion_universes_are_disjoint/results/criterion_universes.json"
+    },
+    {
+      "glob": "A27_*/R1062_*/results/index_locality.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1062_the_criterion_index_is_local_to_its_file/results/index_locality.json"
+    },
+    {
+      "glob": "A27_*/R1061_*/results/reconciliation.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1061_three_numbers_for_one_arm/results/reconciliation.json"
+    },
+    {
+      "glob": "A27_*/R1060_*/results/fixed_rule_bound.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1060_the_bound_on_what_any_fixed_rule_can_reach/results/fixed_rule_bound.json"
+    },
+    {
+      "glob": "A27_*/R1059_*/results/second_optimiser.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1059_a_second_optimiser_that_shares_no_design_choice/results/second_optimiser.json"
+    },
+    {
+      "glob": "A27_*/R1058_*/results/never_seen_cores.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1058_does_the_clause_admit_a_core_it_has_never_seen/results/never_seen_cores.json"
+    },
+    {
+      "glob": "A27_*/R1057_*/results/q_in_its_own_world.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1057_what_q_would_buy_in_the_world_where_it_acts/results/q_in_its_own_world.json"
+    },
+    {
+      "glob": "A27_*/R1056_*/results/certification_curve.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1056_can_the_certified_family_reach_the_size_q_needs/results/certification_curve.json"
+    },
+    {
+      "glob": "A27_*/R1055_*/results/component_ablation.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1055_which_clause_components_exclude_anything/results/component_ablation.json"
+    },
+    {
+      "glob": "A27_*/R1054_*/results/declared_dependencies.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1054_what_the_clause_cites_in_its_own_sentences/results/declared_dependencies.json"
+    },
+    {
+      "glob": "A27_*/R1053_*/results/recomputed_dependence.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1053_does_R1050_survive_the_corrected_set/results/recomputed_dependence.json"
+    },
+    {
+      "glob": "A27_*/R1052_*/results/stamp_vs_history.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1052_is_the_provenance_stamp_ever_checked/results/stamp_vs_history.json"
+    },
+    {
+      "glob": "A27_*/R1051_*/results/reran_the_flagged.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1051_can_the_flagged_rounds_re_derive_their_own_numbers/results/reran_the_flagged.json"
+    },
+    {
+      "glob": "A27_*/R1050_*/results/audit_reached_the_object.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1050_do_the_unattributable_facts_carry_the_clause/results/audit_reached_the_object.json"
+    },
+    {
+      "glob": "A27_*/R1049_*/results/gate_coincidence.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1049_how_many_facts_the_gate_certified_by_coincidence/results/gate_coincidence.json"
+    },
+    {
+      "glob": "A27_*/R1048_*/results/residue_partition.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1048_the_residue_is_four_classes_not_one/results/residue_partition.json"
+    },
+    {
+      "glob": "A27_*/R1047_*/results/floating_or_constant.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1047_are_the_floating_numbers_findings_or_constants/results/floating_or_constant.json"
+    },
+    {
+      "glob": "A27_*/R1046_*/results/headline_backing.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1046_is_every_headline_number_in_its_own_artifact/results/headline_backing.json"
+    },
+    {
+      "glob": "A27_*/R1045_*/results/habit_or_incident.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1045_the_habit_claim_was_wrong_and_the_count_says_so/results/habit_or_incident.json"
+    },
+    {
+      "glob": "A27_*/R1044_*/results/narrow_not_blind.json",
+      "hits": 1,
+      "path": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1044_the_anchoring_gate_is_narrow_not_blind/results/narrow_not_blind.json"
+    }
+  ],
+  "world": "\u2b50 A R1063's SILENT SKIP WAS ISOLATED \u2014 all 79 globs resolve, so the registry's coverage is what its source suggests and the defect cost exactly one round. \u26a0 That is true NOW because R1063's artifact was written minutes ago; it was false while that script was crashing, and nothing in the gate would have said so.",
+  "remedy": "assurance/a_registered_fact_must_load.py",
+  "controls": {
+    "positive_known_glob_resolves": true,
+    "negative_fabricated": true
+  },
+  "limitation": "existence is not correctness; a resolving glob may point at the wrong file"
+}
