@@ -1,0 +1,240 @@
+{
+  "round": "R1026",
+  "seeds": [
+    1026,
+    2052,
+    3078
+  ],
+  "ks": [
+    2,
+    3,
+    4,
+    6,
+    8,
+    12
+  ],
+  "threshold": 0.95,
+  "correction_to_r1025": {
+    "withdrawn": "R921 certified 2 comparators from a larger pool",
+    "replacement": "`fixed` is computed over 96 arms and exactly 2 satisfy it; the predicate is a filter, not a curatorial choice",
+    "n_arms_typed": 96,
+    "n_fixed": 2,
+    "fixed": [
+      "generic",
+      "genericpool16"
+    ]
+  },
+  "join": {
+    "label": "a join of two committed artifacts; no new evidence",
+    "n_stricter_than_generic": 26,
+    "stricter": [
+      "oracle_k4",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB",
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB",
+      "greedy_k2_fit1",
+      "oracle_k4_fit1",
+      "greedy_k4_fit1",
+      "indep_k2_fit1",
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB",
+      "indep_k4_fit1",
+      "greedy_k8_fit1",
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB",
+      "indep_k8_fit1",
+      "oracle_k4_08bR",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8",
+      "greedy_k12_fit1",
+      "topw_k2"
+    ],
+    "prompt_blind_among_them": [],
+    "exact_eq_1": 23,
+    "exact_lt_half": [
+      [
+        "coval_core",
+        0.0010330578512396695
+      ]
+    ],
+    "untyped": [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ]
+  },
+  "positive_anchors": {
+    "generic": {
+      "mine": 0.0,
+      "r918": 0.0
+    },
+    "topw_k4": {
+      "mine": 1.0,
+      "r918": 1.0
+    }
+  },
+  "n_prompts": 968,
+  "n_empty_rubrics_excluded": 0,
+  "pool_size": 14810,
+  "rubric_size": {
+    "min": 4,
+    "median": 15,
+    "max": 39
+  },
+  "rates": [
+    {
+      "k": 2,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 2,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 2,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 3,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 3,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 3,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 4,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 4,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 4,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 6,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 6,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 6,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 8,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 8,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 8,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 12,
+      "mode": "prompt-blind (global pool)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 12,
+      "mode": "SHAM (a DIFFERENT prompt's rubric)",
+      "rate": 0.0,
+      "seed_spread": 0.0
+    },
+    {
+      "k": 12,
+      "mode": "PLACEBO (this prompt's own rubric)",
+      "rate": 1.0,
+      "seed_spread": 0.0
+    }
+  ],
+  "worst_prompt_blind_rate": 0.0,
+  "forced_vs_measured": {
+    "analytic_chance_by_k": [
+      {
+        "k": 2,
+        "analytic_chance": 1.0258229265497108e-06,
+        "measured": 0.0
+      },
+      {
+        "k": 3,
+        "analytic_chance": 1.0389833827309697e-09,
+        "measured": 0.0
+      },
+      {
+        "k": 4,
+        "analytic_chance": 1.0523126766350133e-12,
+        "measured": 0.0
+      },
+      {
+        "k": 6,
+        "analytic_chance": 1.0794864695910886e-18,
+        "measured": 0.0
+      },
+      {
+        "k": 8,
+        "analytic_chance": 1.1073619694067458e-24,
+        "measured": 0.0
+      },
+      {
+        "k": 12,
+        "analytic_chance": 1.1652910380302323e-36,
+        "measured": 0.0
+      }
+    ],
+    "note": "the prompt-blind row is DERIVED from the size ratio; the SHAM row is the cell that could have failed"
+  },
+  "adjacent_pair_shares_any_criterion": 0.0,
+  "sham_max": 0.0,
+  "placebo_ok": true,
+  "world": "\u2b50 A THE PREDICATE DISCRIMINATES \u2014 a prompt-blind draw lands inside a prompt's own rubric at most 0.0000 of the time (k\u2208[2, 3, 4, 6, 8, 12]), against 1.0000 for the arms the chain excludes. `exact \u2248 1` therefore marks real prompt-specific consumption, the 2-member set is the COMPLETE population of prompt-blind arms, and the constraint belongs to the RELEASE, not to the definition.",
+  "limitation": "bounds what the EXISTING population contains, never what is possible; a new prompt-blind comparator costs 15,488 judge calls to score"
+}

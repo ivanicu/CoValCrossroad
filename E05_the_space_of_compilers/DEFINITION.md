@@ -757,11 +757,32 @@ first pass found 2 resolved flips (`generic` — which *is* a comparator, so `lo
 irreducible. The rule that removes them is mechanical and general: **an arm is not a candidate
 against comparator `C` on target `T` if its paired sd against `C` is exactly zero there.**
 
-⚠ **What does NOT follow: that the clause is safe to simplify in general.** The certified set is a
-**choice the clause never mentions** — R921 certified 2 comparators from a larger pool, and the
-quantifier inherits its strength from that certification step rather than from the word *every*. A
-third comparator could bind. **N/A here, with the cost named:** a comparator that is not already a
+⚠ **What does NOT follow: that the clause is safe to simplify in general.** A third comparator could
+bind, and none has been built. **N/A here, with the cost named:** a comparator that is not already a
 scored arm costs **15,488 judge calls** (R914).
+
+⛔⛔ **CORRECTED BY R1026 ONE ROUND LATER — "CERTIFIED 2 FROM A LARGER POOL" WAS WRONG, AND IT IS
+REPLACED RATHER THAN CAVEATED.** This section first said the certified set is *"a choice the clause
+never mentions — R921 certified 2 comparators from a larger pool"*. Read from the source, R918
+computes the `fixed` predicate over **96** arms and **exactly 2 satisfy it**. There was **no selection
+among viable alternatives**: the predicate is a filter and it admitted everything that qualified.
+
+⭐ **And the replacement is a stronger statement, not a weaker one.** The set is the **complete
+population of prompt-blind arms in this release**, so **clause ②′'s satisfiability is hostage to the
+release containing such arms at all** — a constraint belonging to the RELEASE, not to the definition.
+Joining R921's counts to R918's properties: **26 of 99** arms are stricter than `generic`, and
+**0 of them are prompt-blind** — 23 have `exact = 1.0` (their selection is a subset of *that prompt's*
+rubric) and the remaining 3 are the instance and its twins, which cannot be their own comparator.
+
+⚠ **And the predicate that decides this was itself uncalibrated until R1026.** Its chance base rate:
+a prompt-blind draw lands inside a prompt's own rubric at **0.0000** for every k ∈ {2,3,4,6,8,12}
+(binomial SE ±0.0093), against **1.0000** for a draw from the prompt's own rubric.
+⛔ **Most of that is FORCED** — pool **14,810** vs median rubric **15** is a **987:1** ratio, so the
+analytic chance is 1.03e−06 at k=2 and 1.17e−36 at k=12. What was genuinely unknown is **the ratio**.
+⭐ **The cell that could have failed is the SHAM**: drawing *real* criteria from *another prompt's
+real* rubric also lands at **0.0000**, and directly, **0.0000 of adjacent prompt pairs share any
+criterion at all.** **Rubric criteria are prompt-unique across this corpus** — a fact about the
+release, and the thing that licenses reading `exact` as *prompt-matching* rather than *"rubric-shaped"*.
 
 **Controls.** R922's cut and count reproduced at 1e-9; `coval_core` admitted under both comparators;
 **an arm is never admitted against itself** (the paired difference is identically zero, so `lo > 0` is

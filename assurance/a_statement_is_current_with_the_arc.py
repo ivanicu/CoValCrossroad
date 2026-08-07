@@ -505,6 +505,20 @@ def main() -> int:
                        r".{0,400}(reduce\w*|shorthand|inert|binding)",
                        r"(binding comparator|never binds).{0,200}generic"]))
 
+    # ⛔⛔ R1026: the certified set is NOT a curatorial choice — `fixed` is computed over 96 arms
+    #    and exactly 2 satisfy it, so it is the COMPLETE population of prompt-blind arms and the
+    #    constraint belongs to the RELEASE. Also carries the predicate's own calibration: rubric
+    #    criteria are prompt-unique (0.0000 of adjacent pairs share any criterion).
+    d = load("A27_*/R1026_*/results/certification_predicate.json")
+    if d:
+        c = d["correction_to_r1025"]
+        facts.append(("R1026", "the certified set is the COMPLETE prompt-blind population",
+                      f"{c['n_fixed']} of {c['n_arms_typed']} arms satisfy `fixed`; "
+                      f"{len(d['join']['prompt_blind_among_them'])} stricter prompt-blind arms",
+                      [r"(complete population|everything that qualified|no selection among)"
+                       r".{0,400}(prompt[- ]blind|filter)",
+                       r"(96).{0,120}(exactly 2|only 2).{0,200}(satisf|fixed)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
