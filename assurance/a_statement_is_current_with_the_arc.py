@@ -24,7 +24,13 @@ Documenting a "this string must be absent" marker puts that very string in the c
 detector then finds it — that happened three times earlier in this project. The absent marker is
 therefore assembled at run time and never appears in this file as one token.
 
-Exit 2 on failure, never 1, and never 0 on an empty population.
+⛔ EXIT CONTRACT, CORRECTED R977. This line used to read "Exit 2 on failure, never 1" and the code
+obeyed it — but 2 is this suite's code for UNRUNNABLE, and `run_all.py` buckets it as *"a check with
+no population has not passed, it has not run."* A stale statement is the opposite claim: the gate
+looked, and the corpus violated it. So:
+  **1** — FAIL: measured facts are missing from the statement.
+  **2** — UNRUNNABLE: the file is missing, the section is missing, no artifacts were found, or the
+          matcher itself is broken. Never 0 on an empty population.
 """
 import json, pathlib, re, sys
 
@@ -105,6 +111,29 @@ def main() -> int:
                       [r"(decay|decreas|monoton).{0,160}\bk\b",
                        r"\bk\b.{0,160}(decay|decreas|monoton)"]))
 
+    # ⛔ R977: THIS GATE WAS GREEN WHILE THE STATEMENT WAS STALE, AND THE REASON IS ITS POPULATION.
+    #    Its facts are a hard-coded list of six artifacts. R975 and R976 then measured two things
+    #    about clause ④ and the gate could not notice, because you cannot grep for the absence of a
+    #    fact you were never told about — the same shape as the defect this file was written to
+    #    catch, one level up. A currency gate whose fact list is manual has a currency problem of
+    #    its own. Registering them here is the manual step; making it automatic is a different
+    #    round and is named in this one's NEXT rather than implied by a green run.
+    #    ⭐ Both patterns were checked against the UNREPAIRED statement first and matched nothing,
+    #    so the red they produce is a measurement rather than a pattern that would have fired anyway.
+    d = load("A27_*/R975_*/results/overlap_bar.json")
+    if d:
+        facts.append(("R975", "clause 4 is overlap-limited, not mean-determined",
+                      d["world"].split("—")[0].strip(),
+                      [r"(overlap|per-prompt share|above the floor on).{0,200}(response[- ]only|④)",
+                       r"(response[- ]only|④).{0,200}(overlap|per-prompt share|above the floor on)"]))
+
+    d = load("A27_*/R976_*/results/phi_star_scaling.json")
+    if d:
+        facts.append(("R976", "clause 4's bar is design resolution in N and delta",
+                      d["closed_form"],
+                      [r"(④|response[- ]only).{0,300}(N\s*=\s*968|\bN\b).{0,200}(δ|delta)",
+                       r"(δ|delta).{0,200}(N\s*=\s*968|\bN\b).{0,300}(④|response[- ]only)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
@@ -137,7 +166,13 @@ def main() -> int:
             print(f"    {rnd}  {what} = {val}")
         print("  A consistency gate cannot see this: the statement can match every artifact it")
         print("  cites and still be wrong about every artifact it does not.")
-        return 2
+        # ⛔ R977: THIS RETURNED 2, AND 2 MEANS SOMETHING ELSE IN THIS SUITE. run_all.py buckets
+        #    rc=2 as UNRUNNABLE -- "a check with no population has not passed, it has not run" --
+        #    so a REAL staleness failure was being reported as though the gate had examined
+        #    nothing. Those are opposite claims: one says the corpus violates the rule, the other
+        #    says the rule never got to look. The matcher-broken path above keeps 2, because that
+        #    one genuinely is unrunnable. Found by running the gate, not by reading it.
+        return 1
 
     print(f"\n  PASS: every measured fact is present in the statement region "
           f"({len(region.splitlines())} lines).")

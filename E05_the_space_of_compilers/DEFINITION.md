@@ -103,8 +103,22 @@ not a core**, and applying it to a core whose production is unknown is unsupport
   k = 1, 2, 3, 4, 6, 8, at every sampling cap (R926). **So ① and ③ guard the same failure from
   opposite sides** — ① excludes exactly the regime where ③ is cheapest to violate profitably.
 
-**④ beats every response-only rule** — unchanged; the permissive reading remains the one that makes
-the clause well-formed (R824).
+**④ beats every response-only rule** — the permissive reading remains the one that makes the clause
+well-formed (R824), but **"unchanged" is retracted**: ④'s reach is bounded, and the bound is a
+property of the DESIGN rather than of the clause.
+- **It is overlap-limited, not mean-determined** (R975). At a mean deficit held fixed at δ = 0.01,
+  ④ stops removing an arm once that arm is strictly **above the floor on ~40–50% of prompts** — the
+  point estimate is pinned by algebra and only the interval moves, widening 0.00255 → 0.01136 across
+  the sweep. So an arm can sit below the floor **on average** and survive ④.
+- **The bar has a closed form with no clause content and no corpus term** (R976):
+  `φ* = (δ²·N / (z·STEP)² − δ/STEP) / 2`, registered before the run and landing within 1.5 grid
+  steps on **13 of 14** measured cells across **N ∈ {242, 484, 726, 968} × δ ∈ {0.008…0.016}**.
+  Measured φ*(968)/φ*(484) = 1.50 / 2.71 / 2.25 per seed against a registered 2.15.
+- ⚠ **Therefore any statement of ④'s reach must carry `N` and `δ`.** R821's headline — the 0.01
+  detection being finer than the design's half-split noise floor of 0.0067 — is a fact about a
+  **968-prompt** design: at N = 242 the same δ is defeated at an overlap near 0.10.
+- **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
+  form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
 **The metric is `A2`, the graded per-prompt agreement**, and naming it excludes a real reading:
 under exact-class agreement `coval_core` sits below its floor and fails clause ② itself.

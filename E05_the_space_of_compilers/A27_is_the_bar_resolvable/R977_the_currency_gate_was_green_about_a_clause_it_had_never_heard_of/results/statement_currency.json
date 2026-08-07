@@ -1,0 +1,31 @@
+{
+ "source_sha": "a97bb1713cd99a9d",
+ "parent": "8606a672",
+ "parent_region_lines": 648,
+ "now_region_lines": 662,
+ "controls": {
+  "positive_present_in_both": true,
+  "negative_sentinel_absent": true
+ },
+ "rows": [
+  {
+   "fact": "R975 clause 4 is overlap-limited",
+   "parent": false,
+   "now": true,
+   "verdict": "REAL \u2014 the repair moved it"
+  },
+  {
+   "fact": "R976 clause 4's bar is design resolution",
+   "parent": false,
+   "now": true,
+   "verdict": "REAL \u2014 the repair moved it"
+  }
+ ],
+ "decoration": [],
+ "world": "B REAL \u2014 both facts were absent at the parent and are present now",
+ "unit_gap": {
+  "instrument": "a regex matches inside the statement region",
+  "claim": "a reader can tell the scope of clause 4",
+  "equal": false
+ }
+}
