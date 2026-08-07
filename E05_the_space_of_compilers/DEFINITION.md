@@ -1307,6 +1307,27 @@ from it, and that refusal is the only reason this reconciliation happened instea
 cross-round gap.** ⚠ **Controls**: both committed numbers **read from artifacts**, never remembered;
 the two sources shown to **differ** before the object hypothesis was entertained at all.
 
+⛔⛔⛔ **AND R1062 RETRACTS R1061's HEADLINE ONE ROUND AFTER IT WAS WRITTEN: THE CRITERION INDEX IS
+LOCAL TO ITS FILE, SO EVERY CROSS-FILE NUMBER IN THIS LINE IS VOID.** On the **15,488** `(criterion,
+letter)` keys `sat_generic` and `sat_full` share, they disagree on **14,878 — `0.9606`** — identically
+at 1e-12 and 1e-6, so it is not a floating-point artefact. **The integer in `(i, letter)` is a POSITION
+IN THAT ARM'S OWN CRITERION LIST, not a global id**: `generic`'s criterion 0 and `full`'s criterion 0
+are different criteria that share an index. Searching all `4 × 39` pairs for a value-preserving
+correspondence finds **0 of 4** exact matches (closest mean |Δ| `0.0977`–`0.1495`).
+⭐ **SO R1061's `the true comparator scores 0.6632 and the bound binds five times harder` IS
+WITHDRAWN** — it read one file's comparator against another file's subsets. ⛔ **And the error is the
+one R1060 warned about, one level down**: R1060 refused to quote numbers across ROUNDS without
+re-deriving them; **one round later I quoted them across FILES without checking the files share an
+index space.** The rule was right and I applied it at the wrong grain.
+⭐⭐ **WHAT THIS RESTORES**: **R1060's margins are internally valid after all** — one file, one
+consistent index space — and only its LABEL was wrong: `comparator` should read **`full` restricted to
+its own first four criteria**. Its bound stands as originally reported, **neither harder nor softer**.
+**R1059's `0.5514` remains the real `generic`**, read from its own file, and is not comparable to any
+`sat_full`-derived number.
+⚠ **And the route that would make cross-arm criterion claims admissible is IN-RELEASE and
+unattempted**: `data/conversation_rubrics.jsonl` carries the rubric TEXT, so a global criterion
+identity is obtainable by joining on text rather than on position.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

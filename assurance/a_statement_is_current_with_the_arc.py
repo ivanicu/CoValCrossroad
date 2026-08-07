@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1062_*/results/index_locality.json")
+    if d:
+        facts.append(("R1062", "the criterion index is local to its file; cross-file numbers are void",
+                      f"disagree {d['rate_1e12']:.4f}, exact matches {len(d['exact_matches'])} "
+                      f"of {len(d['generic_criteria'])}",
+                      [r"0\.9606",
+                       r"0 of 4 exact matches|POSITION IN THAT ARM"]))
+
     d = load("A27_*/R1061_*/results/reconciliation.json")
     if d:
         facts.append(("R1061", "R1060 compared against a reconstructed arm, not the comparator",
