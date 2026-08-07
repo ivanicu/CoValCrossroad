@@ -1405,6 +1405,23 @@ asserted value.**
 ⚠ **And R1044's ceiling still binds**: anchoring covers **2.7-7.8%** of this document, so
 **artifact-coupled WITHIN ITS COVERAGE** is the entire claim — never *the statement is anchored*.
 
+⛔⛔⛔ **AND R1067 ASKS WHERE THE CLAUSE ITSELF SITS, AND THE ANSWER IS THE WORST CASE THOSE TWO FACTS
+LEFT OPEN: `0 of 121` NUMERIC CONSTANTS IN THE CLAUSE REGION ARE NOTICED.** Every number inside a
+±700-character window around each of the **9** `resolvably beats` homes was mutated **one at a time**
+and the anchoring gate stayed **green for every one** — while a value R1066 established as anchored
+**reds**. ⭐ **So the gate is perfectly coupled to values that are NOT the definition, and the sentence
+this entire arc exists to defend sits in the uncovered remainder.**
+⭐ **THE POSITIVE CONTROL IS WHAT MAKES `0 of 121` A MEASUREMENT RATHER THAN SILENCE** — without a
+demonstrated red, a zero from this instrument would be *"never shown to return non-zero"*. And the
+**sham** (mutating a WORD rather than a number inside the clause) does **not** red, so the finding is
+*these values are unguarded*, not *any edit to this region is ignored*. Placebo restores; the document
+was restored after every one of the 121 mutations.
+⭐⭐ **THE READING OF THE COMMIT RECORD CHANGES COMPLETELY.** Every `all gates green` in this window
+meant **the expected strings are present** (currency, R1065) **and some values elsewhere in this
+document still match their artifacts** (anchoring, R1066) — **and never that the clause is anchored.**
+⚠ **Coverage is not correctness**: an unguarded constant is not thereby wrong. It is unguarded, which
+is a statement about the instrument and a licence the instrument does not grant.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -1,0 +1,252 @@
+{
+  "round": "R1067",
+  "clause_homes": 9,
+  "constants": 121,
+  "noticed": 0,
+  "noticed_share": 0.0,
+  "noticed_values": [],
+  "per_value": {
+    "0": [
+      0,
+      7
+    ],
+    "0.0039": [
+      0,
+      1
+    ],
+    "0.0057": [
+      0,
+      3
+    ],
+    "0.005730": [
+      0,
+      3
+    ],
+    "0.0080": [
+      0,
+      1
+    ],
+    "0.008227": [
+      0,
+      1
+    ],
+    "0.0091": [
+      0,
+      2
+    ],
+    "0.009103": [
+      0,
+      3
+    ],
+    "0.009956": [
+      0,
+      2
+    ],
+    "0.011842": [
+      0,
+      1
+    ],
+    "0.012": [
+      0,
+      1
+    ],
+    "0.012488": [
+      0,
+      3
+    ],
+    "0.0125": [
+      0,
+      2
+    ],
+    "0.0633": [
+      0,
+      1
+    ],
+    "0.0714": [
+      0,
+      1
+    ],
+    "0.482016": [
+      0,
+      1
+    ],
+    "0.551354": [
+      0,
+      1
+    ],
+    "0.5514": [
+      0,
+      2
+    ],
+    "0.5593": [
+      0,
+      2
+    ],
+    "0.559311": [
+      0,
+      2
+    ],
+    "0.566477": [
+      0,
+      1
+    ],
+    "0.572335": [
+      0,
+      1
+    ],
+    "07": [
+      0,
+      3
+    ],
+    "08": [
+      0,
+      3
+    ],
+    "1": [
+      0,
+      3
+    ],
+    "1.000": [
+      0,
+      1
+    ],
+    "10": [
+      0,
+      1
+    ],
+    "12": [
+      0,
+      4
+    ],
+    "13": [
+      0,
+      1
+    ],
+    "15": [
+      0,
+      3
+    ],
+    "16": [
+      0,
+      2
+    ],
+    "2": [
+      0,
+      1
+    ],
+    "200": [
+      0,
+      1
+    ],
+    "2026": [
+      0,
+      3
+    ],
+    "23": [
+      0,
+      1
+    ],
+    "24": [
+      0,
+      6
+    ],
+    "28": [
+      0,
+      6
+    ],
+    "3": [
+      0,
+      2
+    ],
+    "32": [
+      0,
+      1
+    ],
+    "39": [
+      0,
+      1
+    ],
+    "4": [
+      0,
+      6
+    ],
+    "488": [
+      0,
+      2
+    ],
+    "5": [
+      0,
+      1
+    ],
+    "57": [
+      0,
+      1
+    ],
+    "61": [
+      0,
+      1
+    ],
+    "68": [
+      0,
+      3
+    ],
+    "7": [
+      0,
+      1
+    ],
+    "72": [
+      0,
+      2
+    ],
+    "73": [
+      0,
+      1
+    ],
+    "74": [
+      0,
+      1
+    ],
+    "872": [
+      0,
+      1
+    ],
+    "9": [
+      0,
+      3
+    ],
+    "90": [
+      0,
+      1
+    ],
+    "94": [
+      0,
+      1
+    ],
+    "95": [
+      0,
+      1
+    ],
+    "96": [
+      0,
+      3
+    ],
+    "968": [
+      0,
+      4
+    ],
+    "99": [
+      0,
+      3
+    ]
+  },
+  "baseline_exit": 0,
+  "sham_exit": 0,
+  "world": "\u26d4 B THE CLAUSE IS IN THE UNCOVERED REMAINDER \u2014 NONE of the 121 numeric constants in the clause region reds when mutated, while a value R1066 established as anchored does. **So the gate is coupled to values that are not the definition**, and `anchoring GREEN` on every commit in this window has said nothing whatever about the clause.",
+  "controls": {
+    "positive_known_anchored_reds": true,
+    "negative_baseline_green": true,
+    "sham_word_mutation_no_red": true,
+    "placebo_restore": true
+  },
+  "limitation": "measures what the gate would notice, never what is true"
+}

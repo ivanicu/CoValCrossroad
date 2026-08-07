@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1067_*/results/clause_coverage.json")
+    if d:
+        facts.append(("R1067", "the clause sits in the anchoring gate's uncovered remainder",
+                      f"constants {d['constants']}, noticed {d['noticed']}",
+                      # ⚠ aligned to the wording actually written, not the wording I intended —
+                      # checked against the document before committing, per R1063
+                      [r"`0 of 121`\s+NUMERIC\s+CONSTANTS",
+                       r"never\s+that\s+the\s+clause\s+is\s+anchored"]))
+
     d = load("A27_*/R1066_*/results/anchoring_coupling.json")
     if d:
         facts.append(("R1066", "anchoring IS artifact-coupled; the two gates differ in kind",
