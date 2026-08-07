@@ -1,0 +1,391 @@
+{
+ "source_sha": "7407c213d36d1b85",
+ "head": "does an unwired constant predict a control that never ran",
+ "population": 53,
+ "n_rounds": 47,
+ "controls": {
+  "positive_r1005_nshuf_not_performed": true,
+  "noisy_max": 6,
+  "placebo_population_equals_gate_flags": true
+ },
+ "not_performed": 6,
+ "performed": 0,
+ "undecidable": 47,
+ "share_not_performed_of_decidable": 1.0,
+ "rows": [
+  {
+   "round": "R207_detection_matrix",
+   "const": "LETTERS",
+   "line": 66,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R226_pricing_the_observable",
+   "const": "L",
+   "line": 46,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R243_the_assumption_they_differ_on",
+   "const": "SEEDS",
+   "line": 56,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R256_is_the_rubric_rank_one",
+   "const": "GT",
+   "line": 87,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R267_what_this_release_can_resolve",
+   "const": "DRAWS",
+   "line": 83,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(20)"
+  },
+  {
+   "round": "R273_the_inflation_as_an_interval",
+   "const": "DOSES",
+   "line": 63,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R282_is_the_saturation_forced_by_sample_size",
+   "const": "FULL",
+   "line": 107,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(75)"
+  },
+  {
+   "round": "R284_are_the_two_winners_one_mechanism",
+   "const": "PAIRS",
+   "line": 65,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R288_does_the_partition_survive_the_target",
+   "const": "L",
+   "line": 61,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R288_does_the_partition_survive_the_target",
+   "const": "PAIRS",
+   "line": 57,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R289_which_target_earns_the_definition",
+   "const": "PAIRS",
+   "line": 58,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R290_does_the_partition_survive_the_judge",
+   "const": "PAIRS",
+   "line": 53,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R293_does_the_definition_exclude_a_fitted_core",
+   "const": "PAIRS",
+   "line": 58,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R294_the_definition_against_everything",
+   "const": "PAIRS",
+   "line": 58,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R295_held_out_annotators_are_not_held_out_labels",
+   "const": "PAIRS",
+   "line": 62,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R295_held_out_annotators_are_not_held_out_labels",
+   "const": "ZEFF",
+   "line": 63,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R296_is_there_an_optimal_k",
+   "const": "PAIRS",
+   "line": 41,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R297_why_k1_loses",
+   "const": "L",
+   "line": 49,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R297_why_k1_loses",
+   "const": "PAIRS",
+   "line": 47,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R298_is_importance_monotone",
+   "const": "PAIRS",
+   "line": 44,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R299_where_the_selection_boundary_is",
+   "const": "PAIRS",
+   "line": 45,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R300_does_combination_generalise",
+   "const": "PAIRS",
+   "line": 49,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R301_is_the_judge_a_shrink_or_a_reorder",
+   "const": "PAIRS",
+   "line": 54,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R311_does_the_shrink_differ_within_family",
+   "const": "PAIRS",
+   "line": 65,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R336_clause_three_tested_not_declared",
+   "const": "NSUB",
+   "line": 88,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(300)"
+  },
+  {
+   "round": "R336_clause_three_tested_not_declared",
+   "const": "SEEDS",
+   "line": 87,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R337_the_wall_is_the_population",
+   "const": "A24",
+   "line": 81,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R360_which_clause_is_load_bearing",
+   "const": "A24",
+   "line": 109,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R365_is_the_empty_channel_a_2B_statement",
+   "const": "A24",
+   "line": 96,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R369_the_transport_contrast_decomposes_two_ways",
+   "const": "ARMS",
+   "line": 102,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R507_the_residual_is_the_population_filter",
+   "const": "L",
+   "line": 57,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R529_which_human_labels_does_clause_three_mean",
+   "const": "NEITHER",
+   "line": 45,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R542_every_model_was_wrong_every_log_was_right",
+   "const": "LOGGED_MIN_GEN",
+   "line": 34,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R598_which_deliverable_documents_are_actually_gated",
+   "const": "E05",
+   "line": 62,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R638_can_the_exit_codes_be_decoded",
+   "const": "PARTS",
+   "line": 55,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R651_which_unresolvability_needs_the_caller",
+   "const": "GLOB_CALLS",
+   "line": 78,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R658_which_binding_forms_the_evaluator_never_sees",
+   "const": "E05",
+   "line": 73,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R658_which_binding_forms_the_evaluator_never_sees",
+   "const": "UNHANDLED",
+   "line": 140,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R664_twentyfour_rounds_zero_object_claims",
+   "const": "E05",
+   "line": 68,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R689_the_release_ships_one_core",
+   "const": "ARC",
+   "line": 47,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R690_which_literals_assert_the_release",
+   "const": "OURS",
+   "line": 43,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R708_does_the_gate_predict_falsity",
+   "const": "WIN",
+   "line": 58,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R731_what_the_open_failure_admits",
+   "const": "BLOCKLIST",
+   "line": 40,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R731_what_the_open_failure_admits",
+   "const": "Z95",
+   "line": 36,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(1.959964)"
+  },
+  {
+   "round": "R733_a_shared_level_or_a_shared_profile",
+   "const": "R284",
+   "line": 41,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R748_the_page_carries_two_identity_rules",
+   "const": "R524",
+   "line": 67,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R749_which_cell_did_each_claim_come_from",
+   "const": "KNOWN_CELL",
+   "line": 57,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R758_git_pins_the_population_both_of_them",
+   "const": "R756",
+   "line": 58,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R841_does_the_exact_class_interval_close_on_every_annotator",
+   "const": "TOL",
+   "line": 76,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(0.002)"
+  },
+  {
+   "round": "R988_the_card_caps_size_and_names_two_properties_the_definition_has_no_clause_for",
+   "const": "PR",
+   "line": 85,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R992_what_the_two_closable_departures_would_actually_exclude",
+   "const": "A24",
+   "line": 66,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R1000_the_four_clauses_as_one_operator",
+   "const": "RULE",
+   "line": 97,
+   "verdict": "UNDECIDABLE",
+   "why": "the constant is not a plain number; a literal search cannot decide"
+  },
+  {
+   "round": "R1005_does_the_extension_converge_beyond_its_own_score_level",
+   "const": "NSHUF",
+   "line": 74,
+   "verdict": "NOT-PERFORMED",
+   "why": "no loop in the file runs range(200)"
+  }
+ ],
+ "world": "A PREDICTS \u2014 6 of 6 decidable cases are NOT-PERFORMED (100%)",
+ "limitation": "precision measured against a MECHANICAL proxy for performance, not against adjudicated truth; only R1005 has an adjudicating round",
+ "would_require": "one R1007-shaped round per candidate"
+}
