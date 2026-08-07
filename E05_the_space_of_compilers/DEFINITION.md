@@ -795,6 +795,51 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > **max over 1,820** it is 0.910 and fails one of the two. **Same core, same clause, two
 > comparators, opposite verdicts — which is precisely the column this table does not have.**
 
+> ⭐⭐⭐ **AND THE COMPARATOR IS NOT A COLUMN — IT IS THE WHOLE CLAUSE. R866, D8, all four kills PASS.**
+> Six rounds attacked this comparison's denominator, threshold and criterion. **All six held the
+> comparator fixed, and the two in use were never compared.** Swept across every defensible form,
+> on one population, one bootstrap per cell, 99 arms:
+>
+> | comparator | core margin | core ratio | A `≥1.5` | B BH+CI | count A | count B |
+> |---|---:|---:|:--:|:--:|---:|---:|
+> | `single_genericpool16` | +0.024245 | **+2.2524** | ✓ | ✓ | 26 | 28 |
+> | `family_mean` | +0.027912 | **+2.8166** | ✓ | ✓ | 26 | **29** |
+> | `family_p75` | −0.000683 | −0.0683 | ✗ | ✗ | 13 | 13 |
+> | `family_p90` | −0.017803 | −1.8459 | ✗ | ✗ | 11 | 12 |
+> | ⭐ `argmax_arm` *(R860/R862/R864)* | +0.009002 | **+0.8639** | ✗ | **✓** | 13 | 17 |
+> | `per_prompt_max` | −0.057981 | −6.2433 | ✗ | ✗ | **0** | **0** |
+>
+> ⛔ **WORLD C: the verdict flips AND the two criteria flip at DIFFERENT points.** Comparator and
+> criterion **interact**, so clause ② has no verdict until BOTH are written into it.
+>
+> ⭐⭐ **CLAUSE ②'s EXTENSION RUNS FROM 29 TO 0 ON THE COMPARATOR CHOICE ALONE.** The published
+> count sits at the **weakest** end of that range. **A count quoted without its comparator is not a
+> weak claim — it is an arbitrary one.**
+>
+> ⭐⭐ **AND THE STRONGEST READING IS VACUOUS.** `per_prompt_max` — beat the best subset chosen
+> afresh on every prompt, which is what *"better than EVERY prompt-blind set"* most naturally says
+> in English — admits **0 of 99 arms, `oracle_k4` included.** A clause that excludes every
+> admissible object is as empty as one that excludes none. **So the clause is bracketed between two
+> degeneracies, and every useful reading lives strictly between them.**
+>
+> ⭐ **The ambiguity is in the clause's own wording and had never been written down.** Under a
+> universal reading, *"better than a prompt-blind set"* admits **two different bars** this project
+> has used interchangeably: the **ARGMAX ARM** (best subset by mean, then its per-prompt vector) and
+> the **PER-PROMPT MAXIMUM**. They differ by **7.1 units of the statistic** (+0.8639 vs −6.2433).
+>
+> ⭐ **Where the six prior rounds were standing.** R860/R862/R864 all used `argmax_arm` — **the one
+> comparator in the sweep where the two criteria disagree.** Not a coincidence: criteria only
+> diverge where the margin sits near the bar, and that comparator places `coval_core` there. But it
+> means **the entire denominator-and-threshold thread was conducted at the single point where the
+> answer is criterion-dependent**, which is why it kept producing verdicts that needed another
+> round to interpret.
+>
+> ⭐ **KILL ① was a derivation used as wiring, and it is the cheapest check in this file.**
+> `mean ≤ p75 ≤ p90 ≤ per-prompt max` are pointwise non-decreasing, so the counts MUST fall:
+> A `[26, 13, 11, 0]`, B `[29, 13, 12, 0]`. **Useless as evidence, perfect as a check** — a
+> non-monotone result would have meant the implementation was wrong, not that the world was
+> interesting. `single` and `argmax_arm` are outside that pointwise chain and are excluded from it.
+
 ⛔ **SCOPE ADDED 2026-08-06 (entry 1322) — THE PARAGRAPH BELOW IS ABOUT THE READING THIS DOCUMENT NO
 LONGER USES.** The statement at the top of this file adopts the **PERMISSIVE** reading of ④, and the
 row directly above says so — *"under the PERMISSIVE reading adopted by R824 · **25 of 58**."* Under
