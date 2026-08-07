@@ -86,7 +86,17 @@ comparators the admitted set is exactly the top-N by mean A2: **0 inversions**, 
 all 99 arms used as comparators, so the machinery *can* act as a comparison and here does not.
 - **The comparator set has exactly 2 members** on this release — `generic` and `genericpool16`, the
   only arms whose selection is identical on every prompt and therefore prompt-blind by construction
-  (R921). A third costs **15,488** judge calls (R914).
+  (R921). ⛔ **A third costs `968 × 4 × k` judge calls — NOT the constant 15,488 this line used to
+  assert (R1027).** The old wording is withdrawn and replaced: `covalx/judge.py:151` is
+  `build_prompt(criterion, reply)`, one call per (criterion, reply) pair, so the price is **linear in
+  the criterion count** and the identity `cells = prompts × replies × k` holds with residual **exactly
+  0 across all 74 fixed-k arms**. At full coverage: **k=1 → 3,872 · k=4 → 15,488 · k=16 → 61,952.**
+  So `15,488` is a **k=4** arm's price quoted as universal — it **overstates** the cost of the small-k
+  comparators most likely to be tried, and **understates by 4×** the cost of `genericpool16`, which
+  the certified set already contains. ⚠ And the unit is **local GPU time** (`device_map="cuda"`,
+  batch 32), not paid API spend; no runtime is claimed here. ⚠ **What does not change: R1026.** A
+  cheaper comparator still has to be built and be prompt-blind, and none exists in this release —
+  the cost was never the only obstacle, it was the one that was named, and it was named wrongly.
 - **`generic` resolvably beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).
   **Every published number in this arc used the weaker one.**
 - **Calibration:** cut **0.5514** (28 admitted) under `genericpool16`; **0.5593** (24) under
@@ -437,7 +447,9 @@ self-referential and mentions no rival:
 changes which `(criterion, response)` pairs exist, so a sham's satisfaction matrix cannot be derived
 from its parent's. **⑤ is evaluable for 4 of 96 arms — 4.2%.** A clause that cannot be applied to 96%
 of candidates is **not a clause**. Making it one would mean running the judge on a misdirected version
-of every candidate, which R921 prices at **15,488 judge calls per new scored object**.
+of every candidate, priced at **`968 × 4 × k` judge calls per new scored object** — for the k=4 arms
+at issue here that is **15,488**, but ⚠ the figure is **not a constant** and the flat quotation of it
+elsewhere is corrected above (R1027).
 
 ⛔ **SECOND FAILURE — AND IT IS INDEPENDENT.** On the 4 arms where ⑤ *can* be evaluated:
 
@@ -759,7 +771,10 @@ against comparator `C` on target `T` if its paired sd against `C` is exactly zer
 
 ⚠ **What does NOT follow: that the clause is safe to simplify in general.** A third comparator could
 bind, and none has been built. **N/A here, with the cost named:** a comparator that is not already a
-scored arm costs **15,488 judge calls** (R914).
+scored arm costs **`968 × 4 × k` judge calls** — 3,872 at k=1, 15,488 at k=4, 61,952 at k=16 (R1027).
+⚠ This line first said a flat **15,488**, which is a k=4 arm's price; the correction is one round
+later and is recorded at the head of this file. **Sites 3 of 3** — the same wrong constant was
+written in three places, and a correction that reaches two of them leaves the third quotable.
 
 ⛔⛔ **CORRECTED BY R1026 ONE ROUND LATER — "CERTIFIED 2 FROM A LARGER POOL" WAS WRONG, AND IT IS
 REPLACED RATHER THAN CAVEATED.** This section first said the certified set is *"a choice the clause

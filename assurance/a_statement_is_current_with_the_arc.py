@@ -519,6 +519,17 @@ def main() -> int:
                        r".{0,400}(prompt[- ]blind|filter)",
                        r"(96).{0,120}(exactly 2|only 2).{0,200}(satisf|fixed)"]))
 
+    # ⛔⛔ R1027: the impossibility register's cost figure is NOT a constant. cells = prompts x
+    #    replies x k holds with residual exactly 0 across 74 fixed-k arms, so 15,488 is a k=4 arm's
+    #    price quoted as universal. The statement must carry the FORMULA, not the constant.
+    d = load("A27_*/R1027_*/results/cost_by_k.json")
+    if d:
+        by = {r["k"]: r["judge_calls"] for r in d["cost_by_k_full_coverage"]}
+        facts.append(("R1027", "a new comparator's cost is linear in k, not constant",
+                      f"k=1 {by.get(1)} · k=4 {by.get(4)} · k=16 {by.get(16)}",
+                      [r"968\s*[×x]\s*4\s*[×x]\s*k",
+                       r"(3,?872).{0,120}(15,?488).{0,120}(61,?952)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
