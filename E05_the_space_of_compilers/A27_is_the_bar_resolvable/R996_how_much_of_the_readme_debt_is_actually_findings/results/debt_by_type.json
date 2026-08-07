@@ -1,0 +1,43 @@
+{
+ "source_sha": "1df6bc2dc9b1752b",
+ "head": "597b1936",
+ "n_dirs": 966,
+ "n_unmentioned": 829,
+ "n_classifiable": 828,
+ "n_finding": 504,
+ "n_repair": 324,
+ "finding_share": 0.6086956521739131,
+ "type_distribution": {
+  "act": 95,
+  "fix": 318,
+  "verify": 385,
+  "guard": 6,
+  "think": 22,
+  "predict": 2
+ },
+ "finding_types": [
+  "act",
+  "predict",
+  "think",
+  "verify"
+ ],
+ "controls": {
+  "positive": {
+   "994": "act",
+   "993": "verify",
+   "974": "fix",
+   "990": "verify"
+  },
+  "positive_expected": {
+   "994": "act",
+   "993": "verify",
+   "974": "fix",
+   "990": "verify"
+  },
+  "positive_ok": true,
+  "negative_never_added": true,
+  "placebo_mentioned_classify": true
+ },
+ "world": "B THE DEBT IS SMALLER \u2014 504 of 828 classifiable unmentioned rounds are finding-typed (60.9%); the finding debt is 504, not 828",
+ "upper_bound_note": "type records what a round WAS, not whether its result survived; the finding count is an upper bound on lines owed"
+}

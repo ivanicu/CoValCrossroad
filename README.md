@@ -15,11 +15,18 @@ size**, and it said so directly beneath a sentence boasting that its counts are 
 gate rather than incremented by hand"*. **The counts that WERE gate-derived stayed honest; the ones
 typed into prose went stale and nothing noticed.**
 
-⚠ **THE DEBT IS LARGER THAN THIS FIX. 829 of the 965 round directories are never mentioned in this
+⚠ **THE DEBT IS LARGER THAN THIS FIX. 829 of the 966 round directories are never mentioned in this
 file** — [`every_round_reaches_the_readme.py`](assurance/every_round_reaches_the_readme.py) is RED
 and names them on every run. R995 repaired the **head**, which is what a reader meets first; it did
 not write 829 summaries, and saying it "will" would restate the debt as a plan. **Treat every count
 below that is not explicitly gate-derived as of unknown vintage.**
+
+⭐ **AND 829 OVERSTATES IT — the finding debt is 504** (R996). Classified by the `[type.…]` prefix of
+the commit that ADDED each directory: **504 finding-typed** (`verify` 385, `act` 95, `think` 22,
+`predict` 2) against **324 instrument repairs** (`fix` 318, `guard` 6), with 1 unclassifiable. A
+repair round earns a line in a gate's docstring, not in the findings index. ⚠ **504 is itself an
+upper bound**: the type records what a round *was*, never whether its result survived, so a
+finding-typed round that was later retracted is counted here and owes no line.
 
 **Claim counts, as of R340 and NOT re-derived since:** 53 standing claims, 13 withdrawn; 46 defect
 checks on the release, 16 clean.
