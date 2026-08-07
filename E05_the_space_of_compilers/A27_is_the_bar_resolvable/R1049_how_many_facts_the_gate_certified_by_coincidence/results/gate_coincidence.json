@@ -1,0 +1,558 @@
+{
+  "round": "R1049",
+  "facts_readable": 63,
+  "patterns_unreadable": 2,
+  "multi_home": 16,
+  "multi_home_share": 0.25396825396825395,
+  "multi_home_rounds": [
+    "R921",
+    "R922",
+    "R920",
+    "R925",
+    "R926",
+    "R975",
+    "R978",
+    "R986",
+    "R989",
+    "R1000",
+    "R1001",
+    "R1005",
+    "R1012",
+    "R1027",
+    "R1036",
+    "R1045"
+  ],
+  "random_floor_3_seeds": [
+    0.09166666666666666,
+    0.18333333333333332
+  ],
+  "resolved_against_floor": true,
+  "controls": {
+    "positive_R1048_original_pair": true,
+    "negative_runtime_literal": true
+  },
+  "post_hoc_era_split": {
+    "before_R1022": [
+      36,
+      13
+    ],
+    "from_R1022": [
+      27,
+      3
+    ],
+    "status": "post-hoc, not pre-registered, licenses only a later test"
+  },
+  "detail": [
+    {
+      "round": "R921",
+      "homes": [
+        8,
+        8
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R922",
+      "homes": [
+        3,
+        3
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R920",
+      "homes": [
+        8
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R925",
+      "homes": [
+        6,
+        5
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R926",
+      "homes": [
+        8,
+        8
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R975",
+      "homes": [
+        2,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R976",
+      "homes": [
+        1,
+        2
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R978",
+      "homes": [
+        5,
+        5
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R979",
+      "homes": [
+        2,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R980",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R986",
+      "homes": [
+        3,
+        4
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R987",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R988",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R989",
+      "homes": [
+        8,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R990",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R994",
+      "homes": [
+        0,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1000",
+      "homes": [
+        5,
+        8
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1001",
+      "homes": [
+        6,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1002",
+      "homes": [
+        1,
+        2
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1003",
+      "homes": [
+        3,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1004",
+      "homes": [
+        0,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1005",
+      "homes": [
+        5,
+        7
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1006",
+      "homes": [
+        8,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1007",
+      "homes": [
+        0,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1009",
+      "homes": [
+        8,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1010",
+      "homes": [
+        0,
+        2
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1011",
+      "homes": [
+        1,
+        4
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1012",
+      "homes": [
+        2,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1013",
+      "homes": [
+        2,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1014",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1015",
+      "homes": [
+        3,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1016",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1017",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1019",
+      "homes": [
+        3,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1020",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1021",
+      "homes": [
+        1,
+        4
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1022",
+      "homes": [
+        0,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1023",
+      "homes": [
+        2,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1024",
+      "homes": [
+        2,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1025",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1026",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1027",
+      "homes": [
+        5,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1028",
+      "homes": [
+        4,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1029",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1030",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1031",
+      "homes": [
+        0,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1032",
+      "homes": [
+        0,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1033",
+      "homes": [
+        3,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1034",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1035",
+      "homes": [
+        0,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1036",
+      "homes": [
+        2,
+        2
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1037",
+      "homes": [
+        0,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1038",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1039",
+      "homes": [
+        2,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1040",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1041",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1042",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1043",
+      "homes": [
+        4,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1048",
+      "homes": [
+        1,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1047",
+      "homes": [
+        1,
+        0
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1046",
+      "homes": [
+        2,
+        1
+      ],
+      "multi_home": false
+    },
+    {
+      "round": "R1045",
+      "homes": [
+        2,
+        5
+      ],
+      "multi_home": true
+    },
+    {
+      "round": "R1044",
+      "homes": [
+        0,
+        2
+      ],
+      "multi_home": false
+    }
+  ],
+  "world": "\u2b50 NEITHER BAND \u2014 multi-home 0.254 of 63, floor [0.092, 0.183]. Reported; neither world claimed.",
+  "proxy_ledger": {
+    "property": "the PASS is caused by the round's own annotation",
+    "proxy": "the pattern matches in exactly one place",
+    "sound_direction": ">=2 homes => not attributable",
+    "unsound": "1 home => attributable",
+    "safe_side": "single-home is UNVERIFIED"
+  }
+}

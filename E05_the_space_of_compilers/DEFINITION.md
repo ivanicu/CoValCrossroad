@@ -1025,6 +1025,25 @@ so a pattern loose enough to match by coincidence is not a defect of one entry. 
 **3 of 60** residue entries are written with a leading unicode minus whose negation the artifacts do
 carry — the tokenizer is **sign-blind**, the same class as R1047's precision blindness.
 
+⛔⛔ **AND R1049 ANSWERS WHETHER THAT WAS ONE ENTRY OR THE GATE: `multi-home 16 of 63` registered
+facts, against a measured `random floor` over 3 seeds of `[0.092, 0.183]`.** The mutation is R1043's
+shape applied to currency — delete the span a pattern matches, and ask whether it still matches. A
+**second home** means the PASS cannot be attributed to the round's own annotation. At **0.254** the
+observed share is **above** the floor, so it is not the document merely being dense; but the
+pre-registered bands were `>=0.30` and `<=0.10`, and **0.254 is in NEITHER**, which is reported rather
+than rounded to the nearer one.
+⭐ **THESE 16 ARE NOW UNVERIFIED ON CURRENCY** — not overturned, not clean: `R921 R922 R920 R925 R926
+R975 R978 R986 R989 R1000 R1001 R1005 R1012 R1027` and two more.
+⛔ **THE PROXY LEDGER WAS WRITTEN BEFORE THE RUN AND IS SOUND ONE WAY ONLY.** `>=2 homes ⇒ the PASS is
+not attributable` holds; `1 home ⇒ it is attributable` **does not**, because the single home may
+itself be unrelated text — which is exactly how R1048 failed. **Single-home facts are UNVERIFIED,
+never CLEAN**, and folding one into the other manufactures a false acquittal, which is permanent
+because nobody re-examines a cleared claim.
+⚠ **ONE POST-HOC OBSERVATION, LABELLED BECAUSE IT IS NOT A FINDING**: the multi-home share is `0.361`
+before R1022 and `0.111` from R1022 on. The covariate was chosen **after seeing the list**, there is
+one test and no multiplicity control. **It licenses a pre-registered test in a later round and nothing
+more.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
