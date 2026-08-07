@@ -1260,6 +1260,29 @@ comparison is confounded"*. This says **how far anything must travel to break it
 agreement, against a comparator at `0.5514`.** Any future attempt — a second team, a second release —
 must close that gap before its rejection or admission carries information about provenance at all.
 
+⛔⛔⛔ **AND R1060 BOUNDS IT INSTEAD OF ATTEMPTING IT AGAIN: THE BOUND BINDS.** An exhaustive search
+over **4,943 fixed subsets** of size 1–5 drawn from the 15 criteria available on ≥50% of prompts,
+selected on half the prompts and scored on the other half, **fails to beat the comparator in 5 of 5
+splits** — margins `[-0.0248, -0.0144, -0.0054, -0.0101, -0.0288]`.
+⭐ **So every fixed-subset core's non-admission is FORCED by the release, not by the clause**, and the
+question *does the clause test provenance* is **unanswerable by this family** — no experiment of this
+shape can carry information about it, however well built. That closes the line R1058 opened by
+bounding it rather than by another attempt.
+⭐ **Controls, and one of them decides the round**: the comparator's own selection `[0,1,2,3]` is
+inside the enumerated family (else the search is not over the space it claims); the worst subset scores
+`0.3017` against `0.5880`, so the family is not degenerate; honest selection is worth **`+0.0090`**
+over a random subset held-out, above the pre-registered `0.005` **but only just**; and **selection
+optimism is `+0.0314` — larger than every margin measured**, so the in-sample best would have shown
+the comparator beaten in all five splits. The held-out split is the only admissible number here.
+⛔⛔ **AND AN ESTIMAND CHECK LANDED HARDER THAN INTENDED: `generic` scores `0.5880` under this round's
+consensus aggregation, `0.5023` under a quick reimplementation of R1059's per-annotator one, and
+R1059 itself reported `0.5514`. THREE numbers for one arm.** ⭐ So the honest statement is not
+*different estimands* but **the two rounds' scales are UNVERIFIED against each other**: a three-line
+reimplementation is not evidence about what another round computed. **R1059's `+0.0651` and R1060's
+margins must not be quoted against each other** until one round re-derives the other's number with the
+other's code. Each round's internal comparison — arm against comparator, same prompts, same
+aggregation — stands.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1060_*/results/fixed_rule_bound.json")
+    if d:
+        facts.append(("R1060", "no fixed-subset core can close the gap on this site",
+                      f"family {d['family_size']}, margins {[round(m, 4) for m in d['margins']]}, "
+                      f"optimism {d['selection_optimism']:.4f}",
+                      [r"4,?943 fixed subsets",
+                       r"UNVERIFIED\s*\n?against each other|THREE numbers for one arm|Three\*\*?\s*\n?numbers for one arm"]))
+
     d = load("A27_*/R1059_*/results/second_optimiser.json")
     if d:
         facts.append(("R1059", "the confound reproduces; the quality gap sustains it",
