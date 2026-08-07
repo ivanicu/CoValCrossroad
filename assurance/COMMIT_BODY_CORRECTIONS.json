@@ -1,0 +1,10 @@
+{
+ "why": "git history here is PUSHED and rebase is not used, so a wrong body is annotated, never rewritten (L81). A correction names the defective commit, the round it actually contains, and asserts that some later commit carries that round's real diary entry.",
+ "corrections": {
+  "496b0b28": {
+   "round": "R866",
+   "defect": "committed with a stale scratchpad message file left by an earlier round; its body is about a sham residual for clause 2 and mentions R703. The FILES are correct.",
+   "real_body_in": "the commit that adds this file"
+  }
+ }
+}
