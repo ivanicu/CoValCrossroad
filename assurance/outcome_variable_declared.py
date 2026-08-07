@@ -44,8 +44,36 @@ def _masked_spans(src: str):
     def off(row, col):
         return offs[row - 1] + col
 
-    for n in _ast.walk(_ast.parse(src)):
-        if isinstance(n, _ast.Constant) and isinstance(n.value, str) and n.end_lineno:
+    # ⛔ R971: MASK DOCSTRINGS AND COMMENTS ONLY -- NOT every string literal.
+    #    R970 masked all of them, which made `np.load("a08_gold_08b.npz")` read as a MENTION: the
+    #    filename IS a string, so the commonest real USE of the gold head became invisible. That is
+    #    a false negative in the direction this gate exists to prevent, and the attack's vector 1
+    #    caught it within one round.
+    #    ⚠ AND R943's POSITIVE CONTROL COULD NOT HAVE CAUGHT IT. Its plant was
+    #    `gold_orig = np.load("a08_gold_08b.npz")`, which matches on the VARIABLE NAME sitting
+    #    outside the string -- it avoided the blind spot by accident instead of probing it, and so
+    #    certified a filter that is blind to the plain form.
+    #    A string used as a VALUE is data the round consumes. Only a bare string statement (a
+    #    docstring) and a comment are prose. The cost is that an assigned payload string now flags,
+    #    which is the deliberate direction: over-flagging costs a sentence, under-flagging a
+    #    retraction.
+    tree = _ast.parse(src)
+    docstrings = set()
+    # ⛔ `getattr(n, "body")` is a LIST on Module/FunctionDef/ClassDef but an EXPRESSION on IfExp
+    #    and Lambda, so the first version raised `TypeError: 'Constant' object is not iterable` on
+    #    the real corpus. My five snippets contained no such node and all passed -- a control
+    #    validated against cases I invented, for the third time this session. Iterate only lists.
+    for n in _ast.walk(tree):
+        body = getattr(n, "body", None)
+        if not isinstance(body, list):
+            continue
+        for child in body:
+            if (isinstance(child, _ast.Expr) and isinstance(child.value, _ast.Constant)
+                    and isinstance(child.value.value, str)):
+                docstrings.add(id(child.value))
+    for n in _ast.walk(tree):
+        if (isinstance(n, _ast.Constant) and isinstance(n.value, str) and n.end_lineno
+                and id(n) in docstrings):
             spans.append((off(n.lineno, n.col_offset), off(n.end_lineno, n.end_col_offset)))
     try:
         for tok in _tokenize.generate_tokens(_io.StringIO(src).readline):
