@@ -232,6 +232,24 @@ def main() -> int:
                        r"(①|clause one|④|clause four)",
                        r"(①|④).{0,300}(inert|remove nothing|carries? no|adds? nothing)"]))
 
+    # ⛔ R1001: the conjunction is EMPTY under clause ④'s permissive reading, and the mechanism is a
+    #    direct conflict with clause ③. This is the strongest thing the arc has found and it SCOPES
+    #    R1000's headline, so a statement carrying R1000 without this one is actively misleading.
+    d = load("A27_*/R1001_*/results/permissive_operator.json")
+    if d:
+        facts.append(("R1001", "the permissive reading empties the definition, via a ③/④ conflict",
+                      f"{d['cells_where_core_excluded']} of {d['saturated_cells']} saturated cells "
+                      f"exclude the core; supervised share of ④ "
+                      f"{d['supervised_share_of_clause4']}",
+                      # ⚠ the FIRST draft of this pattern went GREEN on arrival: entry 1368 already
+                      # says "the extension is EMPTY". The registered fact is the MECHANISM, which
+                      # is what this round actually adds, so the pattern demands 14-of-14 / the
+                      # disjointness — never the recorded headline.
+                      [r"(14 of 14|all 14|every arm).{0,300}"
+                       r"(human ranking|supervised|read.{0,20}label|clause ③|③)",
+                       r"(③|clause three).{0,260}(④|clause four).{0,200}"
+                       r"(disjoint|no arm satisf|cannot be jointly|direct conflict)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

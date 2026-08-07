@@ -120,6 +120,51 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⛔⛔⛔ AND UNDER THE PERMISSIVE READING THE OPERATOR ADMITS NOTHING — BECAUSE ③ AND ④ ARE DISJOINT (added 2026-08-07, R1001)
+
+**R1000's headline is READING-DEPENDENT and is restated here with its reading attached.** Running the
+same operator with clause ④ read permissively, swept over **R826's whole effort curve**:
+
+| | enumerated reading (R849) | **permissive reading (R825/R826)** |
+|---|---|---|
+| conjunction admits | 9 / 12 of 96 | **0 of 96, in 20 of 20 saturated cells** |
+| `coval_core` in it | **yes** | **no, in 20 of 20** |
+| clause ④'s unique removals | **0** — inert | **9 / 12** — load-bearing |
+
+⚠ **PRIOR ART, and it is in this very document.** *Entry 1368* and R824 already committed **"the
+extension is EMPTY"** under the permissive reading, and **"clause ④ as written cannot both do work and
+admit its own instance."** So the table above is a **CONFIRMATION by a different route** — the full
+four-clause conjunction over 96 arms rather than ④'s exclusions alone — and **not a discovery.**
+⭐ *It was caught because the currency gate refused to go red on arrival: the statement already
+matched. An instrument built to catch decoration caught a rediscovery instead.*
+
+### ⭐ WHAT IS ACTUALLY NEW — the mechanism, which entry 1368 does not state
+
+At R825's own k = 100 (bar **0.572551**), clause ④ admits **14** arms of the 96. **All 14 read human
+rankings, and therefore fail clause ③.**
+
+```
+④ admits            14
+of which supervised  14      ⇒ ④ ∧ ③ = 0, before clause ② is even applied
+```
+
+⭐⭐⭐ **Clauses ③ and ④ have DISJOINT satisfaction sets on this release.** The permissive bar is set
+so high that **the only arms that clear it are the ones that consume the labels ③ forbids.** Entry
+1368 said ④ *"cannot both do work and admit its own instance"*; this says **why**, and the reason is
+not internal to ④ — it is a **direct conflict with a different clause**. The definition is not merely
+reading-dependent; under one reading **two of its clauses cannot be jointly satisfied by anything**.
+
+⚠ **THE BAR IS TREATED AS FIXED.** R826 reports its sd (0.0062–0.0079) but not R825's 12 per-split
+values, so the `lo > bar` shape carries the **arm's** error and not the **bar's**. Named direction:
+conservative for admission, **anti-conservative for exclusion**. Closing it needs those 12 values.
+
+**Controls.** R922's cut and count reproduced at 1e-9; the k = 0 bar must and does admit the core
+(R826's own committed verdict there is *"admits core"*); `oracle_k4` fails ③ and `topw_k1` fails ①;
+a bar of 0.0 admits all 96 and a bar of 1.0 admits none; and at k = 0 clause ④ has **0** unique
+removals — a non-zero there would have meant the join was broken. Verdicts are taken **only** on
+R826's saturated cells (k ≥ 40); the four unsaturated cells are shown for contrast and used for
+nothing, because a threshold below saturation measures modelling effort rather than a clause.
+
 ### ⭐⭐⭐ THE FOUR CLAUSES RUN AS ONE OPERATOR — AND TWO OF THEM ARE ORNAMENTS (added 2026-08-07, R1000)
 
 **Twenty-six rounds studied the clauses separately. This is the first time the definition was applied
