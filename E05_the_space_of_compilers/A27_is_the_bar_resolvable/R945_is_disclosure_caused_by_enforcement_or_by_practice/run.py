@@ -250,15 +250,36 @@ def main() -> int:
     print(f"     VISIBLE(USE) {ku}/{nu} = {pu:.3f}   INVISIBLE {ki2}/{ni2} = {pi2:.3f}   "
           f"difference {pu - pi2:+.3f}   p = {p2:.5f}")
 
+    use_set = set(d943["gate_sees_by_use"])
+    vis_decl = [n for n in visible if decl[n]]
+    by_use = [n for n in vis_decl if n in use_set]
+    by_mention = [n for n in vis_decl if n not in use_set]
+    c7 = len(by_mention) == 0
+    print(f"\n  ⑦ ENFORCEMENT vs TOPICALITY — of the {len(vis_decl)} visible declarers, "
+          f"{len(by_use)} genuinely USE the gold file and {len(by_mention)} only MENTION it: "
+          f"{c7}")
+    print(f"     genuine USE : {by_use}")
+    print(f"     MENTION only: {[n[:34] for n in by_mention]}")
+    print(f"     {'PASS — the declarers are gold USERS, so enforcement is the available story' if c7 else 'FAIL — most declarers only WRITE ABOUT the proxy, so a round that discusses the gold head is a round whose SUBJECT is the proxy. Enforcement pressure and topicality are perfectly confounded and this design cannot separate them.'}")
+
     mde_str = "unreachable at this n" if mde is None else f"{mde:+.3f}"
     resolved = p_real < 0.05 and abs(diff) > spread
     world = "A" if (resolved and diff > 0) else ("C" if not resolved else "B")
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
         f"the visible arm declares at {pv:.0%} and the invisible arm at {pi:.0%}, a difference of "
         f"{diff:+.3f} with Fisher p = {p_real:.5f}, outside the placebo floor of {spread:.3f}. "
-        f"**Disclosure tracks what the gate can see.** The 14 rounds it cannot see are dark by "
-        f"default, so `DEFINITION.md`'s instrument bookkeeping is bounded by five tokens, and the "
-        f"repair is the regex, not the threshold."
+        f"**Disclosure tracks what the gate can see** — as an ASSOCIATION, and the 14 rounds it "
+        f"cannot see are CONFIRMED-DECLARED at zero. "
+        + (f"⛔ BUT NOT BY ENFORCEMENT: control ⑦ shows {len(by_mention)} of the {len(vis_decl)} "
+           f"declarers only MENTION the gold file, i.e. they are rounds whose SUBJECT is the "
+           f"proxy, and such a round describes its outcome as model-scored because that is what "
+           f"it studies. Enforcement and topicality are perfectly confounded here. The one arm "
+           f"where enforcement is the only story — genuine USE — is {ku}/{nu} at p = {p2:.5f}, "
+           f"which does NOT clear α=0.05. **So `tighten the regex` is not licensed by this "
+           f"design**, and the specification curve refutes the prescription the primary invites."
+           if not c7 else
+           f"The declarers are gold USERS, so enforcement is the available reading and the repair "
+           f"is the regex rather than the threshold.")
         if world == "A" else
         f"the difference is {diff:+.3f} with p = {p_real:.5f} against a placebo floor of "
         f"{spread:.3f} — inside the design's resolution. n is {nv}+{ni} and the MDE is "
@@ -286,6 +307,14 @@ def main() -> int:
                "not_forced": {"visible_but_undeclared": flagged_undeclared,
                               "meaning": "the visible arm could score below 1, so the association "
                                          "is a measurement and not a derivation"},
+               "enforcement_vs_topicality": {
+                   "visible_declarers": vis_decl,
+                   "by_genuine_use": by_use, "by_mention_only": by_mention,
+                   "reading": ("declarers are gold users; enforcement is available" if c7 else
+                               "most declarers only WRITE ABOUT the proxy, so topicality and "
+                               "enforcement are perfectly confounded and this design cannot "
+                               "separate them; `tighten the regex` is NOT licensed"),
+                   "separates": bool(c7)},
                "specification_use_only": {"visible": [ku, nu], "invisible": [ki2, ni2],
                                           "difference": pu - pi2, "fisher_p": p2},
                "identification": "association only; arm is not randomised and cannot be assigned by "
