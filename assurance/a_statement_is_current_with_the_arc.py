@@ -696,6 +696,13 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1077_*/results/exposed_sites.json")
+    if d:
+        facts.append(("R1077", "most precision-blind sites cannot be exposed at all",
+                      f"sites {d['sites']}, at-risk {d['at_risk']}, safe {d['not_exposed']}",
+                      [r"22\s+CANNOT\s+be\s+exposed",
+                       r"strip\s+comments\s+and\s+docstrings"]))
+
     d = load("A27_*/R1076_*/results/membership_tests.json")
     if d:
         facts.append(("R1076", "the precision-blind comparison is a pattern; the helper is shipped",

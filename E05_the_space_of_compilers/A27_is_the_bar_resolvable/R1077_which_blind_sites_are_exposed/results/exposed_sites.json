@@ -1,0 +1,227 @@
+{
+  "round": "R1077",
+  "sites": 34,
+  "at_risk": 12,
+  "not_exposed": 22,
+  "unknown": 0,
+  "at_risk_share": 0.35294117647058826,
+  "rows": [
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R329_the_budget_is_unobservable/run.py",
+      "name": "enumerate_grid",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R353_the_admitted_set_under_every_pool_order/run.py",
+      "name": "vec",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R354_what_the_safe_reference_admits/run.py",
+      "name": "vec",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R498_the_auditor_of_auditors_cannot_run_in_the_suite/run.py",
+      "name": "discovered",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R500_do_other_artifacts_assert_worlds_the_record_overturned/run.py",
+      "name": "flagged",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R505_two_ceilings_one_for_rankers_one_for_pair_predictors/run.py",
+      "name": "modal_pair",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R505_two_ceilings_one_for_rankers_one_for_pair_predictors/run.py",
+      "name": "modal_rank",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R506_the_core_is_a_ranker_so_only_one_ceiling_applies/run.py",
+      "name": "modal_pair",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R506_the_core_is_a_ranker_so_only_one_ceiling_applies/run.py",
+      "name": "modal_rank",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R521_what_the_declared_literal_costs_on_the_wider_population/run.py",
+      "name": "fam",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R558_the_target_is_missing_from_the_scope_column/run.py",
+      "name": "has",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R560_which_of_the_four_scope_dimensions_each_claim_states/run.py",
+      "name": "has",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R591_where_the_four_orphan_values_actually_live/run.py",
+      "name": "where",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set/run.py",
+      "name": "m_prefix",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set/run.py",
+      "name": "m_word",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set/run.py",
+      "name": "m_sub",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R598_which_deliverable_documents_are_actually_gated/run.py",
+      "name": "run_suite",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R713_is_f1_stipulated_or_discovered/run.py",
+      "name": "match",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R841_does_the_exact_class_interval_close_on_every_annotator/run.py",
+      "name": "cells",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R844_does_the_other_writers_deflation_transfer_to_coval_core/run.py",
+      "name": "cells",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R845_the_margin_the_binary_test_could_not_see/run.py",
+      "name": "cells",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R888_what_clause_three_excludes_that_clause_two_admits/run.py",
+      "name": "consumes",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A24_what_the_definition_costs/R889_the_two_admitted_sets_differ_by_the_word_resolvably/run.py",
+      "name": "consumes",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A25_can_the_instrument_be_run_at_all/R868_can_a_gate_be_dead_and_green_at_once/run.py",
+      "name": "classify",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1021_is_the_cores_exclusion_a_target_effect_or_the_imputation/run.py",
+      "name": "arr",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1021_is_the_cores_exclusion_a_target_effect_or_the_imputation/run.py",
+      "name": "imputed",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R952_do_the_retractions_instance_the_standards_own_twenty_modes/run.py",
+      "name": "best",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R977_the_currency_gate_was_green_about_a_clause_it_had_never_heard_of/run.py",
+      "name": "hit",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R982_where_the_unbacked_decimals_live_and_which_arc_was_searched/run.py",
+      "name": "tier",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R984_which_clauses_have_never_excluded_a_built_object/run.py",
+      "name": "drops",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R991_the_departure_from_the_card_is_stated/run.py",
+      "name": "hit",
+      "kind": "exact",
+      "verdict": "AT-RISK"
+    },
+    {
+      "file": "assurance/valuematch.py",
+      "name": "in_pool",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "assurance/valuematch.py",
+      "name": "find_all",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    },
+    {
+      "file": "assurance/verdict_cites_its_own_contrasts.py",
+      "name": "cited",
+      "kind": "exact",
+      "verdict": "NOT-EXPOSED"
+    }
+  ],
+  "world": "\u2b50 NEITHER BAND \u2014 at-risk 0.353 (12 of 34). Reported; the actionable set is the 12 named above.",
+  "proxy_ledger": {
+    "property": "the exact comparison can meet a displayed value",
+    "proxy": "the round's source reads prose",
+    "sound": "reads no prose => cannot be exposed",
+    "unsound": "reads prose => is exposed",
+    "safe_side": "prose-reading returns AT-RISK, never CONFIRMED"
+  },
+  "controls": {
+    "positive_R1070_at_risk": true,
+    "negative_R923_safe": true
+  },
+  "limitation": "AT-RISK is an upper bound; the sound claim is which sites cannot be exposed"
+}

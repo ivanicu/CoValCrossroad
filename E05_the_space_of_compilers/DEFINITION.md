@@ -1571,6 +1571,21 @@ appear — is what made repairs ② and ③ possible at all.**
 test is not thereby wrong** — exactness is correct when both sides come from the same computation, and
 fails only when one side is a displayed value.
 
+⭐⭐ **AND R1077 TURNS THAT COUNT INTO A RISK SET: `22` OF THE 34 CANNOT BE EXPOSED AT ALL, `12` ARE
+AT-RISK.** A round whose source performs no `.md` file operation cannot put a displayed value on
+either side of its comparison — so those 22 compare quantities that never left a computation, where
+exactness is correct. At-risk share `0.353`, **neither pre-registered band**, reported as such.
+⛔ **THE PROXY IS SOUND ONE WAY ONLY, AND THE ROUND'S ACTUAL CLAIM IS THE NEGATIVE ONE**: *reads no
+prose ⇒ cannot be exposed* holds; *reads prose ⇒ is exposed* does **not**, since a round may read
+prose for titles or sections and never compare a displayed value. **The 12 is an UPPER bound and the
+22 is the finding.**
+⛔⛔ **AND THE PROXY'S FIRST VERSION MATCHED MENTIONS RATHER THAN READS.** Searching for `DEFINITION`,
+`README` and `.md` as words classified nearly the whole arc as prose-reading, because **every round's
+docstring discusses the definition** — §4's *a grep is a measuring instrument*, a third time this
+window. ⭐ **The fix was not a tighter word list: it was to STRIP COMMENTS AND DOCSTRINGS via AST and
+search executable code only.** A mention is not a read. The negative control — R923, which reads only
+`.npz` and prior artifacts — went from **False to True** on that change alone, and is what forced it.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
