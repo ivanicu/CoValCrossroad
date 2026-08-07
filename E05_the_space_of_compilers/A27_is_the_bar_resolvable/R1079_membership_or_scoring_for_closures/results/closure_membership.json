@@ -1,0 +1,28 @@
+{
+  "round": "R1079",
+  "verdict": "WORLD_B_COUNT_WITHHELD",
+  "stowaways_present": [
+    "toks"
+  ],
+  "cands_found": false,
+  "candidates_not_reported": 8,
+  "meta_finding": "three rounds, three classifiers, each failing its own control: the membership-vs-scoring distinction is semantic and is not recoverable from syntax at acceptable cost",
+  "attempts": [
+    {
+      "round": "R1076",
+      "rule": "two-argument shape",
+      "outcome": "3 repairs, 132 -> 38, still excluded the one confirmed defect"
+    },
+    {
+      "round": "R1078",
+      "rule": "one-argument shape",
+      "outcome": "readmitted 7 scoring helpers; count withheld"
+    },
+    {
+      "round": "R1079",
+      "rule": "closure over an artifact-built container",
+      "outcome": "still admits ['toks']; loses `cands`, the case it was built for"
+    }
+  ],
+  "redirect": "valuematch.py needs adoption at the point of use, not a census"
+}

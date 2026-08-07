@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1079_*/results/closure_membership.json")
+    if d:
+        facts.append(("R1079", "three classifiers failed; the population is not mechanically enumerable",
+                      f"verdict {d['verdict']}, stowaways {d.get('stowaways_present')}, "
+                      f"cands {d.get('cands_found')}",
+                      [r"Three attempts, three failures",
+                       r"cannot\s+be\s+enumerated\s+mechanically"]))
+
     d = load("A27_*/R1078_*/results/argument_traces.json")
     if d:
         facts.append(("R1078", "the census excluded the one confirmed defect; the gap size is unverified",

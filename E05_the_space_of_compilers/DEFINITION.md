@@ -1604,6 +1604,28 @@ characterisation.**
 known to be incomplete would produce a tidy number over the wrong set — **precisely the error R1075
 cost five rounds to find.** The population is fixed first.
 
+⛔⛔ **AND R1079's PRE-REGISTERED KILL FIRED: THE COUNT IS WITHHELD, AND THREE ROUNDS OF CLASSIFIERS IS
+NOW THE FINDING.** Requiring a one-argument closure's free variable to be a **container built from
+artifact values** excludes 6 of the 7 known scoring helpers — **and loses `cands`, the only function in
+this repository known to have caused a retraction.** Both controls failed, the kill said *withhold*,
+and 8 candidates sit in the artifact unreported as a count.
+
+| round | rule | outcome |
+|---|---|---|
+| R1076 | two-argument shape | 3 repairs, **132 → 38**, still **excluded the one confirmed defect** |
+| R1078 | one-argument shape | readmitted **7** scoring helpers; count **withheld** |
+| R1079 | closure over an artifact-built container | admits `toks`, **loses `cands`** |
+
+⭐⭐ **Three attempts, three failures.** `membership test` versus `scoring helper` is a **SEMANTIC**
+distinction, and it has now been attacked three times from **SYNTAX**. Each attempt was better argued
+than the last and each failed a control it could not have passed. **The honest reading is not `try a
+fourth rule`: this population cannot be enumerated mechanically at acceptable cost, and every count
+built on it inherits that** — R1076's `38` and R1077's `34 → 12` included.
+⭐ **AND THAT REDIRECTS THE REMEDY RATHER THAN ENDING IT.** `assurance/valuematch.py` **never needed a
+census**: it needs to be the thing reached for at the **point of use**. Enumerating past sites was the
+expensive path; **making the next comparison correct is the cheap one, and it was available from R1076
+onward without any of this.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
