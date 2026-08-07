@@ -746,7 +746,8 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > >
 > > ⛔⛔ **CORRECTED R888 — `28` WAS CLAUSE ②'s EXTENSION, REPORTED AS THE DEFINITION'S.**
 > > **The TWO-clause definition admits 12 arms.** Clause ② admits 29 (R856's committed `c2`);
-> > **clause ③ then excludes 17 of them — 58.6%** — because their generator opens
+> > **clause ③ then excludes 16 of them — 57.1%** *(⛔ R889: was `17 of 29 — 58.6%`;
+> > R888 ran on a SUPERSEDED population, see below)* — because their generator opens
 > > `data/comparisons.jsonl` and parses human rankings. Read from the object, not the name:
 > > `corebench/select_core.py:102` branches on `a.rule in ("oracle_k", "indep_k", "greedy_k")`,
 > > and **those three rules, and only those three, consume the labels clause ③ forbids.**
@@ -762,9 +763,20 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > arm only"* — **one rule behind its own code** — so the name-level story and the code-level
 > > story disagreed, and the name-level one was the one written down.
 > >
-> > ⚠ **OPEN AND NOT PAPERED OVER:** this file said `28`, R856's `c2` holds `29`. R888 used
-> > R856's committed list and reports against it. **The 28-vs-29 gap is UNRESOLVED** — a
-> > different comparator or the core's own self-inclusion — and is the next thing to measure.
+> > ⛔ **RESOLVED R889 — THE 28-vs-29 GAP WAS THE WORD `RESOLVABLY`, AND R888 USED THE WRONG SET.**
+> > The two committed lists differ by **exactly one arm**: `greedy_k4_fit1_08bR`, margin
+> > **+0.003786**, CI lower bound **−0.006910** — *point positive, interval crosses zero*.
+> > **R856's `c2` admitted on `margin > 0`; R881 admitted on `lo > 0`.** The headline names the
+> > second, so **R881's 28 is current and R856's 29 is superseded** — and R888 measured against
+> > the superseded one.
+> > ⭐ **The correction is a SHARE, not a conclusion.** The disputed arm is `greedy_*`, i.e.
+> > label-consuming, so clause ③ removes it under either criterion:
+> > superseded 29 → 17 excluded, **12 survive**; current 28 → 16 excluded, **12 survive**.
+> > **The surviving set is IDENTICAL, so `the definition admits 12` now holds under BOTH
+> > populations — the finding got stronger, not weaker.**
+> > ⚠ The process error is the reusable part: R888 printed *"Clause ② admits 29 here"* against
+> > this file saying 28, and recorded it as an open question. **A discrepancy NAMED but not
+> > RESOLVED is a deferred error with a receipt.** The resolution was one set difference.
 > > ⚠ Units: `29`, `17`, `12` are all **ARMS** — not prompts, not criteria.
 > >
 > > ⚠ **SUPERSEDED BELOW (kept per L81):** the `25 procedurally distinct` / `1.6 vs 3.6
