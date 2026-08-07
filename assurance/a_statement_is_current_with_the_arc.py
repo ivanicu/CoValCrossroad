@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1050_*/results/audit_reached_the_object.json")
+    if d:
+        facts.append(("R1050", "the clause rests on the facts the gate cannot attribute",
+                      f"hit rate {d['observed_hit_rate']:.3f} vs floor "
+                      f"{d['permutation_floor_3_seeds'][1]:.3f}, clause homes {d['clause_homes']}",
+                      [r"0\.917[^.]{0,90}0\.524",
+                       r"occurs 9 times|has 9 homes|NINE times"]))
+
     d = load("A27_*/R1049_*/results/gate_coincidence.json")
     if d:
         facts.append(("R1049", "this gate's own PASS is unattributable for some facts",

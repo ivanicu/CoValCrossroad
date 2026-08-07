@@ -1,0 +1,535 @@
+{
+  "round": "R1050",
+  "flagged": [
+    "R1000",
+    "R1001",
+    "R1005",
+    "R1012",
+    "R1027",
+    "R1036",
+    "R1045",
+    "R920",
+    "R921",
+    "R922",
+    "R925",
+    "R926",
+    "R975",
+    "R978",
+    "R986",
+    "R989"
+  ],
+  "arc_rounds": 109,
+  "clause_homes": 9,
+  "cells": [
+    {
+      "anchor": 0,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 0,
+      "window": 400,
+      "cited": 2,
+      "density_of_arc": 0.018,
+      "intersection": []
+    },
+    {
+      "anchor": 0,
+      "window": 1200,
+      "cited": 6,
+      "density_of_arc": 0.037,
+      "intersection": [
+        "R1027",
+        "R920",
+        "R921",
+        "R926"
+      ]
+    },
+    {
+      "anchor": 0,
+      "window": 4000,
+      "cited": 16,
+      "density_of_arc": 0.092,
+      "intersection": [
+        "R1005",
+        "R1027",
+        "R920",
+        "R921",
+        "R922",
+        "R925",
+        "R926",
+        "R975"
+      ]
+    },
+    {
+      "anchor": 0,
+      "window": 12000,
+      "cited": 24,
+      "density_of_arc": 0.147,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1027",
+        "R920",
+        "R921",
+        "R922",
+        "R925",
+        "R926",
+        "R975"
+      ]
+    },
+    {
+      "anchor": 1,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 1,
+      "window": 400,
+      "cited": 2,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R921"
+      ]
+    },
+    {
+      "anchor": 1,
+      "window": 1200,
+      "cited": 6,
+      "density_of_arc": 0.046,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R921"
+      ]
+    },
+    {
+      "anchor": 1,
+      "window": 4000,
+      "cited": 16,
+      "density_of_arc": 0.128,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1012",
+        "R1036",
+        "R921",
+        "R922"
+      ]
+    },
+    {
+      "anchor": 1,
+      "window": 12000,
+      "cited": 35,
+      "density_of_arc": 0.284,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1012",
+        "R1036",
+        "R921",
+        "R922",
+        "R986"
+      ]
+    },
+    {
+      "anchor": 2,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 2,
+      "window": 400,
+      "cited": 1,
+      "density_of_arc": 0.0,
+      "intersection": [
+        "R921"
+      ]
+    },
+    {
+      "anchor": 2,
+      "window": 1200,
+      "cited": 5,
+      "density_of_arc": 0.037,
+      "intersection": [
+        "R921"
+      ]
+    },
+    {
+      "anchor": 2,
+      "window": 4000,
+      "cited": 14,
+      "density_of_arc": 0.11,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1036",
+        "R921",
+        "R922"
+      ]
+    },
+    {
+      "anchor": 2,
+      "window": 12000,
+      "cited": 35,
+      "density_of_arc": 0.284,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1012",
+        "R1036",
+        "R1045",
+        "R921",
+        "R922",
+        "R986"
+      ]
+    },
+    {
+      "anchor": 3,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 3,
+      "window": 400,
+      "cited": 1,
+      "density_of_arc": 0.009,
+      "intersection": []
+    },
+    {
+      "anchor": 3,
+      "window": 1200,
+      "cited": 6,
+      "density_of_arc": 0.046,
+      "intersection": [
+        "R1036",
+        "R921"
+      ]
+    },
+    {
+      "anchor": 3,
+      "window": 4000,
+      "cited": 19,
+      "density_of_arc": 0.156,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1036",
+        "R921"
+      ]
+    },
+    {
+      "anchor": 3,
+      "window": 12000,
+      "cited": 35,
+      "density_of_arc": 0.284,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R1012",
+        "R1036",
+        "R1045",
+        "R921",
+        "R922",
+        "R986"
+      ]
+    },
+    {
+      "anchor": 4,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 4,
+      "window": 400,
+      "cited": 2,
+      "density_of_arc": 0.018,
+      "intersection": [
+        "R1000"
+      ]
+    },
+    {
+      "anchor": 4,
+      "window": 1200,
+      "cited": 7,
+      "density_of_arc": 0.046,
+      "intersection": [
+        "R1000",
+        "R921",
+        "R922",
+        "R978"
+      ]
+    },
+    {
+      "anchor": 4,
+      "window": 4000,
+      "cited": 15,
+      "density_of_arc": 0.073,
+      "intersection": [
+        "R1000",
+        "R1027",
+        "R921",
+        "R922",
+        "R978"
+      ]
+    },
+    {
+      "anchor": 4,
+      "window": 12000,
+      "cited": 29,
+      "density_of_arc": 0.174,
+      "intersection": [
+        "R1000",
+        "R1001",
+        "R1027",
+        "R1036",
+        "R921",
+        "R922",
+        "R978"
+      ]
+    },
+    {
+      "anchor": 5,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 5,
+      "window": 400,
+      "cited": 1,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R1005"
+      ]
+    },
+    {
+      "anchor": 5,
+      "window": 1200,
+      "cited": 5,
+      "density_of_arc": 0.018,
+      "intersection": [
+        "R1000",
+        "R1005"
+      ]
+    },
+    {
+      "anchor": 5,
+      "window": 4000,
+      "cited": 11,
+      "density_of_arc": 0.037,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R922",
+        "R978"
+      ]
+    },
+    {
+      "anchor": 5,
+      "window": 12000,
+      "cited": 26,
+      "density_of_arc": 0.147,
+      "intersection": [
+        "R1000",
+        "R1001",
+        "R1005",
+        "R920",
+        "R922",
+        "R978",
+        "R986",
+        "R989"
+      ]
+    },
+    {
+      "anchor": 6,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 6,
+      "window": 400,
+      "cited": 2,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 6,
+      "window": 1200,
+      "cited": 5,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R1000",
+        "R922"
+      ]
+    },
+    {
+      "anchor": 6,
+      "window": 4000,
+      "cited": 12,
+      "density_of_arc": 0.055,
+      "intersection": [
+        "R1000",
+        "R1005",
+        "R922",
+        "R978"
+      ]
+    },
+    {
+      "anchor": 6,
+      "window": 12000,
+      "cited": 27,
+      "density_of_arc": 0.147,
+      "intersection": [
+        "R1000",
+        "R1001",
+        "R1005",
+        "R920",
+        "R922",
+        "R978",
+        "R986",
+        "R989"
+      ]
+    },
+    {
+      "anchor": 7,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 7,
+      "window": 400,
+      "cited": 3,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R922"
+      ]
+    },
+    {
+      "anchor": 7,
+      "window": 1200,
+      "cited": 3,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R922"
+      ]
+    },
+    {
+      "anchor": 7,
+      "window": 4000,
+      "cited": 5,
+      "density_of_arc": 0.018,
+      "intersection": [
+        "R921",
+        "R922"
+      ]
+    },
+    {
+      "anchor": 7,
+      "window": 12000,
+      "cited": 15,
+      "density_of_arc": 0.037,
+      "intersection": [
+        "R920",
+        "R921",
+        "R922",
+        "R925",
+        "R926"
+      ]
+    },
+    {
+      "anchor": 8,
+      "window": 0,
+      "cited": 0,
+      "density_of_arc": 0.0,
+      "intersection": []
+    },
+    {
+      "anchor": 8,
+      "window": 400,
+      "cited": 1,
+      "density_of_arc": 0.0,
+      "intersection": [
+        "R922"
+      ]
+    },
+    {
+      "anchor": 8,
+      "window": 1200,
+      "cited": 3,
+      "density_of_arc": 0.009,
+      "intersection": [
+        "R922"
+      ]
+    },
+    {
+      "anchor": 8,
+      "window": 4000,
+      "cited": 6,
+      "density_of_arc": 0.018,
+      "intersection": [
+        "R921",
+        "R922"
+      ]
+    },
+    {
+      "anchor": 8,
+      "window": 12000,
+      "cited": 14,
+      "density_of_arc": 0.037,
+      "intersection": [
+        "R921",
+        "R922",
+        "R925",
+        "R926"
+      ]
+    }
+  ],
+  "intersection": [
+    "R1000",
+    "R1001",
+    "R1005",
+    "R1012",
+    "R1027",
+    "R1036",
+    "R1045",
+    "R920",
+    "R921",
+    "R922",
+    "R925",
+    "R926",
+    "R975",
+    "R978",
+    "R986",
+    "R989"
+  ],
+  "informative_windows": 36,
+  "permutation_floor_3_seeds": [
+    0.4902777777777778,
+    0.52375
+  ],
+  "observed_hit_rate": 0.9166666666666666,
+  "separable_from_floor": true,
+  "controls": {
+    "positive_clause_author_present": true,
+    "negative_absent_id": true,
+    "placebo_zero_window": true
+  },
+  "world": "\u2b50 A THE AUDIT REACHED THE OBJECT \u2014 ['R1000', 'R1001', 'R1005', 'R1012', 'R1027', 'R1036', 'R1045', 'R920', 'R921', 'R922', 'R925', 'R926', 'R975', 'R978', 'R986', 'R989'] are cited within the clause region in 33 of 36 informative cells AND flagged by R1049 as unattributable on currency. The clause is DOWNGRADED to unverified-provenance, never overturned: the numbers may be right and the gate simply cannot show the statement carries them.",
+  "limitation": "unattributable means the gate cannot prove the annotation was written, never that the number is false"
+}

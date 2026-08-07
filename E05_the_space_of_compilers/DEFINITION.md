@@ -1044,6 +1044,24 @@ before R1022 and `0.111` from R1022 on. The covariate was chosen **after seeing 
 one test and no multiplicity control. **It licenses a pre-registered test in a later round and nothing
 more.**
 
+⛔⛔ **AND R1050 SETTLES WHETHER ANY OF THAT REACHES THIS CLAUSE. IT DOES.** All **16** rounds R1049
+flagged as unattributable on currency are cited inside the clause region, in **33 of 36** informative
+cells — a hit rate of **`0.917`** against a **permutation floor** of **`[0.490, 0.524]`** (a *random*
+set of 16 arc rounds, 3 seeds). Nearly double the floor, so the intersection is **not** forced by the
+breadth of the citation region. **The flagged facts are disproportionately the ones this clause cites**:
+`R920 R921 R922 R925 R926 R975 R978 R986 R989 R1000 R1001 R1005 R1012 R1027 R1036 R1045`.
+⭐ **THE CLAUSE IS THEREFORE DOWNGRADED TO UNVERIFIED-PROVENANCE — NEVER OVERTURNED.** The gate cannot
+show the statement carries these facts. It does **not** follow that the numbers are wrong: each flagged
+round's own `run.py` re-derives its value directly, and that is the repair, one run per round.
+⛔⛔ **AND THE POSITIVE CONTROL FOUND SOMETHING LARGER THAN IT WAS CHECKING: this clause occurs 9 times
+in this document.** Anchoring on the first put the window ~47,000 characters from R1037 and R1038 — the
+rounds that wrote its stated form — and the control failed, correctly. **The canonical clause is not
+locatable by its own text.** That is R1049's multi-home defect one level up, in the STATEMENT rather
+than in a gate's pattern, and it is why the anchor became a swept specification axis rather than a
+detail. ⭐ **This also answers the production question honestly**: the six preceding rounds were not
+orthogonal housekeeping — they land on the object, and the ledger they produced has a definitional
+consequence.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
