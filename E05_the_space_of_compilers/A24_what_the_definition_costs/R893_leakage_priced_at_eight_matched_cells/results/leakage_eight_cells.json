@@ -1,0 +1,79 @@
+{
+  "commit": "294af8570dbb564f2ba8a522fb6654b032c64ec5",
+  "world": "A",
+  "seed": 893,
+  "n_prompts": 968,
+  "n_cells": 8,
+  "cells": [
+    {
+      "rule": "greedy",
+      "k": 2,
+      "gap": 0.015773956714221573,
+      "provenance": "generated"
+    },
+    {
+      "rule": "greedy",
+      "k": 4,
+      "gap": 0.08783909389926682,
+      "provenance": "shipped"
+    },
+    {
+      "rule": "greedy",
+      "k": 8,
+      "gap": 0.0070643053757190565,
+      "provenance": "generated"
+    },
+    {
+      "rule": "greedy",
+      "k": 12,
+      "gap": 0.004184549100407678,
+      "provenance": "generated"
+    },
+    {
+      "rule": "indep",
+      "k": 2,
+      "gap": 0.010011733691539605,
+      "provenance": "generated"
+    },
+    {
+      "rule": "indep",
+      "k": 4,
+      "gap": 0.07294679706734054,
+      "provenance": "shipped"
+    },
+    {
+      "rule": "indep",
+      "k": 8,
+      "gap": 0.005258175222717705,
+      "provenance": "generated"
+    },
+    {
+      "rule": "oracle",
+      "k": 4,
+      "gap": 0.0990894588773896,
+      "provenance": "shipped"
+    }
+  ],
+  "paired_mean": 0.03777100874357532,
+  "bootstrap_ci95": [
+    0.03453010733410154,
+    0.04094606177792896
+  ],
+  "signflip_p": 0.00715,
+  "signflip_floor": 0.0078125,
+  "n_patterns": 256,
+  "k4_only_here": 0.08662511661466565,
+  "r892_k4_only": 0.0065,
+  "controls": {
+    "positive_oracle_k4": true,
+    "batch_generated_vs_shipped": true,
+    "resolution_patterns_ge_100": true,
+    "generated_mean": 0.008458544020921123,
+    "shipped_mean": 0.08662511661466565
+  },
+  "generated_arms": "greedy_k at k=2,8,12 and indep_k at k=2,8, written to corebench/results_r893_leaky/ so the 99-arm corpus R890/R891 drew nulls from is unchanged",
+  "still_unidentified": "held-out minus label-free \u2014 the three label-consuming rules have no label-free twin and the generator cannot make one",
+  "doc_drift": "--fit-parity's help says 'oracle only' while select_core.py:102 covers oracle_k, indep_k and greedy_k. Second stale description of that same line; R888 found the first.",
+  "unit_note": "gaps are A2 margin units vs genericpool16; counts are CELLS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
