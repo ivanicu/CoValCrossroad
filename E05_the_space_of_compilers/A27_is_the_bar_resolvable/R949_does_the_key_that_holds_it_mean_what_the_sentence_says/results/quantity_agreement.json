@@ -1,0 +1,2206 @@
+{
+  "commit": "f3c56a08182d2b66bf71801611a2fc7e0ff47e7b",
+  "world": "C",
+  "n_pairs": 115,
+  "agreement": 0.2,
+  "within_round_floor": [
+    0.09565217391304348,
+    0.1391304347826087
+  ],
+  "floor_per_seed": [
+    0.1391304347826087,
+    0.1391304347826087,
+    0.09565217391304348
+  ],
+  "discrimination": 0.060869565217391314,
+  "ceiling": 0.9826086956521739,
+  "agreement_among_reachable": 0.20353982300884957,
+  "n_reachable": 113,
+  "ceiling_note": "a path like cells[15].a2 carries no English token and can never agree; comparing the rate to 1.0 by implication is the control-that-cannot-PASS failure with the arithmetic reversed",
+  "disagreements": [
+    {
+      "numeral": "0.005730",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "comparator_pair.ci[0]",
+        "dose_response.grid[4].lo",
+        "dose_response.lo_at_zero"
+      ],
+      "phrase": "c` resolvably beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).   **Every published number in",
+      "agrees": false
+    },
+    {
+      "numeral": "0.012488",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "comparator_pair.ci[1]"
+      ],
+      "phrase": "ly beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).   **Every published number in this arc u",
+      "agrees": false
+    },
+    {
+      "numeral": "0.1164",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[0].gap",
+        "cells[1].gap",
+        "cells[2].gap",
+        "final_by_k.1.gap",
+        "gaps[0]"
+      ],
+      "phrase": "s unsupported. - **Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.1029",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[3].gap",
+        "cells[4].gap",
+        "cells[5].gap",
+        "final_by_k.2.gap",
+        "gaps[1]"
+      ],
+      "phrase": "orted. - **Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4,",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0915",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[8].gap",
+        "final_by_k.3.gap",
+        "gaps[2]"
+      ],
+      "phrase": "**Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0856",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[11].gap",
+        "final_by_k.4.gap",
+        "gaps[3]"
+      ],
+      "phrase": "rice decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0691",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[14].gap",
+        "final_by_k.6.gap",
+        "gaps[4]"
+      ],
+      "phrase": "ays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every sampling",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0552",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[17].gap",
+        "final_by_k.8.gap",
+        "gaps[5]"
+      ],
+      "phrase": "tonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every sampling cap (R9",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5680",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[15].a2",
+        "cells[16].a2",
+        "cells[17].a2"
+      ],
+      "phrase": "(all 6 pairs) | > |---|---:|---:| > | **`coval_core`** | **0.5680** | **0.0730** | > | `generic` \u2014 clause \u2461's prompt-bli",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4939",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[46].a2"
+      ],
+      "phrase": ".0644 | > | `full` | 0.5110 | 0.0458 | > | `random_k4` \u00d73 | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 | > | `c",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0475",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[68].p"
+      ],
+      "phrase": "| 0.0458 | > | `random_k4` \u00d73 | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 | > | `coval_core_sham` | 0.4998 | 0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0444",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[39].perm_margin"
+      ],
+      "phrase": "0.0475 / 0.0551 / 0.0437 | > | `coval_core_sham` | 0.4998 | 0.0444 | > > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0733",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[8].margin"
+      ],
+      "phrase": ".4998 | 0.0444 | > > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7 EXACT +0.0242.** > **`coval_core` \u2212 `generic`: GRAD",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0242",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[48].mde",
+        "cells[86].mde",
+        "cells[90].mde"
+      ],
+      "phrase": "> > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7 EXACT +0.0242.** > **`coval_core` \u2212 `generic`: GRADED +0.0132 \u00b7 EXAC",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0086",
+      "line": 119,
+      "round": 854,
+      "paths": [
+        "controls.cf_vs_sim_max_abs_diff"
+      ],
+      "phrase": "42.** > **`coval_core` \u2212 `generic`: GRADED +0.0132 \u00b7 EXACT +0.0086.** > \u2b50 **Both positive under both readings \u2014 on the H",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0060",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.all14|logistic_C10.0.sd"
+      ],
+      "phrase": "|---|---:|---|---:|---| > | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** \u2014 CI excludes 0 | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0243",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[59].mde"
+      ],
+      "phrase": ":|---|---:|---| > | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** \u2014 CI excludes 0 | > | **EX",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0024",
+      "line": 119,
+      "round": 843,
+      "paths": [
+        "contrasts.GAMMA|k8.hi"
+      ],
+      "phrase": "*RESOLVED** \u2014 CI excludes 0 | > | **EXACT** | +0.0083 | **[\u22120.0024, +0.0196]** | 0.0159 | **BELOW its own MDE \u2014 CI inclu",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0159",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[2].obs"
+      ],
+      "phrase": "udes 0 | > | **EXACT** | +0.0083 | **[\u22120.0024, +0.0196]** | 0.0159 | **BELOW its own MDE \u2014 CI includes 0** | > > \u2b50 **So ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0041",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[40].ci[0]"
+      ],
+      "phrase": "ERIFIED, and not to be quoted.** Its seed spread alone is **0.0041 > on an effect of ~0.007, 59% of the effect.** > > **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.007",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "graded.delta"
+      ],
+      "phrase": "ted.** Its seed spread alone is **0.0041 > on an effect of ~0.007, 59% of the effect.** > > **R841, stable seed, every a",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0191",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[0].obs"
+      ],
+      "phrase": "tors used | GRADED | EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0099",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[59].d"
+      ],
+      "phrase": "| GRADED | EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0285",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[0].ci[1]"
+      ],
+      "phrase": "| EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u2264",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0010",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[62].d"
+      ],
+      "phrase": "|---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0127",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[1].ci[1]"
+      ],
+      "phrase": "3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0084",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "T2_+char_ngram.as_run_sd"
+      ],
+      "phrase": "010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0235",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[45].mde",
+        "cells[57].mde",
+        "cells[62].mde",
+        "cells[66].mde"
+      ],
+      "phrase": "103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0085",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[3].obs"
+      ],
+      "phrase": "** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.01",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0016",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[3].ci[0]"
+      ],
+      "phrase": "ains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.00",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0155",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[29].perm_margin"
+      ],
+      "phrase": "> | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.02",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0076",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "grid.100.0.sd_strict"
+      ],
+      "phrase": "5 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLV",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0226",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[27].mde",
+        "cells[47].mde"
+      ],
+      "phrase": "6, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0073",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "grid.10000.0.sd_as_run"
+      ],
+      "phrase": "\u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0005",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[29].perm_lo"
+      ],
+      "phrase": "ED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461 is NOT ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0141",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[5].ci[1]",
+        "grid[7].ci[1]"
+      ],
+      "phrase": "**ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461 is NOT undecidab",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0096",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "diffs[6]"
+      ],
+      "phrase": "4`. On > all annotators **the ordering REVERSES: `MDE_exact 0.0096 < MDE_graded 0.0106`.** Exact-class is > **not** intr",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5727",
+      "line": 119,
+      "round": 711,
+      "paths": [
+        "cells[0].p_ge_obs",
+        "exact_p_ge_obs",
+        "observed.C",
+        "world"
+      ],
+      "phrase": "tly enumerated null > (445,891,810 admissions) giving **p = 0.5727** \u2014 at chance. **That verdict is correct and stands.*",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0709",
+      "line": 119,
+      "round": 844,
+      "paths": [
+        "rows[0].obs"
+      ],
+      "phrase": "t | R711 binary | > |---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`f",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0615",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[0].ci[0]"
+      ],
+      "phrase": "nary | > |---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0806",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[52].perm_lo"
+      ],
+      "phrase": "|---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483**",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0265",
+      "line": 119,
+      "round": 844,
+      "paths": [
+        "rows[1].obs"
+      ],
+      "phrase": "-|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0483",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[40].d"
+      ],
+      "phrase": ".0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0385",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[48].d"
+      ],
+      "phrase": "806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0583",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[2].ci[1]"
+      ],
+      "phrase": ".0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0167",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[3].margin"
+      ],
+      "phrase": "ARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0524",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[4].margin"
+      ],
+      "phrase": "+0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0416",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[43].d",
+        "cells[44].d"
+      ],
+      "phrase": "+0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `prompt",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0637",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[4].ci[1]"
+      ],
+      "phrase": "**not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0228",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[29].mde",
+        "cells[30].mde",
+        "cells[35].mde",
+        "cells[40].mde",
+        "cells[46].mde"
+      ],
+      "phrase": "rated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0122",
+      "line": 119,
+      "round": 843,
+      "paths": [
+        "contrasts.dsource|k2|A3.mean"
+      ],
+      "phrase": "0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated |",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0067",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[55].p",
+        "cells[61].d"
+      ],
+      "phrase": "+0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0302",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[40].perm_lo",
+        "e1.rows[41].perm_lo",
+        "e1.rows[42].perm_lo"
+      ],
+      "phrase": "| **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw_k4` | *",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0130",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[7].margin"
+      ],
+      "phrase": "* | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw_k4` | **+0.0733** [+0.063",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0631",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[8].ci[0]"
+      ],
+      "phrase": "* | +0.0130 | not separated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0835",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[35].strict_lo"
+      ],
+      "phrase": "30 | not separated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and `gen` car",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0286",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[18].strict_lo"
+      ],
+      "phrase": "parated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and `gen` carry resolved",
+      "agrees": false
+    },
+    {
+      "numeral": "0.014",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[5].ci[1]",
+        "grid[7].ci[1]"
+      ],
+      "phrase": "scale: three > same-family NON-sham pairs give |margin| \u2264 ~0.014**, so these are 3.4\u20135.2\u00d7 mere arm-difference. > > \u26d4 **A",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0466",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[6].strict_hi"
+      ],
+      "phrase": "e shams sit BELOW the arm that reads no prompt at all** > (\u22120.0466, \u22120.0818, \u22120.0594, \u22120.0954, \u22120.0513). **Reading the W",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0241",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[51].mde"
+      ],
+      "phrase": "th two-feature combinations > and measuring the bar rise **+0.0241** against a noise arm that moved **+0.0039**. **I wro",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0039",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t2.delta"
+      ],
+      "phrase": "the bar rise **+0.0241** against a noise arm that moved **+0.0039**. **I wrote this > claim, answered it one round later",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5546019830",
+      "line": 119,
+      "round": 406,
+      "paths": [
+        "ref_a"
+      ],
+      "phrase": "ver 1,820 subsets is **0.5574753088** vs a reference of > **0.5546019830**. **Clause \u2463 is the same shape**, and its 30 r",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4560",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.max"
+      ],
+      "phrase": "---|---:|---:|---:| > | R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+m",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4412",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.noise_max"
+      ],
+      "phrase": "---:|---:| > | R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+mean_word_",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0148",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.excess"
+      ],
+      "phrase": "| R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+mean_word_len+uppercase",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4801",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F1.max"
+      ],
+      "phrase": "* | > | enlarged | **394** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** | > > \u26a0 **The noise arm is t",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0351",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F1.excess"
+      ],
+      "phrase": "4** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** | > > \u26a0 **The noise arm is the other writer's R843 ",
+      "agrees": false
+    },
+    {
+      "numeral": "1.0000",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t0.core",
+        "t0.floor",
+        "t0.floor_max",
+        "t0.floor_min",
+        "t1.core"
+      ],
+      "phrase": "ize buys **more than doubled**. Controls: human-vs-itself **1.0000**, reversed **0.2523**. > > \u2b50 **Clause \u2463 is NOT flipp",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5664774812",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "2523**. > > \u2b50 **Clause \u2463 is NOT flipped** \u2014 `coval_core` at 0.5664774812 clears the enlarged bar by **0.0864**. > \u26a0 **Bu",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0864",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[29].ci[1]"
+      ],
+      "phrase": "\u2014 `coval_core` at 0.5664774812 clears the enlarged bar by **0.0864**. > \u26a0 **But the gap is not shown safe: the first hon",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0048",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.length_only|ridge.sd"
+      ],
+      "phrase": "**. > \u26a0 **And the committed bar was understated TWICE**: **+0.0048** from using 3 annotator draws instead > of all (R841",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4461",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[0].real"
+      ],
+      "phrase": "max | noise max | excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4326",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[0].noise",
+        "per_rule.noise[4]"
+      ],
+      "phrase": "ise max | excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0135",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[58].d"
+      ],
+      "phrase": "excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4636",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[3].real"
+      ],
+      "phrase": "0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.02",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4397",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[3].noise"
+      ],
+      "phrase": "0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0240",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[39].mde",
+        "cells[52].mde",
+        "cells[61].mde",
+        "cells[70].mde",
+        "cells[81].mde",
+        "cells[84].mde"
+      ],
+      "phrase": "+0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** |",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4716",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[5].real"
+      ],
+      "phrase": "* *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.445",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4423",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[5].noise"
+      ],
+      "phrase": "s family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.4451 | **+0.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0293",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[5].ci[1]"
+      ],
+      "phrase": "| 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.4451 | **+0.0351** | > ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0074",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.non_length|gboost.sd"
+      ],
+      "phrase": "3 mechanism. > > \u2b50 **So \"every\" has a price: the bar rises +0.0074 per e-fold of family size, and `coval_core` > leads t",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4377",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "per_rule.noise[75]"
+      ],
+      "phrase": "ds of headroom.** > > > \u26a0 **D4, NOT A MEASUREMENT.** `max \u2248 0.4377 + 0.00741\u00b7ln(n)` puts the crossing at **n \u2248 3.5\u00d710\u2077 >",
+      "agrees": false
+    },
+    {
+      "numeral": "0.566477",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "m** response-only bar | **0.572335** | > | `coval_core` | **0.566477** | > | paired difference, 12 splits | **+0.0061970",
+      "agrees": false
+    },
+    {
+      "numeral": "0.006197072",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "mean"
+      ],
+      "phrase": "ore` | **0.566477** | > | paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | spli",
+      "agrees": false
+    },
+    {
+      "numeral": "0.004172",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "lo"
+      ],
+      "phrase": "477** | > | paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the b",
+      "agrees": false
+    },
+    {
+      "numeral": "0.008222",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "hi"
+      ],
+      "phrase": "paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the bar BEATS the",
+      "agrees": false
+    },
+    {
+      "numeral": "0.001033",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[62].d"
+      ],
+      "phrase": "ce, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the bar BEATS the core | **12 of",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5665",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "** \u2014 no fitting, hand-built lexical rules (R847) | 0.4801 | 0.5665 | core clears by **+0.0864** | > | **permissive** \u2014 f",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0058",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.length_only|logistic_C0.1.sd"
+      ],
+      "phrase": "har n-grams (R825) | **0.5723** | 0.5665 | **core FAILS by \u22120.0058** | > > \u2b50\u2b50 **AND THE TECHNICAL POINT THAT CORRECTS R8",
+      "agrees": false
+    },
+    {
+      "numeral": "0.1390",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[27].margin",
+        "arms[32].margin",
+        "arms[33].margin"
+      ],
+      "phrase": ".00e+00 \u00b7 PASS** | > | POSITIVE `oracle_k4` | satisfies, **+0.1390 \u00b7 PASS** | > | NEGATIVE `random_k4_s0` | does **not**",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0057",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[1].strict_lo"
+      ],
+      "phrase": "form:** `random_k4_s0` has a > **positive point estimate, +0.0057.** The original wording *\"scores better than\"* is a po",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0250",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[37].perm_lo"
+      ],
+      "phrase": "\u2032 at 7 of 8 class sizes)*. > `coval_core` satisfies \u2461 at **+0.0250**. > > \u2b50\u2b50 **Both measured clauses land in the low tee",
+      "agrees": false
+    }
+  ],
+  "pairs": [
+    {
+      "numeral": "0.009103",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "comparator_pair.margin_a_minus_b"
+      ],
+      "phrase": "- **`generic` resolvably beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).   **Every publishe",
+      "agrees": true
+    },
+    {
+      "numeral": "0.005730",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "comparator_pair.ci[0]",
+        "dose_response.grid[4].lo",
+        "dose_response.lo_at_zero"
+      ],
+      "phrase": "c` resolvably beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).   **Every published number in",
+      "agrees": false
+    },
+    {
+      "numeral": "0.012488",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "comparator_pair.ci[1]"
+      ],
+      "phrase": "ly beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).   **Every published number in this arc u",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5514",
+      "line": 40,
+      "round": 922,
+      "paths": [
+        "rows[10].implied_cut_mean_a2"
+      ],
+      "phrase": "in this arc used the weaker one.** - **Calibration:** cut **0.5514** (28 admitted) under `genericpool16`; **0.5593** (24",
+      "agrees": true
+    },
+    {
+      "numeral": "0.5593",
+      "line": 40,
+      "round": 922,
+      "paths": [
+        "rows[15].implied_cut_mean_a2",
+        "rows[8].implied_cut_mean_a2",
+        "rows[9].implied_cut_mean_a2"
+      ],
+      "phrase": "on:** cut **0.5514** (28 admitted) under `genericpool16`; **0.5593** (24) under   `generic`. A cut quoted without its co",
+      "agrees": true
+    },
+    {
+      "numeral": "0.009956",
+      "line": 40,
+      "round": 923,
+      "paths": [
+        "resolution_this_estimand.median_half_width"
+      ],
+      "phrase": "t quoted without its comparator is unscoped. - **Resolution 0.009956**, and **5** of the 28 admitted arms sit within tha",
+      "agrees": true
+    },
+    {
+      "numeral": "0.9984",
+      "line": 53,
+      "round": 920,
+      "paths": [
+        "non_redundancy.r2_pi_on_a2_margin"
+      ],
+      "phrase": "separates label-consumers from label-blind arms, but `R\u00b2 = 0.9984` against the A2 margin: at the artifact level *\"consum",
+      "agrees": true
+    },
+    {
+      "numeral": "0.1164",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[0].gap",
+        "cells[1].gap",
+        "cells[2].gap",
+        "final_by_k.1.gap",
+        "gaps[0]"
+      ],
+      "phrase": "s unsupported. - **Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.1029",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[3].gap",
+        "cells[4].gap",
+        "cells[5].gap",
+        "final_by_k.2.gap",
+        "gaps[1]"
+      ],
+      "phrase": "orted. - **Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4,",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0915",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[8].gap",
+        "final_by_k.3.gap",
+        "gaps[2]"
+      ],
+      "phrase": "**Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0856",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[11].gap",
+        "final_by_k.4.gap",
+        "gaps[3]"
+      ],
+      "phrase": "rice decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0691",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[14].gap",
+        "final_by_k.6.gap",
+        "gaps[4]"
+      ],
+      "phrase": "ays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every sampling",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0552",
+      "line": 53,
+      "round": 926,
+      "paths": [
+        "cells[17].gap",
+        "final_by_k.8.gap",
+        "gaps[5]"
+      ],
+      "phrase": "tonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for   k = 1, 2, 3, 4, 6, 8, at every sampling cap (R9",
+      "agrees": false
+    },
+    {
+      "numeral": "0.3864",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t6.core"
+      ],
+      "phrase": "two different targets.** R243's exact-class number \u2014 core `0.3864` against floor `0.3891` \u2014 is > *\"reproduce **Full's** ",
+      "agrees": true
+    },
+    {
+      "numeral": "0.3891",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t6.floor"
+      ],
+      "phrase": "** R243's exact-class number \u2014 core `0.3864` against floor `0.3891` \u2014 is > *\"reproduce **Full's** exact weak ordering\"*,",
+      "agrees": true
+    },
+    {
+      "numeral": "0.5680",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[15].a2",
+        "cells[16].a2",
+        "cells[17].a2"
+      ],
+      "phrase": "(all 6 pairs) | > |---|---:|---:| > | **`coval_core`** | **0.5680** | **0.0730** | > | `generic` \u2014 clause \u2461's prompt-bli",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4939",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[46].a2"
+      ],
+      "phrase": ".0644 | > | `full` | 0.5110 | 0.0458 | > | `random_k4` \u00d73 | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 | > | `c",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0475",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[68].p"
+      ],
+      "phrase": "| 0.0458 | > | `random_k4` \u00d73 | 0.4939 / 0.4999 / 0.4900 | 0.0475 / 0.0551 / 0.0437 | > | `coval_core_sham` | 0.4998 | 0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0444",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[39].perm_margin"
+      ],
+      "phrase": "0.0475 / 0.0551 / 0.0437 | > | `coval_core_sham` | 0.4998 | 0.0444 | > > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0733",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[8].margin"
+      ],
+      "phrase": ".4998 | 0.0444 | > > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7 EXACT +0.0242.** > **`coval_core` \u2212 `generic`: GRAD",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0242",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[48].mde",
+        "cells[86].mde",
+        "cells[90].mde"
+      ],
+      "phrase": "> > **`coval_core` \u2212 random floor: GRADED +0.0733 \u00b7 EXACT +0.0242.** > **`coval_core` \u2212 `generic`: GRADED +0.0132 \u00b7 EXAC",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0086",
+      "line": 119,
+      "round": 854,
+      "paths": [
+        "controls.cf_vs_sim_max_abs_diff"
+      ],
+      "phrase": "42.** > **`coval_core` \u2212 `generic`: GRADED +0.0132 \u00b7 EXACT +0.0086.** > \u2b50 **Both positive under both readings \u2014 on the H",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0151",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[4].obs",
+        "grid[6].obs",
+        "positive_control.published_1352_UNVERIFIED.graded"
+      ],
+      "phrase": "E | verdict | > |---|---:|---|---:|---| > | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** \u2014 ",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0060",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.all14|logistic_C10.0.sd"
+      ],
+      "phrase": "|---|---:|---|---:|---| > | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** \u2014 CI excludes 0 | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0243",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[59].mde"
+      ],
+      "phrase": ":|---|---:|---| > | **GRADED** | **+0.0151** | **[+0.0060, +0.0243]** | 0.0134 | **RESOLVED** \u2014 CI excludes 0 | > | **EX",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0083",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "positive_control.published_1352_UNVERIFIED.exact"
+      ],
+      "phrase": "| 0.0134 | **RESOLVED** \u2014 CI excludes 0 | > | **EXACT** | +0.0083 | **[\u22120.0024, +0.0196]** | 0.0159 | **BELOW its own MD",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0024",
+      "line": 119,
+      "round": 843,
+      "paths": [
+        "contrasts.GAMMA|k8.hi"
+      ],
+      "phrase": "*RESOLVED** \u2014 CI excludes 0 | > | **EXACT** | +0.0083 | **[\u22120.0024, +0.0196]** | 0.0159 | **BELOW its own MDE \u2014 CI inclu",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0159",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[2].obs"
+      ],
+      "phrase": "udes 0 | > | **EXACT** | +0.0083 | **[\u22120.0024, +0.0196]** | 0.0159 | **BELOW its own MDE \u2014 CI includes 0** | > > \u2b50 **So ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0041",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[40].ci[0]"
+      ],
+      "phrase": "ERIFIED, and not to be quoted.** Its seed spread alone is **0.0041 > on an effect of ~0.007, 59% of the effect.** > > **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.007",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "graded.delta"
+      ],
+      "phrase": "ted.** Its seed spread alone is **0.0041 > on an effect of ~0.007, 59% of the effect.** > > **R841, stable seed, every a",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0191",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[0].obs"
+      ],
+      "phrase": "tors used | GRADED | EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0099",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[59].d"
+      ],
+      "phrase": "| GRADED | EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0285",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[0].ci[1]"
+      ],
+      "phrase": "| EXACT | > |---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u2264",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0010",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[62].d"
+      ],
+      "phrase": "|---|---|---| > | 3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0127",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[1].ci[1]"
+      ],
+      "phrase": "3 draws | +0.0191 [+0.0099, +0.0285] | **+0.0010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0084",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "T2_+char_ngram.as_run_sd"
+      ],
+      "phrase": "010 [\u22120.0103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0235",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[45].mde",
+        "cells[57].mde",
+        "cells[62].mde",
+        "cells[66].mde"
+      ],
+      "phrase": "103, +0.0127]** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0085",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[3].obs"
+      ],
+      "phrase": "** \u2014 contains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.01",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0016",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[3].ci[0]"
+      ],
+      "phrase": "ains 0 | > | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.00",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0155",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[29].perm_margin"
+      ],
+      "phrase": "> | \u226416 | +0.0159 [+0.0084, +0.0235] | **+0.0085 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.02",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0076",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "grid.100.0.sd_strict"
+      ],
+      "phrase": "5 [+0.0016, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLV",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0226",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[27].mde",
+        "cells[47].mde"
+      ],
+      "phrase": "6, +0.0155]** \u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0073",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "grid.10000.0.sd_as_run"
+      ],
+      "phrase": "\u2014 RESOLVED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0005",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[29].perm_lo"
+      ],
+      "phrase": "ED | > | **ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461 is NOT ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0141",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[5].ci[1]",
+        "grid[7].ci[1]"
+      ],
+      "phrase": "**ALL** | +0.0151 [+0.0076, +0.0226] | **+0.0073 [+0.0005, +0.0141]** \u2014 **RESOLVED** | > > \u2b50 **Clause \u2461 is NOT undecidab",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0096",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "diffs[6]"
+      ],
+      "phrase": "4`. On > all annotators **the ordering REVERSES: `MDE_exact 0.0096 < MDE_graded 0.0106`.** Exact-class is > **not** intr",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0106",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[4].mde",
+        "grid[6].mde"
+      ],
+      "phrase": "ors **the ordering REVERSES: `MDE_exact 0.0096 < MDE_graded 0.0106`.** Exact-class is > **not** intrinsically lower-reso",
+      "agrees": true
+    },
+    {
+      "numeral": "0.5727",
+      "line": 119,
+      "round": 711,
+      "paths": [
+        "cells[0].p_ge_obs",
+        "exact_p_ge_obs",
+        "observed.C",
+        "world"
+      ],
+      "phrase": "tly enumerated null > (445,891,810 admissions) giving **p = 0.5727** \u2014 at chance. **That verdict is correct and stands.*",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0709",
+      "line": 119,
+      "round": 844,
+      "paths": [
+        "rows[0].obs"
+      ],
+      "phrase": "t | R711 binary | > |---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`f",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0615",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[0].ci[0]"
+      ],
+      "phrase": "nary | > |---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0806",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[52].perm_lo"
+      ],
+      "phrase": "|---|---|---|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483**",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0265",
+      "line": 119,
+      "round": 844,
+      "paths": [
+        "rows[1].obs"
+      ],
+      "phrase": "-|---| > | `coval_core` | **+0.0709** [+0.0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0483",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[40].d"
+      ],
+      "phrase": ".0615, +0.0806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0385",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[48].d"
+      ],
+      "phrase": "806] | +0.0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0583",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[2].ci[1]"
+      ],
+      "phrase": ".0265 | SEPARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0167",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[3].margin"
+      ],
+      "phrase": "ARATED | > | **`full`** | **+0.0483** [+0.0385, +0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0524",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[4].margin"
+      ],
+      "phrase": "+0.0583] | +0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0416",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[43].d",
+        "cells[44].d"
+      ],
+      "phrase": "+0.0167 | **not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `prompt",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0637",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[4].ci[1]"
+      ],
+      "phrase": "**not separated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0228",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[29].mde",
+        "cells[30].mde",
+        "cells[35].mde",
+        "cells[40].mde",
+        "cells[46].mde"
+      ],
+      "phrase": "rated** | > | **`gen`** | **+0.0524** [+0.0416, +0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0122",
+      "line": 119,
+      "round": 843,
+      "paths": [
+        "contrasts.dsource|k2|A3.mean"
+      ],
+      "phrase": "0.0637] | +0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated |",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0067",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[55].p",
+        "cells[61].d"
+      ],
+      "phrase": "+0.0228 | **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0302",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[40].perm_lo",
+        "e1.rows[41].perm_lo",
+        "e1.rows[42].perm_lo"
+      ],
+      "phrase": "| **not separated** | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw_k4` | *",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0130",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[7].margin"
+      ],
+      "phrase": "* | > | `promptecho` | +0.0122 [\u22120.0067, +0.0302] *(ns)* | +0.0130 | not separated | > | `topw_k4` | **+0.0733** [+0.063",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0631",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[8].ci[0]"
+      ],
+      "phrase": "* | +0.0130 | not separated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0835",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[35].strict_lo"
+      ],
+      "phrase": "30 | not separated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and `gen` car",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0286",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[18].strict_lo"
+      ],
+      "phrase": "parated | > | `topw_k4` | **+0.0733** [+0.0631, +0.0835] | +0.0286 | SEPARATED | > > \u2b50 **`full` and `gen` carry resolved",
+      "agrees": false
+    },
+    {
+      "numeral": "0.014",
+      "line": 119,
+      "round": 841,
+      "paths": [
+        "grid[5].ci[1]",
+        "grid[7].ci[1]"
+      ],
+      "phrase": "scale: three > same-family NON-sham pairs give |margin| \u2264 ~0.014**, so these are 3.4\u20135.2\u00d7 mere arm-difference. > > \u26d4 **A",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0466",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[6].strict_hi"
+      ],
+      "phrase": "e shams sit BELOW the arm that reads no prompt at all** > (\u22120.0466, \u22120.0818, \u22120.0594, \u22120.0954, \u22120.0513). **Reading the W",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4511956297670583",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "bar",
+        "rule_means.min_ttr"
+      ],
+      "phrase": "committed | fresh re-run | > |---|---|---| > | **bar** | **0.4511956297670583** | **0.4511956297670583** \u2014 identical to ",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0241",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[51].mde"
+      ],
+      "phrase": "th two-feature combinations > and measuring the bar rise **+0.0241** against a noise arm that moved **+0.0039**. **I wro",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0039",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t2.delta"
+      ],
+      "phrase": "the bar rise **+0.0241** against a noise arm that moved **+0.0039**. **I wrote this > claim, answered it one round later",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5574753088",
+      "line": 119,
+      "round": 406,
+      "paths": [
+        "blind_dist.max"
+      ],
+      "phrase": "against a **p99** bar while the max over 1,820 subsets is **0.5574753088** vs a reference of > **0.5546019830**. **Claus",
+      "agrees": true
+    },
+    {
+      "numeral": "0.5546019830",
+      "line": 119,
+      "round": 406,
+      "paths": [
+        "ref_a"
+      ],
+      "phrase": "ver 1,820 subsets is **0.5574753088** vs a reference of > **0.5546019830**. **Clause \u2463 is the same shape**, and its 30 r",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4560",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.max"
+      ],
+      "phrase": "---|---:|---:|---:| > | R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+m",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4412",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.noise_max"
+      ],
+      "phrase": "---:|---:| > | R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+mean_word_",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0148",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F0.excess"
+      ],
+      "phrase": "| R436's committed | 30 | `min_ttr` | 0.4560 | 0.4412 | **+0.0148** | > | enlarged | **394** | `+mean_word_len+uppercase",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4801",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F1.max"
+      ],
+      "phrase": "* | > | enlarged | **394** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** | > > \u26a0 **The noise arm is t",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4451",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F1.noise_max"
+      ],
+      "phrase": "arged | **394** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** | > > \u26a0 **The noise arm is the other wr",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0351",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "families.F1.excess"
+      ],
+      "phrase": "4** | `+mean_word_len+uppercase` | **0.4801** | 0.4451 | **+0.0351** | > > \u26a0 **The noise arm is the other writer's R843 ",
+      "agrees": false
+    },
+    {
+      "numeral": "1.0000",
+      "line": 119,
+      "round": 243,
+      "paths": [
+        "t0.core",
+        "t0.floor",
+        "t0.floor_max",
+        "t0.floor_min",
+        "t1.core"
+      ],
+      "phrase": "ize buys **more than doubled**. Controls: human-vs-itself **1.0000**, reversed **0.2523**. > > \u2b50 **Clause \u2463 is NOT flipp",
+      "agrees": false
+    },
+    {
+      "numeral": "0.2523",
+      "line": 119,
+      "round": 847,
+      "paths": [
+        "controls.reversed"
+      ],
+      "phrase": "doubled**. Controls: human-vs-itself **1.0000**, reversed **0.2523**. > > \u2b50 **Clause \u2463 is NOT flipped** \u2014 `coval_core` a",
+      "agrees": true
+    },
+    {
+      "numeral": "0.5664774812",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "2523**. > > \u2b50 **Clause \u2463 is NOT flipped** \u2014 `coval_core` at 0.5664774812 clears the enlarged bar by **0.0864**. > \u26a0 **Bu",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0864",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[29].ci[1]"
+      ],
+      "phrase": "\u2014 `coval_core` at 0.5664774812 clears the enlarged bar by **0.0864**. > \u26a0 **But the gap is not shown safe: the first hon",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0048",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.length_only|ridge.sd"
+      ],
+      "phrase": "**. > \u26a0 **And the committed bar was understated TWICE**: **+0.0048** from using 3 annotator draws instead > of all (R841",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4461",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[0].real"
+      ],
+      "phrase": "max | noise max | excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4326",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[0].noise",
+        "per_rule.noise[4]"
+      ],
+      "phrase": "ise max | excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0135",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[58].d"
+      ],
+      "phrase": "excess | > |---:|---:|---:|---:| > | 5 | 0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4636",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[3].real"
+      ],
+      "phrase": "0.4461 | 0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.02",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4397",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[3].noise"
+      ],
+      "phrase": "0.4326 | +0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0240",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[39].mde",
+        "cells[52].mde",
+        "cells[61].mde",
+        "cells[70].mde",
+        "cells[81].mde",
+        "cells[84].mde"
+      ],
+      "phrase": "+0.0135 | > | **30** *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** |",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4716",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[5].real"
+      ],
+      "phrase": "* *(R436's family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.445",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4423",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "curve[5].noise"
+      ],
+      "phrase": "s family)* | 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.4451 | **+0.",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0293",
+      "line": 119,
+      "round": 845,
+      "paths": [
+        "cells[5].ci[1]"
+      ],
+      "phrase": "| 0.4636 | 0.4397 | +0.0240 | > | 100 | 0.4716 | 0.4423 | +0.0293 | > | **394** | **0.4801** | 0.4451 | **+0.0351** | > ",
+      "agrees": false
+    },
+    {
+      "numeral": "0.00741",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "slope_real_per_lnn"
+      ],
+      "phrase": "1** | 0.4451 | **+0.0351** | > > **Slope per `ln(n)`: real +0.00741 \u00b7 noise +0.00278 \u2014 the real curve grows 2.7\u00d7 faster*",
+      "agrees": true
+    },
+    {
+      "numeral": "0.00278",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "slope_noise_per_lnn"
+      ],
+      "phrase": "+0.0351** | > > **Slope per `ln(n)`: real +0.00741 \u00b7 noise +0.00278 \u2014 the real curve grows 2.7\u00d7 faster**, so > enlarging",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0074",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.non_length|gboost.sd"
+      ],
+      "phrase": "3 mechanism. > > \u2b50 **So \"every\" has a price: the bar rises +0.0074 per e-fold of family size, and `coval_core` > leads t",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4377",
+      "line": 119,
+      "round": 848,
+      "paths": [
+        "per_rule.noise[75]"
+      ],
+      "phrase": "ds of headroom.** > > > \u26a0 **D4, NOT A MEASUREMENT.** `max \u2248 0.4377 + 0.00741\u00b7ln(n)` puts the crossing at **n \u2248 3.5\u00d710\u2077 >",
+      "agrees": false
+    },
+    {
+      "numeral": "0.572335",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "T2_+char_ngram.strict"
+      ],
+      "phrase": "-|---:| > | leak-free **char-n-gram** response-only bar | **0.572335** | > | `coval_core` | **0.566477** | > | paired di",
+      "agrees": true
+    },
+    {
+      "numeral": "0.566477",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "m** response-only bar | **0.572335** | > | `coval_core` | **0.566477** | > | paired difference, 12 splits | **+0.0061970",
+      "agrees": false
+    },
+    {
+      "numeral": "0.006197072",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "mean"
+      ],
+      "phrase": "ore` | **0.566477** | > | paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | spli",
+      "agrees": false
+    },
+    {
+      "numeral": "0.004172",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "lo"
+      ],
+      "phrase": "477** | > | paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the b",
+      "agrees": false
+    },
+    {
+      "numeral": "0.008222",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "hi"
+      ],
+      "phrase": "paired difference, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the bar BEATS the",
+      "agrees": false
+    },
+    {
+      "numeral": "0.001033",
+      "line": 119,
+      "round": 436,
+      "paths": [
+        "cells[62].d"
+      ],
+      "phrase": "ce, 12 splits | **+0.006197072 [+0.004172, +0.008222]**, SE 0.001033 | > | splits where the bar BEATS the core | **12 of",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5665",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[43].a2"
+      ],
+      "phrase": "** \u2014 no fitting, hand-built lexical rules (R847) | 0.4801 | 0.5665 | core clears by **+0.0864** | > | **permissive** \u2014 f",
+      "agrees": false
+    },
+    {
+      "numeral": "0.5723",
+      "line": 119,
+      "round": 825,
+      "paths": [
+        "T2_+char_ngram.strict"
+      ],
+      "phrase": "64** | > | **permissive** \u2014 fitted, char n-grams (R825) | **0.5723** | 0.5665 | **core FAILS by \u22120.0058** | > > \u2b50\u2b50 **AND",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0058",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e3.curve.length_only|logistic_C0.1.sd"
+      ],
+      "phrase": "har n-grams (R825) | **0.5723** | 0.5665 | **core FAILS by \u22120.0058** | > > \u2b50\u2b50 **AND THE TECHNICAL POINT THAT CORRECTS R8",
+      "agrees": false
+    },
+    {
+      "numeral": "0.4820",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "bar_even_half_A2"
+      ],
+      "phrase": "`, 0.4785) and every margin evaluated on the EVEN half (bar 0.4820) \u2014 > the other writer's R843 remedy, because selectin",
+      "agrees": true
+    },
+    {
+      "numeral": "0.1390",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[27].margin",
+        "arms[32].margin",
+        "arms[33].margin"
+      ],
+      "phrase": ".00e+00 \u00b7 PASS** | > | POSITIVE `oracle_k4` | satisfies, **+0.1390 \u00b7 PASS** | > | NEGATIVE `random_k4_s0` | does **not**",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0794",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[0].margin"
+      ],
+      "phrase": "** | > | **arms EXCLUDED** | **58** | > | `coval_core` | **+0.0794 [+0.0667, +0.0915] \u2014 SATISFIES** | > > \u2b50 **Strictly b",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0667",
+      "line": 119,
+      "round": 849,
+      "paths": [
+        "arms[0].ci[0]"
+      ],
+      "phrase": "**arms EXCLUDED** | **58** | > | `coval_core` | **+0.0794 [+0.0667, +0.0915] \u2014 SATISFIES** | > > \u2b50 **Strictly between 1 ",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0057",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[1].strict_lo"
+      ],
+      "phrase": "form:** `random_k4_s0` has a > **positive point estimate, +0.0057.** The original wording *\"scores better than\"* is a po",
+      "agrees": false
+    },
+    {
+      "numeral": "0.0250",
+      "line": 119,
+      "round": 824,
+      "paths": [
+        "e1.rows[37].perm_lo"
+      ],
+      "phrase": "\u2032 at 7 of 8 class sizes)*. > `coval_core` satisfies \u2461 at **+0.0250**. > > \u2b50\u2b50 **Both measured clauses land in the low tee",
+      "agrees": false
+    },
+    {
+      "numeral": "0.8047",
+      "line": 119,
+      "round": 854,
+      "paths": [
+        "obs_jaccard_mean"
+      ],
+      "phrase": ", 15, 9, 17]` | > | **observed mean Jaccard**, 28 pairs | **0.8047** [0.5294, 1.0000] | > | chance at the same sizes | 0",
+      "agrees": true
+    },
+    {
+      "numeral": "0.0752",
+      "line": 119,
+      "round": 854,
+      "paths": [
+        "chance_sim"
+      ],
+      "phrase": "*0.8047** [0.5294, 1.0000] | > | chance at the same sizes | 0.0752 \u2192 **ratio 10.70\u00d7** | > | arms surviving **all 8** see",
+      "agrees": true
+    }
+  ],
+  "why_within_round": "an across-round shuffle only shows different rounds use different words -- R946's topic detector, one layer over",
+  "not_measured": "shared vocabulary is not shared meaning",
+  "unit_note": "counts are (numeral, cited round) PAIRS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

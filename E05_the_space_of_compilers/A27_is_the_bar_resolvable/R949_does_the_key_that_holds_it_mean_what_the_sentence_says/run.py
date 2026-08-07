@@ -248,6 +248,23 @@ def main() -> int:
                   open(OUT / "quantity_agreement.json", "w"), indent=2)
         return 2
 
+    # ⭐ ⑥ CEILING — the control I did not build and §4 requires beside every floor. A path like
+    # `cells[15].a2` or `arms[68].p` carries no English token at all, so it CANNOT agree with prose
+    # however correct the attribution is. Without this the rate is compared to 1.0 by implication,
+    # which is the `control that cannot PASS` failure with the arithmetic reversed.
+    def usable(paths):
+        return bool(stems(set().union(*[toks(x.replace(".", " ").replace("_", " "))
+                                        for x in paths])))
+    reachable = [r for r in pairs if usable(r["paths"])]
+    ceiling = len(reachable) / len(pairs)
+    among = (sum(r["agrees"] for r in reachable) / len(reachable)) if reachable else float("nan")
+    print(f"\n  ⑥ CEILING — pairs whose PATH carries any English token at all (the rest are "
+          f"array-indexed like `cells[15].a2` and can never agree): {len(reachable)}/{len(pairs)} "
+          f"= {ceiling:.3f}")
+    print(f"     agreement AMONG the reachable pairs: {among:.3f}")
+    print(f"     so the admissible band is floor {fl_hi:.3f} < t < ceiling {ceiling:.3f}, and the "
+          f"observed {real:.3f} sits {'inside' if fl_hi < real < ceiling else 'OUTSIDE'} it")
+
     bad = [r for r in pairs if not r["agrees"]]
     print(f"\n  ⑤ EVERY DISAGREEMENT NAMED — {len(bad)} of {len(pairs)}:")
     for r in bad[:18]:
@@ -256,14 +273,26 @@ def main() -> int:
     if len(bad) > 18:
         print(f"     … and {len(bad) - 18} more, all in the artifact")
 
-    world = "A" if c2 else "B"
+    # the verdict must reference the ceiling, not only the floor: separation from a floor is a
+    # STATISTICAL fact and `the numbers mean what the sentence says` is a SUBSTANTIVE one
+    world = "B" if not c2 else ("A" if among >= 0.5 else "C")
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
         f"the holding path shares vocabulary with the sentence {real:.3f} of the time, against a "
         f"WITHIN-round permutation floor of [{fl_lo:.3f}, {fl_hi:.3f}] — a discrimination of "
-        f"{real - fl_hi:+.3f}. **The numbers are attributed to the right QUANTITY, not merely the "
-        f"right round**, to the resolution a lexical test can offer. R948's residual closes that far "
-        f"and no further."
+        f"{real - fl_hi:+.3f}, and {among:.3f} among the {len(reachable)} pairs whose path can "
+        f"carry a word at all. **The numbers are attributed to the right QUANTITY**, to the "
+        f"resolution a lexical test offers."
         if world == "A" else
+        f"agreement is {real:.3f} against a within-round floor of [{fl_lo:.3f}, {fl_hi:.3f}] — "
+        f"separated ({real - fl_hi:+.3f}), so a real signal exists — and the CEILING refutes the "
+        f"easy explanation: {ceiling:.3f} of paths carry an English token, so unusable keys account "
+        f"for almost none of the gap. **The paths have vocabulary; it is not the sentence's "
+        f"vocabulary.** `cells[0].gap` holds the number the statement calls a *price*; both are "
+        f"right and they share no word. So the artifact's names and the document's names are "
+        f"largely DISJOINT, no lexical bridge can verify quantity-level attribution, and R948's "
+        f"residual stands. This bounds how much any search could ever have contributed, and names "
+        f"the cheap repair: a shared naming convention would make the question mechanical."
+        if world == "C" else
         f"agreement is {real:.3f} against a within-round floor of [{fl_lo:.3f}, {fl_hi:.3f}] — "
         f"inside it. **The match is round-level vocabulary, not quantity-level attribution.** Shuffle "
         f"which path holds which number inside a round and the agreement survives, so it was never "
@@ -277,6 +306,11 @@ def main() -> int:
     json.dump({"commit": head, "world": world, "n_pairs": len(pairs),
                "agreement": real, "within_round_floor": [fl_lo, fl_hi],
                "floor_per_seed": floor, "discrimination": real - fl_hi,
+               "ceiling": ceiling, "agreement_among_reachable": among,
+               "n_reachable": len(reachable),
+               "ceiling_note": "a path like cells[15].a2 carries no English token and can never "
+                               "agree; comparing the rate to 1.0 by implication is the "
+                               "control-that-cannot-PASS failure with the arithmetic reversed",
                "disagreements": bad, "pairs": pairs,
                "why_within_round": "an across-round shuffle only shows different rounds use "
                                    "different words -- R946's topic detector, one layer over",
