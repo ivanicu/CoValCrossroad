@@ -1,0 +1,86 @@
+{
+ "source_sha": "64138aa843d28809",
+ "head": "12247563",
+ "n_rows_r920": 21,
+ "n_units": 13,
+ "n_units_scored": 13,
+ "duplicate_clusters": {
+  "0.826104": [
+   "oracle_k4",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB"
+  ],
+  "0.816271": [
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB"
+  ],
+  "0.768042": [
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB"
+  ],
+  "0.667240": [
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB"
+  ],
+  "0.516074": [
+   "random_k4_s1",
+   "random_k4_s1_ctlS1"
+  ],
+  "0.494011": [
+   "random_k4_s0",
+   "random_k4_s0_ctlS0"
+  ]
+ },
+ "comparator": "genericpool16",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "n_pairs": 78,
+ "n_inversions": 2,
+ "n_resolvable": 0,
+ "controls": {
+  "negative_self_inversions": 0,
+  "positive_shuffled_median": 38,
+  "random_expectation": 39.0,
+  "all_ok": true
+ },
+ "inverted_pairs": [
+  {
+   "a": "random_k4_s2",
+   "b": "random_k4_s0",
+   "pi_a": 0.498846083508,
+   "pi_b": 0.49401052212,
+   "a2_a": 0.4884130641434137,
+   "a2_b": 0.4926869977969721,
+   "a2_gap": -0.004273933653558437,
+   "resolvable_per_seed": [
+    false,
+    false,
+    false
+   ],
+   "resolvable": false
+  },
+  {
+   "a": "random_k4_s2",
+   "b": "topabs_k4",
+   "pi_a": 0.498846083508,
+   "pi_b": 0.492441170631,
+   "a2_a": 0.4884130641434137,
+   "a2_b": 0.48938409989612724,
+   "a2_gap": -0.0009710357527135671,
+   "resolvable_per_seed": [
+    false,
+    false,
+    false
+   ],
+   "resolvable": false
+  }
+ ],
+ "world": "B REPARAMETERISATION WHERE IT MATTERS \u2014 2 inversion(s), none between arms this design can order on A2",
+ "limitation": "pi's own sampling error is not available from R920's artifact; pairs are called unresolvable on the A2 side only, which can only move pairs INTO resolvable, never out"
+}
