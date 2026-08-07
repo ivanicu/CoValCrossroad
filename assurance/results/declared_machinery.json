@@ -1,0 +1,2261 @@
+{
+ "n_declaring": 399,
+ "n_flagged": 47,
+ "pass_rate": 0.8822055137844611,
+ "rows": [
+  {
+   "round": "R207_detection_matrix",
+   "unwired": [
+    [
+     "LETTERS",
+     66
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R225_do_raters_add_bits",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R226_pricing_the_observable",
+   "unwired": [
+    [
+     "L",
+     46
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R227_two_currencies",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R228_the_largest_core_this_release_can_carry",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R229_the_control_band",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R232_wall_audit",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R233_fresh_candidate_transport",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R238_difficulty_matched",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R240_fit_a_global_core",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R241_find_a_valid_stratifier",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R242_self_audit",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R243_the_assumption_they_differ_on",
+   "unwired": [
+    [
+     "SEEDS",
+     56
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R244_not_rated_or_rated_zero",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R245_does_it_move_the_formulation",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R246_is_it_a_modal_class_predictor",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R247_is_the_selection_doing_the_work",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R248_capacity_versus_realised_alphabet",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R249_which_printed_criteria_do_work",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R250_can_provenance_be_reconstructed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R251_substitution_is_the_dose_that_can_kill",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R252_was_it_redundancy_or_the_marginal",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R253_is_A_real_just_n_in_a_costume",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R254_targeted_substitution_and_where_the_real_core_sits",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R255_is_the_redundancy_lexical_at_all",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R256_is_the_rubric_rank_one",
+   "unwired": [
+    [
+     "GT",
+     87
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R257_label_order_gauge_propagation",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R258_size_matched_rank_one",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R259_does_the_rate_survive_noise",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R260_instrument_noise_intervals",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R261_hash_seed_sweep",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R262_the_floors_R261_said_it_could_not_reach",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R263_the_remaining_salted_rounds",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R264_how_often_does_R241_hold",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R265_is_R241s_control_validated_by_noise",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R266_which_noise_actually_binds",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R267_what_this_release_can_resolve",
+   "unwired": [
+    [
+     "DRAWS",
+     83
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R268_a_calibrated_detector_and_the_real_MDE",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R270_the_arc_chose_the_coarser_statistic",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R271_the_clustering_inflation_with_a_number_on_it",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R272_the_inflation_with_a_calibration_that_takes",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R273_the_inflation_as_an_interval",
+   "unwired": [
+    [
+     "DOSES",
+     63
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R274_the_site_MDE_at_fine_resolution",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R275_what_a_replication_can_and_cannot_catch",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R276_is_generic_degenerate",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R277_is_necessity_tolerance_free",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R278_can_the_admissibility_gate_ever_fire",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R279_was_the_gate_violated_by_its_own_founding_round",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R280_is_the_gate_unit_coherent",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R281_does_the_coherent_gate_admit_this_release",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R282_is_the_saturation_forced_by_sample_size",
+   "unwired": [
+    [
+     "FULL",
+     107
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R283_is_there_headroom_above_a_constant",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R284_are_the_two_winners_one_mechanism",
+   "unwired": [
+    [
+     "PAIRS",
+     65
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R285_how_wide_is_the_admissible_band",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R286_is_clause_2_a_property_of_the_baseline",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R287_how_much_selection_may_a_baseline_have",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R288_does_the_partition_survive_the_target",
+   "unwired": [
+    [
+     "L",
+     61
+    ],
+    [
+     "PAIRS",
+     57
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R289_which_target_earns_the_definition",
+   "unwired": [
+    [
+     "PAIRS",
+     58
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R290_does_the_partition_survive_the_judge",
+   "unwired": [
+    [
+     "PAIRS",
+     53
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R291_the_register_was_never_audited",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R292_audit_every_published_cell",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R293_does_the_definition_exclude_a_fitted_core",
+   "unwired": [
+    [
+     "PAIRS",
+     58
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R294_the_definition_against_everything",
+   "unwired": [
+    [
+     "PAIRS",
+     58
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R295_held_out_annotators_are_not_held_out_labels",
+   "unwired": [
+    [
+     "PAIRS",
+     62
+    ],
+    [
+     "ZEFF",
+     63
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R296_is_there_an_optimal_k",
+   "unwired": [
+    [
+     "PAIRS",
+     41
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R297_why_k1_loses",
+   "unwired": [
+    [
+     "L",
+     49
+    ],
+    [
+     "PAIRS",
+     47
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R298_is_importance_monotone",
+   "unwired": [
+    [
+     "PAIRS",
+     44
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R299_where_the_selection_boundary_is",
+   "unwired": [
+    [
+     "PAIRS",
+     45
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R300_does_combination_generalise",
+   "unwired": [
+    [
+     "PAIRS",
+     49
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R301_is_the_judge_a_shrink_or_a_reorder",
+   "unwired": [
+    [
+     "PAIRS",
+     54
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R302_are_the_artifacts_reproducible",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R303_the_mde_of_the_design_that_priced_it",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R304_is_the_boundary_resolvable",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R305_what_would_resolve_the_boundary",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R306_the_table_at_every_annotator",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R307_a_size_matched_neutral_arm",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R308_neutral_clause_at_matched_k4",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R309_is_the_missing_r2_noise_or_structure",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R310_what_the_structure_is",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R311_does_the_shrink_differ_within_family",
+   "unwired": [
+    [
+     "PAIRS",
+     65
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R312_is_the_shrink_the_arm_or_the_rule",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R313_is_the_signed_shrink_precision_or_shared_noise",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R314_silence_was_read_as_endorsement",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R315_how_many_rounds_can_still_run",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R316_did_the_repair_do_only_what_it_claimed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R317_the_population_was_run_py",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R318_is_the_site_mde_draw_dependent",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R319_six_rounds_read_the_typo",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R321_four_detectors_two_estimands",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R322_the_matched_rerun_was_never_gpu_work",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R323_the_tau_gap_was_NCAL",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R324_the_dose_grid",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R325_what_the_definition_can_and_cannot_see",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R326_the_clause2_baseline_curve",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R327_clause2_names_no_reference",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R328_the_three_readings_are_one_budget",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R329_the_budget_is_unobservable",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R330_what_the_conservative_reading_costs",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R331_what_makes_a_clause2_reference_safe",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R332_the_closure_level_derives_reading_A",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R333_the_resolution_floor",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R334_why_clause_one_closes",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R335_can_provenance_be_detected",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R336_clause_three_tested_not_declared",
+   "unwired": [
+    [
+     "NSUB",
+     88
+    ],
+    [
+     "SEEDS",
+     87
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R337_the_wall_is_the_population",
+   "unwired": [
+    [
+     "A24",
+     81
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R338_does_the_signature_transfer_to_a_new_rule",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R339_the_conjunction_is_a_different_object",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R340_the_definition_against_an_adversary",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R355_is_the_closed_region_upward_closed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R356_is_the_within_family_disagreement_resolvable",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R357_does_the_inversion_survive_swapping_truth",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R358_does_the_closure_defect_replicate_at_the_second_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R359_can_clause_two_be_made_judge_invariant",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R360_which_clause_is_load_bearing",
+   "unwired": [
+    [
+     "A24",
+     109
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R361_does_clause_three_hold_at_the_second_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R362_does_the_size_band_survive_the_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R363_clause_three_does_not_close_the_rubric_channel",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R364_how_much_does_the_rubric_channel_carry",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R365_is_the_empty_channel_a_2B_statement",
+   "unwired": [
+    [
+     "A24",
+     96
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R366_does_anything_predict_which_claims_survive_the_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R367_can_the_judge_be_named_non_circularly",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R368_transport_matched_on_difficulty",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R369_the_transport_contrast_decomposes_two_ways",
+   "unwired": [
+    [
+     "ARMS",
+     102
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R370_a_non_subset_floor_for_the_fresh_arm",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R371_would_more_prompts_resolve_transport",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R498_the_auditor_of_auditors_cannot_run_in_the_suite",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R499_is_gen_the_same_function_as_prompt_blind_or_a_cancelling_one",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R500_do_other_artifacts_assert_worlds_the_record_overturned",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R501_can_provenance_be_replaced_by_a_behavioural_test",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R502_the_admissible_side_is_one_responsive_arm_and_six_random_ones",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R503_the_two_sides_of_clause_three_draw_from_the_same_pool",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R504_is_the_recommendation_comparing_the_same_two_things",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R505_two_ceilings_one_for_rankers_one_for_pair_predictors",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R506_the_core_is_a_ranker_so_only_one_ceiling_applies",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R507_the_residual_is_the_population_filter",
+   "unwired": [
+    [
+     "L",
+     57
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R508_selection_position_is_a_partial_provenance_surrogate",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R509_a_checkable_clause_three_does_not_rescue_the_definition",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R512_the_position_proxy_inverts_against_the_actual_ratings",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R515_can_clause_one_bind_per_prompt",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R516_does_a_per_prompt_clause_one_exclude_any_admitted_arm",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R518_clause_four_is_redundant_where_the_definition_lives",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R519_only_clause_three_narrows_what_two_admits",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R520_is_the_provenance_set_complete",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R521_what_the_declared_literal_costs_on_the_wider_population",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R522_the_six_candidacies_become_verdicts",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R523_are_the_six_arms_three_or_aliases",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R524_how_many_objects_are_in_the_fifty_six_tags",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R525_the_variants_that_were_supposed_to_differ",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R526_the_recorded_natural_experiment",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R527_is_clause_two_a_choice",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R528_where_the_definition_empties",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R529_which_human_labels_does_clause_three_mean",
+   "unwired": [
+    [
+     "NEITHER",
+     45
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R530_what_the_empty_world_costs",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R531_prompt_responsiveness_derived_not_declared",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R532_what_the_fork_costs_in_a2",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R533_the_weight_reading_dose_curve",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R534_three_input_classes_not_two",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R535_how_remote_is_the_third_reading",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R536_does_the_ordering_survive_a_second_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R537_the_dose_curve_under_a_second_judge",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R538_the_released_core_has_no_second_judging",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R539_what_the_on_site_round_costs",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R540_tokens_per_second_on_this_box",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R541_the_throughput_was_measured_on_the_wrong_operation",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R542_every_model_was_wrong_every_log_was_right",
+   "unwired": [
+    [
+     "LOGGED_MIN_GEN",
+     34
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R547_the_register_sorted_on_the_wrong_axis",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R548_row_two_has_two_remedies_and_one_is_installed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R549_every_on_site_row_is_gated_by_a_missing_flag",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R553_the_generator_has_knobs_now",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R557_row_one_measured_verbatim_overlap_on_a_documented_rewrite",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R591_where_the_four_orphan_values_actually_live",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R592_are_the_codeless_rounds_the_ones_the_statement_leans_on",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R593_do_the_codeless_artifacts_carry_their_own_scope",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R594_is_world_an_enum_or_free_text_wearing_its_name",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R595_is_the_singleton_tail_translatable_or_is_world_an_enum_set",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R596_what_the_provenance_gate_actually_accepts",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R597_is_the_repaired_allowance_reachable_in_this_document",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R598_which_deliverable_documents_are_actually_gated",
+   "unwired": [
+    [
+     "E05",
+     62
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R599_does_the_deliverable_state_one_definition_or_several",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R600_the_rounds_the_deliverable_leans_on_that_the_gate_never_sees",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R601_does_the_claim_set_carry_the_cross_release_result",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R602_re_derive_the_corpus_overlap_from_the_files",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R603_is_the_second_corpus_the_same_kind_of_object",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R604_does_clause_twos_baseline_name_exist_in_any_artifact",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R605_can_clause_twos_comparator_be_rebuilt_from_this_repo",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R606_does_provenance_reach_the_rounds_the_page_cites",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R607_which_eras_drive_the_provenance_gap",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R608_what_separates_the_documented_cited_rounds_of_era_three",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R609_is_there_a_transition_at_all_or_only_a_slope",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R610_does_the_switch_appear_in_the_uncited_rounds_too",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R611_what_else_changed_at_the_boundary",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R612_a_swap_or_two_trends_that_cross",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R613_how_much_of_the_definition_rests_on_the_documented_era",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R614_narrow_by_necessity_or_by_habit",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R615_can_the_outcome_question_be_asked_at_all",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R616_is_the_cited_sets_form_rate_more_than_chance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R617_does_the_controls_key_track_running_controls",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R618_what_a_third_object_must_provide",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R619_why_universals_pass_the_gate_that_lists_them",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R620_is_the_vocabulary_gap_a_correct_rejection",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R621_what_the_gate_suite_actually_covers",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R622_how_much_of_the_definition_is_re_derived",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R623_what_the_automatic_rule_would_flag",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R624_the_binding_unit_is_a_specification_axis",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R625_adjudicating_the_82",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R626_does_anchoring_carry_any_information",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R627_the_multiplicity_threshold_swept",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R628_the_bound_as_four_interventions",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R629_what_formulation_asserts_alone",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R630_are_the_ungoverned_findings_live",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R631_the_unrecorded_retraction",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R632_how_much_the_ledger_overstates",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R633_conclusions_under_superseded_instruments",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R634_how_many_definitions_of_its_own_terms",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R635_who_reads_a_key_they_reject",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R636_what_actually_moved",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R638_can_the_exit_codes_be_decoded",
+   "unwired": [
+    [
+     "PARTS",
+     55
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R639_is_the_world_live",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R640_how_many_classify",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R641_preventive_not_corrective",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R644_is_there_a_third_object",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R645_every_row_is_single_object_bound",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R649_a_truncation_only_matters_when_the_cap_binds",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R650_can_a_site_say_what_it_reads",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R651_which_unresolvability_needs_the_caller",
+   "unwired": [
+    [
+     "GLOB_CALLS",
+     78
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R652_at_what_depth_does_a_population_stop_being_static",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R653_how_loose_is_the_d1_upper_bound",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R654_which_artifacts_are_sha_bound_measurements",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R655_resolve_the_undecided_glob_bases",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R656_two_apis_one_rule",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R657_bind_the_function_local_bases",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R658_which_binding_forms_the_evaluator_never_sees",
+   "unwired": [
+    [
+     "E05",
+     73
+    ],
+    [
+     "UNHANDLED",
+     140
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R659_how_often_a_wall_i_declared_fell",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R660_does_a_named_entry_reach_the_register",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R661_is_the_naming_rate_just_exposure",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R662_is_the_grid_or_the_data_the_constraint",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R663_audit_my_own_forecast_record",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R664_twentyfour_rounds_zero_object_claims",
+   "unwired": [
+    [
+     "E05",
+     68
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R665_the_definition_is_empty_at_its_own_literal_reading",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R666_p100_is_an_in_sample_ceiling",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R667_the_extension_is_five_not_two",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R668_the_band_is_a_threshold_not_a_clause",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R669_p_arm_is_not_clause_two",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R670_the_quantifier_gate_was_green_while_it_failed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R671_extend_the_gate_to_the_readme",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R672_is_the_freeze_a_ledger_or_a_drain",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R673_reconcile_the_gate_against_my_own_walk",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R674_does_provenance_open_the_file_it_accepts",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R675_a_citation_that_names_a_filetype_not_a_file",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R676_the_number_five_is_stable_the_membership_is_not",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R677_four_sets_four_objects_not_four_readings",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R678_git_supplies_the_lineage_the_artifacts_omit",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R679_the_deliverable_prints_one_number_for_two_sets",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R680_citations_are_not_computations",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R681_fixture_or_finding",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R682_the_residue_and_what_the_arc_leaves_standing",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R683_the_membership_null_already_existed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R684_the_judge_is_not_in_the_record",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R685_do_the_two_judges_agree",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R686_is_the_judge_recoverable_at_all",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R687_is_there_a_convention_to_enforce",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R688_does_clause_three_exclude_published_cores",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R689_the_release_ships_one_core",
+   "unwired": [
+    [
+     "ARC",
+     47
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R690_which_literals_assert_the_release",
+   "unwired": [
+    [
+     "OURS",
+     43
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R691_was_the_name_reused_or_coincident",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R692_how_big_is_the_gates_blind_spot",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R693_is_clause_two_a_fact_about_our_generator",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R694_the_definition_is_two_parameters_plus_the_sham",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R695_three_sweeps_three_wrong_quantities",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R696_do_the_scores_and_the_verdicts_agree",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R697_how_many_non_resolutions_were_silence",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R698_a_round_that_counts_its_own_output",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R699_self_inclusion_across_the_sweepers",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R700_is_the_gate_measuring_risk_or_prose",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R701_what_formulation_the_audit_supports",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R702_what_the_formulation_wrongly_admits",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R703_is_every_clause_load_bearing",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R704_is_f2s_weight_our_replicate_count",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R705_what_gain_this_design_can_detect",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R706_widening_a_detector_is_an_experiment",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R707_is_the_length_dependence_a_bug_at_all",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R708_does_the_gate_predict_falsity",
+   "unwired": [
+    [
+     "WIN",
+     58
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R709_is_the_n_equals_one_the_corpus_or_the_definition",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R710_are_ranking_words_a_better_trigger_class",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R711_is_the_core_sham_residual_above_chance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R712_is_the_exclusion_count_above_chance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R713_is_f1_stipulated_or_discovered",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R714_the_release_ships_986_cores",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R715_do_instance_predicates_exist_and_separate",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R716_what_the_quantised_statistic_can_resolve",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R717_a_ratio_split_by_its_own_denominator",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R718_what_the_deliverable_still_asserts",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R719_a_standing_block_on_a_retracted_set",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R720_premise_or_contrast",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R721_six_implementations_or_six_evidences",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R722_a_shared_file_is_not_a_shared_input",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R723_the_path_was_built_not_written",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R724_could_the_producer_have_returned_otherwise",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R725_the_specification_curve_was_a_threshold_sweep",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R726_how_wide_is_the_disagreement_zone",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R727_the_zone_width_is_a_resample_count",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R728_the_census_at_sixteen_times_the_resamples",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R729_clause_three_is_a_blocklist_and_fails_open",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R730_seven_tags_are_not_seven_objects",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R731_what_the_open_failure_admits",
+   "unwired": [
+    [
+     "BLOCKLIST",
+     40
+    ],
+    [
+     "Z95",
+     36
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R732_the_third_cell_varied_two_things",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R733_a_shared_level_or_a_shared_profile",
+   "unwired": [
+    [
+     "R284",
+     41
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R734_how_much_of_the_floor_is_the_subtrahend",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R735_the_floor_is_a_function_of_overlap",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R736_the_wall_was_an_inverted_index",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R737_the_floor_curve_and_the_matched_null",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R738_every_side_matched_on_its_own_overlap",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R739_the_floor_was_drawn_from_a_different_population",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R740_is_the_shortfall_resolvable_at_all",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R741_two_rounds_two_populations",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R742_the_requirement_was_per_cell",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R743_a_derived_population_is_a_timestamp",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R744_is_no_arms_a_measurement_or_silence",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R745_are_the_added_arms_cores_or_apparatus",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R746_the_census_admitted_two_populations",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R747_eightyone_objects_is_a_transitive_closure",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R748_the_page_carries_two_identity_rules",
+   "unwired": [
+    [
+     "R524",
+     67
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R749_which_cell_did_each_claim_come_from",
+   "unwired": [
+    [
+     "KNOWN_CELL",
+     57
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R750_a_citation_group_and_who_actually_holds_the_number",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R751_is_a_flagged_defect_already_repaired",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R752_the_mde_refuses_the_comparison",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R753_pooling_pages_buys_power_not_validity",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R754_only_one_document_can_separate_era_from_governance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R755_era_governance_and_maintenance_are_one_variable",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R756_the_flagged_rate_belongs_to_rounds_not_documents",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R757_the_artifact_corpus_was_scoped_to_one_arc",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R758_git_pins_the_population_both_of_them",
+   "unwired": [
+    [
+     "R756",
+     58
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R759_are_the_published_numbers_read_by_anything",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R760_clause_three_by_rule_instead_of_by_name",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R828_the_controls_that_were_never_run",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R829_is_the_constant_control_class_wider",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R830_the_idiom_predates_every_defect",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R831_why_the_extension_is_empty",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R832_the_rank_claim_is_an_interval",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R833_the_wall_had_a_record_behind_it",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R835_a_bar_needs_an_external_anchor",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R836_the_null_used_a_conservative_resolution",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R840_a_failing_gate_and_a_blind_gate_share_an_exit_code",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R841_does_the_exact_class_interval_close_on_every_annotator",
+   "unwired": [
+    [
+     "TOL",
+     76
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R842_is_the_definitions_own_evidence_reproducible",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R844_does_the_other_writers_deflation_transfer_to_coval_core",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R845_the_margin_the_binary_test_could_not_see",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R847_does_clause_fours_EVERY_survive_an_honest_family",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R848_what_does_the_word_every_cost_dose_response",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R849_does_the_proposed_clause_survive_its_own_test",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R850_is_the_extension_selective_or_merely_small",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R851_which_published_extension_is_actually_exposed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R852_what_is_the_free_component_actually_made_of",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R853_does_clause_two_reward_content_or_format",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R854_is_the_pair_shuffle_survivor_set_arm_intrinsic",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R860_the_exact_MDE_of_the_universal_reading",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R862_does_the_selection_sign_survive_a_60x_wider_family",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R863_is_the_1p5_floor_calibrated_for_a_max_comparator",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R864_a_powered_null_for_the_statistic_being_thresholded",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R868_can_a_gate_be_dead_and_green_at_once",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R869_which_gates_can_write_outside_their_own_scope",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R870_were_my_declared_worlds_ever_entered",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R871_is_the_worlds_convention_growing_or_decaying",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R872_how_many_directional_claims_were_measured_at_two_ends",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R874_the_definition_restated_with_its_scopes_bound",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R974_the_gate_for_my_closing_sentence_was_blind_to_the_word_sixteen",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R975_where_clause_fours_bar_sits_as_per_prompt_overlap_grows",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R976_phi_star_is_design_resolution_not_a_property_of_the_clause",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R977_the_currency_gate_was_green_about_a_clause_it_had_never_heard_of",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R978_does_the_definitions_extension_depend_on_how_many_prompts_were_scored",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R979_does_clause_three_order_arms_differently_from_clause_two",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R980_how_many_prompts_the_definition_needs_to_admit_its_own_instance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R981_how_much_of_the_statement_the_343_assertions_actually_cover",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R982_where_the_unbacked_decimals_live_and_which_arc_was_searched",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R983_where_the_anchoring_scans_breadth_stops_paying",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R984_which_clauses_have_never_excluded_a_built_object",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R985_deriving_k_from_the_object_closes_clause_ones_population",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R986_the_definition_names_a_scalar_size_the_released_core_does_not_have",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R987_the_size_reading_is_decided_and_it_needs_no_provenance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R988_the_card_caps_size_and_names_two_properties_the_definition_has_no_clause_for",
+   "unwired": [
+    [
+     "PR",
+     85
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R989_how_much_dissent_a_core_erases_and_whether_that_is_more_than_chance",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R990_does_the_cores_construction_actually_remove_redundancy",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R991_the_departure_from_the_card_is_stated",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R992_what_the_two_closable_departures_would_actually_exclude",
+   "unwired": [
+    [
+     "A24",
+     66
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R993_the_caps_cost_is_a_value_not_a_bound",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R994_the_cap_is_refused_because_its_boundary_is_below_resolution",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R995_the_readme_head_was_570_rounds_stale",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R996_how_much_of_the_readme_debt_is_actually_findings",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R997_the_retraction_join_is_refused_and_the_wall_is_measured",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R998_r997_said_unavailable_and_an_anchored_instrument_already_existed",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R999_were_this_sessions_own_walls_ever_checked",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1000_the_four_clauses_as_one_operator",
+   "unwired": [
+    [
+     "RULE",
+     97
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R1001_the_operator_under_the_permissive_reading",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1002_is_the_repairs_reference_class_closed_under_its_own_clause",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1003_which_wording_of_clause_four_survives_its_own_witnesses",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1004_the_formulation_and_what_it_costs",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1005_does_the_extension_converge_beyond_its_own_score_level",
+   "unwired": [
+    [
+     "NSHUF",
+     74
+    ]
+   ],
+   "unparseable": false
+  },
+  {
+   "round": "R1006_are_the_supervised_arms_unusually_heterogeneous",
+   "unwired": [],
+   "unparseable": false
+  },
+  {
+   "round": "R1007_the_negative_control_r1005_declared_and_never_ran",
+   "unwired": [],
+   "unparseable": false
+  }
+ ]
+}
