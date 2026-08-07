@@ -442,6 +442,26 @@ author-chosen, and it survived four self-attacks that each could only lower it (
 NEXT). ⚠ And **subject novelty is not substantive novelty** — R1027–R1029 each produced a real result
 on an existing subject; the cost is the part of each round spent rediscovering prior art.
 
+⛔⛔ **AND THE REPAIR R1030 NAMED WAS BUILT AND MEASURED TO CATCH 0 OF 4 — R1031.** `preflight.py`
+has accepted `--next` all along; the committed `preflight_log.jsonl` records `next_checked` at **4 of
+15**, split cleanly — **R1019–R1021: 4 of 4 · R1022–R1030: 0 of 11** — at exactly the point the
+session's context was compacted. **The capability never degraded; the memory of it did.** ⚠ 0.267
+lands beside R858's 0.269 by **coincidence**; no mechanism is claimed.
+
+⛔ A prior-art gate matching NEXT text against **round directory names** was then built and run
+against the **four real committed NEXT lines** it exists to catch: **0 of 4**. ⚠ **And its calibration
+PASSED — because I wrote the positive control's text to contain R472's title words.** The real R1028
+NEXT says *"whether each entry names a requirement"*; R472's title says *"the register half
+complies"*: **same subject, different words.** *A control validated only against cases you invented is
+validated against your imagination* — committed while building the repair for a different failure.
+
+⭐ **Prior art in this repository is SEMANTIC, and no lexical instrument reaches it.** Substring
+matching, path indexing, separator normalisation and title-word overlap each fail on the same
+title-vs-prose vocabulary gap, and a permissive threshold manufactures 7/7 (R1030). The gate is
+therefore **deliberately NOT wired**: measured recall 0/4 exiting 0 would install §4's *check that
+cannot fail* on purpose. **This defect has no mechanical detector**, and the habit that did catch it
+was lost to compaction rather than to disbelief.
+
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
 against R921's certified comparators over **96**. **Different admission rule AND different

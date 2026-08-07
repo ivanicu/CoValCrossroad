@@ -1,0 +1,88 @@
+{
+  "round": "R1031",
+  "usage": {
+    "invocations": 15,
+    "next_checked": 4,
+    "rate": 0.26666666666666666,
+    "by_round": [
+      {
+        "round": null,
+        "next_checked": true
+      },
+      {
+        "round": 1019,
+        "next_checked": true
+      },
+      {
+        "round": 1020,
+        "next_checked": true
+      },
+      {
+        "round": 1021,
+        "next_checked": true
+      },
+      {
+        "round": 1022,
+        "next_checked": false
+      },
+      {
+        "round": 1022,
+        "next_checked": false
+      },
+      {
+        "round": 1023,
+        "next_checked": false
+      },
+      {
+        "round": 1024,
+        "next_checked": false
+      },
+      {
+        "round": 1025,
+        "next_checked": false
+      },
+      {
+        "round": 1026,
+        "next_checked": false
+      },
+      {
+        "round": 1027,
+        "next_checked": false
+      },
+      {
+        "round": 1027,
+        "next_checked": false
+      },
+      {
+        "round": 1028,
+        "next_checked": false
+      },
+      {
+        "round": 1029,
+        "next_checked": false
+      },
+      {
+        "round": 1030,
+        "next_checked": false
+      }
+    ],
+    "split": {
+      "R1019_R1021": "4 of 4",
+      "R1022_R1030": "0 of 11"
+    },
+    "boundary": "the session's context compaction",
+    "coincidence_note": "0.267 lands beside R858's 0.269 by coincidence; two unrelated ratios, no mechanism claimed"
+  },
+  "repair_built": "assurance/a_next_names_its_prior_art.py",
+  "repair_recall_on_real_cases": {
+    "R1027": "green",
+    "R1028": "green",
+    "R1029": "green",
+    "R1030": "green"
+  },
+  "repair_recall": "0 of 4",
+  "wired": false,
+  "why_not_wired": "measured recall 0/4; a gate that exits 0 on every real case manufactures assurance \u2014 \u00a74's `check that cannot fail`, installed deliberately",
+  "calibration_failure": "its POSITIVE control passed because I wrote the control text to contain R472's title words; the real R1028 NEXT uses different words for the same subject",
+  "limitation": "prior art here is SEMANTIC; no lexical instrument tried (substring, path index, separator normalisation, title-word overlap) bridges title-vs-prose vocabulary"
+}

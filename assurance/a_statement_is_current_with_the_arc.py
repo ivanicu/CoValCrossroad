@@ -563,6 +563,17 @@ def main() -> int:
                       [r"(self[- ]test).{0,300}(monitor|live|never (points|runs))",
                        r"(0\.714|5 of 7).{0,200}(0\.269|R858|27)"]))
 
+    # ⛔⛔ R1031: preflight's --next existed all along (4 of 15 used, clean split at compaction),
+    #    and the prior-art gate built as R1030's repair catches 0 of 4 real cases, so it is NOT
+    #    wired. The statement must carry that this defect has no mechanical detector.
+    d = load("A27_*/R1031_*/results/flag_usage_and_repair_recall.json")
+    if d:
+        facts.append(("R1031", "the named repair catches 0 of 4 and is not wired",
+                      f"--next used {d['usage']['next_checked']}/{d['usage']['invocations']}, "
+                      f"repair recall {d['repair_recall']}",
+                      [r"(0 of 4|recall 0/4).{0,300}(not wired|deliberately)",
+                       r"(no mechanical detector|semantic).{0,300}(lexical|prose)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
