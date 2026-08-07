@@ -1,0 +1,25 @@
+{
+  "commit": "5bfb4834821348b943412e0303f75e32c581055e",
+  "attack": {
+    "vectors_total": 8,
+    "vectors_passing": 8,
+    "vector_pass_rate": 1.0,
+    "exit": 0
+  },
+  "gate": {
+    "floor_entry": 1388,
+    "baseline_exit": 2
+  },
+  "ledger": {
+    "entry_count": 1149,
+    "min_entry_id": 236,
+    "max_entry_id": 1387,
+    "entries_at_or_above_the_wrong_floor_1150": 238
+  },
+  "r952_carried": {
+    "mode_coverage": 0.093
+  },
+  "unit_note": "counts are ATTACK VECTORS and LEDGER ENTRIES, never summed",
+  "scope": "binds future entries only; cannot repair the 1,149 committed",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
