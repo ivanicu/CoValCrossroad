@@ -187,14 +187,72 @@ def main() -> int:
     if len(real) > 12:
         print(f"     … and {len(real) - 12} more, all in the artifact")
 
+    # ⛔ ⑥ TWO ARTIFACTS MY POSITIVE CONTROL COULD NOT HAVE CAUGHT, because I BUILT its two phrases
+    #    myself, each carrying exactly one qualifier. The corpus does not look like that.
+    #    (a) SAME BRACKET: `+0.009103 [+0.005730, +0.012488]` puts a point estimate and its own CI
+    #        endpoints inside one window, so they pair and "disagree" by construction.
+    #    (b) BOTH QUALIFIERS: a comparison names BOTH arms in one phrase, so the qualifier SETS
+    #        match and the rule calls EXPLAINED cases REAL -- inverting control ①'s own example.
+    #    This is `a control validated only against cases you invented`, arriving in the round that
+    #    quotes it. Measured here rather than asserted.
+    BRACKET = re.compile(r"\[[^\]]*\]")
+    def same_bracket(r):
+        for src in (r["statement_phrase"], r["record_phrase"]):
+            for b in BRACKET.findall(src):
+                if r["statement_value"] in b or r["record_value"] in b:
+                    if r["statement_value"] in src and r["record_value"] in src:
+                        return True
+        return False
+    a_cnt = sum(1 for r in real if same_bracket(r))
+    b_cnt = sum(1 for r in real if len(r["qualifiers"]) > 1)
+    either = sum(1 for r in real if same_bracket(r) or len(r["qualifiers"]) > 1)
+    clean = [r for r in real if not same_bracket(r) and len(r["qualifiers"]) == 1]
+    c6 = either / len(real) <= 0.5 if real else False
+    print(f"\n  ⑥ IS THE RESIDUE ITSELF ARTIFACT-DOMINATED — of {len(real)} real candidates:")
+    print(f"     same bracket (point vs its own CI endpoint)   {a_cnt:>4}")
+    print(f"     phrase names BOTH qualifiers (a comparison)   {b_cnt:>4}")
+    print(f"     either                                        {either:>4}   "
+          f"{either/len(real):.3f}" if real else "")
+    print(f"     neither -> the genuinely unexplained residue  {len(clean):>4}")
+    print(f"     {'PASS — the residue is mostly clean' if c6 else 'FAIL — the residue is dominated by two artifacts my positive control could not catch, because I built its phrases myself and each carried exactly one qualifier'}")
+    for r in clean[:8]:
+        print(f"        {r['statement_value']} vs {r['record_value']}  {r['qualifiers']}")
+
+    # ⭐ ⑦ THE THIRD ARTIFACT, WHICH MY OWN `IMPOSSIBLE` BLOCK PREDICTED AND I DID NOT MEASURE:
+    #    same qualifier, DIFFERENT QUANTITY KIND. `coval_core` names a SCORE (~0.57) and a GAP
+    #    (~0.006) in the same breath. The rule's unit is the QUALIFIER; the claim's unit is the
+    #    QUANTITY, and they are not the same string. A same-scope contradiction should be of
+    #    comparable magnitude; two orders apart is a score against a margin.
+    def ratio(r):
+        x, y = float(r["statement_value"]), float(r["record_value"])
+        hi, lo = max(abs(x), abs(y)), min(abs(x), abs(y))
+        return (hi / lo) if lo else float("inf")
+    far = [r for r in clean if ratio(r) >= 10]
+    near = [r for r in clean if ratio(r) < 10]
+    print(f"\n  ⑦ SAME QUALIFIER, DIFFERENT QUANTITY KIND — of the {len(clean)} survivors, "
+          f"magnitude ratio >=10x (a score against a gap): {len(far)}; <10x: {len(near)}")
+    for r in near:
+        print(f"     {r['statement_value']} vs {r['record_value']}  {r['qualifiers']}  "
+              f"ratio {ratio(r):.2f}")
+    print(f"     ⚠ my IMPOSSIBLE block predicted this — `two phrases can name `generic` and still "
+          f"be about different statistics of it` — and I stated it instead of measuring it.")
+
     top = max(counts, key=counts.get)
     world = {"EXPLAINED": "A", "REAL CANDIDATE": "B", "UNDECIDABLE": "C"}[top]
     print(f"\n  ⭐⭐⭐ WORLD {world}: " + (
         f"{counts['EXPLAINED']} of {n} disagreeing pairs ({counts['EXPLAINED']/n:.3f}) are EXPLAINED "
         f"— the two phrases name different qualifiers, so the values SHOULD differ. R955's "
         f"undifferentiated 220 collapses to **{len(real)} distinct real candidates**, every one "
-        f"named above, plus {counts['UNDECIDABLE']} undecidable. A residue that size is a work item; "
-        f"220 was a restatement of the problem."
+        f"named above, plus {counts['UNDECIDABLE']} undecidable. "
+        + (f"⛔ BUT CONTROL ⑥ DISQUALIFIES MOST OF THAT RESIDUE: {either} of {len(real)} "
+           f"({either/len(real):.3f}) are a point estimate paired with its own CI endpoint, or a "
+           f"phrase naming BOTH compared arms so the qualifier sets match by construction. "
+           f"**{len(clean)} candidates survive both.** My positive control could not have caught "
+           f"either, because I wrote its two phrases myself and gave each exactly one qualifier — "
+           f"a control validated against my imagination, in the round that quotes the rule."
+           if not c6 else
+           f"Control ⑥ holds: {len(clean)} of {len(real)} survive the bracket and both-qualifier "
+           f"checks, so the residue is a work item rather than an artifact.")
         if world == "A" else
         f"{counts['REAL CANDIDATE']} of {n} pairs ({counts['REAL CANDIDATE']/n:.3f}) share their "
         f"qualifiers and still differ in value. **The document carries many same-scope conflicts**, "
@@ -214,6 +272,17 @@ def main() -> int:
     json.dump({"commit": head, "world": world, "threshold": T,
                "n_disagreeing": n, "counts": counts,
                "n_distinct_real_candidates": len(real), "real_candidates": real,
+               "quantity_kind": {"ratio_ge_10x": len(far), "ratio_lt_10x": len(near),
+                                 "comparable_magnitude_survivors": near,
+                                 "note": "the rule's unit is the QUALIFIER, the claim's unit is the "
+                                         "QUANTITY; a score and a gap share a qualifier"},
+               "residue_artifacts": {"same_bracket": a_cnt, "both_qualifiers": b_cnt,
+                                     "either": either, "surviving": len(clean),
+                                     "survivors": clean,
+                                     "why_the_positive_control_missed_it":
+                                         "its two phrases were written by me with one qualifier "
+                                         "each; the corpus names both arms in one row and puts a "
+                                         "point estimate beside its own interval"},
                "reproduced_r955": bool(c3),
                "rule": "qualifiers differ -> EXPLAINED; qualifiers match -> REAL CANDIDATE; "
                        "no qualifier either side, or one side only -> UNDECIDABLE",
