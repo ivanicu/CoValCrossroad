@@ -1,0 +1,1 @@
+{"gates": ["currency", "anchoring", "next"], "next_checked": true, "paths": ["assurance/preflight.py", "assurance/preflight_receipts.py"]}

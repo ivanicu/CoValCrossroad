@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import pathlib
 import subprocess
 import sys
@@ -103,11 +104,27 @@ def main() -> int:
         print(f"\n⛔ REFUSED — {bad}. NOTHING has been staged.")
         return 2 if any(v != "RED" for _n, v in bad) else 1
 
-    r = subprocess.run(["git", "add", "--"] + a.paths, cwd=ROOT, capture_output=True, text=True)
+    # ⭐ THE RECEIPT LANDS INSIDE THE COMMIT IT GATED. R1018's NEXT asked for counting to START
+    #    rather than be claimed, and the sound way is self-evidencing: preflight appends one line
+    #    naming the paths it cleared, and stages that line ALONGSIDE them. A commit that went
+    #    through carries its own receipt; one staged another way does not.
+    #    ⚠ The entry cannot name the commit SHA -- it is written before the commit exists -- so it
+    #    names the PATHS, and containment in the commit is what ties them together.
+    #    ⚠⚠ AND A RECEIPT CAN BE WRITTEN BY HAND. This detects the ordinary case and not a forgery;
+    #    it is the same class of limit as `git add` bypassing the wrapper, and for the same reason.
+    log = ROOT / "assurance" / "results" / "preflight_log.jsonl"
+    log.parent.mkdir(parents=True, exist_ok=True)
+    entry = json.dumps({"paths": sorted(a.paths), "next_checked": a.nxt is not None,
+                        "gates": [g for g, _ in GATES] + (["next"] if a.nxt else [])},
+                       sort_keys=True)
+    with log.open("a") as fh:
+        fh.write(entry + "\n")
+    r = subprocess.run(["git", "add", "--"] + a.paths + [str(log.relative_to(ROOT))],
+                       cwd=ROOT, capture_output=True, text=True)
     if r.returncode != 0:
         print(f"\n  UNRUNNABLE: git add failed: {r.stderr.strip()[:120]}. Exit 2, never 0.")
         return 2
-    print(f"\n⭐ all gates green — staged {len(a.paths)} path(s).")
+    print(f"\n⭐ all gates green — staged {len(a.paths)} path(s) + the receipt.")
     print("⚠ AND THIS WAS A CHOICE, NOT A CONSTRAINT: `git add` would have worked without me.")
     return 0
 
