@@ -276,6 +276,21 @@ def main() -> int:
                        r"(no viable setting|cannot be stated as a filter|either vacuous or "
                        r"empt).{0,200}(④|clause four|filter)"]))
 
+    # ⭐ R1004: THE FORMULATION. Two conditions, both binding, instance admitted. This is the one
+    #    fact in the arc that is a PRODUCT rather than a retraction, and a statement that does not
+    #    carry it is a list of things that failed.
+    d = load("A27_*/R1004_*/results/formulation.json")
+    if d:
+        facts.append(("R1004", "the two-condition formulation, with size and margin demoted",
+                      f"world={d['world'][:40]}, core admitted {d['core_admitted_both']}",
+                      # ⚠ the first draft went GREEN on arrival: the anchored statement already
+                      # carries "Reported, not required: sizes 3 to 8 ...", which is about size
+                      # RESOLUTION and not about demoting the clause. Different claim, loose
+                      # pattern. The registered fact is the MEASURED binding and the churn.
+                      [r"(64|61).{0,200}(15|16).{0,300}(bind|unique)",
+                       r"(both conditions bind|each condition removes).{0,400}"
+                       r"(churn|N\s*=\s*726|stable)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

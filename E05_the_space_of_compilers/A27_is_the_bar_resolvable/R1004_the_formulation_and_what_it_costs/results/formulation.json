@@ -1,0 +1,221 @@
+{
+ "source_sha": "250d2792616f6902",
+ "head": "the two-condition formulation, with size and margin demoted to reported fields",
+ "formulation": {
+  "conditions": [
+   "resolvably beats a named prompt-blind comparator",
+   "consumes no prompt-specific human labels"
+  ],
+  "reported_not_required": [
+   "size (max realised)",
+   "margin over a declared response-only class, as a lower bound with its interval"
+  ]
+ },
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "population": 96,
+ "comparators": [
+  "generic",
+  "genericpool16"
+ ],
+ "controls": {
+  "positive_r922_wiring": true,
+  "positive_oracle_fails_c3": true,
+  "positive_derivation_drop4_is_zero": true,
+  "negative_all_off": true,
+  "placebo_order_independent": true
+ },
+ "derivation_drop_clause4": {
+  "generic": {
+   "with4": 9,
+   "without4": 9,
+   "delta": 0
+  },
+  "genericpool16": {
+   "with4": 12,
+   "without4": 12,
+   "delta": 0
+  }
+ },
+ "derivation_note": "dropping \u2463 changing nothing is FORCED by R1000's 0 unique removals; it is bookkeeping confirmation, not evidence",
+ "rows": [
+  {
+   "comparator": "generic",
+   "n2": 24,
+   "n3": 73,
+   "extension": 9,
+   "unique2": 64,
+   "unique3": 15,
+   "core_in": true,
+   "arms": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ]
+  },
+  {
+   "comparator": "genericpool16",
+   "n2": 28,
+   "n3": 73,
+   "extension": 12,
+   "unique2": 61,
+   "unique3": 16,
+   "core_in": true,
+   "arms": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic",
+    "generic_reprov",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ]
+  }
+ ],
+ "stability": [
+  {
+   "comparator": "generic",
+   "N": 242,
+   "seed": 11,
+   "extension": 8,
+   "churn": 1
+  },
+  {
+   "comparator": "generic",
+   "N": 242,
+   "seed": 22,
+   "extension": 0,
+   "churn": 9
+  },
+  {
+   "comparator": "generic",
+   "N": 242,
+   "seed": 33,
+   "extension": 3,
+   "churn": 6
+  },
+  {
+   "comparator": "generic",
+   "N": 484,
+   "seed": 11,
+   "extension": 8,
+   "churn": 1
+  },
+  {
+   "comparator": "generic",
+   "N": 484,
+   "seed": 22,
+   "extension": 9,
+   "churn": 0
+  },
+  {
+   "comparator": "generic",
+   "N": 484,
+   "seed": 33,
+   "extension": 8,
+   "churn": 1
+  },
+  {
+   "comparator": "generic",
+   "N": 726,
+   "seed": 11,
+   "extension": 9,
+   "churn": 0
+  },
+  {
+   "comparator": "generic",
+   "N": 726,
+   "seed": 22,
+   "extension": 9,
+   "churn": 0
+  },
+  {
+   "comparator": "generic",
+   "N": 726,
+   "seed": 33,
+   "extension": 8,
+   "churn": 1
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 242,
+   "seed": 11,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 242,
+   "seed": 22,
+   "extension": 2,
+   "churn": 10
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 242,
+   "seed": 33,
+   "extension": 8,
+   "churn": 4
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 484,
+   "seed": 11,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 484,
+   "seed": 22,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 484,
+   "seed": 33,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 726,
+   "seed": 11,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 726,
+   "seed": 22,
+   "extension": 12,
+   "churn": 0
+  },
+  {
+   "comparator": "genericpool16",
+   "N": 726,
+   "seed": 33,
+   "extension": 12,
+   "churn": 0
+  }
+ ],
+ "ornaments": [],
+ "core_admitted_both": true,
+ "world": "A A DEFINITION \u2014 both conditions bind under both comparators",
+ "limitation": "shows the formulation is coherent and non-vacuous here; cannot show the extension is the right one, and the release ships no external standard",
+ "not_measured": "cross-dataset behaviour",
+ "would_require": "a second release with human rankings over the same response sets"
+}

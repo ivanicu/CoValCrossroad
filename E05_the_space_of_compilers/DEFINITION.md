@@ -120,6 +120,51 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⭐⭐⭐ THE FORMULATION THIS ARC HAS EARNED — two conditions, and both of them bind (added 2026-08-07, R1004)
+
+Twenty-nine rounds of this arc killed wordings. **This is the one that survives all of them**, and it
+is stated as a product rather than as another defect.
+
+> An arm is a **CORE** iff
+> **②** it **resolvably beats a NAMED prompt-blind comparator** — the 2.5th percentile of the
+> bootstrapped paired difference is > 0 — **and**
+> **③** it **consumes no prompt-specific human labels.**
+>
+> **Reported, never required:**
+> **①** its **size** (max realised), because R1000 measured **0** unique removals — it describes, it
+> does not filter;
+> **④** its **margin over a DECLARED response-only class**, as a **lower bound with its interval**,
+> because R1003 measured that as a *filter* the clause is **vacuous or empty at every setting**.
+
+**Both conditions bind — neither is an ornament:**
+
+| comparator | ② admits | ③ admits | **extension** | **② unique** | **③ unique** | `coval_core` in |
+|---|---:|---:|---:|---:|---:|---|
+| `generic` | 24 | 73 | **9** | **64** | **15** | **yes** |
+| `genericpool16` | 28 | 73 | **12** | **61** | **16** | **yes** |
+
+⭐ **And it is stable where the release has the prompts for it.** Churn against the full-corpus
+extension, R978's subsampling design, 3 seeds: **median 0 at N = 726**, **0 at N = 484** under
+`genericpool16`, and **5 at N = 242** — where one seed collapses the extension to **0 arms** outright.
+**That is consistent with R980's ~500-prompt requirement and it is the honest boundary of the claim.**
+
+⛔ **ONE CELL HERE IS A DERIVATION AND IS LABELLED AS SUCH.** "Dropping ④ changes the extension by 0"
+could not have come out otherwise: R1000 measured ④'s unique removals as **0**, and *removes nothing
+uniquely* ⇒ *dropping it changes nothing* **by definition**. It is bookkeeping confirmation, not
+evidence, and it is the reason R1003's NEXT was not run as written.
+
+**Controls.** R922's cut and count at 1e-9; `oracle_k4` fails ③; both conditions disabled admits all
+96; the intersection is order-independent.
+
+⚠ **WHAT THIS CANNOT SHOW — and it is the limit of the whole arc.** That the extension is the
+**right** one. That needs an external standard for what a core is, and **the release ships none**: its
+own card calls core *"a proof of concept … an invitation for others to develop and validate better
+synthesis and aggregation methods."* This formulation is **coherent and non-vacuous on this release**;
+it is not validated against a ground truth, because none exists to validate against.
+
+⚠ **Cross-dataset — N/A.** One release. It would require a second release carrying human rankings
+over the same response sets.
+
 ### ⛔⛔⛔ CLAUSE ④ HAS NO VIABLE SETTING AS A FILTER — every class is either vacuous or empties the definition (added 2026-08-07, R1003)
 
 Every prior verdict on clause ④ was reached in a **different unit system** — R849 on annotator parity
