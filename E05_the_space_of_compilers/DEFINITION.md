@@ -805,9 +805,24 @@ reason invented here would be a narrative. What is measurable is that it was not
 
 ### ⭐ THE REPAIR, WITH ITS COST MEASURED
 
-> **②′** it **resolvably beats the certified prompt-blind comparator set** — the 2.5th percentile of
-> the bootstrapped paired difference is > 0, computed on the prompts the arm **actually covers**,
-> **never on imputed values** — not *a* named one.
+> **②′** it **resolvably beats at least `q`% of the certified prompt-blind comparator family** — the
+> 2.5th percentile of the bootstrapped paired difference is > 0 against that share of the family,
+> computed on the prompts the arm **actually covers**, **never on imputed values** — for a **declared
+> `q`**, not *a* named comparator and not the whole family.
+
+⛔⛔ **THE PARAMETER IS STATED HERE (R1037), AND IT IS DECLARED RATHER THAN FIXED.** Until now the
+clause named no `q`, no family and no closure — so a reader implementing it implemented the form
+R1034 measured **vacuous**. The literal reading of the wording above reproduces R1036's committed grid
+at **every** quantile, under 3 seeds, against code from a different round:
+`q` = 50 → 12 · 75 → 12 · 90 → 11 · 95 → 9 · 99 → 8 · 100 → does not stabilise.
+⭐ **`q` is DECLARED, not fixed**, because R1036 found scale-stability **necessary and not
+sufficient**: q ∈ {50, 75, 90} are all size-independent and **no measurement over this release selects
+among them**. §4 — *a definition that names a number it cannot resolve is how "four" got in* — so the
+clause states the **parameter and its measured onset** (100, 100, 100, 300, 2000, never), never a value.
+⚠ **q = 100 is excluded by measurement, not taste**: the max never stabilises in family size, so
+*"beats the whole family"* cannot be stated at any size this release reaches.
+⚠ **N/A** — which `q` is *right* needs an external criterion for what the comparator family
+represents (R1028).
 
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the

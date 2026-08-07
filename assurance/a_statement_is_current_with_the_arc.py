@@ -625,6 +625,16 @@ def main() -> int:
                       [r"(onset).{0,300}(grows with q|never)",
                        r"(scale[- ]stab\w+|scale[- ]free).{0,300}(select|withdraw)"]))
 
+    # ⛔⛔ R1037: the clause now STATES q as a declared parameter, and the stated form was verified
+    #    against R1036's grid by different code. q=100 excluded by measurement.
+    d = load("A27_*/R1037_*/results/stated_form_verifies.json")
+    if d:
+        facts.append(("R1037", "the clause states q as a DECLARED parameter",
+                      f"stated form agrees {d['all_scale_free_agree']}, "
+                      f"declared {d['declared_not_fixed']}",
+                      [r"(declared|declare).{0,120}(`?q`?).{0,300}(not fixed|never a value)",
+                       r"(at least\s*`?q`?%|q%\s*of the certified)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
