@@ -1,0 +1,46 @@
+{
+  "round": "R1034",
+  "seeds": [
+    1034,
+    2068,
+    3102
+  ],
+  "sample_seed": 77,
+  "per_size": 400,
+  "n_comparators_sampled": 4261,
+  "closure_size": 65535,
+  "derivation": "beating EVERY member of a closed set = beating the strictest; and sampling is sound one way \u2014 the sampled extension is a SUPERSET of the true one",
+  "positive": {
+    "full_mask": 28,
+    "generic": 24,
+    "r1033_strictest": 17
+  },
+  "negative_two_member_reproduces_R1000": true,
+  "per_seed_extension": [
+    [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    [
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ]
+  ],
+  "extension_under_sampled_closure_imputing": [
+    "coval_core_2bA",
+    "coval_core_2bB"
+  ],
+  "extension_under_sampled_closure_repaired": [],
+  "partial_coverage_arms": [
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "promptecho",
+    "promptecho_sham"
+  ],
+  "world": "\u2b50 B VACUOUS UNDER CLOSURE ONCE THE OPERATOR IS REPAIRED \u2014 with the committed IMPUTING operator, ['coval_core_2bA', 'coval_core_2bB'] survive all 4261 sampled checklists, and `coval_core` is NOT among them. Both survivors are the TWINS, whose A2 is 79% imputed (R1021) and which R1011 already withdrew. Applying R1024's repair \u2014 bootstrap only the prompts an arm COVERS \u2014 the extension is EMPTY. So \u2461\u2032\u2227\u2462 admits NOTHING once its own certification predicate is closed AND its own operator repair is applied. Emptiness is EXACT: more comparators can only remove arms.",
+  "limitation": "emptiness is exact; survival is an upper bound and each survivor is UNVERIFIED, not safe"
+}

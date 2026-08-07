@@ -596,6 +596,15 @@ def main() -> int:
                       [r"(0 judge calls|costs zero|costs 0).{0,300}(subset|prompt-blind)",
                        r"(6 of (the )?9).{0,200}(fall|remov)"]))
 
+    # ⛔⛔⛔ R1034: ②′ is VACUOUS under closure + the repaired operator. Emptiness is exact.
+    d = load("A27_*/R1034_*/results/closure_satisfiability.json")
+    if d:
+        facts.append(("R1034", "②′ is vacuous under a closed comparator set",
+                      f"imputing {d['extension_under_sampled_closure_imputing']} · "
+                      f"repaired {d['extension_under_sampled_closure_repaired'] or '∅'}",
+                      [r"(vacuous|empty|∅).{0,300}(clos\w+).{0,200}(repair|imput)",
+                       r"(clos\w+).{0,300}(extension is (empty|∅)|admits nothing)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

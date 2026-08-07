@@ -843,6 +843,25 @@ and scored**.
 ⚠ **N/A:** whether a stricter comparator exists *outside* pool16's criteria — that needs new criteria
 scored at `968 × 4 × k`. This bounds what is reachable from the committed cells.
 
+⛔⛔⛔ **AND R1034 CLOSES THE SET AND FINDS THE CLAUSE VACUOUS.** ②′ requires beating **every** member,
+so under a **closed** set an arm is admitted iff it beats the **strictest** — and closure under
+`fixed` contains all **65,535** subsets of pool16's criteria, all already scored. Over a sample
+pre-registered by size and seed (**4,261** checklists, all sizes, 400/size at seed 77):
+
+| operator | extension, 3 seeds |
+|---|---|
+| committed (**imputing**) | `coval_core_2bA`, `coval_core_2bB` — **`coval_core` is NOT among them** |
+| **R1024-repaired** | **∅** |
+
+Both survivors under the imputing operator are the **twins**, 79% imputed (R1021) and **already
+withdrawn** by R1011. **With the repaired operator nothing survives.**
+⭐ **So ②′∧③ admits nothing once its own certification predicate is closed and its own operator repair
+is applied — the 9-arm extension exists only because the set was never closed.**
+⛔ **Emptiness is EXACT, not a bound**: adding comparators can only remove arms, so the remaining
+61,274 could only remove more. (Survival, had there been any, would have been the upper bound.)
+⚠ **N/A** — the exhaustive 65,535-mask closure with a full bootstrap is ~254 GFLOP per seed; what it
+would require is the matrix form at float32 on the GPU.
+
 | | |
 |---|---:|
 | extension under `generic` alone | 9 |
