@@ -907,6 +907,24 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > **0.4475** against a random floor of **0.1820**.
 > > ⭐ **So `admitted` means CLEARED THE BAR, and the bar is source-agnostic.** That is a
 > > property of the definition worth stating plainly rather than a defect.
+> >
+> > ⛔ **AND THE PARTITION HAS A PRICE, WHICH IS WHY THE INVENTORY LOOKS THE WAY IT DOES
+> > (R906–R907).** Asking whether the bar FAVOURS a source is not answerable here: over the 99
+> > scored arms, `RUBRIC_SELECTOR` is 23/86 admitted (Wilson [0.185, 0.369]) and
+> > `FIXED_CHECKLIST` is **1/2** ([0.095, 0.905] — width 0.811). The intervals overlap, so
+> > **no source preference is demonstrable**; that is weaker than *the bar is source-agnostic*
+> > and is the statement the evidence carries.
+> > ⭐ **The limit is a PRICED WALL, not a missing run.** Every existing selection arm costs
+> > *0 judge calls* for one reason: it is a **subset of `coval_full`**, already judged. A fixed
+> > checklist is by definition NOT a subset, so each new one costs `k × 4 × 968` =
+> > **15,488 judge calls** — 6–8 of them, enough to make the comparison decidable, is
+> > **92,928–123,904 calls.** ⚠ Measured: which kinds are subsets (rubric 1.000, checklist
+> > 0.000) and their k. Derived: the multiplication. Priced in CALLS only — not wall-clock or
+> > money. ⚠ And **no committed builder for `generic`/`genericpool16` exists anywhere in the
+> > repo** — searched with the search itself controlled.
+> > ⭐ **[D5, inference]** That asymmetry very likely explains the inventory's shape — 86 rubric
+> > selectors against 2 checklists — so *what got built* was steered by *what was free*. Stated
+> > as inference, not measurement.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
