@@ -1513,6 +1513,23 @@ that restates the selection criterion.** Named here so it is closed rather than 
 ⚠ **Corpus restricted to rounds before R1067**, carrying forward R1071's contamination lesson rather
 than relearning it.
 
+⛔⛔⛔ **AND R1074's READING EXPOSED A UNIT ERROR RUNNING BACK THROUGH THE WHOLE CHAIN: THE COUNTS ARE
+OCCURRENCES, NOT VALUES.** R1073 built its list by deduplicating clause tokens **by offset**, so the
+same value at two positions counts twice. Measured: R1070's **`31` unstored is `31 occurrences = 18
+distinct values`**, and R1073's **`6` single-carrier is `6 occurrences = 3 distinct`** — `0.009103`
+appears 3×, `0.559311` 2×. ⭐ **The same unit failure this window has caught repeatedly, and it
+survived four rounds because each inherited its population from the last.**
+⭐ **Read, the three distinct singly-carried values are**: `0.009103` (**R981**, under *"Two controls
+failed before one passed"* — **R981 itself calls it a population error being corrected**, so
+persisting it would store a number the round wrote to disown); `0.559311` (**R1000**, a bar quoted in
+a derivation discussion); `0.551354` (**R782**, `| A2 | POOL[0:4] 0.550436 · generic 0.551354 |`, a
+comparator mean in a result table). **Candidate-finding 2 of 3** — and the sentences are printed
+because they, not the count, are the evidence.
+⛔ **THE PROXY IS SOUND ONE WAY ONLY, WRITTEN BEFORE THE RUN**: a controls/limitations placement DOES
+establish *incidental*; a result placement does **not** establish *finding*, because a result section
+also carries baselines and quoted comparisons — `0.551354` is exactly that. **Result placement returns
+CANDIDATE, never CONFIRMED.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1074_*/results/role_of_the_six.json")
+    if d:
+        u = d["unit_correction"]
+        facts.append(("R1074", "the chain counted occurrences while saying values",
+                      f"single {u['single_occurrences']} occ = {u['single_distinct']} distinct, "
+                      f"candidate {d['candidate_finding']} of {d['total']}",
+                      # ⚠ aligned to the wording actually written, verified against the document first
+                      [r"6 occurrences = 3 distinct",
+                       r"R981\s+itself\s+calls\s+it\s+a\s+population\s+error"]))
+
     d = load("A27_*/R1073_*/results/carrier_cardinality.json")
     if d:
         facts.append(("R1073", "the recording gap is three gaps; only the attributable one is a write",

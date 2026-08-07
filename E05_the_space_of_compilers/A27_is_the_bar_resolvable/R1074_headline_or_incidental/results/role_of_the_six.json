@@ -1,0 +1,49 @@
+{
+  "round": "R1074",
+  "unit_correction": {
+    "upstream_occurrences": 31,
+    "upstream_distinct": 18,
+    "single_occurrences": 6,
+    "single_distinct": 3,
+    "note": "R1073's 6/15/10 and R1070's 31 are OCCURRENCE counts"
+  },
+  "values": [
+    {
+      "value": "0.009103",
+      "round": "R981",
+      "section": "## \u26d4 Two controls failed before one passed, and both failures we",
+      "role": "incidental",
+      "sentence": "That is not a coverage finding, it is a population error \u2014 `0.009103` *is* in the statement, but the"
+    },
+    {
+      "value": "0.559311",
+      "round": "R1000",
+      "section": "## \u26d4 \u2463's inertness is a DERIVATION, and I checked rather than re",
+      "role": "candidate-finding",
+      "sentence": "\u26a0 The two bars \u2014 \u2463's **0.482016** on R849's even half, \u2461's cut **0.559311** on the full sample \u2014 are"
+    },
+    {
+      "value": "0.551354",
+      "round": "R782",
+      "section": "## E2 \u00b7 R604's QUESTION, CLOSED \u2014 **WORLD B**",
+      "role": "candidate-finding",
+      "sentence": "| A2 | `POOL[0:4]` **0.550436** \u00b7 `generic` **0.551354** |"
+    }
+  ],
+  "candidate_finding": 2,
+  "total": 3,
+  "share": 0.6666666666666666,
+  "world": "\u2b50 A WORTH PERSISTING, WITH THE PROXY'S LIMIT ATTACHED \u2014 2 of 3 sit outside a controls/limitations block, so writing them back closes a real provenance gap for a small named set: ['0.559311', '0.551354']. \u26a0 Placement in a result section is the UNSOUND direction of the proxy \u2014 a result section also carries baselines and quoted comparisons \u2014 so these are CANDIDATES, and the sentences above are the evidence.",
+  "proxy_ledger": {
+    "property": "the value is a finding worth persisting",
+    "proxy": "appears outside a controls/limitations section",
+    "sound": "controls/limitations => incidental",
+    "unsound": "result section => finding",
+    "safe_side": "result placement returns CANDIDATE, never CONFIRMED"
+  },
+  "controls": {
+    "positive_all_located": true,
+    "negative_absent_no_section": true
+  },
+  "limitation": "position is a proxy for role; the printed sentence is the evidence"
+}
