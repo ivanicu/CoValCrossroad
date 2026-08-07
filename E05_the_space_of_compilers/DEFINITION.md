@@ -879,6 +879,40 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > BOTH arms**, because cheapening only the reference would put the observed value and its null on
 > different instruments. Both are noisier; they remain comparable to each other, which is all this
 > round needs.
+>
+> ⭐⭐⭐ **AND R878's NULL NOW HAS A SIZE — R879, three controls PASS, D8.** R878 said WORLD B needed
+> the observed below **0.70**, a large shift, and a null quoted without saying how large *"large"*
+> was is the shape this project keeps retracting. R879 sweeps the stratum count.
+>
+> | k | ref mean | ref p2.5 | **MDE** | TIE J | DIFF J *(pos. ctrl)* | rnd2 J *(g=0)* |
+> |---:|---:|---:|---:|---:|---:|---:|
+> | 2 | 0.9272 | 0.8576 | 0.0696 | 0.8621 | **0.7097** | 0.9286 |
+> | ⚠ **3** *(R878)* | 0.8512 | 0.7247 | **0.1266** | 0.8998 | **0.6647** | 0.8001 |
+> | 4 | 0.7764 | 0.6926 | 0.0838 | 0.7619 | **0.6232** | 0.8438 |
+> | 5 | 0.7217 | 0.6607 | 0.0610 | 0.6913 | **0.6222** | 0.7368 |
+> | 6 | 0.7082 | 0.6680 | 0.0402 | 0.6843 | **0.5936** | 0.6707 |
+> | ⭐ **7** | 0.6933 | 0.6646 | **0.0287** | 0.6807 | **0.6288** | 0.6943 |
+> | 8 | 0.6902 | 0.6553 | 0.0349 | **0.6571** | **0.6428** | 0.6819 |
+>
+> ⛔ **R878 RAN AT THE WORST k IN THE SWEEP.** Its `k=3` has **MDE 0.1266** against **0.0287** at
+> `k=7` — **4.4× looser than was available**, and nothing in R878 chose 3 for a reason.
+>
+> ⭐⭐ **BUT THE NULL HOLDS ANYWAY, AND NOW MUCH TIGHTER.** `TIE J` never falls below `ref p2.5` at
+> **any** k. **So clause ②'s verdict is invariant to tie rate against a membership shift of 0.0287
+> or larger** — a bound 4.4× sharper than the one R878 stated. ⚠ **Smaller shifts remain open**, and
+> at `k=8` the margin is **0.6571 vs 0.6553 = 0.0018**, razor-thin; the null is holding, barely, at
+> the finest split tested.
+>
+> ⭐ **The positive control is what makes the zero a measurement.** Stratifying by prompt DIFFICULTY
+> — which R877 measured at `r = −0.7069` with the admitted set's axis — is **detected at every one
+> of the seven k**, and its Jaccard sits below the tie stratification's at every k. **A design that
+> sees difficulty everywhere and tie nowhere is reporting a contrast, not a silence.**
+>
+> ⛔ **AND THE ROUND REFUTED ITS OWN PREMISE.** Check #545 asked to *"read where the CI NARROWS with
+> k"*, assuming more strata buys resolution. **Two effects compete** — fewer prompts per stratum
+> (noisier) versus more pairs averaged (less noisy) — **so it was a fork, not a derivation.** The
+> curve settles it toward narrowing, but non-monotonically: `0.0696 → 0.1266 → 0.0838 → 0.0610 →
+> 0.0402 → 0.0287 → 0.0349`. **That is the third time this session a NEXT presumed its own answer.**
 
 | clause | excludes | status | scope |
 |---|---:|---|---|
