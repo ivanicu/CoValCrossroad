@@ -258,6 +258,36 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⭐⭐ THE TEXT-ONLY CLASS IS CLOSED — THE INSTANCE'S SHAM IS AN EXACT DERANGEMENT (added 2026-08-07, R1014)
+
+R1013 withdrew size on the instance's evidence (R986: 43 = 43) but could not check the instance's
+criteria directly — `core_coval_core.json` is not on disk. ⭐ **They are in the RELEASE**:
+`data/conversation_rubrics.jsonl`, key `coval_core`, via `covalx.judge.load_join`. Recovered and
+compared to `coval_core_sham`:
+
+| | |
+|---|---|
+| multiset of criterion **sets** identical | **True** — 0 sets only in the core, 0 only in the sham |
+| prompts where the sham holds the core's **own** set | **0 of 968 (0.0%)** — a **derangement** |
+| `size_dist` | `{2:1, 3:42, 4:925}` **both** |
+| `mean_chars` · `mean_words` · `mean_unique_criteria` | **348.686 · 49.5537 · 3.954545, both** |
+
+⭐⭐⭐ **So the sham is exactly the released core's criterion sets, permuted with no fixed point.**
+Every property computable from the criteria **text alone** is identical between them **by
+construction** — and therefore **no text-only property can be definitional content for this object.**
+R1013's withdrawal reaches the instance in full, and the class is **closed**, not merely doubted:
+size, size residual, size variability, vocabulary, length **and** within-set redundancy (R990's
+finding, which is text-only) are all ruled out as clauses.
+
+**Controls.** The size recovered from the release reproduces R986's committed decomposition exactly —
+min 2, max 4, **43 prompts off the cap = residual 43** — so this is the object R986 measured. A
+runtime-assembled key yields no criteria, so "the multiset differs" could not have come from a
+mis-keyed lookup returning empty. The core against itself is identical.
+
+⭐ **What this leaves, positively.** A2 depends on the **pairing** and is *not* shared — the core beats
+its own sham by **+0.0709 [+0.0615, +0.0801]**. **Definitional content must read the criteria AND
+their own prompt together.** That is what clause ② does, and it is now the only place content can live.
+
 ### ⛔ SIZE AND ITS RESIDUAL ARE WITHDRAWN AS CANDIDATE CLAUSES — THE SHAM SHARES THEM (added 2026-08-07, R1013)
 
 R1011 left the definition unable to rank its own instance. The first candidate for a separating clause

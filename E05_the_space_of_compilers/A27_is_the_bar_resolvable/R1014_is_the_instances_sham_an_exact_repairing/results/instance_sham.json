@@ -1,0 +1,51 @@
+{
+ "source_sha": "381ecd05f6aa5efe",
+ "head": "is the instance's sham an exact re-pairing of the core's criterion sets",
+ "n_core": 968,
+ "n_sham": 968,
+ "n_both": 968,
+ "controls": {
+  "positive_size_matches_r986": true,
+  "negative_ghost_key_empty": true,
+  "placebo_self_identical": true
+ },
+ "multiset_identical": true,
+ "same_slot": 0,
+ "sets_only_in_core": 0,
+ "sets_only_in_sham": 0,
+ "core_props": {
+  "n_prompts": 968,
+  "size_dist": {
+   "2": 1,
+   "3": 42,
+   "4": 925
+  },
+  "mean_size": 3.954545,
+  "mean_chars": 348.686,
+  "mean_words": 49.5537,
+  "mean_unique_criteria": 3.954545
+ },
+ "sham_props": {
+  "n_prompts": 968,
+  "size_dist": {
+   "2": 1,
+   "3": 42,
+   "4": 925
+  },
+  "mean_size": 3.954545,
+  "mean_chars": 348.686,
+  "mean_words": 49.5537,
+  "mean_unique_criteria": 3.954545
+ },
+ "property_identical": {
+  "n_prompts": true,
+  "size_dist": true,
+  "mean_size": true,
+  "mean_chars": true,
+  "mean_words": true,
+  "mean_unique_criteria": true
+ },
+ "world": "A EXACT \u2014 the sham is a permutation of the core's criterion sets, so no text-only property can separate them",
+ "criteria_location": "data/conversation_rubrics.jsonl, key `coval_core`, via covalx.judge.load_join \u2014 NOT corebench/results, which is why R1013 could not find it",
+ "limitation": "says whether the sets moved, never why the sham was built that way"
+}

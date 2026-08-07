@@ -374,6 +374,18 @@ def main() -> int:
                       [r"(sham).{0,260}(shares|identical|43).{0,200}(size|residual)",
                        r"(withdraw|refus).{0,200}(size|residual).{0,200}(sham|candidate)"]))
 
+    # ⭐ R1014: the instance's sham is an exact derangement, so R1013's withdrawal reaches the
+    #    instance in full and the class of text-only clauses is CLOSED, not merely doubted.
+    d = load("A27_*/R1014_*/results/instance_sham.json")
+    if d:
+        facts.append(("R1014", "the instance's sham is an exact re-pairing, closing the text-only "
+                               "class",
+                      f"multiset_identical={d['multiset_identical']}, "
+                      f"same_slot={d['same_slot']}",
+                      [r"(derangement|0 of 968|no prompt keeps).{0,300}(sham|permut|re-pair)",
+                       r"(exact re-pairing|permutation of the core).{0,300}"
+                       r"(text-only|no text|closed)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
