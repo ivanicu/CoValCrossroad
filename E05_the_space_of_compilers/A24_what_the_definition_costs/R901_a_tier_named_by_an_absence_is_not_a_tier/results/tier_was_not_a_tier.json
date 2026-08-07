@@ -1,0 +1,34 @@
+{
+  "commit": "27be0688e22abeece17cdd6e883aa01f7e9b994d",
+  "world": "B",
+  "seed": 901,
+  "arms": [
+    "topw_k4",
+    "topabs_k4"
+  ],
+  "n_shared_prompts": 968,
+  "generator_says": {
+    "topw_k": "highest MEAN importance score",
+    "topabs_k": "largest |mean|, most polarising EITHER WAY",
+    "read_from_source": true
+  },
+  "jaccard": {
+    "mean": 0.5562254033844942,
+    "median": 0.6,
+    "p5": 0.14285714285714285,
+    "p95": 1.0,
+    "share_identical": 0.25516528925619836,
+    "share_disjoint": 0.029958677685950414
+  },
+  "floor_population_corrected": "the floor first drew from the UNION of the two arms' selections with len(pool) >= 2k, which holds only where the arms DO NOT overlap \u2014 29 of 968. The filter chose the population and the population was the answer. Corrected to the FULL criterion pool.",
+  "controls": {
+    "ceiling_self_jaccard": 1.0,
+    "floor_random_subsets": 0.18198057849093835,
+    "floor_n": 917
+  },
+  "explains": "R900's within-tier spread of 0.0748 between two satisfaction-blind rules",
+  "lesson": "a tier named by an ABSENCE (does not see satisfaction/labels) does not constrain what its members DO, so its mean is an average over an arbitrary set \u2014 a group chosen by a FILTER rather than a PROPERTY",
+  "not_causation": "low overlap explains the tier's incoherence; it does not establish that the criterion difference produced the score difference",
+  "unit_note": "Jaccard is a set overlap; margins are A2 units",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
