@@ -1062,6 +1062,23 @@ detail. ⭐ **This also answers the production question honestly**: the six prec
 orthogonal housekeeping — they land on the object, and the ledger they produced has a definitional
 consequence.
 
+⭐⭐ **AND R1051 EXECUTES THE REPAIR: all 16 flagged rounds re-derive their committed VALUES exactly —
+`ran 16 of 16`, `drifted 0`, `non-deterministic 0`.** Each was run **twice**, because `differs from
+committed` has two causes demanding opposite conclusions — non-determinism (comparison meaningless) or
+genuine drift (the committed artifact did not come from the committed code). `run1` vs `run2` is the
+noise floor and came back clean for every round, which is what makes the committed-vs-run comparison
+readable at all.
+⭐ **SO R1050's DOWNGRADE IS ABOUT THE GATE, NOT ABOUT THE NUMBERS.** The clause's provenance is
+unverified in the sense that the currency gate cannot attribute it; **the values underneath it are
+re-derivable on demand, and now have been.**
+⚠ **9 of 16 differ on BYTES while matching on VALUES, and the difference is a git-hash stamp** —
+`commit` in some rounds, `head` in others, exactly 2 diff lines each. **Every byte-mismatch is a
+stamped round (measured, containment True)**; but 13 artifacts are stamped and only 9 mismatch, so
+**four carry a STABLE stamp rather than a HEAD-tracking one** and the mechanism holds over 9, not 13.
+⛔ **For those 9 the byte comparison is DEGENERATE** — `floor == ceiling`, it can only ever return
+*differs*, so the value cell is the only admissible one. ⚠ **And the mirror defect: 3 artifacts carry
+no stamp at all and cannot be traced to their producing commit by any means.**
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1051_*/results/reran_the_flagged.json")
+    if d:
+        sc = d["stamp_census"]
+        facts.append(("R1051", "the flagged rounds re-derive their committed values exactly",
+                      f"ran {d['ran']}, drifted {len(d['drifted'])}, "
+                      f"unstamped {len(sc['unstamped'])}",
+                      [r"all 16[^.]{0,60}re-derive|16 of 16[^.]{0,40}values",
+                       r"3 artifacts carry no stamp|no stamp at all and cannot be traced"]))
+
     d = load("A27_*/R1050_*/results/audit_reached_the_object.json")
     if d:
         facts.append(("R1050", "the clause rests on the facts the gate cannot attribute",

@@ -1,0 +1,179 @@
+{
+  "round": "R1051",
+  "flagged": 16,
+  "ran": 16,
+  "unverified": 0,
+  "deterministic": 16,
+  "nondeterministic": [],
+  "drifted": [],
+  "controls": {
+    "positive_mutation_detected": true,
+    "negative_identity_equal": true
+  },
+  "stamp_census": {
+    "stamped": [
+      "R1000",
+      "R1001",
+      "R1005",
+      "R1012",
+      "R920",
+      "R921",
+      "R922",
+      "R925",
+      "R926",
+      "R975",
+      "R978",
+      "R986",
+      "R989"
+    ],
+    "unstamped": [
+      "R1027",
+      "R1036",
+      "R1045"
+    ],
+    "byte_mismatch": [
+      "R920",
+      "R921",
+      "R922",
+      "R925",
+      "R926",
+      "R975",
+      "R978",
+      "R986",
+      "R989"
+    ],
+    "every_byte_mismatch_is_stamped": true
+  },
+  "detail": [
+    {
+      "round": "R1000",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1001",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1005",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1012",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1027",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1036",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R1045",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": true,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R920",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R921",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R922",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R925",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R926",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R975",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R978",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R986",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    },
+    {
+      "round": "R989",
+      "status": "RAN",
+      "deterministic_bytes": true,
+      "deterministic_values": true,
+      "matches_committed_bytes": false,
+      "matches_committed_values": true
+    }
+  ],
+  "world": "\u2b50 A THE PROVENANCE HOLDS ON THE VALUES \u2014 all 16 deterministic flagged rounds re-derive their committed artifact exactly. The clause's downgrade is therefore about the GATE and not about the numbers: they are re-derivable on demand, which is what R1050 said the repair would need to show.",
+  "limitation": "drift shows code and artifact disagree NOW; it cannot say which was right when committed"
+}
