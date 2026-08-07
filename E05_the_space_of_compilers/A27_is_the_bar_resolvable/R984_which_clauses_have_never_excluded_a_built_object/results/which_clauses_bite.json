@@ -1,0 +1,125 @@
+{
+ "source_sha": "05a230ba31e6bcf6",
+ "head": "7eae4a18",
+ "n_arms": 99,
+ "n_prompts": 968,
+ "comparator": "generic",
+ "nboot": 8000,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "floor": 0.4556792822122909,
+ "n_passers": 24,
+ "n_rejects": 75,
+ "clause1": {
+  "population": 42,
+  "unscoreable": [
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "generic_reprov",
+   "genericpool16",
+   "greedy_k12_fit1",
+   "greedy_k2_fit1",
+   "greedy_k4_fit1_08b",
+   "greedy_k4_fit1_08bR",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "greedy_k8_fit1",
+   "indep_k12_fit1",
+   "indep_k2_fit1",
+   "indep_k4_fit1_08b",
+   "indep_k4_fit1_08bR",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "indep_k8_fit1",
+   "oracle_k4_08b",
+   "oracle_k4_08bR",
+   "oracle_k4_fit1_08b",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB",
+   "random_k12_s0_08b",
+   "random_k12_s1_08b",
+   "random_k12_s2_08b",
+   "random_k2_s0_08b",
+   "random_k2_s1_08b",
+   "random_k2_s2_08b",
+   "random_k3_s0_08b",
+   "random_k3_s1_08b",
+   "random_k3_s2_08b",
+   "random_k4_s0_08b",
+   "random_k4_s0_ctlS0",
+   "random_k4_s1_08b",
+   "random_k4_s1_ctlS1",
+   "random_k4_s2_08b",
+   "random_k6_s0_08b",
+   "random_k6_s1_08b",
+   "random_k6_s2_08b",
+   "random_k8_s0_08b",
+   "random_k8_s1_08b",
+   "random_k8_s2_08b",
+   "topabs_k4_08b",
+   "topvar_k4_08b",
+   "topvar_k4_08bR",
+   "topw_k12_08b",
+   "topw_k1_08b",
+   "topw_k2_08b",
+   "topw_k3_08b",
+   "topw_k4_08b",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "topw_k6_08b",
+   "topw_k8_08b",
+   "topwvar_k4_08b",
+   "topwvar_k4_08bR"
+  ],
+  "drops_passers": [],
+  "drops_rejects": 1
+ },
+ "clause3": {
+  "population": 21,
+  "drops_passers": [
+   "greedy_k4_fit1",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "indep_k4_fit1",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB"
+  ],
+  "drops_rejects": 0
+ },
+ "clause4": {
+  "drops_passers": [],
+  "drops_rejects": 36
+ },
+ "r440_committed": {
+  "c1": [
+   0,
+   24
+  ],
+  "c3": [
+   4,
+   0
+  ],
+  "c4": [
+   0,
+   0
+  ],
+  "n_arms": 41
+ },
+ "controls": {
+  "join_sound": true,
+  "clause3_visible": true,
+  "synthetic_k1_dropped": true,
+  "synthetic_below_floor_dropped": true,
+  "missing_k_is_unscoreable": true,
+  "all_ok": true
+ },
+ "world": "A STILL A PAIR \u2014 \u2460 and \u2463 drop 0 of 24 clause-\u2461 passers on 99 arms, 2.4\u00d7 R440's population. Neither has excluded a built object.",
+ "limitation": "'has never excluded a built object' is a statement about an inventory WE built; it cannot separate an idle clause from one whose excluded object nobody has constructed yet, and that needs a third party."
+}
