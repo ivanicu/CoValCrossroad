@@ -1,0 +1,310 @@
+{
+ "source_sha": "5203fa3a373773e5",
+ "head": "the four clauses applied as one operator over the joined arm population",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "population": 96,
+ "population_arms": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "coval_core_sham",
+  "gen",
+  "gen_sham",
+  "generic",
+  "generic_reprov",
+  "greedy_k12_fit1",
+  "greedy_k2_fit1",
+  "greedy_k4_fit1",
+  "greedy_k4_fit1_08b",
+  "greedy_k4_fit1_08bR",
+  "greedy_k4_greedy_kA",
+  "greedy_k4_greedy_kB",
+  "greedy_k8_fit1",
+  "indep_k12_fit1",
+  "indep_k2_fit1",
+  "indep_k4_fit1",
+  "indep_k4_fit1_08b",
+  "indep_k4_fit1_08bR",
+  "indep_k4_indep_kA",
+  "indep_k4_indep_kB",
+  "indep_k8_fit1",
+  "oracle_k4",
+  "oracle_k4_08b",
+  "oracle_k4_08bR",
+  "oracle_k4_fit1",
+  "oracle_k4_fit1_08b",
+  "oracle_k4_oracle_kA",
+  "oracle_k4_oracle_kB",
+  "promptecho",
+  "promptecho_sham",
+  "random_k12_s0",
+  "random_k12_s0_08b",
+  "random_k12_s1",
+  "random_k12_s1_08b",
+  "random_k12_s2",
+  "random_k12_s2_08b",
+  "random_k2_s0",
+  "random_k2_s0_08b",
+  "random_k2_s1",
+  "random_k2_s1_08b",
+  "random_k2_s2",
+  "random_k2_s2_08b",
+  "random_k3_s0",
+  "random_k3_s0_08b",
+  "random_k3_s1",
+  "random_k3_s1_08b",
+  "random_k3_s2",
+  "random_k3_s2_08b",
+  "random_k4_s0",
+  "random_k4_s0_08b",
+  "random_k4_s0_ctlS0",
+  "random_k4_s1",
+  "random_k4_s1_08b",
+  "random_k4_s1_ctlS1",
+  "random_k4_s2",
+  "random_k4_s2_08b",
+  "random_k6_s0",
+  "random_k6_s0_08b",
+  "random_k6_s1",
+  "random_k6_s1_08b",
+  "random_k6_s2",
+  "random_k6_s2_08b",
+  "random_k8_s0",
+  "random_k8_s0_08b",
+  "random_k8_s1",
+  "random_k8_s1_08b",
+  "random_k8_s2",
+  "random_k8_s2_08b",
+  "topabs_k4",
+  "topabs_k4_08b",
+  "topvar_k4",
+  "topvar_k4_08b",
+  "topvar_k4_08bR",
+  "topw_k1",
+  "topw_k12",
+  "topw_k12_08b",
+  "topw_k1_08b",
+  "topw_k2",
+  "topw_k2_08b",
+  "topw_k3",
+  "topw_k3_08b",
+  "topw_k4",
+  "topw_k4_08b",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k4_sham",
+  "topw_k6",
+  "topw_k6_08b",
+  "topw_k8",
+  "topw_k8_08b",
+  "topwvar_k4",
+  "topwvar_k4_08b",
+  "topwvar_k4_08bR"
+ ],
+ "dropped": {
+  "no_a2_score": [],
+  "no_size_record": [
+   "full",
+   "full_sham",
+   "genericpool16"
+  ],
+  "not_scored_by_r849": []
+ },
+ "comparators": [
+  "generic",
+  "genericpool16"
+ ],
+ "wiring": {
+  "generic": {
+   "cut": 0.5593110791885864,
+   "n": 24
+  },
+  "genericpool16": {
+   "cut": 0.5513543391990778,
+   "n": 28
+  }
+ },
+ "controls": {
+  "positive_wiring_r922": true,
+  "positive_clause1_topw_k1": true,
+  "positive_clause3_oracle_k4": true,
+  "negative_all_off": true,
+  "placebo_idempotent": true
+ },
+ "derivation_check": {
+  "generic": {
+   "clause2_subset_of_clause4": true,
+   "n_clause2": 24,
+   "min_r849_margin_over_clause2": 0.07140858975416807
+  },
+  "genericpool16": {
+   "clause2_subset_of_clause4": true,
+   "n_clause2": 28,
+   "min_r849_margin_over_clause2": 0.063311114400069
+  }
+ },
+ "clause4_bar_even_half": 0.48201592554408285,
+ "rows": [
+  {
+   "comparator": "generic",
+   "clause": "\u2460",
+   "alone": 94,
+   "removes": 2,
+   "unique": 0,
+   "unique_arms": []
+  },
+  {
+   "comparator": "generic",
+   "clause": "\u2461",
+   "alone": 24,
+   "removes": 72,
+   "unique": 10,
+   "unique_arms": [
+    "gen",
+    "generic",
+    "generic_reprov",
+    "random_k12_s0",
+    "random_k12_s1",
+    "random_k12_s2",
+    "random_k8_s2",
+    "topw_k12",
+    "topw_k2",
+    "topwvar_k4"
+   ]
+  },
+  {
+   "comparator": "generic",
+   "clause": "\u2462",
+   "alone": 73,
+   "removes": 23,
+   "unique": 15,
+   "unique_arms": [
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "greedy_k8_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "indep_k8_fit1",
+    "oracle_k4",
+    "oracle_k4_08bR"
+   ]
+  },
+  {
+   "comparator": "generic",
+   "clause": "\u2463",
+   "alone": 39,
+   "removes": 57,
+   "unique": 0,
+   "unique_arms": []
+  },
+  {
+   "comparator": "genericpool16",
+   "clause": "\u2460",
+   "alone": 94,
+   "removes": 2,
+   "unique": 0,
+   "unique_arms": []
+  },
+  {
+   "comparator": "genericpool16",
+   "clause": "\u2461",
+   "alone": 28,
+   "removes": 68,
+   "unique": 7,
+   "unique_arms": [
+    "gen",
+    "random_k12_s0",
+    "random_k12_s1",
+    "random_k12_s2",
+    "random_k8_s2",
+    "topw_k12",
+    "topwvar_k4"
+   ]
+  },
+  {
+   "comparator": "genericpool16",
+   "clause": "\u2462",
+   "alone": 73,
+   "removes": 23,
+   "unique": 16,
+   "unique_arms": [
+    "greedy_k12_fit1",
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "greedy_k8_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "indep_k8_fit1",
+    "oracle_k4"
+   ]
+  },
+  {
+   "comparator": "genericpool16",
+   "clause": "\u2463",
+   "alone": 39,
+   "removes": 57,
+   "unique": 0,
+   "unique_arms": []
+  }
+ ],
+ "cells": {
+  "generic": {
+   "conjunction": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ],
+   "n": 9,
+   "core_admitted": true,
+   "equals_clause2": false,
+   "negative_all_off_admits_all": true,
+   "placebo_idempotent": true
+  },
+  "genericpool16": {
+   "conjunction": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic",
+    "generic_reprov",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ],
+   "n": 12,
+   "core_admitted": true,
+   "equals_clause2": false,
+   "negative_all_off_admits_all": true,
+   "placebo_idempotent": true
+  }
+ },
+ "inert_clauses": [
+  "\u2460",
+  "\u2463"
+ ],
+ "core_admitted_both": true,
+ "world": "C MIXED \u2014 these clauses are INERT ON THIS RELEASE: ['\u2460', '\u2463']",
+ "not_measured": "clause \u2463 under the permissive reading (R825/R826) \u2014 no committed 99-arm extension exists at that bar",
+ "would_require": "a 99-arm scoring run at the permissive bar, held out on R825's own 12 splits",
+ "limitation": "this measures what the definition AS WRITTEN admits, never whether that extension is the right one"
+}

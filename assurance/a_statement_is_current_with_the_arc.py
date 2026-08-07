@@ -220,6 +220,18 @@ def main() -> int:
                        r"(resolution|resolv|cannot see|indistinguish)",
                        r"(cap|upper bound).{0,300}(below|inside).{0,120}resolution"]))
 
+    # ⛔ R1000: the conjunction. Twenty-six rounds studied the clauses SEPARATELY; this is the first
+    #    time the definition was applied as ONE operator, and it found two clauses that remove
+    #    nothing the others do not. A statement that lists four clauses without saying which two
+    #    carry the extension is describing a definition it has not run.
+    d = load("A27_*/R1000_*/results/conjunction.json")
+    if d:
+        facts.append(("R1000", "which clauses actually bind, and that core is admitted",
+                      f"inert {d['inert_clauses']}, core admitted {d['core_admitted_both']}",
+                      [r"(inert|remove nothing|no unique|ornament).{0,400}"
+                       r"(①|clause one|④|clause four)",
+                       r"(①|④).{0,300}(inert|remove nothing|carries? no|adds? nothing)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

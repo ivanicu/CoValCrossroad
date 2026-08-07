@@ -120,6 +120,59 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⭐⭐⭐ THE FOUR CLAUSES RUN AS ONE OPERATOR — AND TWO OF THEM ARE ORNAMENTS (added 2026-08-07, R1000)
+
+**Twenty-six rounds studied the clauses separately. This is the first time the definition was applied
+as a single operator**, and the result is the one thing the quest was for.
+
+**⭐ THE RELEASED CORE IS ADMITTED BY ITS OWN DEFINITION, in both comparator cells.** That could have
+failed — R825 had already shown clause ④'s *permissive* bar excluding `coval_core` outright — and it
+is the first evidence that the four clauses, taken together, describe the object they were written
+about rather than a family that happens to exclude it.
+
+**The extension is small.** Over the **96-arm** population (the intersection of the three artifacts;
+`full`, `full_sham` and `genericpool16` carry no size record and are named as dropped):
+
+| comparator | conjunction admits | `coval_core` in it | conjunction == clause ② alone |
+|---|---:|---|---|
+| `generic` | **9 of 96** | yes | no |
+| `genericpool16` | **12 of 96** | yes | no |
+
+**⛔ AND THE PRE-REGISTERED KILL FIRED ON TWO CLAUSES.** Counting, for each clause, the arms it
+removes that **no other clause removes**:
+
+| clause | admits alone | removes | **unique removals** |
+|---|---:|---:|---:|
+| **①** size > 1 | 94 | 2 | **0** |
+| **②** resolvably beats a prompt-blind comparator | 24 / 28 | 72 / 68 | **10 / 7** |
+| **③** consumes no prompt-specific labels | 73 | 23 | **15 / 16** |
+| **④** beats every response-only rule | 39 | 57 | **0** |
+
+**Clauses ② and ③ carry the entire extension. ① and ④ remove nothing the others do not.**
+
+⚠ **THAT IS A FACT ABOUT THIS RELEASE'S ARM SET, NOT A PROOF EITHER CLAUSE IS EMPTY.** Exercising ①
+or ④ requires an arm that violates *only* that clause, and this release contains none. The two arms
+① removes — `topw_k1`, `topw_k1_08b` — are removed by ② and ④ as well.
+
+⛔ **AND ④'s INERTNESS IS A DERIVATION, not a measurement.** Clause ②'s extension is **strictly
+contained** in clause ④'s under both comparators, at a minimum R849 margin of **+0.0714** (`generic`)
+and **+0.0633** (`genericpool16`) — comfortably clear, not knife-edge. So ④ adds nothing *given* ② by
+set containment: **everything that resolvably beats a prompt-blind comparator on this release already
+beats the enumerated response-only bar.** ⚠ The two bars themselves — ④'s 0.482016 on R849's even
+half, ②'s cut 0.559311 on the full sample — are **in different units and are not compared**; what is
+checked is the containment, which is unit-free.
+
+⚠ **NOT MEASURED — clause ④ under the PERMISSIVE reading.** R825's bar reaches the core (0.572335 vs
+0.566477, 12 of 12 splits) and R826 puts it on a plateau that *straddles* it. Neither committed a
+99-arm extension, so **the conjunction cannot be evaluated there at all.** It would require a 99-arm
+scoring run at the permissive bar, held out on R825's own 12 splits. Under that reading ④ would
+almost certainly stop being inert — and would exclude the instance. **The clause's inertness is a
+property of the reading, and the definition does not yet say which reading it means.**
+
+**Controls.** ② reproduced R922's committed cut and count at 1e-9 under both comparators; `oracle_k4`
+must and does fail ③; `topw_k1`/`topw_k1_08b` must and do fail ①; with every clause disabled the
+operator admits all 96; each clause is idempotent.
+
 ### ⛔ WHAT THE EXTENSION IS, AND HOW MUCH OF THE CORPUS IT RESTS ON (added 2026-08-07, R978–R980)
 
 **The admitted set is not a list. It is a list-at-an-N.** Clause ② is a *resolvable* beat, so its
