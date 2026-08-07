@@ -685,6 +685,15 @@ def main() -> int:
                       [r"(SETTLES:).{0,200}(IN-RELEASE|UNATTACKED|OUT-OF-RELEASE)",
                        r"(forward[- ]only).{0,300}(declar\w+|enum)"]))
 
+    # ⛔⛔ R1043: mutation-testing the three commit gates — `anchoring` passes a corruption of a
+    #    value it explicitly asserts, so a green anchoring is evidence about its silence.
+    d = load("A27_*/R1043_*/results/mutation_test.json")
+    if d:
+        facts.append(("R1043", "one of the three commit gates is blind under mutation",
+                      f"blind {d['blind']}, mutated {d['mutated']}",
+                      [r"(mutation).{0,300}(blind|anchoring)",
+                       r"(anchoring).{0,200}(passes|blind).{0,200}(corrupt|assert)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

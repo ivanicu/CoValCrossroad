@@ -1,0 +1,24 @@
+{
+  "round": "R1043",
+  "clean": {
+    "currency": 0,
+    "anchoring": 0,
+    "next": 0
+  },
+  "mutated": {
+    "currency": 1,
+    "anchoring": 0,
+    "next": 1
+  },
+  "blind": [
+    "anchoring"
+  ],
+  "placebo_green": true,
+  "prior_art": "attack_the_suite.py tests the empty-input FLOOR, not detection",
+  "known_positives": [
+    "currency (red-first every round this session)",
+    "next (fired 8 of 8 uses)"
+  ],
+  "world": "\u2b50 B AT LEAST ONE IS BLIND \u2014 ['anchoring'] passed a corruption it exists to catch. A green preflight is evidence about that gate's silence, and R1042's 'consistency, not correctness' is not a general worry but a NAMED HOLE.",
+  "limitation": "detection is necessary, not sufficient; a firing gate may check the wrong property"
+}

@@ -912,6 +912,20 @@ R1042's own block turns that into a live check at n = 1.
 ⚠ **It checks that a declaration EXISTS, never that it is TRUE** — tagging a genuinely external limit
 `IN-RELEASE` passes. The enum removes the **wording** loophole, not the **mislabelling** one.
 
+⛔⛔ **AND R1043 MUTATION-TESTED THE THREE GATES THAT GUARD EVERY COMMIT HERE. ONE IS BLIND.**
+`attack_the_suite.py` had established the **floor** — exit 2 on empty input — but never **detection**
+on corrupted content. Under a targeted corruption: **currency RED ✅ · next RED ✅ · anchoring GREEN
+⛔**, where the anchoring mutation corrupted **`0.0098`**, a value chosen by intersecting the gate's
+own asserted numbers with those occurring exactly once in this file. **So a green `anchoring` is
+evidence about its silence**, and R1042's *"consistency, not correctness"* is a named hole rather than
+a general worry.
+⚠ **The mutation is itself an instrument, and it failed twice before it worked**: the first currency
+mutation broke only one of two alternative patterns (the gate's pass was CORRECT), and the first
+anchoring mutation corrupted a value the gate never asserts — which would have been a **false
+retraction of a working gate**. Both are now verified to break what the gate keys on **before** the
+verdict is read.
+⚠ **Detection is necessary, not sufficient** — a firing gate may still check the wrong property.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
