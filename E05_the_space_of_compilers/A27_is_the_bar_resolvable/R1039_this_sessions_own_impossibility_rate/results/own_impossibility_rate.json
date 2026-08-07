@@ -1,0 +1,128 @@
+{
+  "round": "R1039",
+  "population": 16,
+  "falsified": 4,
+  "raw_rate": 0.25,
+  "binomial_se": 0.10825317547305482,
+  "mean_exposure": 8.0625,
+  "hazard_per_round_of_exposure": 0.031007751937984496,
+  "unit_note": "the hazard is NOT a proportion and is not comparable to the baseline",
+  "baseline_R802": 0.03333333333333333,
+  "rows": [
+    {
+      "round": "R1022",
+      "exposure": 16,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1023",
+      "exposure": 15,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1024",
+      "exposure": 14,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1025",
+      "exposure": 13,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1026",
+      "exposure": 12,
+      "falsified_by": "R1033",
+      "line": "a stricter prompt-blind comparator needs BUILDING AND SCORING",
+      "by_what": "R1033 built one from pool16 subsets for 0 judge calls"
+    },
+    {
+      "round": "R1027",
+      "exposure": 11,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1028",
+      "exposure": 10,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1029",
+      "exposure": 9,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1030",
+      "exposure": 8,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1032",
+      "exposure": 6,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1033",
+      "exposure": 5,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1034",
+      "exposure": 4,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    },
+    {
+      "round": "R1035",
+      "exposure": 3,
+      "falsified_by": "R1038",
+      "line": "which q is right needs an external criterion",
+      "by_what": "R1038 measured it: the family is its own null, only q=90 reaches nominal"
+    },
+    {
+      "round": "R1036",
+      "exposure": 2,
+      "falsified_by": "R1038",
+      "line": "whether the scale-free q is the RIGHT q needs an external criterion",
+      "by_what": "R1038 selected q=90 on false-admission evidence"
+    },
+    {
+      "round": "R1037",
+      "exposure": 1,
+      "falsified_by": "R1038",
+      "line": "which q is RIGHT is not decided here; needs an external criterion",
+      "by_what": "R1038 decided it on evidence from the comparator family itself"
+    },
+    {
+      "round": "R1038",
+      "exposure": 0,
+      "falsified_by": null,
+      "line": null,
+      "by_what": null
+    }
+  ],
+  "world": "\u2b50 B THIS SESSION IS MATERIALLY WORSE THAN THE BASELINE \u2014 4 of 16 IMPOSSIBLE lines were falsified by its OWN later rounds 0.2500 against R802's committed 0.0333, the same unit \u2014 a 7.5x difference. Writing IMPOSSIBLE is where this session was least reliable, and its register entries should be read as HYPOTHESES rather than limits.",
+  "shared_shape": "each falsified line said the answer needed something OUTSIDE the release, and each was answered by an object already inside it",
+  "limitation": "an unfalsified line is not a true one; absence of a later contradiction is the unchecked wall, not evidence of a real one"
+}

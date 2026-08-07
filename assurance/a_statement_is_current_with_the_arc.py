@@ -644,6 +644,17 @@ def main() -> int:
                       [r"(false[- ]admission).{0,300}(q\s*=\s*90|only.{0,30}90)",
                        r"(default).{0,120}(q\s*=\s*90)"]))
 
+    # ⛔⛔ R1039: this arc's own IMPOSSIBLE lines fell at 4 of 16 = 0.25 against R802's committed
+    #    0.0333, and all four shared one shape — "needs something outside the release", answered by
+    #    an object already inside it.
+    d = load("A27_*/R1039_*/results/own_impossibility_rate.json")
+    if d:
+        facts.append(("R1039", "this arc's own impossibility lines fell at 7.5x the baseline",
+                      f"{d['falsified']} of {d['population']} = {d['raw_rate']:.4f} vs "
+                      f"{d['baseline_R802']:.4f}",
+                      [r"(4 of 16|0\.25).{0,300}(0\.0333|R802)",
+                       r"(outside the release).{0,200}(inside it|already inside)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

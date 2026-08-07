@@ -844,6 +844,22 @@ is now selected on evidence**: **q = 90**, admitting 11 arms, scale-free from n 
 ⚠ **N/A** — a low rate does not make `q` *right*; a bar can be strict and still measure the wrong
 thing, which is construct validity and needs the criterion vocabulary R1028 showed is absent here.
 
+⛔⛔ **AND R1039 PRICES THIS ARC'S OWN IMPOSSIBILITY CLAIMS: 4 of 16 FELL TO ITS OWN LATER ROUNDS.**
+That is **0.2500** against R802's committed **1 of 30 = 0.0333** — the same unit, a **7.5×**
+difference. The four: R1026 (*a stricter prompt-blind comparator needs building and scoring* → R1033
+built one for **0** judge calls), and R1035/R1036/R1037 (*which q needs an external criterion* →
+R1038 measured it from the comparator family itself).
+
+⛔ **All four share ONE SHAPE, and that is what the count buys: each said the answer needed something
+OUTSIDE the release, and each was answered by an object already INSIDE it.** That is not four
+mistakes; it is one habit. **So every `N/A` line in this arc should be read as a HYPOTHESIS, not a
+limit** — including the ones still standing.
+⚠ **Exposure is carried per entry**, because R999 recorded that *"eligibility is unequal: later rounds
+had fewer chances to be checked"*; the hazard (0.0310 per round-of-exposure) is reported in its **own
+unit** and is **not** compared to the baseline proportion.
+⚠ **N/A** — an unfalsified line is not a true one. Absence of a later contradiction is the *unchecked
+wall* itself; attacking each remaining line is one round each.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
