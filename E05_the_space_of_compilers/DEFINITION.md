@@ -769,6 +769,44 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > would take a second release with a differently-built core to retire it** — and that is an
 > availability claim in the unflattering direction, not a plan.
 
+> ⛔⛔ **AND THE BREADTH IS NARROWER THAN THE ARM-COUNT SUGGESTS — R876, both controls PASS, D8.**
+> R875 measured that the two retained clauses admit **25 procedurally distinct arms**, with the
+> minimum correlation to the core (**+0.5406**) *below* the random negative control's own
+> (**+0.5798**). That answered *does the definition reach past its instance*. **It did not answer
+> what it reaches** — and a definition admitting 25 copies of one alternative is a different object
+> from one admitting 25 different things, indistinguishable in any min-correlation statistic.
+>
+> ⭐ **Measured threshold-free**, because R875's verdict had used a `0.7` cutoff I invented and
+> clustering would have needed the same kind of guess. The **participation ratio** of the
+> correlation eigenspectrum, `PR = (Σλ)²/Σλ²`, is an effective count of independent directions and
+> takes no cutoff: **PR = 1 for identical vectors, PR = k for k orthogonal ones.**
+>
+> | set | n | PR |
+> |---|---:|---:|
+> | **admitted by ② + ③** (aliases excluded) | **25** | **1.6368** |
+> | size-matched random subsets of all arms | 25 | **3.5605**, 95% [3.0313, 4.2135] |
+> | the random family, as a second reference | 38 | **3.3054** |
+>
+> ⭐⭐⭐ **The admitted set sits at the 0.0th percentile — below ALL 999 null draws.** Twenty-five
+> arms occupying **1.6 effective dimensions** where a random twenty-five occupies **3.6**.
+> **The definition admits a NARROW BAND, not a category.**
+>
+> ⛔ **This qualifies R875's closing sentence and the qualification is the finding.** *"The
+> definition is not merely re-describing `coval_core`"* stands — the minimum correlation really is
+> below the random control's. **But "25 procedurally distinct arms" overstates the breadth**: they
+> are distinct from the core and **not from each other**. The reach past the instance is real and
+> it is **one direction wide**.
+>
+> ⭐ **Controls, both on REAL objects:** PR of five identical vectors = **1.000000** exactly (a
+> measure that does not collapse duplicates cannot be read as a count of distinct things); and
+> adding the two **real** aliases `coval_core_2bA/2bB` to a ten-arm set moves PR by **+0.3979 ≤ 1**
+> — they carry no new direction, as an alias should not.
+>
+> ⚠ **Unchanged: nothing here retires `the definition describes the instance`.** If anything it
+> tightens the limitation — the clauses are non-degenerate, and the set they pick out is narrow
+> enough that a second release remains the only thing that could settle whether they define a
+> category or trace one contour of a single object.
+
 | clause | excludes | status | scope |
 |---|---:|---|---|
 | **①** better than a random draw of the prompt's own rubric | **0 of 41** | **DERIVED** — the region where ① could bind is empty by arithmetic (`GAP ≥ SLACK` on every arm) | R347 |
