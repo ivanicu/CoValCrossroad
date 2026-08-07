@@ -1,6 +1,33 @@
 #!/usr/bin/env python3
 """assurance/audit_the_auditors.py — do the checks in this directory still SEE anything?
 
+⛔ MEASURED 2026-08-07 (R963): THIS FILE'S PER-GATE TABLE DISAGREES WITH DIRECT RUNS, AND ITS g=0
+CONTROL FAILS ON ITS OWN MEASUREMENT RATHER THAN ON WHAT IT AUDITS. Do not quote the table.
+
+Four gates run both ways, all disagreeing. The table reports exit 2 with an EMPTY tell for
+`DEFECTS.py`, `a_published_number_is_named.py`, `a_statement_is_current_with_the_arc.py` and
+`an_ear_label_matches_its_path.py`. Run directly -- same interpreter, same absolute path,
+`cwd=ROOT`, which is this file's own documented invocation -- all four exit 0. `DEFECTS.py` exits 0
+in 0.1s printing `16/46 checks came back clean`, i.e. a full population, while this file calls it
+EMPTY. Every one completes in 2.3s or less, so `TIMEOUT = 120` is not the cause; that was measured,
+not assumed.
+
+The consequence for the g=0 control: it asserts the REPAIRED `DEFECTS.py` must not be flagged and
+reports that it is. **Its premise is false** -- the repaired file is not empty -- so the control is
+failing for its own reasons, which is this standard's dominant control failure mode. The UNVERIFIED
+verdict this file prints is therefore CORRECT, and its stated reason (`the sweep cannot see the case
+it was built from`) is not what is happening.
+
+⚠ MECHANISM CANDIDATE, NOT ESTABLISHED. `restore()` reverts this directory after EVERY gate, so an
+artifact one gate writes is gone before the next runs, and a gate that depends on a sibling's output
+would see nothing. That fits three of the four. It does NOT fit `a_published_number_is_named.py`,
+which reads round directories rather than `assurance/results`, so the candidate is incomplete and is
+not being called the explanation.
+
+**The repair target is the per-gate RUNNER, not the detector.** The detector has never been tested,
+because nothing it was fed was measured correctly.
+
+
 WHY, AND IT IS A MEASURED PRIOR, NOT A SUSPICION. `DEFECTS.py` and `consistency.py` resolved their
 inputs as `HERE / <round> / results / <file>`. The E/A/R migration (2026-08-02) moved every round
 under `E0*/A*/`, so both loaded **zero** rounds from that day on — and the line `DEFECTS.py` prints
