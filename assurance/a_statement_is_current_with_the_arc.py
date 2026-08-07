@@ -313,6 +313,16 @@ def main() -> int:
                        r"(not unusually heterogeneous|cannot explain).{0,300}"
                        r"(Δ|delta|convergen)"]))
 
+    # ⛔⛔ R1007: R1005's convergence is RETRACTED. A statement still carrying it is asserting a
+    #    claim its own author withdrew, which is the worst state a record can be in.
+    d = load("A27_*/R1007_*/results/membership_null.json")
+    if d:
+        facts.append(("R1007", "R1005's convergence fails the negative control R1005 declared",
+                      f"{d['cells_above_band_p95']} of {d['cells_ok']} cells clear the "
+                      f"band-matched null",
+                      [r"(retract|withdraw).{0,300}(R1005|convergen)",
+                       r"(6 of 30|band-matched null).{0,300}(retract|withdraw|not established)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

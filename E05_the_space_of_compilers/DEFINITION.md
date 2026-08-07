@@ -120,6 +120,55 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⛔⛔⛔ RETRACTED — R1005's CONVERGENCE FAILS THE NEGATIVE CONTROL R1005 DECLARED AND NEVER RAN (added 2026-08-07, R1007)
+
+**The claim below — and the round above it that defended the claim — rest on a control that was
+written into a docstring and never implemented.** R1005 declared:
+
+```
+NEGATIVE CTRL   shuffle the membership labels … ⚠ World it excludes: "any set of this size shows this Δ".
+PLACEBO         Δ between two disjoint random halves of the NON-members must be ≈ 0.
+```
+
+`NSHUF = 200` is defined at line 74 and **used nowhere**; the only `permutation` call permutes
+**prompts**. The committed artifact lists **one** control. ⭐ **The world R1005 named as excluded was
+never tested.**
+
+**R1007 ran it.** Against a **band-matched** null — random arms from the extension's own A2 band, so
+level is fixed and only *which arms* is destroyed — Δ_real clears the 95th percentile in **6 of 30**
+cells. And the survivors run the wrong way:
+
+| caliper | clears the band null | mean band size |
+|---:|---:|---:|
+| 0.010 | **0 / 10** | 10.2 |
+| 0.020 | **1 / 10** | 13.4 |
+| 0.040 | **5 / 10** | 20.3 |
+
+**Monotone: the cells that survive are the ones where level matching is LOOSEST.** A real effect is
+clearest under the tightest matching. This one appears only when the comparison is relaxed — **the
+signature of a band artifact.**
+
+⛔ **SO: `Δ = +0.0828` IS WITHDRAWN. The extension is NOT established as a coherent family.** Any set
+of that size drawn from that level band shows the same Δ.
+
+**Controls making the retraction itself admissible** (a cheap attack that appears to kill a claim is
+the most expensive error): **POSITIVE** — 6 literal copies score **0.8434** vs **0.6420** for a random
+set of the same size, so the comparison can see coherence. **PLACEBO** — two disjoint halves of the
+non-members, 1,000 draws: mean **−0.0001**, sd **0.0132**, exactly zero. **UNRESTRICTED null** — 18 of
+30 clear it; reported beside the binding one, **never instead of it**, because it is the weaker test
+and the flattering one.
+
+⭐ **WHAT SURVIVES.** The **duplicate census** below (14 identical pairs, 96 → 85 distinct, extension
+8→4 and 11→6) is a fact about the arms and is **unaffected**. **R1006's measurement stands** —
+`indep_k` and `greedy_k` are the most homogeneous families — but **its purpose is moot**: it excluded
+a rival explanation for an effect that is no longer established.
+
+⚠ **The class of error, which is not "a number came out wrong":** a control was described, its
+excluded world was named, and the headline was written as though the exclusion had happened. **A
+docstring is a claim about what ran.** One grep for `NSHUF` found it. **No gate in `assurance/` checks
+declared-versus-implemented** — there is one for a control that *cannot fail*, none for one that
+*never ran*.
+
 ### ⭐ THE RIVAL EXPLANATION FOR THE CONVERGENCE IS EXCLUDED (added 2026-08-07, R1006)
 
 R1005 reported Δ = +0.0828 and said it admitted **two readings**: members cohere, **or** the

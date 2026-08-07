@@ -27163,3 +27163,62 @@ that is unknown** — stated as a magnitude nobody has measured, not as a defect
 comparison was wrong at **56%** (1383→R860), then a factor borrowed from a 60×-larger family
 overstated a concern (1386→here). **Both were caught the same way — by going to the source rather
 than carrying the number forward.**
+
+---
+
+## ⛔⛔⛔ R1005's CONVERGENCE — RETRACTED BY R1007, ON THE CONTROL R1005 DECLARED AND NEVER RAN (2026-08-07)
+
+**WITHDRAWN:** *"the extension agrees with itself beyond what its score level explains, Δ = +0.0828
+[+0.0499, +0.1169], effect/floor 4.5, resolved in 30 of 30 cells."*
+
+**WHAT KILLED IT.** R1005's own docstring declares:
+
+```
+NEGATIVE CTRL   shuffle the membership labels among the 96 arms, keeping set sizes fixed …
+                ≥200 shuffles. ⚠ World it excludes: "any set of this size shows this Δ".
+PLACEBO         Δ between two disjoint random halves of the NON-members must be ≈ 0.
+```
+
+**Neither was implemented.** `NSHUF = 200` is defined at line 74 and used nowhere; the only
+`permutation` call permutes **prompts** for the held-out split. The committed artifact's `controls`
+field lists exactly one entry, `positive_planted_duplicate`. ⭐ **The world R1005 named as the one it
+had excluded was never tested.**
+
+**R1007 ran it.** Same statistic, same level-matching, same held-out split, same deduplication —
+membership assigned at random instead. Against a **band-matched** null (random arms drawn from the
+real extension's own A2 band, so level is held fixed and only *which arms* is destroyed), Δ_real
+clears the 95th percentile in **6 of 30 cells**.
+
+⭐⭐ **AND THE SURVIVORS RUN THE WRONG WAY:**
+
+| caliper | cells clearing the band null | mean band size |
+|---:|---:|---:|
+| 0.010 | **0 / 10** | 10.2 |
+| 0.020 | **1 / 10** | 13.4 |
+| 0.040 | **5 / 10** | 20.3 |
+
+**Monotone.** The cells that survive are exactly the ones where **level matching is loosest**. A real
+effect should be *clearest* under the tightest matching; this one appears only when the comparison is
+relaxed. **That is the signature of a band artifact, not of coherence.**
+
+**Controls that make the retraction admissible** — a cheap attack that appears to kill a claim is the
+most expensive kind of error, so this one carries its own:
+- **POSITIVE:** a planted extension of 6 literal copies scores **0.8434**; a random set of the same
+  size scores **0.6420**. The comparison can see coherence when coherence is there.
+- **PLACEBO:** two disjoint halves of the non-members, 1,000 draws — mean **−0.0001**, sd **0.0132**.
+  Exactly zero, as required.
+- **UNRESTRICTED null** (ignoring level): 18 of 30 clear it. **Reported beside the binding one, never
+  instead of it** — it is the weaker test and it is the one that flatters.
+
+**WHAT STANDS.** The **duplicate census** (14 identical pairs; 96 arms → 85 distinct; the extension is
+8→4 and 11→6 distinct) is unaffected — it is a fact about the arms, not about Δ. **R1006 also
+stands as a measurement** (`indep_k` and `greedy_k` are the most homogeneous families in the release)
+but **its purpose is now moot**: it excluded a rival explanation for an effect that is no longer
+established.
+
+⚠ **THE CLASS OF ERROR, because it is not "I got a number wrong".** I wrote a control into a
+docstring, described the world it excluded, and never implemented it — then wrote the round's
+headline as though the exclusion had happened. **The docstring is a claim about what ran.** The audit
+that found it took one grep for `NSHUF`. **And no gate in `assurance/` checks declared-vs-implemented**
+— there is one for a control that *cannot fail* (`a_control_that_cannot_fail.py`), and none for a
+control that *never ran*.

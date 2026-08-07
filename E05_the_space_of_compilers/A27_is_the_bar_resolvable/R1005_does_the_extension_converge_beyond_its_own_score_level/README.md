@@ -1,3 +1,16 @@
+# ⛔⛔ RETRACTED BY R1007 — this round's headline fails the negative control THIS ROUND DECLARED
+
+> **`Δ = +0.0828` is WITHDRAWN.** The `NEGATIVE CTRL` and `PLACEBO` declared in this round's
+> docstring were **never implemented** — `NSHUF = 200` is defined at line 74 and used nowhere,
+> and the artifact records one control. R1007 ran them: against a band-matched null Δ_real
+> clears the 95th percentile in **6 of 30** cells, and the survivors are **monotone in the
+> LOOSEST caliper** (0/10 · 1/10 · 5/10), which is the signature of a band artifact.
+> ⭐ **What still stands: the duplicate census** — 14 identical pairs, 96 → 85 distinct, the
+> extension 8→4 and 11→6. That is a fact about the arms and does not depend on Δ.
+> Full account: `RETRACTIONS.md` and `R1007_*/README.md`.
+
+---
+
 # R1005 · the extension converges beyond its score level — and its count was inflated by duplicates
 
 **THE DECISION THIS MAKES SAFE.** Whether the formulation's extension is a **coherent family** or

@@ -1,3 +1,14 @@
+# ⚠ THIS ROUND'S MEASUREMENT STANDS; ITS PURPOSE IS MOOT (R1007)
+
+> This round excluded a rival explanation for R1005's Δ. **R1007 then retracted Δ itself** —
+> it fails the negative control R1005 declared and never implemented. So the table below is
+> still a correct measurement (`indep_k` and `greedy_k` ARE the most homogeneous families in
+> the release), but **it is no longer defending anything.** Recorded rather than deleted,
+> because the measurement is reusable and the sequence is the lesson: I excluded one rival
+> while the control that mattered stood unimplemented one round earlier.
+
+---
+
 # R1006 · the rival explanation for R1005's convergence is excluded
 
 **THE DECISION THIS MAKES SAFE.** Whether R1005's Δ = +0.0828 means **members cohere** or means **the
