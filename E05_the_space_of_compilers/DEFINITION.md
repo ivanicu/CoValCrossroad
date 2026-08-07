@@ -885,6 +885,20 @@ annotators, A1·consensus depends on a consensus that shuffling destroys**; a ha
 stable target can still be the wrong one, and that needs a statement of intent the dataset card does
 not carry.
 
+⛔⛔ **AND R1041 ASKED WHETHER THE REMAINING WALLS CAN BE TRIAGED. THEY CANNOT.** Across nine text
+features of the sixteen committed `IMPOSSIBLE` blocks, the best separator between the five that fell
+and the eleven that stand reaches **p = 0.0769**, against a Bonferroni threshold of **0.0056** and a
+label permutation of **0.2637** over 200 relabellings. **Fallen and standing blocks are structurally
+indistinguishable in committed text.**
+⛔ **And one answer was forced before any test:** a gate demanding a *declared field* flags **all 16**,
+because the field exists in none of them — zero retroactive power by construction, which is R1029's
+*store the field, don't recover it* restated.
+⭐ **So the remedy is a declared field GOING FORWARD ONLY**, and "attack the longest-exposed line
+first" is an **ordering guess** that should be labelled as one rather than dressed as triage.
+⚠ **The null is a resolution statement, not an acquittal**: at 16 blocks with 5 positives the smallest
+attainable p is **0.0002**, so only near-perfect separation could clear correction. This design cannot
+see a weak signal, and says so.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

@@ -665,6 +665,16 @@ def main() -> int:
                       [r"(reproducib\w+).{0,300}(A2).{0,200}(0\.99|6\.9)",
                        r"(annotator (panel|split)).{0,300}(select|falls)"]))
 
+    # ⛔⛔ R1041: fallen and standing IMPOSSIBLE blocks are structurally indistinguishable, so the
+    #    remedy is a declared field FORWARD-ONLY and any triage ordering is a guess.
+    d = load("A27_*/R1041_*/results/fallen_wall_signal.json")
+    if d:
+        facts.append(("R1041", "fallen and standing walls are indistinguishable in text",
+                      f"best p {d['best_p']:.4f} vs Bonferroni {d['bonferroni']:.4f}, "
+                      f"perm {d['permutation_p']:.4f}",
+                      [r"(indistinguishable).{0,300}(committed text|text)",
+                       r"(forward[- ]only|going forward only).{0,200}(declared field|field)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

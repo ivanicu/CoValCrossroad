@@ -1,0 +1,78 @@
+{
+  "round": "R1041",
+  "population": 16,
+  "fell": [
+    "R1023",
+    "R1026",
+    "R1035",
+    "R1036",
+    "R1037"
+  ],
+  "features": [
+    {
+      "feature": "says outside/external",
+      "fell_with": 4,
+      "stand_with": 3,
+      "p": 0.07692307692307691
+    },
+    {
+      "feature": "says needs/would require",
+      "fell_with": 4,
+      "stand_with": 11,
+      "p": 1.0
+    },
+    {
+      "feature": "names a second release",
+      "fell_with": 0,
+      "stand_with": 1,
+      "p": 1.0
+    },
+    {
+      "feature": "names a cost in calls",
+      "fell_with": 1,
+      "stand_with": 3,
+      "p": 0.8186813186813187
+    },
+    {
+      "feature": "names a specific round",
+      "fell_with": 2,
+      "stand_with": 3,
+      "p": 0.5164835164835164
+    },
+    {
+      "feature": "says construct validity",
+      "fell_with": 1,
+      "stand_with": 3,
+      "p": 0.8186813186813187
+    },
+    {
+      "feature": "says gold standard",
+      "fell_with": 1,
+      "stand_with": 1,
+      "p": 0.5416666666666666
+    },
+    {
+      "feature": "length > 300 chars",
+      "fell_with": 1,
+      "stand_with": 1,
+      "p": 0.5416666666666666
+    },
+    {
+      "feature": "mentions the release itself",
+      "fell_with": 2,
+      "stand_with": 4,
+      "p": 0.6538461538461539
+    }
+  ],
+  "best_p": 0.07692307692307691,
+  "bonferroni": 0.005555555555555556,
+  "permutation_p": 0.263681592039801,
+  "attainable_floor_p": 0.00022893772893772894,
+  "controls": {
+    "positive_gflop_isolates_one": true,
+    "placebo_self_label": 0.00022893772893772894
+  },
+  "forced": "a gate demanding a declared field flags all 16 by construction \u2014 zero retroactive power, which is R1029's store-don't-recover rule restated",
+  "world": "\u2b50 B NO RETROACTIVE SIGNAL \u2014 the best feature reaches p = 0.0769 against a Bonferroni threshold of 0.0056 and a label permutation of 0.2637. Fallen and standing blocks are structurally INDISTINGUISHABLE in committed text. So the remedy is a DECLARED FIELD going forward ONLY, the gate must say it is forward-only, and R1040's 'attack the highest-exposure first' is an ORDERING GUESS that should be labelled as one rather than dressed as triage.",
+  "limitation": "asks only whether falling is predictable from text; the null is a resolution statement at n=16, not an acquittal"
+}
