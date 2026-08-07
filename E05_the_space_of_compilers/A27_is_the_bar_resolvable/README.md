@@ -14,3 +14,4 @@ in `E05/DEFINITION.md`.
 | round | what it asked |
 |---|---|
 | `R923` run clause ② on its own comparators | does either legitimate comparator resolvably beat the other, and how many admitted arms sit inside the design's own resolution? |
+| `R924` does clause ① exclude anything clause ② does not | is `size > 1` an independent requirement, or implied by the bar? |

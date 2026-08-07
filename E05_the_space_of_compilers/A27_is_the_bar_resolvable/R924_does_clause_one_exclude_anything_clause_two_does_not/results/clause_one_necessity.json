@@ -1,0 +1,51 @@
+{
+  "commit": "6f6a57c230f0d85163c0f57c5f8f9ca95aa05b09",
+  "world": "B",
+  "seed": 921,
+  "nboot": 8000,
+  "n_prompts": 968,
+  "oracle_k1": {
+    "mean_a2": 0.6477568871361731,
+    "rows": [
+      {
+        "comparator": "generic",
+        "margin": 0.09640254793709525,
+        "lo": 0.08952904308735918,
+        "admitted": true
+      },
+      {
+        "comparator": "genericpool16",
+        "margin": 0.10552398699257666,
+        "lo": 0.09813034713320294,
+        "admitted": true
+      }
+    ]
+  },
+  "built_k1_arms_2b": [
+    "topw_k1"
+  ],
+  "k1_arms_other_judge_violations": {
+    "topw_k1_08b": 34
+  },
+  "bound_scope": "the oracle is built from sat_full.npz (2B judge) and bounds 2B-judged size-1 sets only; measured: topw_k1 violates on 0 of 968 prompts, topw_k1_08b on 34",
+  "tie_rate": {
+    "k1": 0.047128042121474985,
+    "topw_k4": 0.00034435261707988976
+  },
+  "placebo_random_k1_percentile": 0.49391720452928517,
+  "derivation_from_R921": {
+    "question": "recompute the arc's claims under the stronger comparator",
+    "why_forced": "R921 proved the admitted sets NEST and committed both, so every downstream count is set arithmetic on committed data",
+    "arms_lost": [
+      "generic",
+      "generic_reprov",
+      "greedy_k12_fit1",
+      "topw_k2"
+    ],
+    "structural_zero": "R911's OTHER group was 0 admitted and cannot fall; its survival is forced and is not a replication",
+    "label": "DERIVATION, not evidence"
+  },
+  "upper_bound_logic": "a failing upper bound settles the whole size-1 family; a passing one would say nothing about label-blind size-1 sets, since the oracle consumes labels",
+  "unit_note": "A2 and margins are in agreement units; tie rate is a share of the 6 pairwise comparisons",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

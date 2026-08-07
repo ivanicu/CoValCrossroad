@@ -9558,3 +9558,57 @@ is named.
 
 ⚠ **The definition must therefore state the comparator AND the resolution**, and quote the admitted
 set as a resolved core plus a named boundary layer — not as a count.
+
+---
+
+## ⚠ R924 · CLAUSE ① IS NOT IMPLIED BY CLAUSE ② — but its independent necessity is still open
+
+§4's remedy for *"the definition describes the instance"* is per-clause and mechanical: **name an
+admissible object this clause EXCLUDES.** Clauses ② and ③ have been taken apart; **clause ①
+(`size > 1`) had never been asked.**
+
+**The cheapest decisive form is an upper bound.** Build the **k=1 ORACLE** — per prompt, the single
+criterion with the highest A2, chosen *with* the labels. No label-blind size-1 selector can beat it
+on any prompt.
+
+| contrast | mean A2 | margin | lo | admitted |
+|---|---|---|---|---|
+| k=1 oracle vs `generic` | 0.6478 vs 0.5514 | **+0.096403** | **+0.089529** | **YES** |
+| k=1 oracle vs `genericpool16` | 0.6478 vs 0.5422 | **+0.105524** | **+0.098130** | **YES** |
+
+⭐⭐⭐ **The k=1 oracle clears clause ② by an order of magnitude more than the bar's resolution
+(0.00996), and at mean A2 0.6478 it beats every k=4 arm in this arc — including the k=4 oracle at
+0.6287.** With labels, **one well-chosen criterion beats four.** So clause ① **excludes an object
+clause ② admits: it is not implied.**
+
+⚠ **BUT ITS INDEPENDENT NECESSITY IS NOT SETTLED, AND THE ROUND SAYS SO.** The oracle consumes
+labels, so clause ③ excludes it too — the exclusion may be doubly redundant. **An upper bound that
+FAILS settles a family; this one PASSED, so it settles nothing about *label-blind* size-1 sets.**
+The only label-blind size-1 arm built, `topw_k1`, is not admitted — **1 arm, an observation, not a
+bound.**
+
+**MECHANISM, reported either way so the result is readable:** a size-1 set ties on **4.71%** of
+pairwise comparisons against **0.03%** at k=4 — **137× more**, because one criterion often cannot
+separate two responses and `cls` returns 0, which scores as a miss. **That cost is real but far too
+small to stop the oracle.**
+
+**CONTROLS.** ① R921's counts (24 / 28) and R881's decision for `topw_k1` reproduced. ② upper-bound
+validity — **0** violations by the 2B arm. ③ placebo: a uniformly random size-1 selector sits at
+percentile **0.4939**, mid-distribution as required. ④ the tie mechanism measured, not asserted.
+
+⚠ **THE BOUND HAS A JUDGE SCOPE, AND CONTROL ② FOUND IT BY FAILING.** The oracle is built from
+`sat_full.npz` (2B judge) and bounds **2B-judged** size-1 sets only: `topw_k1` violates on **0** of
+968 prompts, `topw_k1_08b` on **34**. Eighth scope error of the session — and **the first caught by
+a control written for it** rather than discovered afterwards. ② was written to catch a mis-joined
+criterion index and caught a judge mismatch instead, which is the argument for writing the control
+even when you are sure what it will say.
+
+⚠ **AND THE VERDICT STRING PRINTED "k=1 fails for a reason" IN THE BRANCH WHERE k=1 PASSED** — §4's
+*"the verdict string is not a computation"*, with the mechanism sentence hard-coded to the failing
+branch. Fixed to be computed per branch.
+
+### ⚠ DERIVATION, not evidence — the arc under the stronger comparator
+R921 proved the admitted sets **nest** and committed both, so recomputing under `generic` is set
+arithmetic on committed data. Arms lost: **`generic_reprov`, `greedy_k12_fit1`, `topw_k2`** (plus
+`generic` itself, a self-exclusion structural zero). **R911's OTHER group was already 0 admitted and
+cannot fall** — its survival is forced, and reporting it as a replication would be false.
