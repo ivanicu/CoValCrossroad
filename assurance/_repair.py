@@ -281,6 +281,61 @@ def selftest() -> int:
     shutil.rmtree(stash, ignore_errors=True)
     ISO.restore(wt)
 
+    # ── PRESERVE, the fourth channel, added 2026-08-07 by R938/R939. `repair_full` is documented
+    #    to leave alone anything already sitting at the live path -- the work someone created WHILE
+    #    the stash was away, which is exactly what R935 lost and R936 had to teach `restore()` to
+    #    keep. R938 measured that the word `kept` occurs FOUR times in `repair_full` and ZERO times
+    #    here: the property was declared, documented, and exercised by nothing.
+    #    ⚠ AND R938's FIRST READING OF IT WAS WRONG, which is why this control is written the way
+    #    it is: the canary is NOT saved by the `kept` guard. `kept` only records a file present in
+    #    BOTH stash and tree; a file created at the live path has no stash counterpart, so the copy
+    #    loop never visits it. The protection is that `repair_full` COPIES file-by-file instead of
+    #    MOVING the tree. So the negative below is a move-the-tree variant -- the old `restore()`'s
+    #    shape -- because that is the implementation this control has to be able to reject.
+    ep3 = sorted(p for p in wt.iterdir() if p.is_dir() and p.name.startswith("E0"))[0]
+    st3 = wt.parent / "_repair_selftest_preserve_stash"
+    shutil.rmtree(st3, ignore_errors=True); st3.mkdir(parents=True)
+    (wt / "assurance" / "results").mkdir(parents=True, exist_ok=True)
+    (wt / "assurance" / "results" / ".hide_in_progress.json").write_text(
+        json.dumps({"stash": str(st3), "moved": [ep3.name]}))
+    shutil.move(str(ep3), str(st3 / ep3.name))        # the SIGKILL: no restore runs
+    canary_rel = f"{ep3.name}/__R939_CREATED_DURING_THE_HIDE__.json"
+    (wt / canary_rel).parent.mkdir(parents=True, exist_ok=True)
+    (wt / canary_rel).write_text('{"only_copy": true}')
+
+    rp = repair_full(wt, verbose=False)
+    kept_alive = (wt / canary_rel).exists() and \
+        json.loads((wt / canary_rel).read_text()).get("only_copy") is True
+    stash_came_home = len(rp["moved_home"]) > 0
+
+    # the NEGATIVE, inline, so this control cannot pass on an implementation that clobbers.
+    # ⚠ ITS FIRST VERSION COULD NOT FAIL, and the control caught that too: it reused the POSITIVE's
+    #    canary path, which lives INSIDE the campaign dir -- so stashing the dir carried the canary
+    #    along and moving the stash back restored it, and the variant "destroyed" nothing. It also
+    #    deleted `ep4.name` while checking a path built from `ep3.name`. The negative's canary is
+    #    therefore created AFTER the stash move, under its own name, so the stash cannot contain it.
+    st4 = wt.parent / "_repair_selftest_preserve_stash_neg"
+    shutil.rmtree(st4, ignore_errors=True); st4.mkdir(parents=True)
+    ep4 = sorted(q for q in wt.iterdir() if q.is_dir() and q.name.startswith("E0"))[0]
+    neg_rel = f"{ep4.name}/__R939_NEG_CANARY__.json"
+    shutil.move(str(ep4), str(st4 / ep4.name))
+    (wt / neg_rel).parent.mkdir(parents=True, exist_ok=True)
+    (wt / neg_rel).write_text('{"only_copy": true}')
+    shutil.rmtree(wt / ep4.name, ignore_errors=True)          # move-the-tree: delete what is there
+    shutil.move(str(st4 / ep4.name), str(wt / ep4.name))
+    neg_destroyed = not (wt / neg_rel).exists()
+
+    pres_ok = kept_alive and stash_came_home and neg_destroyed
+    ok &= pres_ok
+    print(f"  PRESERVE   work created at the live path during the hide survives repair_full: "
+          f"{kept_alive} · stash still came home: {stash_came_home} · a move-the-tree variant "
+          f"DESTROYS it: {neg_destroyed}   "
+          f"{'PASS' if pres_ok else '⛔ FAIL — the branch that protects in-flight work is open'}")
+    (wt / canary_rel).unlink(missing_ok=True)
+    (wt / neg_rel).unlink(missing_ok=True)
+    shutil.rmtree(st3, ignore_errors=True); shutil.rmtree(st4, ignore_errors=True)
+    ISO.restore(wt)
+
     # ── LIVENESS, the branch added 2026-08-06. Both directions, because only one of them is the
     #    dangerous one: reading ORPHANED as IN FLIGHT leaves a broken tree (what happened), and
     #    reading IN FLIGHT as ORPHANED races a live writer (the livelock). A control that only
@@ -323,7 +378,11 @@ def selftest() -> int:
     # R428 wrote "eight times, on BOTH channels" when it had counted eight stashes and two
     # channels. Both numbers moved (11 stashes by 2026-08-06, and liveness is a third channel) and
     # the sentence did not, which is what a hand-typed count in a passing message always does.
-    print(f"\n  {'PASS — the repair fixes the exact event on all THREE channels: tracked, untracked, and liveness.' if ok else '⛔ FAIL — the repair is not shown to fix the event it exists for.'}")
+    # ⚠ the channel count is COMPUTED, never typed. This file already records what a hand-typed
+    #    count does: R428 wrote "eight times, on BOTH channels", both numbers moved, and the
+    #    sentence did not. A fourth channel was added 2026-08-07 and this line now counts itself.
+    CHANNELS = ("tracked", "untracked", "preserve", "liveness")
+    print(f"\n  {'PASS — the repair fixes the exact event on all ' + str(len(CHANNELS)) + ' channels: ' + ', '.join(CHANNELS) + '.' if ok else '⛔ FAIL — the repair is not shown to fix the event it exists for.'}")
     print(f"  ⚠ orphan count is measured, never quoted: "
           f"{len(list(pathlib.Path('/tmp').glob('attack_rounds_*')))} stashes in /tmp right now.")
     return 0 if ok else 1
