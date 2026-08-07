@@ -734,6 +734,35 @@ reason invented here would be a narrative. What is measurable is that it was not
 **measured, not derived**: resolvable beats are not transitive in general, so this is a fact about
 this release and not a theorem.
 
+⭐⭐ **R1025 STRENGTHENS THAT SET FACT TO A PER-ARM ONE, AND THE CONSEQUENCE IS A WORDING CHANGE:
+ON THIS RELEASE `every comparator` REDUCES TO `generic`.** The containment above is a statement about
+two *sets*, and a set containment can survive individual arms flipping in both directions as long as
+they cancel. At the level of the **bound itself** they do not flip at all: `Δlo = lo(A,generic) −
+lo(A,genericpool16)` is **negative for 94 of 94 candidates on `A2` and 94 of 94 on `A1·consensus`**,
+with **zero resolved sign flips** against each arm's own 3-seed spread (median |Δlo| 0.00911 / 0.00517
+against floors of 0.00021 / 0.00103). So `min` over the certified set **always** selects `generic`,
+and the second member never binds.
+
+⛔ **And algebra — not that measurement — caps what the quantifier could ever have meant.** R921's
+committed derivation records that `mean margin(A,C) = mean A2(A) − mean A2(C)`, whose second term is
+identical for every `A`; verified here as a falsifier at a span of **6.9e−17** over 97 arms. So the
+**point-estimate ordering is comparator-invariant**, and the entire content of *"every comparator"* is
+**which comparator gives the tighter interval** — never which arm is better, only how confidently
+that is known.
+
+⚠ **The verdict flipped twice on audit, both times on a degenerate diagonal wearing a name.** The
+first pass found 2 resolved flips (`generic` — which *is* a comparator, so `lo ≡ 0`) and then 1
+(`generic_reprov`, whose paired sd against `generic` is **exactly 0.0000** on `A1·consensus`; it *is*
+`generic` there under another name). Both would have been reported as evidence that `every` is
+irreducible. The rule that removes them is mechanical and general: **an arm is not a candidate
+against comparator `C` on target `T` if its paired sd against `C` is exactly zero there.**
+
+⚠ **What does NOT follow: that the clause is safe to simplify in general.** The certified set is a
+**choice the clause never mentions** — R921 certified 2 comparators from a larger pool, and the
+quantifier inherits its strength from that certification step rather than from the word *every*. A
+third comparator could bind. **N/A here, with the cost named:** a comparator that is not already a
+scored arm costs **15,488 judge calls** (R914).
+
 **Controls.** R922's cut and count reproduced at 1e-9; `coval_core` admitted under both comparators;
 **an arm is never admitted against itself** (the paired difference is identically zero, so `lo > 0` is
 False — without this the counts would be void); and `topw_k4_sham`, the same operation with the

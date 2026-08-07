@@ -1,0 +1,101 @@
+{
+  "round": "R1025",
+  "seeds": [
+    1025,
+    2050,
+    3075
+  ],
+  "nboot": 8000,
+  "n_arms": 97,
+  "prior_art": {
+    "source": "R921 comparator_sweep.json",
+    "survives_all": 24,
+    "at_least_one": 28,
+    "disagreement_arms": [
+      "generic",
+      "generic_reprov",
+      "greedy_k12_fit1",
+      "topw_k2"
+    ],
+    "note": "read from a committed artifact, not re-derived; a lookup cannot fail"
+  },
+  "derivation_point_estimate_invariant": {
+    "span": 6.938893903907228e-17,
+    "holds": true
+  },
+  "positive_reproduced_r921": {
+    "all": true,
+    "at_least_one": true
+  },
+  "sign_detection_control": {
+    "0.0": {
+      "pos": 0,
+      "neg": 0,
+      "zero": 97,
+      "resolved_minority": 0
+    },
+    "0.05": {
+      "pos": 96,
+      "neg": 1,
+      "zero": 0,
+      "resolved_minority": 0
+    },
+    "0.2": {
+      "pos": 97,
+      "neg": 0,
+      "zero": 0,
+      "resolved_minority": 0
+    }
+  },
+  "placebo_max_abs": 0.0,
+  "rows": [
+    {
+      "target": "A2",
+      "n_cand": 94,
+      "excluded": {
+        "comparators": [
+          "generic",
+          "genericpool16"
+        ],
+        "exact_duplicates_of_a_comparator": [
+          "generic_reprov"
+        ]
+      },
+      "n_pos": 0,
+      "n_neg": 94,
+      "binding_comparator": "generic",
+      "minority_size": 0,
+      "resolved": [],
+      "median_abs_dlo": 0.009109070189309232,
+      "median_seed_spread": 0.0002101104586125814,
+      "seed_stable": true
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "n_cand": 94,
+      "excluded": {
+        "comparators": [
+          "generic",
+          "genericpool16"
+        ],
+        "exact_duplicates_of_a_comparator": [
+          "generic_reprov"
+        ]
+      },
+      "n_pos": 0,
+      "n_neg": 94,
+      "binding_comparator": "generic",
+      "minority_size": 0,
+      "resolved": [],
+      "median_abs_dlo": 0.005165289256198344,
+      "median_seed_spread": 0.001033057851239666,
+      "seed_stable": true
+    }
+  ],
+  "binding_comparator": [
+    "generic"
+  ],
+  "n_resolved_flips": 0,
+  "world": "\u2b50 A `every` IS A SHORTHAND \u2014 no candidate arm has a resolved minority sign on either target, so one comparator is uniformly the BINDING one and min-over-comparators always selects it: ['generic']. On this release clause \u2461\u2032 reduces to `resolvably beats generic`, and the second member of the certified set never binds.",
+  "limitation": "whether the CERTIFIED SET is the right set is untested here; R921 certified 2 from a larger pool and a new comparator costs 15,488 judge calls"
+}

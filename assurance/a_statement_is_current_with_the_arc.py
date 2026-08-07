@@ -492,6 +492,19 @@ def main() -> int:
                        r".{0,400}(coverage|calibrat\w*)",
                        r"(estimator).{0,200}(not|rather than).{0,80}(threshold|guard|constant)"]))
 
+    # ⛔⛔ R1025: clause ②′'s universal quantifier is INERT on the certified set — `generic` is
+    #    uniformly the binding comparator on both targets (94/94, zero resolved flips), so on this
+    #    release "beats EVERY comparator" reduces to "beats `generic`". The statement must say so,
+    #    and must say the set is a CHOICE the clause never mentions.
+    d = load("A27_*/R1025_*/results/quantifier_work.json")
+    if d:
+        facts.append(("R1025", "`every comparator` reduces to `generic` here",
+                      f"binding {d['binding_comparator']}, "
+                      f"{d['n_resolved_flips']} resolved flips",
+                      [r"(every|universal).{0,200}(quantifier|comparator)"
+                       r".{0,400}(reduce\w*|shorthand|inert|binding)",
+                       r"(binding comparator|never binds).{0,200}generic"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
