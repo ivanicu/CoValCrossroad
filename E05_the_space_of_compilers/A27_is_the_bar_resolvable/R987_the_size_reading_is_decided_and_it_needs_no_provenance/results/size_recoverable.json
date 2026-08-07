@@ -1,0 +1,113 @@
+{
+ "source_sha": "5eb7b64815dad563",
+ "head": "fe682be7",
+ "pool_min": 4,
+ "pool_max": 39,
+ "excluded": [
+  "full",
+  "full_sham",
+  "genericpool16"
+ ],
+ "n_trivial": 28,
+ "n_trivial_ok": 28,
+ "n_nontrivial": 12,
+ "n_nontrivial_ok": 12,
+ "nontrivial": [
+  {
+   "arm": "random_k12_s0",
+   "k": 12,
+   "max": 12,
+   "ok": true
+  },
+  {
+   "arm": "random_k12_s1",
+   "k": 12,
+   "max": 12,
+   "ok": true
+  },
+  {
+   "arm": "random_k12_s2",
+   "k": 12,
+   "max": 12,
+   "ok": true
+  },
+  {
+   "arm": "random_k6_s0",
+   "k": 6,
+   "max": 6,
+   "ok": true
+  },
+  {
+   "arm": "random_k6_s1",
+   "k": 6,
+   "max": 6,
+   "ok": true
+  },
+  {
+   "arm": "random_k6_s2",
+   "k": 6,
+   "max": 6,
+   "ok": true
+  },
+  {
+   "arm": "random_k8_s0",
+   "k": 8,
+   "max": 8,
+   "ok": true
+  },
+  {
+   "arm": "random_k8_s1",
+   "k": 8,
+   "max": 8,
+   "ok": true
+  },
+  {
+   "arm": "random_k8_s2",
+   "k": 8,
+   "max": 8,
+   "ok": true
+  },
+  {
+   "arm": "topw_k12",
+   "k": 12,
+   "max": 12,
+   "ok": true
+  },
+  {
+   "arm": "topw_k6",
+   "k": 6,
+   "max": 6,
+   "ok": true
+  },
+  {
+   "arm": "topw_k8",
+   "k": 8,
+   "max": 8,
+   "ok": true
+  }
+ ],
+ "residual_arms": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "coval_core_sham",
+  "gen",
+  "gen_sham"
+ ],
+ "residual_in_ledger_ok": [
+  "coval_core",
+  "coval_core_sham",
+  "gen",
+  "gen_sham"
+ ],
+ "mismatches": [],
+ "controls": {
+  "negative_full_excluded": true,
+  "placebo_topw_k1": true,
+  "positive_nontrivial_nonempty": true,
+  "all_ok": true
+ },
+ "world": "A RECOVERABLE \u2014 max over prompts equals the recorded k on all 40 arms, including 12 where the pool genuinely binds and 4 whose capping model has a residual. Clause \u2460 is artifact-checkable; the definition has exactly ONE provenance clause.",
+ "decision": "the reading adopted is NOMINAL SIZE = max over prompts of the realised size: pool-independent by argument, artifact-recoverable by this measurement, and reproducing the independently recorded k. Under it `gen` clears clause \u2460 at max 4, which resolves R985's disagreement.",
+ "still_authorial": "whether SIZE is the right property for a definition of core at all"
+}

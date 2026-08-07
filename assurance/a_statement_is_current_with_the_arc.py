@@ -166,6 +166,25 @@ def main() -> int:
                        r"prompt.{0,200}\b(236|237|240|500)\b.{0,300}"
                        r"(coval_core|its own instance|the instance)"]))
 
+    # ⛔ R987: the size reading, DECIDED. R986 established `its size` is ambiguous; this registers
+    #    the resolution so a later round cannot settle it by whichever reading its script happens
+    #    to implement.
+    d = load("A27_*/R986_*/results/size_decomposition.json")
+    if d:
+        facts.append(("R986", "arms with no scalar size", d["n_variable"],
+                      [r"(scalar|single number|one size|distribution).{0,240}"
+                       r"(size|criteri).{0,160}(coval_core|released core|instance)",
+                       r"(coval_core|released core).{0,240}(size|criteri).{0,200}"
+                       r"(2 to 4|2..4|distribution|not a (single )?number)"]))
+
+    d = load("A27_*/R987_*/results/size_recoverable.json")
+    if d:
+        facts.append(("R987", "nominal size is artifact-recoverable",
+                      f"{d['n_nontrivial_ok']}/{d['n_nontrivial']} non-trivial",
+                      [r"(nominal size|max over prompts|maximum realised).{0,300}"
+                       r"(recover|artifact|third part|provenance)",
+                       r"(recover|artifact-checkable).{0,240}(nominal size|max over prompts)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

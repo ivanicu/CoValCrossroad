@@ -141,6 +141,37 @@ clause ④, one clause over.
   ⭐ This is **not** fragility at full N: there the verdict is deterministic and the instance is in.
   It is a statement about how much of the corpus is load-bearing — about a quarter.
 
+### ⛔ WHAT `ITS SIZE` MEANS — the clause named a scalar the released core does not have (R986–R987)
+
+**`coval_core`'s per-prompt size runs 2 to 4**, and **34 of 96 arms have no single size at all**. So
+*"Its size … is greater than one"* names a scalar property the instance lacks. The variation has two
+causes and only one belongs to the arm:
+- **pool capping** — the prompt offers fewer criteria than the rule requests, so the realised size is
+  `min(k, pool)`. **A property of the PROMPT**: every `k12`, `k8` and `k6` family shares a
+  byte-identical per-prompt profile. It explains **28 of the 34** variable arms entirely.
+- **arm selection** — the arm takes fewer than the pool allows. **6 arms**, `coval_core` among them
+  on **43 prompts (4.4%)**, `gen` on 2.
+
+**⭐ THE READING ADOPTED: nominal size = the MAXIMUM realised size over prompts.** Two reasons, and
+they are of different kinds:
+1. **Argument, not measurement** — a definition of `core` whose verdict moves because one prompt
+   offered fewer criteria is answering a question about the corpus. The reading must quotient pool
+   capping out, and the maximum does.
+2. **Measured (R987)** — the maximum **is recoverable from the artifact alone**: it reproduces the
+   independently recorded `k` on **40 of 40** arms, including **12 where the pool genuinely binds**
+   and **4 whose capping model has a residual**. So **clause ① is artifact-checkable, and the
+   definition has exactly ONE provenance clause — ③, not two.**
+
+⚠ **This resolves a live disagreement rather than a hypothetical.** Under *min per-prompt size* `gen`
+fails clause ① (its minimum is 1); under the adopted reading it clears at 4. **`coval_core` clears
+under every reading** — its minimum is 2 — so the defect was the clause's TYPE, never its verdict on
+the instance.
+⚠ **The parenthetical is worse off than the clause.** *"Sizes 3 to 8 are not distinguishable"*
+presumes each arm has one size to compare; **34 of 96 do not**, and under the adopted reading it
+should be read of nominal size.
+⚠ **Still authorial, and not settled here:** whether SIZE is the right property for a definition of
+`core` at all.
+
 **③ has no artifact-level ordering content** (R979). R920 settled world C on `R² = 0.998412`, but
 `R²` is a magnitude statistic and a clause admits by **ordering**. Counting inversions instead — the
 instrument R922 used for clause ② — `pi` and the A2 margin disagree on **2 of 78 pairs**, and **0 of
