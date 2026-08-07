@@ -747,6 +747,54 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 | ⭐⭐⭐ **AND SO IS ① — only ② does work** (R857, entry 1377) | **Bar ordering, measured: ② 0.5404–0.5462 > ① 0.4922 > ④′ 0.4820.** R347 already committed this for ① — verdict `W1_DERIVATION`, `ref_gap_min = 0.0470` (②'s reference exceeds ①'s on **every** arm), `contingent: []` — **and nobody generalised it.** **The definition reduces to ② + ③ (provenance, no bar) + the size floor.** | ordering **MEASURED**; domination **DERIVED** | R857·R347 |
 | **④** *under the PERMISSIVE reading adopted by R824* | **25 of 58** | **MEASURED** — the rule class is supervised response-only predictors; 21 specification cells, held out over 20 splits | R824 |
 
+> ⭐⭐⭐ **THE TABLE ABOVE IS UNDER-TYPED: IT HAS NO COLUMN FOR *WHICH CRITERION* — R865, D8.**
+> R864 established that this project runs two admissibility criteria which disagree. This table
+> records **one verdict per clause**, so it silently reports whichever criterion the author ran.
+> R865 recomputed both, on one population, from ONE bootstrap, changing only the decision rule.
+>
+> ⛔ **HALF THE TABLE IS SETTLED BY ARITHMETIC.** Clauses **① and ③ are DERIVED** — no threshold,
+> no interval, no multiplicity — so **there is nothing for a criterion to act on and their verdicts
+> are criterion-INVARIANT by construction.** A derivation, assumption named: that the DERIVED
+> labels are accurate, which R851 checked against the source. **At most two rows could ever move.**
+>
+> ⭐ **CLAUSE ② IS CRITERION-DEPENDENT, AND MEASURED** (99 arms, even annotators, `genericpool16`):
+>
+> | seed | A: `ratio ≥ 1.5` | B: BH q=0.05 + CI | both | only-A | only-B |
+> |---:|---:|---:|---:|---:|---:|
+> | 11 | 23 | 29 | 23 | **0** | 6 |
+> | 22 | 23 | 29 | 23 | **0** | 6 |
+> | 33 | 24 | 29 | 24 | **0** | 5 |
+>
+> ⭐ **`A ⊂ B` STRICTLY, at every seed — `only-A = 0` three times out of three.** The criterion gap
+> is **5.7 against a seed spread of 1**, so it is READABLE and not resampling noise. **WORLD A: the
+> 1.5 floor is the binding constraint, and ②'s published count is the FLOOR's count, not the
+> clause's.** ⚠ The docstring predicted this nesting from `4.203·SE` vs BH's rank-dependent `q·k/C`
+> **and explicitly refused to bank it** — after two rounds where a "forced" direction was refuted.
+> This time the prediction held; that is one for three, which is why it was measured.
+>
+> ⚠ **CLAUSE ④′ IS UNVERIFIED, and for a reason already on record.** Its negative control
+> `random_k4_s0` **satisfies** the clause — R850 measured the same failure at **7 of 8 class sizes**
+> and R856 reported ④ as dominated by ②. **A random 4-criteria set really does clear it.** Its
+> counts (58–59 vs 63) are in the artifact and are **not** folded into the verdict.
+>
+> ⛔ **AND THE FIRST RUN EXITED 2 BECAUSE OF A DEFECT I BUILT.** `ok_all` accumulated across BOTH
+> clauses, so ④′'s expected failure overrode ②'s three clean controls and withheld a readable
+> result. **§4's `the control fails for its own reasons`, in its contaminating form — a control
+> failing for a DIFFERENT object's reasons.** The kill is now per clause.
+> ⚠ Two smaller repairs, recorded because they are the same species: a KILL arm that compared
+> `marg` across two `decide` calls **could not fail** (`marg` never touches the bootstrap) and was
+> replaced, before running, by the seed-spread test above; and the surviving verdict line still
+> reads *"across both clauses"* while its sum correctly covers only the readable one — **a verdict
+> string that is prose, one more time.**
+>
+> ⭐ **NET, and this is what the table should say:** of four clause verdicts, **two are
+> criterion-invariant by construction, one is criterion-dependent with both counts now measured,
+> and one cannot be verified at all because its own negative control clears it.**
+> ⭐ For the object: `coval_core` on clause ② scores margin **+0.024981**, ratio **+2.2524**, and
+> **passes under BOTH** criteria — against the FIXED prompt-blind comparator. Against the
+> **max over 1,820** it is 0.910 and fails one of the two. **Same core, same clause, two
+> comparators, opposite verdicts — which is precisely the column this table does not have.**
+
 ⛔ **SCOPE ADDED 2026-08-06 (entry 1322) — THE PARAGRAPH BELOW IS ABOUT THE READING THIS DOCUMENT NO
 LONGER USES.** The statement at the top of this file adopts the **PERMISSIVE** reading of ④, and the
 row directly above says so — *"under the PERMISSIVE reading adopted by R824 · **25 of 58**."* Under
