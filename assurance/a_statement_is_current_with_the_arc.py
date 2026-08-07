@@ -134,6 +134,38 @@ def main() -> int:
                       [r"(④|response[- ]only).{0,300}(N\s*=\s*968|\bN\b).{0,200}(δ|delta)",
                        r"(δ|delta).{0,200}(N\s*=\s*968|\bN\b).{0,300}(④|response[- ]only)"]))
 
+    # ⛔ R981: THREE MORE, AND THE GAP BETWEEN R977 AND HERE IS THE POINT. R977 registered two facts
+    #    by hand and its own NEXT said the registry's manual-ness is the defect. Four rounds later
+    #    the statement was stale about three MORE rounds — so the hand-registration is not merely
+    #    inelegant, it has a measured failure rate: 3 of the 4 rounds since went unrecorded until
+    #    someone thought to look. All three patterns were run against the UNREPAIRED statement and
+    #    matched nothing, so the red they produce is a measurement.
+    d = load("A27_*/R978_*/results/extension_vs_n.json")
+    if d:
+        facts.append(("R978", "the admitted set moves with the prompt count",
+                      f"median churn at N=242: {d['median_churn_at_242']}",
+                      [r"(extension|admitted set|admitted arms).{0,240}(churn|move|change|depend)"
+                       r".{0,160}(N\b|prompt count|how many prompts)",
+                       r"(N\b|prompt count|how many prompts).{0,240}"
+                       r"(extension|admitted set|admitted arms).{0,160}(churn|move|change)"]))
+
+    d = load("A27_*/R979_*/results/clause3_ordering.json")
+    if d:
+        facts.append(("R979", "clause 3 has no artifact-level ordering content",
+                      f"{d['n_resolvable']} resolvable inversions of {d['n_pairs']} pairs",
+                      [r"(③|clause three).{0,300}(no artifact-level|ordering content|never reorder|"
+                       r"orders? .{0,40}identically)",
+                       r"(ordering content|reorder).{0,240}(③|clause three)"]))
+
+    d = load("A27_*/R980_*/results/instance_power.json")
+    if d:
+        facts.append(("R980", "prompts needed to admit the instance",
+                      f"N* generic = {d['registered_nstar']['coval_core|generic']:.0f}",
+                      [r"(coval_core|its own instance|the instance).{0,300}\b(236|237|240|500)\b"
+                       r".{0,200}prompt",
+                       r"prompt.{0,200}\b(236|237|240|500)\b.{0,300}"
+                       r"(coval_core|its own instance|the instance)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

@@ -120,6 +120,37 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⛔ WHAT THE EXTENSION IS, AND HOW MUCH OF THE CORPUS IT RESTS ON (added 2026-08-07, R978–R980)
+
+**The admitted set is not a list. It is a list-at-an-N.** Clause ② is a *resolvable* beat, so its
+extension inherits a bootstrap interval that widens as `1/√N` — the same mechanism that bounds
+clause ④, one clause over.
+- **The admitted set moves with the prompt count** (R978). Median churn against the full-corpus set,
+  three seeds: at **N = 242, 10 of the 24 arms admitted under `generic` change**; under
+  `genericpool16`, 2. At N = 726 and above, 0. Bracketed above by the count of arms within
+  `z·sd/√N` of the cut, registered from the full data before the sweep.
+- ⚠ **A stricter bar is not a more stable one.** `generic` has the higher cut and the smaller
+  admitted set, and churns **five times more** than `genericpool16`.
+- **How many prompts the definition needs to admit its own instance** (R980). Admission becomes
+  resolvable at `N* = (z·sd/margin)²`. For `coval_core` against `generic` the margin is **+0.015123**
+  and **N\* = 237** — the coin-flip point, measured crossing at grid point 240. It reaches 10 of 10
+  seeds only at **N ≈ 500**. Against `genericpool16`, N\* = 94.
+  ⚠ **So "we used 968 prompts" overstates the headroom by roughly 2×.** For contrast, `oracle_k4`
+  needs **9** prompts, and `random_k4_s0` is never admitted at any N. **The released core sits ~26×
+  closer to the bar than the arm this benchmark treats as its ceiling.**
+  ⭐ This is **not** fragility at full N: there the verdict is deterministic and the instance is in.
+  It is a statement about how much of the corpus is load-bearing — about a quarter.
+
+**③ has no artifact-level ordering content** (R979). R920 settled world C on `R² = 0.998412`, but
+`R²` is a magnitude statistic and a clause admits by **ordering**. Counting inversions instead — the
+instrument R922 used for clause ② — `pi` and the A2 margin disagree on **2 of 78 pairs**, and **0 of
+those 2 are resolvable** on A2 (gaps of −0.00427 and −0.00097, both far inside the resolution of
+0.0099555). So ③ never reorders a pair this design can order, and it is **irreducibly a provenance
+requirement**: not checkable from an artifact, now measured rather than argued.
+⚠ R920's `n` is **13 independent units, not 21** — six duplicate clusters. Recomputed on the 13, R²
+is 0.998205 and Spearman 0.983516, so the duplication does **not** inflate the statistic; the
+correction is to the `n` a later round must quote.
+
 **The metric is `A2`, the graded per-prompt agreement**, and naming it excludes a real reading:
 under exact-class agreement `coval_core` sits below its floor and fails clause ② itself.
 
