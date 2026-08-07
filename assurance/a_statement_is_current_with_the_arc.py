@@ -444,6 +444,16 @@ def main() -> int:
                        r"(coval_core|its own instance).{0,200}(not admitted|excluded).{0,200}"
                        r"(A1)"]))
 
+    # ⛔ R1021: R1020's split between core and twins is the IMPUTATION, not the target. The
+    #    statement must carry the scoped wording, not the earlier one beside it.
+    d = load("A27_*/R1021_*/results/coverage_or_target.json")
+    if d:
+        facts.append(("R1021", "the core/twin split under A1·consensus is the imputation",
+                      f"together={d['together']}, 200-real admits "
+                      f"{d['admitted_200_real']}",
+                      [r"(200).{0,300}(imputation|imputed|artifact).{0,200}(twin|split|contrast)",
+                       r"(twins|contrast).{0,200}(not|artifact).{0,200}(target|real)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

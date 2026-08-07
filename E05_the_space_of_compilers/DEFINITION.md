@@ -275,10 +275,25 @@ R1019's hazard (*a target rebuilt in order to sweep it can be built to fail*) do
 | `A1·annot` | **9** — the same nine | yes |
 | **`A1·consensus`** | **4** — `coval_core_2bA`, `coval_core_2bB`, `topw_k6`, `topw_k8` | **NO** |
 
-⛔⛔ **So a target exists — at the full population, under this arc's own admission rule ②′∧③ — at
-which the definition admits the released core's TWINS and two `topw` arms, and excludes the released
-core itself.** That is the sharpest form of "the definition describes the instance" failing in
-reverse: the object it was written from does not survive its own clauses under a defensible target.
+⛔⛔ **SCOPED BY R1021 — THE CONTRAST WITH THE TWINS IS THE IMPUTATION, NOT THE TARGET.** The wording
+this section first carried was *"the definition admits the released core's TWINS and excludes the core
+itself"*. **That is withdrawn and replaced, not annotated beside.**
+
+On the **200 prompts the twins actually cover**, where nothing is imputed for anyone, **core and twins
+are admitted or excluded TOGETHER — and all three are EXCLUDED** (`generic` Δ +0.0450 [−0.0100,
++0.1000]; `genericpool16` Δ +0.0400 [−0.0150, +0.0950], identical for all three). ⭐ **That identity is
+a DERIVATION**: R1005 measured the twins' outputs identical to the core's there at agreement exactly
+1.000, so a statistic computed from those vectors could not differ. At 968 the twins are admitted only
+because the loader fills their missing **768** values with the twins' **own mean** — mean |Δ| from the
+core **0.2057**.
+
+⭐ **What survives, and it is the weaker claim:** under `A1·consensus` the released core is **not
+admitted** — `generic` lo −0.0041, `genericpool16` lo +0.0000, neither clearing. **The target effect on
+the core is real. The contrast with its twins is not.**
+
+⚠ The 200-prompt intervals are wider by construction (n = 200 vs 968), so *"excluded together"* there
+is not a tie the design could not resolve — the intervals are printed above. And what the twins would
+score on the other 768 is **unknowable**: they were never run there.
 
 ⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
 **clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**

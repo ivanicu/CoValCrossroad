@@ -1,0 +1,141 @@
+{
+ "source_sha": "15d9627de6a0350d",
+ "head": "is the core's exclusion under A1\u00b7consensus a target effect or the imputation",
+ "n_shared": 200,
+ "n_full": 968,
+ "nboot": 8000,
+ "seed": 1021,
+ "controls": {
+  "positive_derivation_identical_on_shared": {
+   "coval_core_2bA": 0.0,
+   "coval_core_2bB": 0.0
+  },
+  "positive_ok": true,
+  "negative_differ_at_968_with_imputation": {
+   "coval_core_2bA": 0.20566115702479337,
+   "coval_core_2bB": 0.20566115702479337
+  },
+  "negative_ok": true,
+  "placebo_self": 0.0,
+  "placebo_ok": true
+ },
+ "rows": [
+  {
+   "regime": "200 real",
+   "arm": "coval_core",
+   "comparator": "generic",
+   "delta": 0.045,
+   "lo": -0.01,
+   "hi": 0.1,
+   "admitted": false
+  },
+  {
+   "regime": "200 real",
+   "arm": "coval_core",
+   "comparator": "genericpool16",
+   "delta": 0.04,
+   "lo": -0.015,
+   "hi": 0.095,
+   "admitted": false
+  },
+  {
+   "regime": "200 real",
+   "arm": "coval_core_2bA",
+   "comparator": "generic",
+   "delta": 0.045,
+   "lo": -0.01,
+   "hi": 0.1,
+   "admitted": false
+  },
+  {
+   "regime": "200 real",
+   "arm": "coval_core_2bA",
+   "comparator": "genericpool16",
+   "delta": 0.04,
+   "lo": -0.015,
+   "hi": 0.095,
+   "admitted": false
+  },
+  {
+   "regime": "200 real",
+   "arm": "coval_core_2bB",
+   "comparator": "generic",
+   "delta": 0.045,
+   "lo": -0.01,
+   "hi": 0.1,
+   "admitted": false
+  },
+  {
+   "regime": "200 real",
+   "arm": "coval_core_2bB",
+   "comparator": "genericpool16",
+   "delta": 0.04,
+   "lo": -0.015,
+   "hi": 0.095,
+   "admitted": false
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core",
+   "comparator": "generic",
+   "delta": 0.02066115702479339,
+   "lo": -0.004132231404958678,
+   "hi": 0.04648760330578512,
+   "admitted": false
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core",
+   "comparator": "genericpool16",
+   "delta": 0.025826446280991736,
+   "lo": 0.0,
+   "hi": 0.05268595041322314,
+   "admitted": false
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core_2bA",
+   "comparator": "generic",
+   "delta": 0.02380165289256199,
+   "lo": 0.0023549845041322365,
+   "hi": 0.045015883264462805,
+   "admitted": true
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core_2bA",
+   "comparator": "genericpool16",
+   "delta": 0.028966942148760336,
+   "lo": 0.006558109504132235,
+   "hi": 0.05023760330578512,
+   "admitted": true
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core_2bB",
+   "comparator": "generic",
+   "delta": 0.02380165289256199,
+   "lo": 0.0023549845041322365,
+   "hi": 0.045015883264462805,
+   "admitted": true
+  },
+  {
+   "regime": "968 imputed",
+   "arm": "coval_core_2bB",
+   "comparator": "genericpool16",
+   "delta": 0.028966942148760336,
+   "lo": 0.006558109504132235,
+   "hi": 0.05023760330578512,
+   "admitted": true
+  }
+ ],
+ "admitted_200_real": [],
+ "admitted_968_imputed": [
+  "coval_core_2bA",
+  "coval_core_2bB"
+ ],
+ "together": true,
+ "world": "A THE IMPUTATION \u2014 on 200 real prompts the core and its twins are admitted or excluded TOGETHER, so R1020's split is an artifact of filling 768 values with the twins' own mean",
+ "derivation": "on the shared prompts the twins' class vectors ARE the core's (R1005, agreement exactly 1.000), so any statistic computed there is identical by construction",
+ "limitation": "what the twins would score on the other 768 prompts is unknowable \u2014 they were never run there"
+}
