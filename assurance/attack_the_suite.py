@@ -327,6 +327,31 @@ def main() -> int:
     #    the ONLY moment a repair is guaranteed to execute is before the next hide begins. Eight
     #    stashes prove the exit-time repair is not sufficient; the entry-time one costs one git
     #    call on a healthy tree.
+    # ⛔ THE THIRD SIGNAL PATH, MEASURED 2026-08-07 — **SIGTERM**, which is what `timeout N ...`
+    #    sends. It falls between the two protections this file already documents: Python's default
+    #    action terminates without unwinding the `finally:` below, and the entry repair above only
+    #    fires when someone runs this file AGAIN, which after a failed run is exactly what nobody
+    #    does. Cost when it happened here: five epoch directories sat in /tmp for twelve minutes,
+    #    and `git status` read as a mass deletion.
+    #    ⭐ THE TELL WORTH KEEPING: the careful way to run an unfamiliar long gate — wrap it in a
+    #    timeout — is the way that breaks the tree. A lock whose failure mode is triggered by
+    #    CAUTION is worse than one triggered by carelessness, because caution is repeatable.
+    #    ⛔ AND THE OBVIOUS FIX DOES NOT WORK. I installed
+    #        signal.signal(SIGTERM, lambda s,_: sys.exit(128+s))
+    #    so SystemExit would unwind the `finally:`. Tested with a positive control that CONFIRMED
+    #    the hide phase was entered (the breadcrumb listed all five): the handler fired, exit 143 —
+    #    and **1 of 5 directories came back**. Reason: the stash happens INSIDE `emptier()`, in its
+    #    `for c in camps: shutil.move(...)` loop, and `emptier()` has not RETURNED the restore
+    #    closure yet, so `restore` is still None and the `finally:` has nothing to call. The one
+    #    survivor was simply the directory the loop had not reached. A handler cannot repair a
+    #    window whose repair function does not exist yet.
+    #    ⇒ Any real fix must drive off the BREADCRUMB (written before the first move) and not off
+    #    the closure. Not attempted here: `_repair.repair_full` refuses while the breadcrumb's pid
+    #    is alive — correctly, since that is how it avoids racing a live writer — so a handler
+    #    would have to disown its own pid first, and a half-built recovery is worse than the
+    #    working entry-time one.
+    #    ⚠ SO THE MITIGATION IS OPERATIONAL, NOT IN CODE: do not wrap this file in `timeout`; if
+    #    something kills it, run `_repair.repair_full()` — it recovered all 776 files here.
     sys.path.insert(0, str(ROOT / "assurance"))
     import _repair
     _repair.repair_full(verbose=True)
