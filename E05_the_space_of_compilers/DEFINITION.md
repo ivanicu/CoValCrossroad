@@ -840,6 +840,51 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > non-monotone result would have meant the implementation was wrong, not that the world was
 > interesting. `single` and `argmax_arm` are outside that pointwise chain and are excluded from it.
 
+> ⭐⭐⭐ **CLAUSE ④'s PUBLISHED VERDICT COMES FROM A REGIME WHERE RANDOM NOISE SATISFIES IT — R867,
+> D8, both kills PASS, one shared 968-prompt population.** Two results from the preceding rounds
+> were the same measurement seen from opposite ends: R865 found ④'s NEGATIVE control clears the
+> clause (noise gets in), R866 found ②'s strongest comparator excludes even the ORACLE (the ceiling
+> gets out). **Those are the two ways a clause can be empty, and the comparator moves between them.**
+>
+> ⭐ **DEFINITION USED HERE — a clause is MEANINGFUL at a comparator iff `random_k4_s0` does NOT
+> clear it and `oracle_k4` DOES.** Outside that window the clause is decoration in one direction or
+> the other, and **neither end is visible from a single cell**, which is why six rounds did not see it.
+>
+> | comparator | ② core | ② oracle | ② random | ② window | ④ core | ④ oracle | ④ random | ④ window |
+> |---|---:|---:|---:|:--:|---:|---:|---:|:--:|
+> | `family_mean` | +2.817 | +8.781 | −3.420 | **YES** | +17.710 | +24.234 | **+11.585** | no |
+> | `family_p75` | −0.068 | +6.157 | −5.405 | **YES** | +7.620 | +14.199 | **+2.062** | no |
+> | `family_p90` | −1.846 | +4.866 | −6.776 | **YES** | **−0.565** | +5.706 | −5.625 | **YES** |
+> | ⭐ `argmax_arm` *(published)* | +0.864 | +6.700 | −4.409 | **YES** | +5.904 | +10.494 | **+1.816** | **no** |
+> | `per_prompt_max` | −6.243 | **+0.518** | −9.650 | no | −7.900 | **−3.176** | −11.431 | no |
+>
+> ⭐⭐ **CLAUSE ② IS HEALTHY: its window is 4 of 5 comparators, and the published `argmax_arm` is
+> INSIDE it.** It falls out only at `per_prompt_max`, and there because the **oracle** stops clearing
+> (+0.518) — the strict degeneracy R866 found, now localised to its cause.
+>
+> ⛔⛔ **CLAUSE ④'s WINDOW IS A SINGLE POINT — `family_p90` — AND THE PUBLISHED COMPARATOR IS OUTSIDE
+> IT.** At `argmax_arm`, `random_k4_s0` scores **+1.816** and clears the 1.5 bar. **So ④'s published
+> count was measured in a regime where a random 4-criteria set satisfies the clause.** This is the
+> mechanism behind two older observations that were never connected: R850's negative control failing
+> at **7 of 8 class sizes**, and R856's finding that **④ is dominated by ②**. Both were symptoms of
+> a comparator too weak to make the clause say anything.
+>
+> ⭐⭐⭐ **AND THE SHARPEST SENTENCE THE DATA SUPPORTS:** at `family_p90`, the ONE comparator where
+> clause ④ has content, `coval_core` scores **−0.565 and FAILS it**. At every comparator where
+> `coval_core` passes ④, **so does random noise.** **There is no comparator at which clause ④ both
+> means something and is satisfied by the released core.**
+>
+> ⚠ **WORLD B fired, but WORLD D's condition ALSO holds and the code's `if/elif` ordering hid it.**
+> D was check #530's actual hypothesis — that the ambiguity is a property of the DEFINITION's grammar
+> — and `set(w②) != set(w④)` is true: the windows differ in KIND, 4 comparators versus 1. **Both are
+> reported, because a verdict selected by precedence is a verdict that suppressed its alternatives.**
+> The honest reading: the unresolved quantifier is a grammar defect the definition has throughout,
+> and **② tolerates it while ④ does not.**
+>
+> ⭐ **KILL ① again as wiring, both clauses:** the controls must be monotone along the pointwise
+> chain — once a control stops clearing it can never clear again. **PASS for both.** A derivation,
+> useless as evidence, and the only thing that would have caught a mis-indexed family.
+
 ⛔ **SCOPE ADDED 2026-08-06 (entry 1322) — THE PARAGRAPH BELOW IS ABOUT THE READING THIS DOCUMENT NO
 LONGER USES.** The statement at the top of this file adopts the **PERMISSIVE** reading of ④, and the
 row directly above says so — *"under the PERMISSIVE reading adopted by R824 · **25 of 58**."* Under

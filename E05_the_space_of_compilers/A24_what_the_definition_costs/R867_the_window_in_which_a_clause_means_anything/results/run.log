@@ -1,0 +1,27 @@
+  ONE shared population: 968 prompts carrying texts + all four named arms
+  family ② 1820 blind subsets · family ④ 30 criterion-free rules
+
+  clause ②   placebo argmax-vs-itself +0.00e+00  PASS
+    comparator             core   oracle   random   window?
+    family_mean          +2.817   +8.781   -3.420   YES
+    family_p75           -0.068   +6.157   -5.405   YES
+    family_p90           -1.846   +4.866   -6.776   YES
+    argmax_arm           +0.864   +6.700   -4.409   YES
+    per_prompt_max       -6.243   +0.518   -9.650   no
+    KILL ① monotone controls along the pointwise chain: True  PASS
+
+  clause ④   placebo argmax-vs-itself +0.00e+00  PASS
+    comparator             core   oracle   random   window?
+    family_mean         +17.710  +24.234  +11.585   no
+    family_p75           +7.620  +14.199   +2.062   no
+    family_p90           -0.565   +5.706   -5.625   YES
+    argmax_arm           +5.904  +10.494   +1.816   no
+    per_prompt_max       -7.900   -3.176  -11.431   no
+    KILL ① monotone controls along the pointwise chain: True  PASS
+
+  ⭐ MEANINGFUL WINDOW  clause ②: ['family_mean', 'family_p75', 'family_p90', 'argmax_arm']
+  ⭐ MEANINGFUL WINDOW  clause ④: ['family_p90']
+  ⭐ the PUBLISHED comparator (`argmax_arm`) lies inside the window: {'②': True, '④': False}
+  ⭐ WORLD B: a published comparator lies OUTSIDE its clause's window — that count comes from a regime where the clause is vacuous
+
+  artifact: results/meaningful_window.json @ 496b0b28
