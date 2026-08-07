@@ -70,4 +70,18 @@ def fixture_dir(root: pathlib.Path, name: str) -> pathlib.Path:
             f"fixture name {name!r} must match ROUND_RE ^[Rr]\\d+_ to match the EAR-anchored glob "
             f"E*/A*/R*/; anything else is planted where nothing can find it, and the harness "
             f"then reports zero vectors caught instead of an error")
+    # ⛔ AND THE GUARD WAS STILL NOT THE DISCOVERY CONTRACT — measured 2026-08-07.
+    # ROUND_RE is `^[Rr]\\d+_`, accepting BOTH cases, while `GLOB` above is `E*/A*/R*`, accepting
+    # only the uppercase half. On a case-sensitive filesystem `r90_attack_tmp` therefore passed
+    # this guard and was then INVISIBLE to every gate — exactly the failure this docstring says it
+    # exists to prevent, recurring through the one axis it never compared: CASE.
+    # `attack_no_withdrawn_framings.py` reported "0/5 vectors caught" for a lock it had never
+    # tested; with the path made visible the same lock catches 5/5 and the only documented gap
+    # is the one already declared. Normalised rather than refused, because refusing would break
+    # harnesses that have passed lowercase names for their whole life to prevent a fault they
+    # never had — the mistake this function's own comment records making before.
+    # ⚠ MEASURED: 1168 real result files match `E*/A*/R*` and `E*/A*/[Rr]*` identically, so no
+    # real round was ever hidden. The defect was confined to planted fixtures.
+    if name[0] == "r":
+        name = "R" + name[1:]
     return root / FIXTURE_BATCH / name

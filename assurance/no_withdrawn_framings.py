@@ -225,7 +225,14 @@ def main() -> int:
         print("\n  FAIL: this check cannot be trusted to flag; its own patterns are unvalidated.")
         return 1
 
-    files = sorted(_ROOT.glob("E*/A*/R*/results/**/*.json"))
+    # ⛔ `[Rr]` NOT `R`. `covalx.rounds.ROUND_RE` is `^[Rr]\\d+_` and `fixture_dir` guards
+    # against exactly that pattern, but this glob accepted only the uppercase half. On a
+    # case-sensitive filesystem every planted fixture (`r90_attack_tmp`) was therefore
+    # INVISIBLE, and `attack_no_withdrawn_framings.py` reported "0/5 vectors caught" for a
+    # lock it had never tested — which reads as a blind lock rather than an absent attack.
+    # ⚠ MEASURED before changing: both globs return 1168 files on the real corpus, so no
+    # real round was ever hidden and this changes the live population by exactly nothing.
+    files = sorted(_ROOT.glob("E*/A*/[Rr]*/results/**/*.json"))
     files = [f for f in files if "_smoke_archive" not in f.parts and not PROVISIONAL.search(f.name)]
     hits, scanned, fields = [], 0, 0
     excluded = {}
