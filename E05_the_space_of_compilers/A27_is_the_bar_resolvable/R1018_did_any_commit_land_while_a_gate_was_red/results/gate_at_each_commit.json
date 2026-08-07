@@ -1,0 +1,141 @@
+{
+ "source_sha": "860c4f2f0b39ce9a",
+ "head": "did any commit land while the currency gate was red",
+ "n_commits": 21,
+ "rows": [
+  {
+   "sha": "650f781e",
+   "subject": "[act.research.coval-crossroad.sigma.D8+] the size reading is decided on evidence",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (724 lines)."
+  },
+  {
+   "sha": "83b2c07c",
+   "subject": "[act.research.coval-crossroad.sigma.D8+] the definition's three departures from ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (758 lines)."
+  },
+  {
+   "sha": "d212bb6c",
+   "subject": "[act.research.coval-crossroad.Omega.D8+] the size cap is refused, and the reason",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (789 lines)."
+  },
+  {
+   "sha": "3dc41012",
+   "subject": "[act.research.coval-crossroad.Omega.D8+] the four clauses run as one operator: t",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (842 lines)."
+  },
+  {
+   "sha": "dff586c7",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] under the permissive reading the ope",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (887 lines)."
+  },
+  {
+   "sha": "0c7b76d8",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] the only surviving wording rests on ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (933 lines)."
+  },
+  {
+   "sha": "6941bc3c",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] clause four has no viable setting as",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (979 lines)."
+  },
+  {
+   "sha": "0106af33",
+   "subject": "[act.research.coval-crossroad.Omega.D8+] the formulation this arc earned: two co",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1024 lines)."
+  },
+  {
+   "sha": "a21b16db",
+   "subject": "[fix.research.coval-crossroad.rho.D8-] half of R1000's headline was already in t",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1037 lines)."
+  },
+  {
+   "sha": "c494fd4f",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] the extension converges beyond its s",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1086 lines)."
+  },
+  {
+   "sha": "753dee72",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] the supervised comparison family is ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1126 lines)."
+  },
+  {
+   "sha": "d547db71",
+   "subject": "[fix.research.coval-crossroad.Omega.D8-] R1005's convergence is retracted by the",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1175 lines)."
+  },
+  {
+   "sha": "63d7a8c3",
+   "subject": "[fix.research.coval-crossroad.Omega.D8-] the formulation admits an arm that neve",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1222 lines)."
+  },
+  {
+   "sha": "4f8d047d",
+   "subject": "[fix.research.coval-crossroad.rho.D8-] R1009's repair was committed at R921 and ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1238 lines)."
+  },
+  {
+   "sha": "6c3d8916",
+   "subject": "[verify.research.coval-crossroad.Omega.D8-] the definition contains the released",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1285 lines)."
+  },
+  {
+   "sha": "14446ebf",
+   "subject": "[verify.research.coval-crossroad.rho.D8+] the load-bearing cut survives excludin",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1318 lines)."
+  },
+  {
+   "sha": "d2e946d4",
+   "subject": "[fix.research.coval-crossroad.rho.D8-] the one property that separated the core ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1354 lines)."
+  },
+  {
+   "sha": "18ee8c77",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] the instance's sham is an exact dera",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1384 lines)."
+  },
+  {
+   "sha": "2aa58a70",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] a pairing-dependent quantity does se",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1423 lines)."
+  },
+  {
+   "sha": "5e9262a1",
+   "subject": "[verify.research.coval-crossroad.Omega.D8+] discriminativeness measures whether ",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1458 lines)."
+  },
+  {
+   "sha": "ff311faf",
+   "subject": "[verify.research.coval-crossroad.Omega.D8-] the belonging clause fails twice ove",
+   "verdict": "GREEN",
+   "detail": "  PASS: every measured fact is present in the statement region (1493 lines)."
+  }
+ ],
+ "red": [],
+ "world": "A CLEAN \u2014 no commit landed in a state the currency gate would have refused",
+ "controls": {
+  "positive_gate_can_say_red": "RED",
+  "positive_ok": true,
+  "negative_head_green": true
+ },
+ "not_measured": "whether the gate was actually RUN before each commit \u2014 shell history is not in the repository"
+}
