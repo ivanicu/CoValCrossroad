@@ -1,3 +1,20 @@
+⚠ **`A25` IS AMBIGUOUS IN THIS PROJECT — CITE THE FULL DIRECTORY NAME.**
+Two arcs in `E05` carry the number 25: `A25_is_the_population_itself_a_choice` and `A25_can_the_instrument_be_run_at_all`.
+An identifier is supposed to be unique without its path; this one is not.
+
+**Measured 2026-08-07, before any repair was attempted.** Bare `A25` citations — the number with no
+directory name — occur **26** times: **5** inside one of the two arcs, where context resolves them,
+and **21** across **10** files outside both, where nothing does. Those 21 include `DEFINITION.md`,
+`STATEMENT.md`, `RETRACTIONS.md` and `atlas/payload.json`. Full-name references run 13 to this arc's
+counterpart and 1 to the other, so renaming the smaller arc would have been cheap.
+
+⛔ **AND THAT IS WHY IT WAS NOT RENAMED.** Renaming converts 21 citations a reader cannot resolve
+into 21 a reader resolves confidently — and an unknown number of those would then point at the wrong
+arc, silently. **A wrong answer nobody re-examines is worse than an open question**, which is the
+false-acquittal direction this project's proxy ledger exists to refuse. Disambiguating the 21 needs a
+read of each site's intent, and for the ones written in earlier sessions that intent is not
+recoverable from the text.
+
 # A25 — is the population itself a choice?
 
 **The decision this arc must make safe:** *may `DEFINITION.md` quote its per-rule admitted shares as
