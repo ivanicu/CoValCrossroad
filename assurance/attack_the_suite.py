@@ -92,8 +92,23 @@ def hide_rounds():
         shutil.move(str(c), str(tmp / c.name))
         moved.append(c)
     def restore():
+        # ⛔ NEVER DELETE WHAT WAS NOT STASHED (R936). This loop used to `rmtree(c)`
+        #    unconditionally, so anything created at the live path WHILE THE STASH WAS AWAY was
+        #    destroyed on the way back. R935 was written, run and its artifact printed inside that
+        #    window; it landed in a freshly-created empty E05 and died here. Every COMMITTED round
+        #    survived because it came back with the stash; only the uncommitted one was lost.
+        #    The file already knew the shape — its own comment records R428 finding 21 untracked
+        #    artifacts that existed nowhere but inside a stash — but the BREADCRUMB protects the
+        #    SIGKILL path, and this is the NORMAL-completion path.
+        #    Measured (R936): with the old body a planted sentinel is destroyed; with this one it
+        #    survives, and on a quiet run the two are identical because there is nothing to keep.
         for c in moved:
-            shutil.rmtree(c, ignore_errors=True)
+            if c.exists() and any(c.iterdir()):
+                keep = Path(tempfile.mkdtemp(prefix="attack_preserved_"))
+                shutil.move(str(c), str(keep / c.name))
+                print(f"  ⚠ PRESERVED work created during the hide: {keep / c.name}")
+            else:
+                shutil.rmtree(c, ignore_errors=True)
             shutil.move(str(tmp / c.name), str(c))
         shutil.rmtree(tmp, ignore_errors=True)
         BREADCRUMB.unlink(missing_ok=True)
