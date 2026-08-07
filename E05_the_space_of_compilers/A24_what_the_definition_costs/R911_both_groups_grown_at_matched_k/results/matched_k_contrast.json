@@ -1,0 +1,176 @@
+{
+  "commit": "76f4fb4d20b380da7722ff47f5fd7b3de49d6459",
+  "world": "A",
+  "seed": 911,
+  "nboot": 8000,
+  "new_arms": {
+    "topw": [
+      {
+        "arm": "topw_k5",
+        "margin": 0.02247754557617141,
+        "lo": 0.015265033832544907,
+        "admitted": true
+      },
+      {
+        "arm": "topw_k7",
+        "margin": 0.021267985625717013,
+        "lo": 0.014009115490930672,
+        "admitted": true
+      },
+      {
+        "arm": "topw_k9",
+        "margin": 0.012745965038515128,
+        "lo": 0.005319338802644777,
+        "admitted": true
+      }
+    ],
+    "topabs": [
+      {
+        "arm": "topabs_k5",
+        "margin": -0.04455277109815012,
+        "lo": -0.055141662838540634,
+        "admitted": false
+      },
+      {
+        "arm": "topabs_k7",
+        "margin": -0.03371441675363651,
+        "lo": -0.04341686400715307,
+        "admitted": false
+      },
+      {
+        "arm": "topabs_k9",
+        "margin": -0.030077829903125373,
+        "lo": -0.03922405951746042,
+        "admitted": false
+      }
+    ],
+    "topvar": [
+      {
+        "arm": "topvar_k5",
+        "margin": -0.04991921634125514,
+        "lo": -0.05984781995918544,
+        "admitted": false
+      },
+      {
+        "arm": "topvar_k7",
+        "margin": -0.040935910311908796,
+        "lo": -0.050038980565311975,
+        "admitted": false
+      },
+      {
+        "arm": "topvar_k9",
+        "margin": -0.0416233962523148,
+        "lo": -0.05036627331379787,
+        "admitted": false
+      }
+    ],
+    "topwvar": [
+      {
+        "arm": "topwvar_k5",
+        "margin": -0.03648610267561759,
+        "lo": -0.04603717268953324,
+        "admitted": false
+      },
+      {
+        "arm": "topwvar_k7",
+        "margin": -0.03470117820753238,
+        "lo": -0.043743889677173374,
+        "admitted": false
+      },
+      {
+        "arm": "topwvar_k9",
+        "margin": -0.0314718476018224,
+        "lo": -0.04013815882196273,
+        "admitted": false
+      }
+    ]
+  },
+  "shared_k": [
+    2,
+    4,
+    5,
+    7,
+    8,
+    9
+  ],
+  "specs": [
+    {
+      "spec": "PRIMARY k-matched",
+      "signed": {
+        "a": 8,
+        "n": 11,
+        "ci95": [
+          0.4343497069897537,
+          0.9025411942607853
+        ]
+      },
+      "other": {
+        "a": 0,
+        "n": 17,
+        "ci95": [
+          0.0,
+          0.18432366037156456
+        ]
+      },
+      "disjoint": true,
+      "gap": 0.25002604661818917
+    },
+    {
+      "spec": "pooled over k",
+      "signed": {
+        "a": 10,
+        "n": 19,
+        "ci95": [
+          0.31707482511825114,
+          0.7267049451255145
+        ]
+      },
+      "other": {
+        "a": 0,
+        "n": 17,
+        "ci95": [
+          0.0,
+          0.18432366037156456
+        ]
+      },
+      "disjoint": true,
+      "gap": 0.13275116474668658
+    },
+    {
+      "spec": "matched k=4",
+      "signed": {
+        "a": 3,
+        "n": 4,
+        "ci95": [
+          0.3006360524426366,
+          0.9544139373553637
+        ]
+      },
+      "other": {
+        "a": 0,
+        "n": 8,
+        "ci95": [
+          0.0,
+          0.3244156195108769
+        ]
+      },
+      "disjoint": false,
+      "gap": -0.023779567068240304
+    }
+  ],
+  "primary": "PRIMARY k-matched",
+  "primary_designated_before_run": true,
+  "no_fake_n": {
+    "duplicates_found": [],
+    "why": "topw_k is deterministic (R890 replicas at r=1.000000); growth had to come from NEW k, never from re-running a covered one \u2014 more points is not replication"
+  },
+  "multiplicity": "three specifications, a wider family than R909's two; a hit in 1 of 3 is weaker than 1 of 2 and the primary was designated first",
+  "wiring_reference": {
+    "topw_k4": 0.014402,
+    "topabs_k4": -0.063677,
+    "topvar_k4": -0.066342,
+    "topwvar_k4": -0.048203
+  },
+  "unit_note": "counts are ARMS; margins are A2 units vs genericpool16",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}

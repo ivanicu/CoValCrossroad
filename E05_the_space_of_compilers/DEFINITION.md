@@ -975,6 +975,27 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > more data should do if the effect is real, and the comparison is asymmetric by design.
 > > ⚠ Cross-round wiring: the admission test reproduced R881's `lo` on four reference arms to
 > > within **0.00032** — numbers checked, not only verdicts.
+> >
+> > ⭐⭐⭐ **STRENGTHENED BY BALANCING (R911) — BOTH GROUPS GROWN AT THE SAME NEW k.** R910's
+> > separation came entirely from one interval shrinking. Twelve more arms were built at
+> > **k = 5, 7, 9** — four rules × three k, **0 judge calls** — so both sides move and a genuinely
+> > **k-matched** population exists for the first time.
+> >
+> > | specification | signed | variance/magnitude | disjoint | gap |
+> > |---|---|---|---|---|
+> > | **PRIMARY, k-matched {2,4,5,7,8,9}** | **8/11 [0.434, 0.903]** | **0/17 [0.000, 0.184]** | **yes** | **+0.250** |
+> > | pooled over k | 10/19 [0.317, 0.727] | 0/17 [0.000, 0.184] | yes | +0.133 |
+> > | matched k=4 | 3/4 [0.301, 0.954] | 0/8 [0.000, 0.324] | **no** | −0.024 |
+> >
+> > **The gap widens +0.016 → +0.250 once both sides move.** The three new `topw` arms are ALL
+> > admitted (+0.0127…+0.0225) and the nine new variance arms ALL rejected — so signed-weight
+> > selection clears the bar across k, not only at k=4.
+> > ⛔ **The obvious fix would have been fake n.** `topw_k` is DETERMINISTIC (R890: replicas at
+> > r = 1.000000), so re-running a covered k yields identical copies. Growth had to come from
+> > **new k**, and the round asserts in code that no new arm duplicates another's selections.
+> > ⚠ **1 of 3 specifications does NOT separate** (matched k=4, −0.024) and is reported, not
+> > dropped. Three specs is a wider family than R909's two, which is why the **primary was
+> > designated before the run** rather than chosen after.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|
