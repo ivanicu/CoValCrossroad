@@ -8,6 +8,16 @@ contentious prompts, *and wrote down the criteria they judged by*.
 [`R995`](E05_the_space_of_compilers/A27_is_the_bar_resolvable/R995_the_readme_head_was_570_rounds_stale/),
 not typed.
 
+> ⚠ **AND "counted from the tree" covers FOUR numbers, not every number in this head.** The rounds,
+> arcs, epochs and top round-id above are recomputed on each edit. The other figures nearby —
+> `829 of 966`, `574 rounds stale`, `415 … R421` — are **quotes of what was true when a round
+> measured them**, and they are not re-derived. ⛔ **This note exists because my own NEXT line on the
+> commit that recomputed the head claimed "every count in the head is recomputed from the tree",
+> which is false**, and `assurance/next_line_quantifiers_are_computed.py` flagged it —
+> `quantifier 'every' over 'round'` — in the same command that made the commit, so the verdict
+> arrived after the write. **The check must gate the commit, not run beside it.**
+
+
 ⛔ **AND THIS LINE WAS 574 ROUNDS STALE UNTIL R995 MEASURED IT.** It read *"415 rounds in 5 epochs
 and 24 arcs, numbered to R421"* — while the tree held 965 rounds across 28 arcs. The head of the
 document P16 designates as the home for findings was describing a project **less than half this

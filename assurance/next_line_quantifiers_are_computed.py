@@ -22,6 +22,14 @@ cited in DEFINITION.md but not STATEMENT.md (run assurance/residue_debt.py)" pas
 Four commit bodies in this repository are KNOWN to contain a false quantified NEXT line; the detector
 must flag all four. And a NEXT line known to be clean must not be flagged. A control validated only
 against cases I invented is validated against my imagination — the standard's own words.
+
+⛔⛔ THIS CHECK MUST RUN **BEFORE** THE COMMIT, NOT BESIDE IT (carved 2026-08-07 after `52bf5c58`).
+I ran it and `git commit` in the SAME command. It returned `quantifier 'every' over 'round'` — a real
+catch, because that commit's NEXT claimed "every count in the head is recomputed from the tree" while
+only four of the head's numbers are — and the verdict printed AFTER the write had already happened.
+⭐ The instrument fired, was correct, and changed nothing, which is the one failure mode a gate cannot
+survive: not being wrong, but being consulted too late to matter. Sequence it as its own step and read
+the answer before staging.
 """
 from __future__ import annotations
 import json, pathlib, re, subprocess, sys
