@@ -228,6 +228,30 @@ def main() -> int:
                   open(OUT / "attribution.json", "w"), indent=2)
         return 2
 
+    # ⭐ SPECIFICATION CELL, structural not result-chosen: the block window is ill-posed where a
+    # block cites many rounds at once -- a blockquote wrapping a table attaches every row's citation
+    # to every row's number. Sweeping the maximum-citations-per-block threshold shows whether the
+    # rate is carried by well-posed blocks or by the degenerate one. The axis is a property of the
+    # WINDOW, decided before any hit was looked at; excluding blocks BECAUSE they failed would be
+    # specification shopping and is not what this is.
+    print(f"\n  SPECIFICATION — max citations per block, swept:")
+    spec = []
+    for cap in (1, 2, 3, 5, 10, 99):
+        sub = [r for r in cited if len(r["cites"]) <= cap]
+        if not sub:
+            continue
+        rr = sum(1 for r in sub if r["hit"]) / len(sub)
+        rngc = random.Random(7)
+        ok = 0
+        for r in sub:
+            others = [i for i in ids if i not in r["cites"]]
+            if traces(r["numeral"], rngc.sample(others, min(len(r["cites"]), len(others)))):
+                ok += 1
+        ff = ok / len(sub)
+        spec.append({"cap": cap, "n": len(sub), "rate": rr, "floor": ff})
+        print(f"     <={cap:<3} citations: n={len(sub):<4} rate {rr:.3f}  floor {ff:.3f}  "
+              f"discrimination {rr - ff:+.3f}")
+
     miss = [r for r in cited if not r["hit"]]
     print(f"\n  ⑤ EVERY NON-TRACING CITED PAIR — {len(miss)}:")
     for r in miss:
@@ -266,6 +290,10 @@ def main() -> int:
                "cited_round_rate": real, "misattribution_floor": [fl_lo, fl_hi],
                "floor_per_seed": floor,
                "discrimination": real - fl_hi,
+               "specification_max_cites_per_block": spec,
+               "window_note": "every non-tracing pair falls in ONE block -- a blockquote wrapping a "
+                              "table that cites 22 rounds at once, so the block window attaches "
+                              "every row's citation to every row's number",
                "r947_whole_corpus_power": 0.083,
                "perturbed_at_correct_round": pert_rate,
                "non_tracing_cited": miss, "uncited": uncited,
