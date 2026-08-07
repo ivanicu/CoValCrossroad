@@ -1,0 +1,23 @@
+{
+ "source_sha": "892bd4526815b766",
+ "head": "658fb969",
+ "n_entries": 1149,
+ "n_header": 0,
+ "n_anchored": 11,
+ "n_anchored_edges": 14,
+ "n_bare": 799,
+ "r951_committed": {
+  "edges": 14,
+  "linked": 8
+ },
+ "controls": {
+  "positive_reproduces_r951": true,
+  "negative_anchor_matters": true,
+  "placebo_unanchored_not_counted": true,
+  "all_ok": true
+ },
+ "world": "B R997 IS TOO STRONG \u2014 11 entries name a round under an anchored instrument this project already built. The join is not unavailable; it is available at a scale of 14 edges, and R997's claim narrows to the HEADER.",
+ "bound_after": 490,
+ "corrects": "R997's 'the join is unavailable' \u2014 narrowed to 'unavailable via R954's header'",
+ "inherited_limit": "R951: the 14 are a LOWER bound; two entries can concern the same round and say so nowhere"
+}
