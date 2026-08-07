@@ -258,6 +258,42 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔⛔ UNDER `A1·consensus` THE DEFINITION EXCLUDES ITS OWN INSTANCE (added 2026-08-07, R1020)
+
+R1019 left the cell that matters uncomputed: a target under which the definition admits nothing, at
+the **96-arm** population rather than R288's 10. ⭐ **A1 was not reconstructed — it was copied from
+R288's committed source**, `T["A1·annot"][n] = np.mean([float((c == h).all()) for h in HC[n]])`, so
+R1019's hazard (*a target rebuilt in order to sweep it can be built to fail*) does not apply.
+
+⭐ **THE TRANSCRIPTION CONTROL IS EXACT.** My `A1·annot` reproduces R288's committed per-arm values at
+**Δ = 0.000e+00** on all 9 shared arms — `coval_core` 0.066476221325849, `topw_k4` 0.065973341200429,
+`generic` 0.059203400221706. **It is R288's statistic, not a lookalike.**
+
+| target | extension (96 arms) | `coval_core` in it |
+|---|---:|---|
+| `A2` (this arc throughout) | **9** | yes |
+| `A1·annot` | **9** — the same nine | yes |
+| **`A1·consensus`** | **4** — `coval_core_2bA`, `coval_core_2bB`, `topw_k6`, `topw_k8` | **NO** |
+
+⛔⛔ **So a target exists — at the full population, under this arc's own admission rule ②′∧③ — at
+which the definition admits the released core's TWINS and two `topw` arms, and excludes the released
+core itself.** That is the sharpest form of "the definition describes the instance" failing in
+reverse: the object it was written from does not survive its own clauses under a defensible target.
+
+⚠ **AND R288's ∅ IS NOT REFUTED BY THIS.** The **target** is identical (Δ = 0). But R288 swept
+**clause ② alone** against its own `_blind4`/`_blind15` references over **10** arms; this is **②′∧③**
+against R921's certified comparators over **96**. **Different admission rule AND different
+population** — calling it a refutation would be the naming-collision error R1019 caught one round
+earlier, made in the opposite direction. ⭐ The positive control proving the target matches is exactly
+what makes the remaining difference legible.
+
+⚠ **The closest-arm diagnostic ranges over ALL arms, not ③-eligible ones** — it reports `oracle_k4`,
+which fails ③ and is in no extension. It answers *"how far is the best ②-candidate"*, not *"how far is
+the best core candidate"*.
+
+⚠ `top1·mean` is **not swept** — a choice, not a limit: its R288 answer is about **which arm**, not
+about emptiness, so folding it in would make the round about two questions.
+
 ### ⛔ EVERY EXTENSION FIGURE IN THIS ARC IS **A2's** ANSWER, AND NOTHING SAID SO (added 2026-08-07, R1019)
 
 ⛔ **PRIOR ART, AND IT IS THE SCOPE.** R558 recorded, from R288's committed `target_sweep.json` —

@@ -1,0 +1,124 @@
+{
+ "source_sha": "afc6c2b945b4a648",
+ "head": "does the definition admit anything under A1 at the full population",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "n_arms": 96,
+ "prior_art": {
+  "round": "R288",
+  "n_arms": 10,
+  "A1_annot": [],
+  "A1_consensus": []
+ },
+ "controls": {
+  "positive_transcription_worst_abs": 0.0,
+  "positive_ok": true,
+  "positive_rows": [
+   {
+    "arm": "coval_core",
+    "mine": 0.06647622132584863,
+    "r288": 0.06647622132584863,
+    "abs": 0.0
+   },
+   {
+    "arm": "topw_k4",
+    "mine": 0.06597334120042896,
+    "r288": 0.06597334120042896,
+    "abs": 0.0
+   },
+   {
+    "arm": "generic",
+    "mine": 0.059203400221705546,
+    "r288": 0.059203400221705546,
+    "abs": 0.0
+   },
+   {
+    "arm": "gen",
+    "mine": 0.0610394692311769,
+    "r288": 0.0610394692311769,
+    "abs": 0.0
+   },
+   {
+    "arm": "topwvar_k4",
+    "mine": 0.048564198690939,
+    "r288": 0.048564198690939,
+    "abs": 0.0
+   },
+   {
+    "arm": "random_k4_s0",
+    "mine": 0.04281344142040348,
+    "r288": 0.04281344142040348,
+    "abs": 0.0
+   },
+   {
+    "arm": "topabs_k4",
+    "mine": 0.044093456983290286,
+    "r288": 0.044093456983290286,
+    "abs": 0.0
+   },
+   {
+    "arm": "topvar_k4",
+    "mine": 0.045692369735459204,
+    "r288": 0.045692369735459204,
+    "abs": 0.0
+   },
+   {
+    "arm": "gen_sham",
+    "mine": 0.03823708994883088,
+    "r288": 0.03823708994883088,
+    "abs": 0.0
+   }
+  ],
+  "negative_rescale_invariant": true,
+  "placebo_self": true
+ },
+ "extension_a1_annot": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "extension_a1_consensus": [
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "closest_annot": [
+  {
+   "comparator": "generic",
+   "arm": "oracle_k4",
+   "lo": 0.06964156181297927
+  },
+  {
+   "comparator": "genericpool16",
+   "arm": "oracle_k4",
+   "lo": 0.07253176336163956
+  }
+ ],
+ "closest_consensus": [
+  {
+   "comparator": "generic",
+   "arm": "oracle_k4",
+   "lo": 0.18801652892561985
+  },
+  {
+   "comparator": "genericpool16",
+   "arm": "oracle_k4",
+   "lo": 0.1921487603305785
+  }
+ ],
+ "empty": false,
+ "world": "B A1 ADMITS SOMETHING \u2014 annot ['coval_core', 'coval_core_2bA', 'coval_core_2bB', 'topw_k3', 'topw_k4', 'topw_k4_detA', 'topw_k4_detB', 'topw_k6', 'topw_k8'], consensus ['coval_core_2bA', 'coval_core_2bB', 'topw_k6', 'topw_k8']",
+ "r288_not_refuted": "the TARGET is identical (\u0394=0 on 9 shared arms) but R288 swept clause \u2461 alone against its own blind references over 10 arms, while this is \u2461\u2032\u2227\u2462 against R921's certified comparators over 96 \u2014 different admission rule AND population, so its \u2205 is not the same test",
+ "core_excluded_under_a1_consensus": true,
+ "closest_arm_caveat": "the closest-arm diagnostic ranges over all arms; it reports oracle_k4, which fails \u2462 and is in no extension",
+ "a1_source": "copied verbatim from R288's run.py, not reconstructed",
+ "not_swept": "top1\u00b7mean \u2014 its answer is about which arm, not about emptiness"
+}

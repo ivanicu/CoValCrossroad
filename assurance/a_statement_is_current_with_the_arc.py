@@ -430,6 +430,20 @@ def main() -> int:
                       [r"(A2).{0,300}(target|R288).{0,300}(empt|top1|tau|depend)",
                        r"(under A2|A2's answer).{0,200}(extension|9 arms)"]))
 
+    # ⛔⛔ R1020: under A1·consensus the definition EXCLUDES ITS OWN INSTANCE, at the full
+    #    population and under this arc's own admission rule. A statement carrying the A2 extension
+    #    without that is showing the one target where the answer flatters.
+    d = load("A27_*/R1020_*/results/a1_at_full_population.json")
+    if d:
+        facts.append(("R1020", "under A1·consensus the definition excludes the released core",
+                      f"annot {len(d['extension_a1_annot'])}, consensus "
+                      f"{len(d['extension_a1_consensus'])}, core excluded "
+                      f"{d['core_excluded_under_a1_consensus']}",
+                      [r"(A1.consensus).{0,300}(exclud|not among|without).{0,120}"
+                       r"(coval_core|instance|core)",
+                       r"(coval_core|its own instance).{0,200}(not admitted|excluded).{0,200}"
+                       r"(A1)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
