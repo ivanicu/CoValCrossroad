@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1069_*/results/clause_number_sources.json")
+    if d:
+        pc = d["per_class"]
+        facts.append(("R1069", "decimals are sourceable above their floor; integers are saturated",
+                      f"dec {pc.get('decimals', {}).get('sourceable', 0):.3f}, "
+                      f"int {pc.get('integers', {}).get('sourceable', 0):.3f}, "
+                      f"tokens {d['tokens']}",
+                      [r"decimals\*?\*?\s*\|?\s*\*?\*?38\s*\|?\s*\*?\*?0\.789",
+                       r"integer\s+class\s+is\s+saturated|saturated[^.]{0,60}0\.94"]))
+
     d = load("A27_*/R1068_*/results/clause_gate.json")
     if d:
         facts.append(("R1068", "a gate now covers the clause's declared constants, and fails closed",

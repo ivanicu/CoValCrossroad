@@ -1,0 +1,41 @@
+{
+  "round": "R1069",
+  "tokens": 131,
+  "artifacts": 872,
+  "pool": 72756,
+  "sourceable": 123,
+  "sourceable_share": 0.9389312977099237,
+  "floor_3_seeds": [
+    0.6717557251908397,
+    0.7099236641221374
+  ],
+  "resolved_against_floor": true,
+  "integers": 93,
+  "decimals": 38,
+  "per_class": {
+    "integers": {
+      "n": 93,
+      "sourceable": 1.0,
+      "floor": [
+        0.9354838709677419,
+        0.946236559139785
+      ],
+      "clears": true
+    },
+    "decimals": {
+      "n": 38,
+      "sourceable": 0.7894736842105263,
+      "floor": [
+        0.10526315789473684,
+        0.18421052631578946
+      ],
+      "clears": true
+    }
+  },
+  "world": "\u2b50 A THE DECIMAL CLASS CARRIES IT, AND THE INTEGER CLASS DOES NOT \u2014 decimals 0.789 against their own floor [0.105, 0.184], a real separation; integers 1.000 against [0.935, 0.946], where nearly ANY integer reads as sourceable and 100% says almost nothing. \u2b50 So the clause's DECIMAL constants \u2014 the measured quantities \u2014 are largely backed by committed artifacts and R1068's gate can be extended to them; its integers are unresolved by this test whatever their share.",
+  "controls": {
+    "positive_known_declared": true,
+    "negative_absent": true
+  },
+  "limitation": "value membership is an upper bound; a coincidence is indistinguishable from a citation without reading the sentence"
+}

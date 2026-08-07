@@ -1437,6 +1437,29 @@ would prove nothing; and the **negative** (deleting a source artifact) turns it 
 the **declared subset** and leaves the rest **exactly as exposed as before**. A gate that overstated
 its reach would be the failure it was built to fix.
 
+⭐⭐ **AND R1069 ASKS WHICH OF THE REMAINING CLAUSE NUMBERS COULD BE DECLARED — AND THE ANSWER SPLITS
+BY MAGNITUDE CLASS, WHICH A POOLED NUMBER WOULD HAVE HIDDEN.**
+
+| class | tokens | sourceable | its own floor (3 seeds) | margin |
+|---|---:|---:|---|---:|
+| **decimals** | **38** | **0.789** | **[0.105, 0.184]** | **+0.605** |
+| integers | 93 | 1.000 | **[0.935, 0.946]** | +0.054 |
+| *(pooled)* | 131 | 0.939 | [0.672, 0.710] | +0.229 |
+
+⭐ **With 72,754 distinct values across 872 artifacts, nearly any small integer is `sourceable` by
+coincidence** — so the **integer class is saturated** and its `1.000` carries almost no information,
+while the **decimal class — the measured quantities — separates by `+0.605` and is the finding.**
+**R1068's gate can be extended to the clause's decimal constants; its integers are unresolved by this
+test whatever their share.**
+⛔ **TWO COUNTING CORRECTIONS, BOTH MINE.** ① My first count was **144** where R1067 counted **121**:
+the 9 clause homes have **overlapping ±700 windows**, and appending per window counts a shared token
+once per window while R1067 keyed by absolute offset. ② ⚠ **Deduplicated it still reads 131, and that
+is not a bug — the statement has GROWN between the two rounds**, since each round appends its
+annotation. **A population that changes between rounds means any cross-round count needs the document
+version attached**, which is the same class of error R1060 and R1061 spent two rounds untangling.
+⚠ **And no aggregate licenses a single token**: the floor makes the count readable, not any particular
+`this number has a source`. That is **one reading per token, and there are 131**.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
