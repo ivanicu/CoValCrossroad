@@ -176,9 +176,18 @@ def _floor(n: int, what: str) -> int:
         return 2
     return 0
 
-def main() -> int:
+def main(only: str | None = None) -> int:
+    """⭐ R973: `only` restricts the scan to ONE round directory.
+
+    Its attack planted a fixture and then read this gate's WHOLE-REPO exit code, so every vector's
+    verdict moved with the corpus rather than with the plant: R942 measured the channel saturated at
+    1 by four false positives, and R970 saw it flip when those were removed. A harness whose claim is
+    per-round must read a per-round verdict. Same repair as R954's `main(path, floor)`.
+    """
     rows, flagged = [], []
     for d in sorted(_ROOT.glob("E*/A*/R*/")):
+        if only and d.name != only:
+            continue
         run = d / "run.py"
         if not run.exists():
             continue

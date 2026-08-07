@@ -6,7 +6,10 @@ ROOT = Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.pri
 import sys as _s
 _s.path.insert(0, str(ROOT))
 from covalx.rounds import fixture_dir  # noqa: E402
-TMP = fixture_dir(ROOT, "r91_attack_outcome")
+# ⛔ R973: was `r91_attack_outcome`, and a REAL round `R91_precision_budget` exists --
+#    the same identifier collision R960 found with r951. Moved above every real round.
+FIXTURE = "r9191_attack_outcome"
+TMP = fixture_dir(ROOT, FIXTURE)
 PY = str(ROOT / ".venv/bin/python")
 
 # (name, run.py source, results doc, must_be_flagged)
@@ -23,8 +26,22 @@ VECTORS = [
 ]
 
 
+ISOLATED = (
+    "import importlib.util,sys;"
+    "spec=importlib.util.spec_from_file_location('g',sys.argv[1]);"
+    "m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);"
+    "sys.exit(m.main(only=sys.argv[2]))"
+)
+
+
 def run():
-    r = subprocess.run([PY, "assurance/outcome_variable_declared.py"],
+    """⭐ R973: PER-ROUND, not whole-repo. The old version read the gate's exit code over the entire
+    corpus, so a vector's verdict tracked the baseline instead of the plant -- R942 measured that
+    channel saturated at 1, and R970 watched it flip when the false positives were removed. It now
+    asks the gate about the fixture alone."""
+    r = subprocess.run([PY, "-c", ISOLATED,
+                        str(ROOT / "assurance/outcome_variable_declared.py"),
+                        TMP.name],
                        cwd=ROOT, capture_output=True, text=True)
     return r.returncode
 
