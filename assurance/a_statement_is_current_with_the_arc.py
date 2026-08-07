@@ -420,6 +420,16 @@ def main() -> int:
                       [r"(4\.2%|4 of 96|not evaluable).{0,300}(sham|scored|clause)",
                        r"(implied by|weaker than|adds nothing).{0,260}(clause ②|clause two)"]))
 
+    # ⛔ R1019: every extension figure in this arc is A2's answer, and R288 shows the admitted set
+    #    is target-dependent. A statement quoting "9 arms" without a target is a number without its
+    #    scope, which is eleven of twelve retractions in this project's history.
+    d = load("A27_*/R1019_*/results/target_scope.json")
+    if d:
+        facts.append(("R1019", "the extension is A2's answer and the target must be named",
+                      f"identical={d['identical']}; R288 targets {d['prior_art']['targets']}",
+                      [r"(A2).{0,300}(target|R288).{0,300}(empt|top1|tau|depend)",
+                       r"(under A2|A2's answer).{0,200}(extension|9 arms)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

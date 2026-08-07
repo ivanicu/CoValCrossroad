@@ -258,6 +258,40 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔ EVERY EXTENSION FIGURE IN THIS ARC IS **A2's** ANSWER, AND NOTHING SAID SO (added 2026-08-07, R1019)
+
+⛔ **PRIOR ART, AND IT IS THE SCOPE.** R558 recorded, from R288's committed `target_sweep.json` —
+**968 prompts, six targets, four distinct admitted sets**:
+
+| target | admits |
+|---|---|
+| `A2·annot`, `A2·consensus` | `coval_core`, `topw_k4` |
+| `A1·annot`, `A1·consensus` | **∅ — nothing** |
+| `tau·mean` | **`coval_core` alone** |
+| `top1·mean` | `topw_k4` — **not the released core** |
+
+**That sweep is over 10 arms.** This arc spent nineteen rounds reporting an extension over **96** —
+*"9 arms, 4 distinct objects"* — **and never named the target.**
+
+⭐ **What this round adds:** the CURRENT formulation ②′∧③, over the full 96 arms, under **A2** and
+under a **per-annotator Kendall tau-b** — **identical, 9 arms, 0 either way.** So between those two
+targets the extension is stable.
+
+⛔⛔ **AND MY tau IS NOT R288's tau.** R288 records `coval_core` **alone** under `tau·mean`; this
+round's tau-b gives the same 9 as A2. **Same name, different statistic** — R288's is a tau against a
+**mean ranking**, this is a **per-annotator** tau averaged, at a different population (10 vs 96).
+⚠ **The positive control validated the A2 branch ONLY** — it reproduces R288's `A2·annot` answer on
+R288's own subset and **licenses nothing about tau**, which is exactly the blind-spot case the
+standard names. **So R288's tau result is neither reproduced nor contradicted here.**
+
+⚠ **A1 and top1 are NOT recomputed.** They need scoring conventions this round would have to
+reconstruct, and *reconstructing a target in order to sweep it is how a specification curve becomes an
+invention.* R288's committed answer stands for them, at its own population of 10.
+
+⭐ **The correction that follows regardless of the stability result:** the extension figure carries a
+target, and it is **A2**. R288's sweep shows at least one target under which the definition admits
+**nothing**, and one under which it excludes **its own instance** — so the label is not decoration.
+
 ### ⛔⛔ THE BELONGING CLAUSE FAILS TWICE OVER — NOT EVALUABLE, AND IMPLIED BY ② WHERE IT IS (added 2026-08-07, R1017)
 
 R1016 left discriminativeness able to support a **belonging** clause. Its natural form is

@@ -1,1 +1,2 @@
 {"gates": ["currency", "anchoring", "next"], "next_checked": true, "paths": ["assurance/preflight.py", "assurance/preflight_receipts.py"]}
+{"gates": ["currency", "anchoring", "next"], "next_checked": true, "paths": ["E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1019_the_extension_is_A2s_answer_and_the_statement_never_said_so/", "E05_the_space_of_compilers/DEFINITION.md", "README.md", "assurance/a_statement_is_current_with_the_arc.py"]}

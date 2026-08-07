@@ -1,0 +1,72 @@
+{
+ "source_sha": "630d1b5700505f85",
+ "head": "the extension is A2's answer and the statement never said so",
+ "n_prompts": 968,
+ "nboot": 8000,
+ "seed": 921,
+ "n_arms": 96,
+ "prior_art": {
+  "round": "R288/R558",
+  "targets": [
+   "A2\u00b7annot",
+   "A2\u00b7consensus",
+   "A1\u00b7annot",
+   "A1\u00b7consensus",
+   "tau\u00b7mean",
+   "top1\u00b7mean"
+  ],
+  "n_arms": 10,
+  "admitted": {
+   "A2\u00b7annot": [
+    "coval_core",
+    "topw_k4"
+   ],
+   "A2\u00b7consensus": [
+    "coval_core",
+    "topw_k4"
+   ],
+   "A1\u00b7annot": [],
+   "A1\u00b7consensus": [],
+   "tau\u00b7mean": [
+    "coval_core"
+   ],
+   "top1\u00b7mean": [
+    "topw_k4"
+   ]
+  }
+ },
+ "controls": {
+  "positive_reproduces_r288_a2": true,
+  "negative_monotone_rescale_invariant": true,
+  "placebo_self": true
+ },
+ "extension_a2": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "extension_tau": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "only_a2": [],
+ "only_tau": [],
+ "identical": true,
+ "world": "A TARGET-STABLE \u2014 the two extensions coincide",
+ "not_recomputed": "A1\u00b7annot, A1\u00b7consensus, top1\u00b7mean and the consensus variant \u2014 they need scoring conventions this round would have to reconstruct",
+ "tau_mismatch": "this round's tau-b (per-annotator tau, averaged) is NOT R288's `tau\u00b7mean` (tau against a mean ranking): R288 admits coval_core alone under that name, this admits the same 9 as A2. Same name, different statistic, different population. The positive control validated the A2 branch only and licenses nothing about tau.",
+ "verdict_scope": "target-stable BETWEEN A2 and per-annotator tau-b; four of R288's six targets are unswept here and one of those (tau\u00b7mean) is a different statistic from the tau computed here"
+}

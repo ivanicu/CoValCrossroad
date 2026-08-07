@@ -69,8 +69,12 @@ per fact**, so nothing below restates the clause text.
 > **Reported, never required:** its **size**, and its **margin over a declared response-only class**
 > as a lower bound with its interval.
 
-**Its extension on this release: 9 arms, 4 distinct objects** —
+**Its extension on this release, under the A2 target: 9 arms, 4 distinct objects** —
 `coval_core`, `topw_k3`, `topw_k4` (with two deterministic twins), `topw_k6`, `topw_k8`.
+
+⚠ **The target is part of the number.** R288's committed sweep found **four distinct admitted sets
+across six targets** — `A1` admits **nothing**, `top1·mean` admits `topw_k4` and **not** the released
+core (R1019). Every figure here is A2's.
 
 ### What it costs, and what it does not do
 
