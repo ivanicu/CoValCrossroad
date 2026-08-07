@@ -1,0 +1,146 @@
+{
+ "source_sha": "97845e8933f822ef",
+ "head": "no property of the criteria text can be definitional content",
+ "residual_arms": {
+  "coval_core": 43,
+  "coval_core_2bA": 8,
+  "coval_core_2bB": 8,
+  "coval_core_sham": 43,
+  "gen": 2,
+  "gen_sham": 2
+ },
+ "pairs_compared": [
+  "gen",
+  "promptecho",
+  "topw_k4"
+ ],
+ "rows": [
+  {
+   "arm": "gen",
+   "arm_props": {
+    "n_prompts": 968,
+    "size_dist": {
+     "1": 1,
+     "3": 1,
+     "4": 966
+    },
+    "mean_size": 3.995868,
+    "mean_chars": 241.0568,
+    "mean_words": 37.3368,
+    "mean_unique_criteria": 3.886364
+   },
+   "sham_props": {
+    "n_prompts": 968,
+    "size_dist": {
+     "1": 1,
+     "3": 1,
+     "4": 966
+    },
+    "mean_size": 3.995868,
+    "mean_chars": 240.7169,
+    "mean_words": 37.2841,
+    "mean_unique_criteria": 3.885331
+   },
+   "identical": {
+    "n_prompts": true,
+    "size_dist": true,
+    "mean_size": true,
+    "mean_chars": false,
+    "mean_words": false,
+    "mean_unique_criteria": false
+   }
+  },
+  {
+   "arm": "promptecho",
+   "arm_props": {
+    "n_prompts": 398,
+    "size_dist": {
+     "4": 398
+    },
+    "mean_size": 4.0,
+    "mean_chars": 312.9196,
+    "mean_words": 54.0201,
+    "mean_unique_criteria": 2.886935
+   },
+   "sham_props": {
+    "n_prompts": 398,
+    "size_dist": {
+     "4": 398
+    },
+    "mean_size": 4.0,
+    "mean_chars": 312.9196,
+    "mean_words": 54.0201,
+    "mean_unique_criteria": 2.886935
+   },
+   "identical": {
+    "n_prompts": true,
+    "size_dist": true,
+    "mean_size": true,
+    "mean_chars": true,
+    "mean_words": true,
+    "mean_unique_criteria": true
+   }
+  },
+  {
+   "arm": "topw_k4",
+   "arm_props": {
+    "n_prompts": 968,
+    "size_dist": {
+     "4": 968
+    },
+    "mean_size": 4.0,
+    "mean_chars": 412.7541,
+    "mean_words": 63.0134,
+    "mean_unique_criteria": 3.987603
+   },
+   "sham_props": {
+    "n_prompts": 968,
+    "size_dist": {
+     "4": 968
+    },
+    "mean_size": 4.0,
+    "mean_chars": 412.7541,
+    "mean_words": 63.0134,
+    "mean_unique_criteria": 3.987603
+   },
+   "identical": {
+    "n_prompts": true,
+    "size_dist": true,
+    "mean_size": true,
+    "mean_chars": true,
+    "mean_words": true,
+    "mean_unique_criteria": true
+   }
+  }
+ ],
+ "mismatches": [
+  [
+   "gen",
+   [
+    "mean_chars",
+    "mean_words",
+    "mean_unique_criteria"
+   ]
+  ]
+ ],
+ "controls": {
+  "positive_a2_not_shared": true,
+  "negative_second_pair": true,
+  "placebo_equality": true
+ },
+ "world": "C SPLIT \u2014 SIZE structure matches on all 3 arm/sham pairs, and TEXT-VOLUME differs on ['gen']. The sweeping form of the derivation is REFUTED; the specific candidate \u2014 the size residual \u2014 is shared.",
+ "derivation": "a sham is the same criterion sets applied to the wrong prompt, so every text-only property is identical by construction",
+ "withdrawn_candidates": [
+  "size",
+  "size residual",
+  "size variability"
+ ],
+ "not_withdrawn": [
+  "vocabulary",
+  "length",
+  "within-set redundancy"
+ ],
+ "refutation": "the sweeping form \u2014 every text-only property is shared by construction \u2014 is REFUTED: gen vs gen_sham differ on mean_chars, mean_words and mean_unique_criteria. What holds is the size structure, on every pair measured.",
+ "scope_limit": "coval_core's own criteria file is not on disk, so the pairwise comparison runs on arms OTHER than the instance; the instance's evidence is R986's committed residual, 43 for both core and sham",
+ "limitation": "properties requiring the criteria's SEMANTICS are not computed here, but they are text-only too, so the derivation covers them; it does NOT cover any property that reads the prompt as well as the criteria"
+}

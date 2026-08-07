@@ -258,6 +258,42 @@ returns **0.523072** for a genuinely different arm — so it can see identity *a
 `coval_core_2bA`, is an effective duplicate. Repaired to assert the instrument's *range* rather than
 to trust an arm I picked by hand.
 
+### ⛔ SIZE AND ITS RESIDUAL ARE WITHDRAWN AS CANDIDATE CLAUSES — THE SHAM SHARES THEM (added 2026-08-07, R1013)
+
+R1011 left the definition unable to rank its own instance. The first candidate for a separating clause
+was R986's size **residual** — the prompts whose realised size is not explained by the cap and the
+pool. `coval_core` has **43**; every `topw` in the extension has **0**; only **6 of 96** arms have any.
+
+⛔ **And `coval_core_sham` has 43 too.** All six residual-bearing arms come in arm/sham pairs with
+identical residuals — `coval_core` 43 / `coval_core_sham` 43, `gen` 2 / `gen_sham` 2 — and the sham's
+own size distribution is `{2:1, 3:42, 4:925}`, the same 43 non-cap prompts. **A property a sham shares
+cannot distinguish a core from the same criteria misapplied**, so **size, the size residual and size
+variability are withdrawn.**
+
+⚠ **The sweeping form of that argument was REFUTED by this round's own measurement.** I claimed every
+text-only property is shared by construction. Over the three arm/sham criteria pairs on disk:
+
+| pair | size structure | text volume |
+|---|---|---|
+| `promptecho` | same | same |
+| `topw_k4` | same | same |
+| **`gen`** | same | **differs** (mean_chars 241.0568 vs 240.7169, ~0.14%) |
+
+**Size structure held on all three; text volume did not.** So the argument holds **per arm**, is not a
+theorem, and **vocabulary and length are NOT withdrawn** — they need their own test.
+
+⛔⛔ **And the scope that matters most: `coval_core`'s own criteria file is not on disk**, so the
+pairwise comparison runs on arms **other than the instance**. The instance's evidence is R986's
+committed residual — **43 for both core and sham** — which is the candidate clause's own test and is
+what the withdrawal rests on.
+
+⭐ **What the withdrawal leaves standing.** A2 depends on the **pairing** and is *not* shared: the core
+beats its own sham by **+0.0709 [+0.0615, +0.0801]**. **So definitional content that survives a sham
+must read the criteria AND their own prompt together** — which is what clause ② already does.
+⚠ R990's non-redundancy is text-only and falls under the same doubt, but is **not withdrawn here**: it
+was never measured on an arm/sham pair, and asserting it without that measurement would be the
+sweeping claim this round just refuted.
+
 ### ⛔⛔⛔ THE DEFINITION CONTAINS THE RELEASED CORE WITHOUT SINGLING IT OUT (added 2026-08-07, R1011)
 
 After every repair in this arc, the extension under ②′ is **9 arms, 4 distinct objects**:

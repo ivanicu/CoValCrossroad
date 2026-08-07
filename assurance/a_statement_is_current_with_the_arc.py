@@ -364,6 +364,16 @@ def main() -> int:
                       [r"(cut).{0,220}(unchanged|clean|survives|not an artifact)",
                        r"(24\s*(?:→|->|to)\s*22|28\s*(?:→|->|to)\s*26)"]))
 
+    # ⛔ R1013: size and its residual are WITHDRAWN as candidate clauses — the sham shares them,
+    #    including on the instance. A statement proposing size as definitional content is proposing
+    #    something a sham satisfies.
+    d = load("A27_*/R1013_*/results/text_properties.json")
+    if d:
+        facts.append(("R1013", "size and its residual are withdrawn — the sham shares them",
+                      f"withdrawn={d['withdrawn_candidates']}",
+                      [r"(sham).{0,260}(shares|identical|43).{0,200}(size|residual)",
+                       r"(withdraw|refus).{0,200}(size|residual).{0,200}(sham|candidate)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
