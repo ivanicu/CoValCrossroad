@@ -77,6 +77,35 @@ WHAT IS ACTUALLY TRUE, at n=2 agreeing:
 **The lesson is not about this file.** A verdict read once is n=1, and an instrument whose output I
 quote in three consecutive reports is exactly the one that has to be run twice first.
 
+⭐⭐ R967 — THE MECHANISM, ESTABLISHED FROM TIMESTAMPS RATHER THAN BY RE-RUNNING THIS FILE.
+
+**This sweep runs `attack_the_suite.py`, which HIDES the live `E0*` trees.** `run_all.py` excludes
+that harness by name as destructive; this file does not. So every run of this file removes the corpus
+partway through, and any gate scheduled during the hide window measures an EMPTY REPOSITORY.
+
+The timestamps settle it without repeating a destructive action:
+    auditor run 1 finished 03:54:40   ·   a stash was created 03:43:58 and ORPHANED
+    auditor run 2 finished 04:20:54   ·   stash 04:29:43
+    auditor run 3 finished 04:26:29   ·   stash 04:38:05  (recovered by `_repair.repair_full`)
+A hide begun at 03:43 whose restore never completed means **run 1 measured its gates against a tree
+that was already gone**. `DEFECTS.py` globs `E0*/A*/.../results/*` — zero rounds, empty population,
+`exit 2`, `0.0s`, no output. That is exactly the row R962 called unquotable, R963 diagnosed as a
+broken runner, and R964 spent a round failing to explain.
+
+**So the R965 retraction STANDS, and its stated reason was wrong too.** The readings are unreliable
+not because I ran the file once, but because **the file destroys the corpus it is measuring**, and
+which gates are affected depends on where they fall relative to the hide. `sorted(HERE.glob("*.py"))`
+puts uppercase first, so `DEFECTS.py` and `HEADLINES.py` precede `attack_the_suite.py` — a first-row
+failure therefore requires a hide that was ALREADY in flight, which is what 03:43 was.
+
+⚠ **DO NOT RUN THIS FILE TO CHECK THIS.** Doing so removes the working tree for the duration and
+leaves it removed if the process dies — 3,268 files were recovered from `/tmp/attack_rounds_6bao8twu`
+at R966 only because `assurance/_repair.py` exists. The cheap, safe evidence is the stash mtimes in
+`/tmp/attack_rounds_*`, which is how this note was written.
+
+**The repair, if anyone wants this sweep to mean anything: exclude `attack_the_suite` here as
+`run_all` already does.** Until then every table this file prints is a function of timing.
+
 
 WHY, AND IT IS A MEASURED PRIOR, NOT A SUSPICION. `DEFECTS.py` and `consistency.py` resolved their
 inputs as `HERE / <round> / results / <file>`. The E/A/R migration (2026-08-02) moved every round
