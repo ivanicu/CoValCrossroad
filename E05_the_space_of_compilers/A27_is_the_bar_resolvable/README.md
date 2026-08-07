@@ -28,3 +28,4 @@ in `E05/DEFINITION.md`.
 | `R937` the object test R936 refused to claim | does a sentinel planted inside a LIVE hide survive the patched restore? |
 | `R938` the `kept` branch has no control | does `repair_full` preserve work created during a hide, and is that property exercised by anything? |
 | `R939` the PRESERVE channel and its mutation test | does the new control actually reject a broken `repair_full`, or only my inline variant? |
+| `R940` R935's bound was two-sided and I stated one | does any `pass on silence` check actually plant? — **corrects R935: 11 → 10, 17% → 15%** |
