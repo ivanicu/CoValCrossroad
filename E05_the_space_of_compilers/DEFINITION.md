@@ -939,8 +939,19 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > ⚠ Wiring anchor: under `genericpool16`, on R881's arms only, admission reproduces **28 vs
 > > 28** — so the numbers below are internally sound; what is untested is whether they SURVIVE a
 > > different comparator. **They are comparator-CONDITIONAL until that schema is bridged.**
-> > **IMPOSSIBILITY REGISTER:** *comparator robustness* — would require a loader for the
-> > `transport_*` satisfaction schema, or a prompt-blind arm outside the scored set.
+> > ⛔ **REGISTER ENTRY CORRECTED (R914) — R913 WROTE IT IN THE FLATTERING DIRECTION.**
+> > R913 said comparator robustness *"would require a loader for the `transport_*` schema"*.
+> > One read of the keys kills that: `genericpool16` is `<uuid>|<idx>|A` — **3 fields, a
+> > CoVal UUID, an A/B/C/D response** — while all four `transport_*` files are
+> > `c365|int10006|ut3170|0` — **4 fields, non-UUID ids, a numeric last field**, and 74,048
+> > keys against 61,952. **They are a DIFFERENT CORPUS**, which is what
+> > `R427_does_the_definition_transport_at_all` says in its own name. A loader would have
+> > produced numbers on a different population — **the requirement understated the work,
+> > which is the direction the standard forbids for unavailability claims.**
+> > **IMPOSSIBILITY REGISTER, corrected:** *comparator robustness* — requires **a
+> > prompt-blind arm on THIS corpus that is not already a scored arm**, priced by R907 at
+> > **15,488 judge calls** (a fixed checklist is not a subset of `coval_full`).
+> > ⚠ This does NOT say the definition fails to transport; R427 asked that question.
 > > ⭐⭐⭐ **AND THE BAR DOES DISCRIMINATE — BY RULE (R908).** R906 asked the SOURCE axis and could
 > > not answer at n=2; R907 priced fixing that at 15,488 calls/arm. **Both treated the inventory
 > > as the obstacle. It is thin on the axis I chose and thick on one never looked at** — and the

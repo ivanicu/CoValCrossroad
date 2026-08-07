@@ -1,0 +1,71 @@
+{
+  "commit": "c6e440835017d5fcd252be18fd4a222b38e0a27c",
+  "world": "B",
+  "reference": {
+    "arm": "genericpool16",
+    "n_keys": 61952,
+    "field_counts": [
+      3
+    ],
+    "example": "04414715-5487-5885-9313-e7cc3f4601cb|0|A",
+    "first_field_is_uuid": true,
+    "last_field": "A"
+  },
+  "alternatives": [
+    {
+      "arm": "transport_generic",
+      "n_keys": 74048,
+      "field_counts": [
+        4
+      ],
+      "example": "c365|int10006|ut3170|0",
+      "first_field_is_uuid": false,
+      "last_field": "0"
+    },
+    {
+      "arm": "transport_randblind_s0",
+      "n_keys": 74048,
+      "field_counts": [
+        4
+      ],
+      "example": "c365|int10006|ut3170|0",
+      "first_field_is_uuid": false,
+      "last_field": "0"
+    },
+    {
+      "arm": "transport_randblind_s1",
+      "n_keys": 74048,
+      "field_counts": [
+        4
+      ],
+      "example": "c365|int10006|ut3170|0",
+      "first_field_is_uuid": false,
+      "last_field": "0"
+    },
+    {
+      "arm": "transport_randblind_s2",
+      "n_keys": 74048,
+      "field_counts": [
+        4
+      ],
+      "example": "c365|int10006|ut3170|0",
+      "first_field_is_uuid": false,
+      "last_field": "0"
+    }
+  ],
+  "absent": [],
+  "structural_difference": {
+    "field_count": true,
+    "id_shape": true
+  },
+  "corrects_R913_register_entry": {
+    "was": "would require a loader for the transport_* satisfaction schema",
+    "why_wrong": "a loader would produce numbers on a DIFFERENT population; the arms are not comparable, so the requirement understated the work \u2014 wrong in the flattering direction",
+    "corrected": "a prompt-blind arm on THIS corpus that is not already a scored arm",
+    "price_judge_calls": 15488,
+    "price_source": "R907's committed measurement, read not estimated"
+  },
+  "does_not_say": "that the definition fails to transport \u2014 R427 asked that",
+  "unit_note": "field counts are KEY SEGMENTS; price is JUDGE CALLS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
