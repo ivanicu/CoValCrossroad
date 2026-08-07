@@ -141,6 +141,40 @@ clause ④, one clause over.
   ⭐ This is **not** fragility at full N: there the verdict is deterministic and the instance is in.
   It is a statement about how much of the corpus is load-bearing — about a quarter.
 
+### ⛔ WHERE THIS DEFINITION DEPARTS FROM THE RELEASE'S OWN CARD — stated, because it was not (R988–R990)
+
+`data/DATASET_CARD.md` describes how a core is built: *"we keep only a small set of highly rated,
+**non-redundant**, and **non-conflicting** rubric items … it aims to select **up to four** … that
+remain compatible with each other and do not repeat the same idea."* **Three departures, and until
+now none was written down anywhere.**
+
+| the card | this definition |
+|---|---|
+| size: **up to four** — an **upper** bound | clause ①: **greater than one** — a **lower** bound |
+| **non-redundant** | *no clause* |
+| **non-conflicting** | *no clause* |
+
+- **The missing upper bound admits objects the release could not produce** (R988). Of 96 prompt-pool
+  arms, 28 exceed four and clause ② admits **4** of them: `greedy_k8_fit1` (8), `indep_k8_fit1` (8),
+  `topw_k6` (6), `topw_k8` (8). Control: the operator also admits **20 of 68** arms at or below the
+  cap, so this measures the cap and not the operator.
+- **Non-redundancy is a REAL property, so the missing clause is a real gap** (R990). Within-core
+  criterion pairs overlap less than size-matched pairs from the same prompt's full rubric, by a
+  **difference-in-differences of −0.0084** against cross-prompt vocabulary baselines, resolved on
+  3 of 3 seeds. ⚠ The measure is **lexical and one-directional**: high overlap ⇒ repetition, low
+  overlap ⇏ distinctness. ⭐ And the confound ran *against* the finding — the raw gap is −0.0063, so
+  correcting for synthesis vocabulary **enlarged** it.
+- **Non-conflict is not reachable from this release** (R989). Core items publish a criterion string
+  and **no weights**, and only **7.8%** match a full item verbatim, so what a particular core
+  reconciled cannot be recovered. ⚠ And a related number must not be misread: **80.0%** of full
+  rubric items have annotators disagreeing in sign, but against a permutation null of **93.3%**
+  [92.9, 93.8] that means criteria are **more sign-coherent than chance**, not less.
+
+⭐ **The departure may be right** — the card calls core *"a proof of concept … an invitation for
+others to develop and validate better synthesis and aggregation methods"*. But a definition that
+silently inverts the direction of its source's own size criterion is departing **by omission**, and
+this section exists so that it no longer is.
+
 ### ⛔ WHAT `ITS SIZE` MEANS — the clause named a scalar the released core does not have (R986–R987)
 
 **`coval_core`'s per-prompt size runs 2 to 4**, and **34 of 96 arms have no single size at all**. So

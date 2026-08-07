@@ -185,6 +185,31 @@ def main() -> int:
                        r"(recover|artifact|third part|provenance)",
                        r"(recover|artifact-checkable).{0,240}(nominal size|max over prompts)"]))
 
+    # ⛔ R991: the three rounds that read the RELEASE's own card rather than scoring arms. R988 found
+    #    the departure from the card "stated nowhere"; registering it is what makes that false.
+    d = load("A27_*/R988_*/results/cap_and_missing_clauses.json")
+    if d:
+        facts.append(("R988", "the card caps size; two properties have no clause",
+                      f"{d['n_admitted_over_cap']} admitted above the cap of {d['cap']}",
+                      [r"(up to four|caps? .{0,30}four|upper bound).{0,320}"
+                       r"(non-redundant|non-conflicting|no clause)",
+                       r"(non-redundant|non-conflicting).{0,320}(no clause|not encoded|has no)"]))
+
+    d = load("A27_*/R989_*/results/dissent_erased.json")
+    if d:
+        facts.append(("R989", "criteria are more sign-coherent than chance",
+                      f"{d['observed_contested_share']:.3f} vs null",
+                      [r"(sign|coheren|contest).{0,260}(null|chance|93|permut)",
+                       r"(80.0%|80%).{0,220}(null|93|chance)"]))
+
+    d = load("A27_*/R990_*/results/redundancy_did.json")
+    if d:
+        facts.append(("R990", "the construction removes redundancy",
+                      f"DiD {d['did_mean']:.4f}",
+                      [r"(difference-in-differences|DiD|0\.0084).{0,260}"
+                       r"(redundan|Jaccard|overlap)",
+                       r"(redundan|overlap).{0,260}(difference-in-differences|DiD)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

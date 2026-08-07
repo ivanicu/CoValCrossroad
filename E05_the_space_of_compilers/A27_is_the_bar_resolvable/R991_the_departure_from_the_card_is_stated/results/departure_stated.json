@@ -1,0 +1,33 @@
+{
+ "source_sha": "d71f68e2733d3fbf",
+ "parent": "0b0fb58f",
+ "parent_region_lines": 724,
+ "now_region_lines": 758,
+ "controls": {
+  "positive_present_in_both": true,
+  "negative_sentinel_absent": true
+ },
+ "rows": [
+  {
+   "fact": "R988 the card caps size; two properties have no clause",
+   "parent": false,
+   "now": true,
+   "verdict": "REAL \u2014 the repair moved it"
+  },
+  {
+   "fact": "R989 criteria are more sign-coherent than chance",
+   "parent": false,
+   "now": true,
+   "verdict": "REAL \u2014 the repair moved it"
+  },
+  {
+   "fact": "R990 the construction removes redundancy",
+   "parent": false,
+   "now": true,
+   "verdict": "REAL \u2014 the repair moved it"
+  }
+ ],
+ "decoration": [],
+ "world": "B REAL \u2014 all three facts were absent at the parent and are present now",
+ "not_shown": "that the departure is correct \u2014 only that it is now stated"
+}
