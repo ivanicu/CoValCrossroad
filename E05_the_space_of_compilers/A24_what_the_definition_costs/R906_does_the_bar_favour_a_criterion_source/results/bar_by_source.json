@@ -1,0 +1,215 @@
+{
+  "commit": "ea3a9b8406fffa16bd4938b4bcb553ee1d5295aa",
+  "world": "A",
+  "lexical_threshold_inherited": 0.6,
+  "n_arms_in_R881": 99,
+  "n_typed": 96,
+  "untypable_named": [
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic_reprov"
+  ],
+  "kinds": [
+    {
+      "kind": "FIXED_CHECKLIST",
+      "n_admitted": 1,
+      "n_built": 2,
+      "share": 0.5,
+      "admitted": [
+        "generic"
+      ],
+      "built": [
+        "generic",
+        "genericpool16"
+      ],
+      "ci95": [
+        0.09452865480086614,
+        0.9054713451991339
+      ],
+      "ci_width": 0.8109426903982677
+    },
+    {
+      "kind": "OTHER_SOURCE",
+      "n_admitted": 0,
+      "n_built": 7,
+      "share": 0.0,
+      "admitted": [],
+      "built": [
+        "coval_core_sham",
+        "full_sham",
+        "gen",
+        "gen_sham",
+        "promptecho",
+        "promptecho_sham",
+        "topw_k4_sham"
+      ],
+      "ci95": [
+        0.0,
+        0.35433884297520657
+      ],
+      "ci_width": 0.35433884297520657
+    },
+    {
+      "kind": "PARAPHRASING_GENERATOR",
+      "n_admitted": 1,
+      "n_built": 1,
+      "share": 1.0,
+      "admitted": [
+        "coval_core"
+      ],
+      "built": [
+        "coval_core"
+      ],
+      "ci95": [
+        0.20654329147389294,
+        1.0
+      ],
+      "ci_width": 0.7934567085261071
+    },
+    {
+      "kind": "RUBRIC_SELECTOR",
+      "n_admitted": 23,
+      "n_built": 86,
+      "share": 0.26744186046511625,
+      "admitted": [
+        "greedy_k12_fit1",
+        "greedy_k2_fit1",
+        "greedy_k4_fit1",
+        "greedy_k4_greedy_kA",
+        "greedy_k4_greedy_kB",
+        "greedy_k8_fit1",
+        "indep_k2_fit1",
+        "indep_k4_fit1",
+        "indep_k4_indep_kA",
+        "indep_k4_indep_kB",
+        "indep_k8_fit1",
+        "oracle_k4",
+        "oracle_k4_08bR",
+        "oracle_k4_fit1",
+        "oracle_k4_oracle_kA",
+        "oracle_k4_oracle_kB",
+        "topw_k2",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "built": [
+        "full",
+        "greedy_k12_fit1",
+        "greedy_k2_fit1",
+        "greedy_k4_fit1",
+        "greedy_k4_fit1_08b",
+        "greedy_k4_fit1_08bR",
+        "greedy_k4_greedy_kA",
+        "greedy_k4_greedy_kB",
+        "greedy_k8_fit1",
+        "indep_k12_fit1",
+        "indep_k2_fit1",
+        "indep_k4_fit1",
+        "indep_k4_fit1_08b",
+        "indep_k4_fit1_08bR",
+        "indep_k4_indep_kA",
+        "indep_k4_indep_kB",
+        "indep_k8_fit1",
+        "oracle_k4",
+        "oracle_k4_08b",
+        "oracle_k4_08bR",
+        "oracle_k4_fit1",
+        "oracle_k4_fit1_08b",
+        "oracle_k4_oracle_kA",
+        "oracle_k4_oracle_kB",
+        "random_k12_s0",
+        "random_k12_s0_08b",
+        "random_k12_s1",
+        "random_k12_s1_08b",
+        "random_k12_s2",
+        "random_k12_s2_08b",
+        "random_k2_s0",
+        "random_k2_s0_08b",
+        "random_k2_s1",
+        "random_k2_s1_08b",
+        "random_k2_s2",
+        "random_k2_s2_08b",
+        "random_k3_s0",
+        "random_k3_s0_08b",
+        "random_k3_s1",
+        "random_k3_s1_08b",
+        "random_k3_s2",
+        "random_k3_s2_08b",
+        "random_k4_s0",
+        "random_k4_s0_08b",
+        "random_k4_s0_ctlS0",
+        "random_k4_s1",
+        "random_k4_s1_08b",
+        "random_k4_s1_ctlS1",
+        "random_k4_s2",
+        "random_k4_s2_08b",
+        "random_k6_s0",
+        "random_k6_s0_08b",
+        "random_k6_s1",
+        "random_k6_s1_08b",
+        "random_k6_s2",
+        "random_k6_s2_08b",
+        "random_k8_s0",
+        "random_k8_s0_08b",
+        "random_k8_s1",
+        "random_k8_s1_08b",
+        "random_k8_s2",
+        "random_k8_s2_08b",
+        "topabs_k4",
+        "topabs_k4_08b",
+        "topvar_k4",
+        "topvar_k4_08b",
+        "topvar_k4_08bR",
+        "topw_k1",
+        "topw_k12",
+        "topw_k12_08b",
+        "topw_k1_08b",
+        "topw_k2",
+        "topw_k2_08b",
+        "topw_k3",
+        "topw_k3_08b",
+        "topw_k4",
+        "topw_k4_08b",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k6_08b",
+        "topw_k8",
+        "topw_k8_08b",
+        "topwvar_k4",
+        "topwvar_k4_08b",
+        "topwvar_k4_08bR"
+      ],
+      "ci95": [
+        0.1853195577468752,
+        0.3694523964480633
+      ],
+      "ci_width": 0.18413283870118813
+    }
+  ],
+  "readable_kinds": [
+    "OTHER_SOURCE",
+    "RUBRIC_SELECTOR"
+  ],
+  "excluded_thin_kinds": [
+    "FIXED_CHECKLIST",
+    "PARAPHRASING_GENERATOR"
+  ],
+  "share_spread": 0.26744186046511625,
+  "wilson_intervals_disjoint": false,
+  "resolution_gate_corrected": "the first gate was n>=2, which admitted a 1/2 share whose only attainable values are 0/0.5/1 and printed WORLD B on it. A count threshold does not measure resolution; an interval does. Now: Wilson CI width < 0.60, and a preference requires DISJOINT intervals.",
+  "self_inclusion": {
+    "generator_share_with_core": 1.0,
+    "generator_share_without_core": null,
+    "removing_core_empties_kind": true,
+    "why": "coval_core is admitted by construction \u2014 the definition was fitted to it"
+  },
+  "denominator_is_a_construction_choice": "the 99 arms were BUILT, not sampled; every share describes this inventory only",
+  "not_an_admission_probability": "there is no sampling frame over arms",
+  "unit_note": "counts are ARMS; share = admitted/built within a kind",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
