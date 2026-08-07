@@ -1987,6 +1987,60 @@ p99**: between **1% and 10%** of the blind subsets beat the bar the word *every*
 > replaying R860's seed *and its draw order* — a comparison against the number on disk rather than
 > against a fresh re-derivation of it.
 
+> ⭐⭐⭐ **AND THE THRESHOLD ITSELF WAS NEVER CALIBRATED FOR THIS COMPARISON — R863/R864, D8.**
+> Three rounds corrected this comparison's DENOMINATOR while treating **1.5 as fixed**. It is not
+> fixed; it was adopted for **paired arm-vs-arm** designs, and here the comparator is an **order
+> statistic** — the max over C(16,4) = 1,820 blind subsets.
+>
+> ⛔ **R863's first attempt at calibrating it FAILED, and its own derivation is what proved so.**
+> A leave-one-out null (each subset plays the arm against the max of the other 1,819) is degenerate:
+> under exchangeability the expected number of positive margins is `M/(M+1) ≈ 1`, and **exactly 1 of
+> 1820 was observed**. A family member cannot beat the max of its own family except by being it.
+> Its `p95 = −1.0113` and `FP = 0.0000%` were **forced by arithmetic**, and its `WORLD A` verdict was
+> withdrawn before commit. ⚠ The round's SCOPE block had already named the correlation and called it
+> *"conservative in a specific direction"* — **too mild by a category: the defect was degeneracy.
+> Naming a confound is not controlling it.**
+>
+> ⭐ **R864 ran three nulls that share neither defect, 20 seeds each — and they converge.**
+>
+> | null | mean | sd | p95 | max | ≥1.5 | obs percentile |
+> |---|---:|---:|---:|---:|---:|---:|
+> | N1 pair shuffle | −0.3380 | 0.2592 | +0.0269 | +0.0567 | 0.0% | 100.0% |
+> | N2 cross-prompt | −0.3030 | 0.3454 | +0.2656 | +0.3809 | 0.0% | 100.0% |
+> | N3 uniform | −0.4398 | 0.2982 | −0.0021 | +0.0102 | 0.0% | 100.0% |
+>
+> ⭐ **Null means span only 0.1368 — far less than the observed 0.8683 — and the observed value is
+> above ALL 60 draws.** Three different destructions of the target agree; §2.5's strongest available
+> reading, applied to nulls rather than designs.
+> ⚠ **Resolution floor, stated because it bounds the claim:** 20 seeds give `p ≥ 1/21` per null and
+> `p ≥ 1/61 ≈ 0.016` pooled. **So this is `p ≤ 0.017`, NOT `p < 0.001`** — the design cannot say more.
+>
+> ⭐⭐ **A sub-finding that closes an older worry.** R852/R853 established the pair shuffle is NOT a
+> pure null for the clause-② extension COUNT: it preserves marginal verdict mix and left ~14 arms
+> clearing ②. **On `margin/MDE` against the max it does not:** N1's maximum over 20 seeds is
+> **+0.0567**, nowhere near +0.8683. **The format explanation is excluded for THIS statistic** — and
+> it had to be measured, because the same word "null" covered two different instruments.
+>
+> ⛔⛔ **WHAT THIS DOES AND DOES NOT LICENSE — and the printed verdict overreached on one clause.**
+> The run printed *"the floor is OVER-STRICT … coval_core's failure is a property of the BAR."*
+> The first half is measured: an empirically calibrated 5%-false-positive threshold on this statistic
+> would be about **+0.27**, and 1.5 is **5.6× stricter**. The second half is too strong, and is
+> **not adopted**. What stands is narrower and sharper:
+>
+> ⭐ **TWO ADMISSIBILITY CRITERIA NOW EXIST AND THEY DISAGREE.**
+> ① `margin/MDE ≥ 1.5` → **FAILS**, at 0.910 after R862's argmax correction.
+> ② outside a 3-null, 60-draw empirical null → **PASSES**, at `p ≤ 0.017`.
+> **The disagreement is the finding. It is reported as two numbers and is NOT resolved by adopting
+> the criterion that happens to pass** — a threshold chosen after seeing the result is a narrative,
+> and swapping bars mid-audit is the precise move this whole thread has been catching. The 1.5 floor
+> stays; what changes is that **failing it is now known to mean "below 1.5× this design's MDE", and
+> NOT "indistinguishable from having no advantage".** Those were being read as the same sentence.
+>
+> ⭐ **The design's own resolution, measured rather than argued:** a planted advantage of
+> **g = 0.01** — about one A2 point in a hundred — is the smallest dose that clears 1.5
+> (0.8683 → 1.3505 → **1.8327** → 2.7972 → 4.7262, monotone, not clearing at g=0). `coval_core`'s
+> real margin is **under half of it**.
+
 **So the universal reading of clause ② has never been run**, and the disagreement about whether this
 definition admits its own instance is exactly that `0.0029`: `coval_core` clears a p99 bar and does
 not clear the maximum.
