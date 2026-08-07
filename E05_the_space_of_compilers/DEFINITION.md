@@ -1479,6 +1479,24 @@ file instead of searching 820 rounds.** A single candidate is an **address**, ne
 citation — and R1068's gate cannot be extended mechanically to the rest, because there is nothing
 stored to extend it to.
 
+⭐⭐⭐ **AND R1071 SETTLES WHAT THAT GAP IS: A RECORDING FAILURE, NOT AN UNSUPPORTED CLAIM.
+`31 of 31 = 1.000` of the unstored clause decimals appear in the committed PROSE record** — round
+READMEs, `run.py` sources, commit bodies — against a **measured floor of `[0.032, 0.161]`** for random
+decimals at matched precision, and a **SHAM of `0 of 31`** when the same values are searched in the
+release data. **Nothing in the clause is a number no committed text supports.** The gap is that rounds
+reported values they never persisted to a results file, and the remedy is a writing habit rather than
+a search.
+⛔⛔ **AND THE NEGATIVE CONTROL CAUGHT CONTAMINATION TWICE OVER.** ① My sentinel was FOUND — because
+**R1070's `run.py`, written minutes earlier, contains it as ITS sentinel**. ② Far worse for the real
+question: the corpus included **R1067–R1070, the very rounds that quote these decimals wholesale**, so
+*found in the prose record* would have been trivially true for anything the audit rounds mentioned.
+**That is R1070's `a quoter is not a source`, one level along.** Rounds from **R1067 on are excluded**
+as downstream of the clause. ⭐ **Without that exclusion this round would have reported `1.000` for
+entirely the wrong reason — and reported it as a clean result.**
+⚠ **Presence in prose is not provenance**: a README may quote a value it did not compute, exactly as
+found on the artifact side. This separates **in the record** from **absent**; it does not separate
+**measured** from **quoted**.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

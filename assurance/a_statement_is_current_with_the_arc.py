@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1071_*/results/prose_or_nowhere.json")
+    if d:
+        facts.append(("R1071", "the unstored clause decimals are a recording failure, not absent",
+                      f"in prose {d['in_prose']} of {d['unstored']}, nowhere {len(d['nowhere'])}, "
+                      f"sham {d['sham_release_data_hits']}",
+                      [r"31\s+of\s+31\.\s+It\s+is\s+a\s+recording\s+failure|31 of 31 = 1\.000",
+                       r"\[0\.032,\s*0\.161\]"]))
+
     d = load("A27_*/R1070_*/results/decimal_addresses.json")
     if d:
         facts.append(("R1070", "most clause decimals are quoted, not stored; R1069's headline falls",

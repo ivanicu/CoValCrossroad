@@ -1,0 +1,250 @@
+{
+  "round": "R1071",
+  "clause_decimals": 38,
+  "unstored": 31,
+  "in_prose": 31,
+  "nowhere": [],
+  "observed_presence": 1.0,
+  "floor_3_seeds": [
+    0.03225806451612903,
+    0.16129032258064516
+  ],
+  "sham_release_data_hits": 0,
+  "rows": [
+    {
+      "value": "0.009103",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.005730",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.012488",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.5514",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.5593",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.009956",
+      "found_in": [
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0091",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0091",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0057",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0714",
+      "found_in": [
+        "README",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0633",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.482016",
+      "found_in": [
+        "README",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.559311",
+      "found_in": [
+        "README",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.572335",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.566477",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.0039",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.5514",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.5593",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.009103",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.005730",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.012488",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.009103",
+      "found_in": [
+        "README",
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.012488",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.005730",
+      "found_in": [
+        "run.py",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.559311",
+      "found_in": [
+        "README",
+        "commit"
+      ]
+    },
+    {
+      "value": "0.551354",
+      "found_in": [
+        "README",
+        "run.py"
+      ]
+    },
+    {
+      "value": "0.009956",
+      "found_in": [
+        "commit"
+      ]
+    },
+    {
+      "value": "0.008227",
+      "found_in": [
+        "commit"
+      ]
+    },
+    {
+      "value": "0.011842",
+      "found_in": [
+        "commit"
+      ]
+    }
+  ],
+  "world": "\u2b50 A A RECORDING FAILURE \u2014 all 31 unstored decimals appear in the committed prose record, above a random floor of [0.032, 0.161]. The gap is that rounds reported values they never persisted; the remedy is a writing habit, not a search.",
+  "controls": {
+    "positive_present_found": true,
+    "negative_absent_not_found": true
+  },
+  "limitation": "separates `in the record` from `absent`, never `measured` from `quoted`"
+}
