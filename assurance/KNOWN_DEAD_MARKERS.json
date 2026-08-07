@@ -1,0 +1,12 @@
+{
+  "keys": [
+    "HEADLINES.py::flags something",
+    "attack_every_check.py::kurtosis",
+    "interval_is_centred_on_its_point.py::.raters",
+    "manifest.py::_gpu_seconds"
+  ],
+  "frozen_at": "R887",
+  "warning": "MIXED POLARITY. A marker asserting ABSENCE legitimately matches nothing when the corpus is clean; a marker asserting PRESENCE that matches nothing cannot fire. The AST cannot tell them apart. This baseline asserts THE STATE AT THIS COMMIT, never that these 5 are defects.",
+  "decomposition": "\u26d4 5 FLAGGED, 4 FROZEN \u2014 AND THE MISSING ONE IS THE FINDING. The run flagged 5, including no_withdrawn_framings.py::'the arm scores 0.5667 against its own floor'. Writing that literal into the gate's own docstring put it in the corpus, so it stopped being dead before the freeze ran. THIRD RESURRECTION IN ONE ROUND: (1) the real dead marker 'CI-lower', resurrected by its post-mortem; (2) the synthetic absent literal, resurrected by being named; (3) this one, which silently CHANGED THE POPULATION rather than only the control. An audit that quotes its subject alters its population \u2014 and here it removed a true positive with no error and no diff.",
+  "frozen_is_4_flagged_was_5": true
+}
