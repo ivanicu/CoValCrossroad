@@ -1,0 +1,82 @@
+{
+ "source_sha": "d336930032b2ea33",
+ "head": "83b2c07c",
+ "n_arms": 96,
+ "comparator": "generic",
+ "cap": 4,
+ "nboot": 8000,
+ "seeds": [
+  11,
+  22,
+  33
+ ],
+ "clause2_passers": [
+  "coval_core",
+  "coval_core_2bA",
+  "coval_core_2bB",
+  "greedy_k2_fit1",
+  "greedy_k4_fit1",
+  "greedy_k4_greedy_kA",
+  "greedy_k4_greedy_kB",
+  "greedy_k8_fit1",
+  "indep_k2_fit1",
+  "indep_k4_fit1",
+  "indep_k4_indep_kA",
+  "indep_k4_indep_kB",
+  "indep_k8_fit1",
+  "oracle_k4",
+  "oracle_k4_08bR",
+  "oracle_k4_fit1",
+  "oracle_k4_oracle_kA",
+  "oracle_k4_oracle_kB",
+  "topw_k3",
+  "topw_k4",
+  "topw_k4_detA",
+  "topw_k4_detB",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "cap_would_exclude": [
+  "greedy_k8_fit1",
+  "indep_k8_fit1",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "already_excluded": {
+  "greedy_k8_fit1": {
+   "clause3_labelled": null,
+   "clause4_beats_floor": true,
+   "already_excluded": false
+  },
+  "indep_k8_fit1": {
+   "clause3_labelled": null,
+   "clause4_beats_floor": true,
+   "already_excluded": false
+  },
+  "topw_k6": {
+   "clause3_labelled": null,
+   "clause4_beats_floor": true,
+   "already_excluded": false
+  },
+  "topw_k8": {
+   "clause3_labelled": null,
+   "clause4_beats_floor": true,
+   "already_excluded": false
+  }
+ },
+ "unique_cost": [
+  "greedy_k8_fit1",
+  "indep_k8_fit1",
+  "topw_k6",
+  "topw_k8"
+ ],
+ "controls": {
+  "positive_core_passes": true,
+  "negative_random_not_passer": true,
+  "placebo_cap_at_max_excludes": 0,
+  "all_ok": true
+ },
+ "world": "B THE CAP IS LOAD-BEARING \u2014 it uniquely excludes 4 admitted arm(s): ['greedy_k8_fit1', 'indep_k8_fit1', 'topw_k6', 'topw_k8']. Closing that departure changes the extension and the cost is nameable.",
+ "redundancy_not_closable": "sat_*.npz carry criterion INDICES and satisfaction, never TEXT; R990's measure needs the published rubric text, which exists only for the release's own core and full sets",
+ "not_decided": "whether the departures SHOULD be closed \u2014 this prices the decision only"
+}
