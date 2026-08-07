@@ -29,6 +29,55 @@ rounds that CANNOT use them, because no human ranked the responses they score:
 anything built on generated text.
 """
 from __future__ import annotations
+import ast as _ast
+import io as _io
+import tokenize as _tokenize
+
+
+def _masked_spans(src: str):
+    """byte spans of every string literal and every comment -- where a token is MENTIONED."""
+    spans, offs, t = [], [0], 0
+    for l in src.splitlines(keepends=True):
+        t += len(l)
+        offs.append(t)
+
+    def off(row, col):
+        return offs[row - 1] + col
+
+    for n in _ast.walk(_ast.parse(src)):
+        if isinstance(n, _ast.Constant) and isinstance(n.value, str) and n.end_lineno:
+            spans.append((off(n.lineno, n.col_offset), off(n.end_lineno, n.end_col_offset)))
+    try:
+        for tok in _tokenize.generate_tokens(_io.StringIO(src).readline):
+            if tok.type == _tokenize.COMMENT:
+                spans.append((off(tok.start[0], tok.start[1]), off(tok.end[0], tok.end[1])))
+    except (_tokenize.TokenError, IndentationError):
+        pass
+    return spans
+
+
+def uses_outside_prose(src: str, rx) -> bool:
+    """⭐ R970. `USES_GOLD` is a SOURCE-TEXT regex, so it could not tell a USE from a MENTION and
+    every live flag this gate carried was a false positive: R422 matches only inside its docstring,
+    R425 inside a `re.compile` literal, and R942/R945 carry the tokens as TEST PAYLOADS and a
+    transcribed regex. R943 measured that -- 3 gold USERS against 11 MENTION-only rounds -- and built
+    this classifier with planted controls in BOTH directions (a module-level `np.load` must read as
+    USE; a docstring/comment/string-only occurrence must read as MENTION).
+
+    ⛔ WHY THE ROUNDS WERE NOT 'FIXED' INSTEAD: adding a scope string to a round that does not score
+    against a proxy is a FALSE DECLARATION, which is worse than the flag it silences. The instrument
+    was wrong, so the instrument is what changed.
+
+    A file that will not parse fails CLOSED -- treated as a use -- because an unreadable round is not
+    an acquitted one."""
+    if not rx.search(src):
+        return False
+    try:
+        spans = _masked_spans(src)
+    except SyntaxError:
+        return True
+    return any(not any(a <= m.start() < b for a, b in spans) for m in rx.finditer(src))
+
 
 import json
 import re
@@ -88,7 +137,7 @@ def main() -> int:
         if not run.exists():
             continue
         src = run.read_text()
-        gold = bool(USES_GOLD.search(src))
+        gold = uses_outside_prose(src, USES_GOLD)
         human = bool(USES_HUMAN.search(src))
         if not gold:
             continue
