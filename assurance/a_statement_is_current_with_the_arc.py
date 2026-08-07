@@ -574,6 +574,16 @@ def main() -> int:
                       [r"(0 of 4|recall 0/4).{0,300}(not wired|deliberately)",
                        r"(no mechanical detector|semantic).{0,300}(lexical|prose)"]))
 
+    # ⛔⛔ R1032: the stale clause text was OPERATIONALLY wrong, target-dependently — identical
+    #    under A2, differing by 2 arms (the twins) under A1·consensus. The clause text is repaired
+    #    at both canonical sites rather than annotated beside.
+    d = load("A27_*/R1032_*/results/two_readings.json")
+    if d:
+        facts.append(("R1032", "the clause text is repaired, not annotated",
+                      f"sym diff by target {d['per_target_sym_diff']}",
+                      [r"(clause text itself is repaired|repaired here).{0,300}(annotated|beside)",
+                       r"(actually covers).{0,160}(never on imputed|imputed values)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

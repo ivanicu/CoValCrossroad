@@ -805,7 +805,23 @@ reason invented here would be a narrative. What is measurable is that it was not
 
 ### ⭐ THE REPAIR, WITH ITS COST MEASURED
 
-> **②′** it **resolvably beats EVERY comparator in the certified prompt-blind set** — not *a* named one.
+> **②′** it **resolvably beats the certified prompt-blind comparator set** — the 2.5th percentile of
+> the bootstrapped paired difference is > 0, computed on the prompts the arm **actually covers**,
+> **never on imputed values** — not *a* named one.
+
+⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
+beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
+as-written reading and the repaired one **compute different extensions**: identical under `A2`
+(9 = 9, three seeds) but differing by **2 arms under `A1·consensus`** — `coval_core_2bA` and
+`coval_core_2bB`, the twins, admitted only because the as-written operator **imputes 768 of their 968
+values** (R1021). **R1024's repair and R1011's withdrawal are one correction reached by two routes,
+and this sentence still encoded the version that needed withdrawing.**
+⭐ **The shipped figures are unaffected**: R1019 established every extension figure in this arc is
+`A2`'s answer, and the two readings agree there. The staleness bit only on a target the arc does not
+report under — which is why it survived four rounds of annotation.
+⚠ `EVERY` is dropped rather than replaced by `generic` because R1025's reduction is **release-scoped**:
+`generic` binds 94/94 here, and naming it would harden an accident of this release into the
+definition. The set is named; which member binds is measured, not asserted.
 
 | | |
 |---|---:|

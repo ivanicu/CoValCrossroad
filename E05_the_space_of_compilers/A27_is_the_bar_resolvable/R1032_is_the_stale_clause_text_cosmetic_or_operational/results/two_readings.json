@@ -1,0 +1,169 @@
+{
+  "round": "R1032",
+  "seeds": [
+    1032,
+    2064,
+    3096
+  ],
+  "nboot": 8000,
+  "canonical_sites": [
+    "E05_the_space_of_compilers/DEFINITION.md:808",
+    "README.md:65"
+  ],
+  "repairs_annotated_not_applied": {
+    "R1024": "operator must not impute",
+    "R1025": "every comparator -> beats generic",
+    "R1026": "certified set is a filter (no computation change)",
+    "R1027": "cost is 968x4xk (no computation change)"
+  },
+  "positive": {
+    "as_written_vs_R1000": true,
+    "full_vs_R1011": true
+  },
+  "negative_wrong_reading_differs": true,
+  "placebo_self_symdiff": 0,
+  "rows": [
+    {
+      "target": "A2",
+      "seed": 1032,
+      "as_written": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": []
+    },
+    {
+      "target": "A2",
+      "seed": 2064,
+      "as_written": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": []
+    },
+    {
+      "target": "A2",
+      "seed": 3096,
+      "as_written": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "coval_core",
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k3",
+        "topw_k4",
+        "topw_k4_detA",
+        "topw_k4_detB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": []
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "seed": 1032,
+      "as_written": [
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": [
+        "coval_core_2bA",
+        "coval_core_2bB"
+      ]
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "seed": 2064,
+      "as_written": [
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": [
+        "coval_core_2bA",
+        "coval_core_2bB"
+      ]
+    },
+    {
+      "target": "A1\u00b7consensus",
+      "seed": 3096,
+      "as_written": [
+        "coval_core_2bA",
+        "coval_core_2bB",
+        "topw_k6",
+        "topw_k8"
+      ],
+      "as_repaired": [
+        "topw_k6",
+        "topw_k8"
+      ],
+      "sym_diff": [
+        "coval_core_2bA",
+        "coval_core_2bB"
+      ]
+    }
+  ],
+  "worst_sym_diff": 2,
+  "per_target_sym_diff": {
+    "A2": 0,
+    "A1\u00b7consensus": 2
+  },
+  "world": "\u2b50 B THE STALENESS IS OPERATIONAL, AND TARGET-DEPENDENT \u2014 the readings are IDENTICAL under ['A2'] and differ by 2 arm(s) under ['A1\u00b7consensus']. Since R1019 established every extension figure in this arc is A2's answer, the SHIPPED NUMBERS are unaffected \u2014 but a reader implementing the canonical text on the other target computes a set this arc has retracted. Annotation is NOT sufficient; the clause text must be repaired at both canonical sites.",
+  "limitation": "compares two READINGS of one clause, never the clause against the world; construct validity of the repaired wording is out of scope"
+}

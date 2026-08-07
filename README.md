@@ -62,8 +62,9 @@ from it. This repository rebuilds that layer locally and then asks what the rubr
 per fact**, so nothing below restates the clause text.
 
 > An arm is a **CORE** iff
-> **②′** it **resolvably beats EVERY comparator in the certified prompt-blind set** — the 2.5th
-> percentile of the bootstrapped paired difference is > 0 — **and**
+> **②′** it **resolvably beats the certified prompt-blind comparator set** — the 2.5th
+> percentile of the bootstrapped paired difference is > 0, computed on the prompts the arm
+> **actually covers** and never on imputed values (R1024) — **and**
 > **③** it **consumes no prompt-specific human labels**.
 >
 > **Reported, never required:** its **size**, and its **margin over a declared response-only class**
