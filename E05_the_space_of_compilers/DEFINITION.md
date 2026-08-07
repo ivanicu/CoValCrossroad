@@ -779,10 +779,26 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > RESOLVED is a deferred error with a receipt.** The resolution was one set difference.
 > > ⚠ Units: `29`, `17`, `12` are all **ARMS** — not prompts, not criteria.
 > >
-> > ⚠ **SUPERSEDED BELOW (kept per L81):** the `25 procedurally distinct` / `1.6 vs 3.6
-> > effective dimensions` / `0.28 MDE` figures were all computed on the **29-arm** clause-②
-> > set. They characterise clause ②'s extension and must NOT be quoted for the definition
-> > until recomputed on the 12.
+> > ⭐ **RECOMPUTED ON THE 12, R890 — SAME ESTIMATOR, SO THIS IS A POPULATION DIFFERENCE AND NOT
+> > A SPECIFICATION ONE.** The `25 procedurally distinct` / `1.6 vs 3.6` figures were computed on
+> > the **29-arm clause-② set**. On the 12 that survive BOTH clauses:
+> > · **8 procedurally distinct of 12**, at R875's inherited criterion `r > 0.9999`. Five pairs
+> >   sit at **exactly r = 1.000000**: `topw_k4 == _detA == _detB`, `coval_core_2bA == _2bB`,
+> >   `generic == generic_reprov`. ⭐ **No pair at all lies between 0.99 and 0.9999**, so the
+> >   count does not depend on where the cutoff is put.
+> > · **PR = 1.8751 effective dimensions** against a size-matched null of median **3.2101**,
+> >   95% CI [2.5796, 4.0393], over 1000 random 12-subsets. **Observed percentile 0.000** —
+> >   below every draw. ⚠ That is the resolution FLOOR, `1/(N+1) ≈ 0.001`; it means *lower than
+> >   all 1000*, not a p-value smaller than that.
+> > ⭐⭐ **THE CONCENTRATION IS NOT AN ARTIFACT OF THE 29.** R876 on the 29-arm set: PR 1.6368 vs
+> > null median 3.5605, percentile **0.000**. R890 on the 12: 1.8751 vs 3.2101, percentile
+> > **0.000**. **Same verdict after dropping 57% of the extension** — so the definition admits
+> > several KINDS (8, not 3 as the arm NAMES suggest) that nonetheless span **less than two
+> > effective dimensions**, more concentrated than any random draw of the same size.
+> > ⚠ My own prefix reading — *"3 `coval_core*`, 2 `generic*`, 7 `topw_k*`, so three procedures"*
+> > — was **measured and OVERTURNED**: `topw_k2/k3/k6/k8` are not aliases of one another. A
+> > prefix is not a measurement, including when it is my own suspicion.
+> > ⚠ `0.28 MDE` is still the 29-arm figure and is NOT recomputed here.
 > >
 > > ⚠ **On this release that admits 28 arms** *(including the core)*, **of which 25 are
 > > procedurally distinct**; the admitted set spans **1.6 effective dimensions** against **3.6**

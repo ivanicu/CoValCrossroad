@@ -1,0 +1,77 @@
+{
+  "commit": "f255ce2227b899bb141b11303b01c746cfeb7ba3",
+  "world": "A",
+  "seed": 890,
+  "population": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic",
+    "generic_reprov",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "n_population": 12,
+  "n_procedurally_distinct": 8,
+  "distinct_representatives": [
+    "coval_core",
+    "coval_core_2bA",
+    "generic",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "alias_criterion": 0.9999,
+  "alias_criterion_source": "R875, inherited not invented",
+  "alias_pairs": [
+    [
+      "topw_k4",
+      "topw_k4_detA",
+      1.0
+    ],
+    [
+      "topw_k4",
+      "topw_k4_detB",
+      1.0
+    ],
+    [
+      "topw_k4_detA",
+      "topw_k4_detB",
+      1.0
+    ],
+    [
+      "coval_core_2bA",
+      "coval_core_2bB",
+      0.9999999999999998
+    ],
+    [
+      "generic",
+      "generic_reprov",
+      0.9999999999999998
+    ]
+  ],
+  "near_misses_below_criterion": [],
+  "pr_observed": 1.8750555842775793,
+  "pr_null_median": 3.2100951246474314,
+  "pr_null_ci95": [
+    2.5795529090092395,
+    4.039252041037398
+  ],
+  "percentile": 0.0,
+  "n_null_draws": 1000,
+  "controls": {
+    "placebo_identical_pr1": true,
+    "positive_alias_rise_le_1": true,
+    "null_can_exceed": true
+  },
+  "comparable_to": "R876 on the 29-arm clause-2 set: 25 distinct, PR 1.6368 vs ~3.6 for a random 25. Same estimator, different population.",
+  "unit_note": "counts are ARMS; PR is EFFECTIVE DIMENSIONS",
+  "live_limitation": "the definition describes the instance; one release, one core"
+}
