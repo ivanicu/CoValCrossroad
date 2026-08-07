@@ -303,6 +303,16 @@ def main() -> int:
                       [r"(14|eleven|11).{0,200}(identical|duplicat).{0,300}(85|distinct)",
                        r"(0\.0828|\+0\.08).{0,300}(4\.5|floor|level)"]))
 
+    # ⛔ R1006: the alternative reading R1005 could not exclude is now EXCLUDED. A statement that
+    #    carries R1005's convergence without this still owes the reader the rival explanation.
+    d = load("A27_*/R1006_*/results/family_spread.json")
+    if d:
+        facts.append(("R1006", "the supervised comparison family is not unusually heterogeneous",
+                      f"ranks {d['supervised_ranks']} of {d['n_families']}",
+                      [r"(indep_k|supervised).{0,300}(rank|1st|first|most homogeneous)",
+                       r"(not unusually heterogeneous|cannot explain).{0,300}"
+                       r"(Δ|delta|convergen)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

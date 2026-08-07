@@ -1,0 +1,264 @@
+{
+ "source_sha": "c88d2183db9e9df6",
+ "head": "is the supervised family unusually heterogeneous \u2014 the reading R1005 could not exclude",
+ "n_prompts": 968,
+ "nshuf": 5000,
+ "seed": 1006,
+ "n_arms": 96,
+ "n_distinct": 85,
+ "controls": {
+  "positive_known_duplicates": 1.0,
+  "saturation_mixed_family": 0.7237718089990827,
+  "positive_ok": true
+ },
+ "rows": [
+  {
+   "family": "indep_k",
+   "n": 7,
+   "mean_a2": 0.5594033491690793,
+   "within": 0.7662911583366137,
+   "null_mean": 0.6710089885344345,
+   "null_sd": 0.029418410514513382,
+   "z": 3.238861928041064,
+   "pct": 0.9906,
+   "supervised": true,
+   "members": [
+    "indep_k12_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_fit1_08b",
+    "indep_k4_fit1_08bR",
+    "indep_k4_indep_kA",
+    "indep_k8_fit1"
+   ]
+  },
+  {
+   "family": "greedy_k",
+   "n": 7,
+   "mean_a2": 0.5688270827149832,
+   "within": 0.7511478420569341,
+   "null_mean": 0.6724910159234457,
+   "null_sd": 0.02931928259782835,
+   "z": 2.6827677610580967,
+   "pct": 0.9814,
+   "supervised": true,
+   "members": [
+    "greedy_k12_fit1",
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_fit1_08b",
+    "greedy_k4_fit1_08bR",
+    "greedy_k4_greedy_kA",
+    "greedy_k8_fit1"
+   ]
+  },
+  {
+   "family": "coval_core",
+   "n": 2,
+   "mean_a2": 0.531045834646512,
+   "within": 0.7296831955922864,
+   "null_mean": 0.6759591667012755,
+   "null_sd": 0.11151303902925848,
+   "z": 0.48177351597810164,
+   "pct": 0.6576,
+   "supervised": false,
+   "members": [
+    "coval_core",
+    "coval_core_sham"
+   ]
+  },
+  {
+   "family": "topvar_k",
+   "n": 3,
+   "mean_a2": 0.4368623039391413,
+   "within": 0.7229683195592296,
+   "null_mean": 0.6706498095966522,
+   "null_sd": 0.06610328710565241,
+   "z": 0.7914660866738078,
+   "pct": 0.8156,
+   "supervised": false,
+   "members": [
+    "topvar_k4",
+    "topvar_k4_08b",
+    "topvar_k4_08bR"
+   ]
+  },
+  {
+   "family": "topwvar_k",
+   "n": 3,
+   "mean_a2": 0.45038614166023816,
+   "within": 0.7130394857667589,
+   "null_mean": 0.6719814560059255,
+   "null_sd": 0.06772680722364513,
+   "z": 0.6062301095140473,
+   "pct": 0.787,
+   "supervised": false,
+   "members": [
+    "topwvar_k4",
+    "topwvar_k4_08b",
+    "topwvar_k4_08bR"
+   ]
+  },
+  {
+   "family": "topw_k",
+   "n": 15,
+   "mean_a2": 0.502489342194844,
+   "within": 0.701816869998689,
+   "null_mean": 0.6715072528324431,
+   "null_sd": 0.014819442635142633,
+   "z": 2.0452602645341615,
+   "pct": 0.9722,
+   "supervised": false,
+   "members": [
+    "topw_k1",
+    "topw_k12",
+    "topw_k12_08b",
+    "topw_k1_08b",
+    "topw_k2",
+    "topw_k2_08b",
+    "topw_k3",
+    "topw_k3_08b",
+    "topw_k4",
+    "topw_k4_08b",
+    "topw_k4_sham",
+    "topw_k6",
+    "topw_k6_08b",
+    "topw_k8",
+    "topw_k8_08b"
+   ]
+  },
+  {
+   "family": "oracle_k",
+   "n": 5,
+   "mean_a2": 0.5400156379403486,
+   "within": 0.7016184573002759,
+   "null_mean": 0.671013889073467,
+   "null_sd": 0.03981622734240373,
+   "z": 0.7686456067987841,
+   "pct": 0.823,
+   "supervised": true,
+   "members": [
+    "oracle_k4",
+    "oracle_k4_08b",
+    "oracle_k4_08bR",
+    "oracle_k4_fit1",
+    "oracle_k4_fit1_08b"
+   ]
+  },
+  {
+   "family": "random_k",
+   "n": 36,
+   "mean_a2": 0.45413273964246265,
+   "within": 0.6970382941973859,
+   "null_mean": 0.6716430066523758,
+   "null_sd": 0.007222594023690861,
+   "z": 3.5160895736621653,
+   "pct": 0.9988,
+   "supervised": false,
+   "members": [
+    "random_k12_s0",
+    "random_k12_s0_08b",
+    "random_k12_s1",
+    "random_k12_s1_08b",
+    "random_k12_s2",
+    "random_k12_s2_08b",
+    "random_k2_s0",
+    "random_k2_s0_08b",
+    "random_k2_s1",
+    "random_k2_s1_08b",
+    "random_k2_s2",
+    "random_k2_s2_08b",
+    "random_k3_s0",
+    "random_k3_s0_08b",
+    "random_k3_s1",
+    "random_k3_s1_08b",
+    "random_k3_s2",
+    "random_k3_s2_08b",
+    "random_k4_s0",
+    "random_k4_s0_08b",
+    "random_k4_s1",
+    "random_k4_s1_08b",
+    "random_k4_s2",
+    "random_k4_s2_08b",
+    "random_k6_s0",
+    "random_k6_s0_08b",
+    "random_k6_s1",
+    "random_k6_s1_08b",
+    "random_k6_s2",
+    "random_k6_s2_08b",
+    "random_k8_s0",
+    "random_k8_s0_08b",
+    "random_k8_s1",
+    "random_k8_s1_08b",
+    "random_k8_s2",
+    "random_k8_s2_08b"
+   ]
+  },
+  {
+   "family": "gen",
+   "n": 2,
+   "mean_a2": 0.5089869717219928,
+   "within": 0.694559228650138,
+   "null_mean": 0.6706398099311992,
+   "null_sd": 0.11130611579380095,
+   "z": 0.21489761409908106,
+   "pct": 0.5996,
+   "supervised": false,
+   "members": [
+    "gen",
+    "gen_sham"
+   ]
+  },
+  {
+   "family": "other",
+   "n": 2,
+   "mean_a2": 0.4441282276459918,
+   "within": 0.6582914572864327,
+   "null_mean": 0.6708219935766995,
+   "null_sd": 0.11189165333660263,
+   "z": -0.11198812347923134,
+   "pct": 0.5268,
+   "supervised": false,
+   "members": [
+    "promptecho",
+    "promptecho_sham"
+   ]
+  },
+  {
+   "family": "topabs_k",
+   "n": 2,
+   "mean_a2": 0.45428284195423124,
+   "within": 0.6404958677685961,
+   "null_mean": 0.6740487098024563,
+   "null_sd": 0.11354284064492375,
+   "z": -0.29550821384232107,
+   "pct": 0.4904,
+   "supervised": false,
+   "members": [
+    "topabs_k4",
+    "topabs_k4_08b"
+   ]
+  }
+ ],
+ "supervised_ranks": {
+  "indep_k": 1,
+  "greedy_k": 2,
+  "oracle_k": 7
+ },
+ "bottom_tercile": [
+  "gen",
+  "other",
+  "topabs_k"
+ ],
+ "bh_survivors": [
+  "random_k"
+ ],
+ "n_families": 11,
+ "world": "A SUPERVISED ARE NOT ODD \u2014 no supervised family is in the bottom tercile of within-family agreement, so 'the comparison set is unusually heterogeneous' cannot explain R1005's \u0394",
+ "p_floor": 0.0001999600079984003,
+ "bh_rank1_threshold": 0.004545454545454546,
+ "rank_claim_needs_no_bh": "the world verdict is a RANK statement over families; BH answers a different question (is any family resolvably above chance) and is reported beside it, not as its support",
+ "not_measured": "the level-matched non-supervised contrast R1005 asked for",
+ "would_require": "a release with more arms in the members' band that are neither supervised nor topw; here there are 2 distinct at caliper 0.020 and 5 at 0.040",
+ "limitation": "agreement is not correctness; this bounds an EXPLANATION, it does not validate"
+}

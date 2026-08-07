@@ -120,6 +120,46 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⭐ THE RIVAL EXPLANATION FOR THE CONVERGENCE IS EXCLUDED (added 2026-08-07, R1006)
+
+R1005 reported Δ = +0.0828 and said it admitted **two readings**: members cohere, **or** the
+level-matched comparison set — dominated by supervised arms — is unusually **heterogeneous** among
+itself. The second is a claim about the supervised arms **alone**, so it needs no members, no
+comparator and no level match. Within-family agreement, 85 distinct arms, 5,000 size-preserving
+shuffles per family:
+
+| family | n | within | null mean | z | rank |
+|---|---:|---:|---:|---:|---:|
+| **`indep_k`** (supervised) | 7 | **0.7663** | 0.6710 | **+3.24** | **1** |
+| **`greedy_k`** (supervised) | 7 | **0.7511** | 0.6725 | **+2.68** | **2** |
+| `coval_core` | 2 | 0.7297 | 0.6760 | +0.48 | 3 |
+| `topw_k` | 15 | 0.7018 | 0.6715 | +2.05 | 6 |
+| **`oracle_k`** (supervised) | 5 | 0.7016 | 0.6710 | +0.77 | 7 |
+| `random_k` | 36 | 0.6970 | 0.6716 | +3.52 | 8 |
+| `topabs_k` | 2 | 0.6405 | 0.6740 | −0.30 | 11 |
+
+⭐⭐ **The two largest supervised families rank FIRST and SECOND of eleven.** The rival reading
+required them to be unusually spread; they are the **most homogeneous families in the release**. **So
+"the comparison set is heterogeneous" cannot explain R1005's Δ, and the convergence stands as member
+coherence.**
+
+⚠ **The BH column is driven by family SIZE and must not be read as homogeneity.** One family survives
+BH at q = 0.05 — `random_k` — and it does so with a within-null gap of **+0.025**, while `indep_k`'s
+gap is **+0.095** and does not survive. `random_k` has n = 36, so its null sd is 0.0072; `indep_k` has
+n = 7 and a null sd of 0.0294. **BH answers "resolvably above its own null", which large families win
+by construction.** The verdict above is a **rank** statement and does not rest on it.
+
+⚠ **And the bottom tercile is entirely n = 2 families** (`gen`, `other`, `topabs_k`), whose
+within-agreement is a single pair. *"Not in the bottom tercile"* is therefore a weak bar on its own —
+which is why the claim above is the stronger, positive one: **ranks 1 and 2, at z = +3.24 and +2.68.**
+
+⛔ **THE CONTRAST R1005 ACTUALLY ASKED FOR REMAINS UNAVAILABLE, and the count is why.** In the
+members' A2 band [0.5593, 0.5698] there are **2 distinct** non-supervised non-members at caliper
+0.020 and **5** at 0.040 — and they are `gen`, `generic`, `topw_k1`, `topw_k2`, `topw_k12`, i.e.
+mostly the members' **own** family, which confounds in the opposite direction. **n = 2 and confounded
+is not a design.** It would require a release with more arms in that band that are neither supervised
+nor `topw`.
+
 ### ⭐⭐ THE EXTENSION CONVERGES BEYOND ITS SCORE LEVEL — AND ITS COUNT WAS INFLATED (added 2026-08-07, R1005)
 
 **Two results, and the second corrects the section below it.**
