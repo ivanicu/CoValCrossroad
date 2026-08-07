@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1081_*/results/occasion_by_execution.json")
+    if d:
+        h = d["headline_cell"]
+        facts.append(("R1081", "the occasion is the majority of the corpus, found by execution",
+                      f"{h['occasion_rounds']} of {h['eligible_rounds']} rounds, "
+                      f"floor {h['placebo_mean']}, shifted {h['within_round_shifted_rate']}",
+                      [r"368\s+of\s+476",
+                       r"gap\s+WIDENS|widens\s+with\s+displayed\s+precision"]))
+
     d = load("A27_*/R1080_*/results/reachable_or_unknown.json")
     if d:
         facts.append(("R1080", "the helper is reachable from every depth and has zero static importers",

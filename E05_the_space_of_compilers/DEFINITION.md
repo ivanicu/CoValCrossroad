@@ -1659,6 +1659,28 @@ semantic question that failed three controls in R1076·R1078·R1079. It needs an
 occasion by **execution** — running a comparison both ways and observing a disagreement — not by
 parsing.
 
+⭐⭐ **AND R1081 ANSWERS IT BY EXECUTION: THE OCCASION IS THE MAJORITY OF THE CORPUS.** Running both
+membership tests over every round that carries prose and an artifact — **368 of 476** eligible rounds
+hold a decimal in their own README that **exact matching cannot locate in their own artifact and
+precision-aware matching can**. The shuffled-pairing floor is `0.170 ± 0.027`; the within-round
+shifted-artifact floor is `0.385`; the observed rate is `0.773`.
+⭐ **The worlds separated on the shape, not the size.** Coincidence predicts the gap is flat in
+displayed precision; a latent defect predicts it **widens**, because a high-precision token is harder
+to hit by accident. Measured, the gap **widens** monotonically: `+0.3363` at `dp≥0` to `+0.6855` at
+`dp≥4`. **24 of 24 cells at `min_dp≥2` clear both floors.**
+⛔ **4 of 40 cells are KILLED and are reported rather than dropped** — every one at `min_dp = 0` with
+integers admitted, where the *shifted* artifact scores `0.959` against a real `0.611`. **An integer
+matches anything**, so that cell measures nothing, and the control that says so is the within-round
+one the shuffled placebo is structurally blind to.
+⚠ **What the count does NOT establish, from the sham's own dose-response.** A blanket 2-decimal
+rounding flags **387** rounds where the token's own displayed precision flags **381**. **The count
+cannot discriminate the two rules.** It establishes that these prose numbers are rounded renderings
+of stored values — not that displayed precision specifically is what is required.
+⛔ **And the first sham could not have passed.** It asserted `round(x, 17)` removes the ingredient;
+`round(x, n)` is `n` places **after the decimal point**, not `n` significant digits, so below 1 it
+still coarsens, and it rescued 7 pairs against a control demanding zero. The repair was to sweep the
+dose, not to loosen the threshold: `dp=325 → 0` rounds, `dp=2 → 387`, real `381`.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
