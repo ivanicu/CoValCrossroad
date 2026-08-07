@@ -1,0 +1,101 @@
+{
+  "commit": "941073f9bbe741c568f02009fc47def41f7b9d8f",
+  "n_prompts": 1078,
+  "n_arms": 99,
+  "world": "A",
+  "readable_clauses": [
+    "\u2461"
+  ],
+  "excluded_clauses": [
+    "\u2463\u2032"
+  ],
+  "exclusion_reason": {
+    "\u2463\u2032": "negative control random_k4_s0 SATISFIES the clause; R850 measured the same at 7 of 8 class sizes and R856 reported \u2463 as dominated by \u2461"
+  },
+  "clauses": [
+    {
+      "clause": "\u2461",
+      "per_seed": [
+        {
+          "seed": 11,
+          "count_A_floor": 23,
+          "count_B_bh": 29,
+          "both": 23,
+          "only_A": 0,
+          "only_B": 6
+        },
+        {
+          "seed": 22,
+          "count_A_floor": 23,
+          "count_B_bh": 29,
+          "both": 23,
+          "only_A": 0,
+          "only_B": 6
+        },
+        {
+          "seed": 33,
+          "count_A_floor": 24,
+          "count_B_bh": 29,
+          "both": 24,
+          "only_A": 0,
+          "only_B": 5
+        }
+      ],
+      "controls": {
+        "positive": true,
+        "negative": true,
+        "placebo": 0.0,
+        "readable": true
+      },
+      "seed_spread": 1,
+      "criterion_gap": 5.666666666666668
+    },
+    {
+      "clause": "\u2463\u2032",
+      "per_seed": [
+        {
+          "seed": 11,
+          "count_A_floor": 58,
+          "count_B_bh": 63,
+          "both": 58,
+          "only_A": 0,
+          "only_B": 5
+        },
+        {
+          "seed": 22,
+          "count_A_floor": 58,
+          "count_B_bh": 63,
+          "both": 58,
+          "only_A": 0,
+          "only_B": 5
+        },
+        {
+          "seed": 33,
+          "count_A_floor": 59,
+          "count_B_bh": 63,
+          "both": 59,
+          "only_A": 0,
+          "only_B": 4
+        }
+      ],
+      "controls": {
+        "positive": true,
+        "negative": false,
+        "placebo": 0.0,
+        "readable": false
+      }
+    }
+  ],
+  "total_only_A": 0,
+  "total_only_B": 17,
+  "derived_clauses_criterion_invariant": [
+    "\u2460",
+    "\u2462"
+  ],
+  "floor": 1.5,
+  "q": 0.05,
+  "comparators": {
+    "\u2461": "genericpool16",
+    "\u2463\u2032": "min_ttr"
+  }
+}
