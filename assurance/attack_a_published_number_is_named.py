@@ -15,7 +15,7 @@ ROOT = Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.pri
 sys.path.insert(0, str(ROOT))
 from covalx.rounds import fixture_dir  # noqa: E402
 
-TMP = fixture_dir(ROOT, "r951_attack_named")
+TMP = fixture_dir(ROOT, "r9951_attack_named")
 PY = str(ROOT / ".venv/bin/python")
 GATE = "assurance/a_published_number_is_named.py"
 
@@ -56,7 +56,12 @@ def run():
     measured in attack_outcome_variable_declared -- a harness reading a whole-repo exit code while
     planting one round -- rebuilt here by the author who diagnosed it.**
 
-    The fixture is R951 and the floor is raised to 951, so the scan sees the plant and nothing else.
+    ⛔ AND THE ISOLATION BROKE ANYWAY, caught by running the whole suite at R960. The fixture was
+    `r951`, and a REAL round `R951_do_the_1338_retractions_name_their_own_error_classes` shares that
+    number. With the floor at 951 both were in scope; the moment R957 gave R951 a README, the real
+    round passed, `examined` became non-zero, and vector 3's expected empty-population exit 2 came
+    back 0. **An identifier that is not unique** -- the same defect class as the duplicated A25 arc
+    measured one round earlier, in a second place. The fixture is now r9951, above every real round.
     """
     r = subprocess.run([PY, "-c", ISOLATED, str(ROOT / GATE)],
                        cwd=ROOT, capture_output=True, text=True, timeout=600)
@@ -67,7 +72,7 @@ ISOLATED = (
     "import importlib.util,sys;"
     "spec=importlib.util.spec_from_file_location('g',sys.argv[1]);"
     "m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);"
-    "m.FLOOR_ROUND=951;"
+    "m.FLOOR_ROUND=9951;"
     "sys.exit(m.main())"
 )
 
