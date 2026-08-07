@@ -31,7 +31,7 @@ POSITIVE CONTROL (`--selftest`)
     was written to end, so it must be the failure this file can itself be caught committing.
 """
 from __future__ import annotations
-import collections, os, pathlib, subprocess, sys, tempfile, time
+import collections, hashlib, json, os, pathlib, subprocess, sys, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent
 # Helpers and appliers are NOT gates: they mutate state or expose functions rather than ruling.
@@ -208,6 +208,60 @@ def main(argv: list[str]) -> int:
     print(f"\n  PASS {len(buckets['PASS'])} of {n}   FAIL {len(buckets['FAIL'])}   "
           f"UNRUNNABLE {len(buckets['UNRUNNABLE'])}   ERROR {len(buckets['ERROR'])}")
     print(f"  ⭐ the denominator is {n}. A pass count quoted without it is not a coverage claim.")
+
+    # ⛔ R974: THIS RUNNER PERSISTED NOTHING FOR ITS ENTIRE LIFE, AND THAT COST A CLAIM.
+    #    R961 swept all 71 gates and got 47 / 16 / 6 / 2. Twelve rounds later R973's closing line
+    #    read "R961's red list had sixteen entries and three are now resolved" -- and there was no
+    #    list. Only the four bucket COUNTS ever existed, printed to a terminal since compacted away.
+    #    A count is not a set, so that sentence could not be checked by me or by anyone, and it is
+    #    UNVERIFIED rather than false: three may well have been resolved. Same class as R951
+    #    (1,338 headings read as 1,149 entries) and R954 (the count 1,149 used as the identifier
+    #    1,387). **A histogram cannot be diffed against a membership list, and every sweep that
+    #    prints only a histogram converts its own successors' claims into guesses.**
+    #    So the sweep now writes its members. The value is entirely in a LATER round: this artifact
+    #    is what makes the next `three are now resolved` a subtraction instead of a recollection.
+    o = ROOT / "results" / "suite_sweep.json"
+    o.parent.mkdir(exist_ok=True)
+    payload = dict(
+        source_sha=hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest()[:16],
+        n_gates=n, jobs=jobs,
+        counts={b: len(v) for b, v in buckets.items()},
+        # ⚠ THE MEMBERS, WHICH ARE THE WHOLE POINT. Sorted so two runs diff cleanly.
+        members={b: sorted(name for name, *_ in v) for b, v in buckets.items()},
+        rows=sorted(({"gate": name, "rc": rc, "wall_s": round(el, 2), "msg": msg}
+                     for name, rc, el, msg in rows), key=lambda r: r["gate"]),
+    )
+    # ⚠ THE FIRST VERSION OF THIS BLOCK COMPARED `n` TO `sum(len(bucket))` AND CALLED IT A UNIT
+    #   CHECK. It is a DERIVATION, not a measurement: bucketing is a total if/elif/else on `rc`, so
+    #   every row lands in exactly one bucket and the equality is forced by the algebra. It could
+    #   not have come out otherwise, which is §4's very first row -- a check satisfied before the
+    #   plant. Kept below, labelled as what it is, because a derivation is worth stating; it is just
+    #   not evidence.
+    n_recorded = sum(len(v) for v in payload["members"].values())
+    o.write_text(json.dumps(payload, indent=1))
+
+    # ⭐ THE CHECK THAT CAN ACTUALLY FAIL: re-READ the artifact off disk and require the member set
+    #   to survive the round trip. This is the property a later round depends on -- not that the
+    #   arithmetic was consistent in memory, but that what a reader will OPEN says what the sweep
+    #   found. It fails on a truncated write, an encoding fault, a name JSON cannot carry, or a
+    #   concurrent writer. R974 built the whole artifact because a claim was made against a number
+    #   nobody could re-open; an artifact that does not survive being re-opened repeats that.
+    try:
+        back = json.loads(o.read_text())
+        round_trip = back["members"] == payload["members"] and back["rows"] == payload["rows"]
+    except Exception as e:
+        back, round_trip = None, False
+        print(f"  ⛔ the artifact could not be re-read: {type(e).__name__}: {e}")
+    payload_ok = n == n_recorded
+    print(f"  artifact {o.relative_to(ROOT)}  ({n_recorded} members recorded)")
+    print(f"    DERIVATION  printed denominator {n} == recorded members {n_recorded}: {payload_ok}"
+          f"  ⚠ forced by the bucketing; not evidence")
+    print(f"    MEASURED    the member set survives a write/read round trip: "
+          f"{'PASS' if round_trip else '⛔ FAIL'}")
+    if not round_trip:
+        print("  ⛔ the artifact on disk is not what the sweep computed. A later round diffing it "
+              "would get a wrong delta, which is the exact failure this file was added to prevent.")
+        return 1
     return 1 if buckets["FAIL"] or buckets["ERROR"] else 0
 
 

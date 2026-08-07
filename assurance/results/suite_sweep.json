@@ -1,0 +1,476 @@
+{
+ "source_sha": "b5bcd5215d79cb5e",
+ "n_gates": 64,
+ "jobs": 12,
+ "counts": {
+  "PASS": 44,
+  "FAIL": 14,
+  "UNRUNNABLE": 4,
+  "ERROR": 2
+ },
+ "members": {
+  "PASS": [
+   "a_control_that_cannot_fail",
+   "a_detector_marker_matches_something",
+   "a_published_number_is_named",
+   "a_scored_artifact_records_its_configuration",
+   "a_seed_must_be_stable",
+   "a_statement_is_current_with_the_arc",
+   "an_ear_label_matches_its_path",
+   "an_mde_records_its_denominator",
+   "attack_a_published_number_is_named",
+   "attack_a_retraction_declares_its_class",
+   "attack_no_withdrawn_framings",
+   "attack_outcome_variable_declared",
+   "attack_scope_reaches_the_reader",
+   "code_states_a_bound_the_reader_never_sees",
+   "comparator_scope",
+   "consistency",
+   "corrections_propagated",
+   "definition_matches_the_record",
+   "every_round_is_committed",
+   "frozen_frame_verifies",
+   "interval_is_centred_on_its_point",
+   "kill_is_wired_into_the_branch",
+   "markdown_tables_are_well_formed",
+   "next_gradient_is_new",
+   "no_withdrawn_framings",
+   "null_is_informative",
+   "point_and_interval_share_a_source",
+   "readme_agrees_with_results",
+   "readme_row_carries_the_verdict",
+   "register_requirements",
+   "registries_are_satisfied",
+   "release_names_resolve_to_one_set",
+   "residue_debt",
+   "results_are_not_degenerate",
+   "results_match_their_code",
+   "retired_framing_in_assertion_positions",
+   "retraction_reaches_the_artifact",
+   "round_links_resolve",
+   "scope_reaches_the_reader",
+   "source_stamp_is_current",
+   "statement_provenance",
+   "the_clustered_estimator_is_sound",
+   "token_boundaries",
+   "tree_survives_the_sweep"
+  ],
+  "FAIL": [
+   "a_commit_body_names_its_own_round",
+   "a_next_names_the_check_that_cleared_it",
+   "a_share_carries_its_counts",
+   "a_verdict_threshold_is_named",
+   "arm_population_is_derived",
+   "artifacts_are_internally_coherent",
+   "attack_every_check",
+   "attack_the_suite",
+   "every_round_reaches_the_readme",
+   "next_gradient_labels_its_hypotheses",
+   "next_line_quantifiers_are_computed",
+   "outcome_variable_declared",
+   "retired_framing_in_emittable_source",
+   "seed_filter_is_disclosed"
+  ],
+  "UNRUNNABLE": [
+   "a_retraction_declares_its_class",
+   "donor_numbers_carry_their_draw_scope",
+   "synthesis_cites_recent_work",
+   "verdict_cites_its_own_contrasts"
+  ],
+  "ERROR": [
+   "backfilled_findings_are_rederivable",
+   "what_did_each_check_actually_read"
+  ]
+ },
+ "rows": [
+  {
+   "gate": "a_commit_body_names_its_own_round",
+   "rc": 1,
+   "wall_s": 0.75,
+   "msg": "[LIVE-DEBT] FAIL: 41 commit(s) carry a body that never names the round they add:"
+  },
+  {
+   "gate": "a_control_that_cannot_fail",
+   "rc": 0,
+   "wall_s": 0.17,
+   "msg": "CONTROLS THAT CANNOT FAIL: 1 module(s)"
+  },
+  {
+   "gate": "a_detector_marker_matches_something",
+   "rc": 0,
+   "wall_s": 0.4,
+   "msg": "<unknown>:57: SyntaxWarning: invalid escape sequence '\\d'"
+  },
+  {
+   "gate": "a_next_names_the_check_that_cleared_it",
+   "rc": 1,
+   "wall_s": 0.06,
+   "msg": "[LIVE-DEBT] FAIL: 78 NEXT line(s) cite no check:"
+  },
+  {
+   "gate": "a_published_number_is_named",
+   "rc": 0,
+   "wall_s": 3.08,
+   "msg": "  This says nothing about whether the number is RIGHT \u2014 only that a reader can tell which quantity it is."
+  },
+  {
+   "gate": "a_retraction_declares_its_class",
+   "rc": 2,
+   "wall_s": 0.03,
+   "msg": "  Exit 2, never 0."
+  },
+  {
+   "gate": "a_scored_artifact_records_its_configuration",
+   "rc": 0,
+   "wall_s": 0.12,
+   "msg": "  \u26a0 MY FIRST PATTERN WAS `savez_compressed\\([^)]*provenance=` AND THE NEGATIVE CONTROL CAUGHT IT."
+  },
+  {
+   "gate": "a_seed_must_be_stable",
+   "rc": 0,
+   "wall_s": 0.95,
+   "msg": "  \u26a0 Rules on ONE failure mode. A seed can be stable and still be read from the clock."
+  },
+  {
+   "gate": "a_share_carries_its_counts",
+   "rc": 1,
+   "wall_s": 0.64,
+   "msg": "[LIVE-DEBT] FAIL: 71 share(s) published with no counts to recompute them:"
+  },
+  {
+   "gate": "a_statement_is_current_with_the_arc",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  PASS: every measured fact is present in the statement region (648 lines)."
+  },
+  {
+   "gate": "a_verdict_threshold_is_named",
+   "rc": 1,
+   "wall_s": 1.5,
+   "msg": "[LIVE-DEBT] FAIL: 23 verdict(s) decided by an undeclared number:"
+  },
+  {
+   "gate": "an_ear_label_matches_its_path",
+   "rc": 0,
+   "wall_s": 0.08,
+   "msg": "  \u2713 every self-label addresses its own document"
+  },
+  {
+   "gate": "an_mde_records_its_denominator",
+   "rc": 0,
+   "wall_s": 0.08,
+   "msg": "    count cannot be read back at all, which is the state R373 measured."
+  },
+  {
+   "gate": "arm_population_is_derived",
+   "rc": 1,
+   "wall_s": 0.84,
+   "msg": "[LIVE-DEBT] \u26d4 NEW hand-typed arm population(s) \u2014 the debt grew: ['R499_is_gen_the_same_function_as_prompt_blind_or_a_cancelling_one'"
+  },
+  {
+   "gate": "artifacts_are_internally_coherent",
+   "rc": 1,
+   "wall_s": 3.28,
+   "msg": "[LIVE-DEBT] 1 gate(s) failed."
+  },
+  {
+   "gate": "attack_a_published_number_is_named",
+   "rc": 0,
+   "wall_s": 19.75,
+   "msg": "7/7 vectors behave as specified"
+  },
+  {
+   "gate": "attack_a_retraction_declares_its_class",
+   "rc": 0,
+   "wall_s": 0.09,
+   "msg": "1150   FAIL  no retraction header"
+  },
+  {
+   "gate": "attack_every_check",
+   "rc": 1,
+   "wall_s": 1.49,
+   "msg": "[LIVE-DEBT] no at all -- which before this script had no evidence either way."
+  },
+  {
+   "gate": "attack_no_withdrawn_framings",
+   "rc": 0,
+   "wall_s": 7.37,
+   "msg": "1/1 KNOWN GAPS still open, as documented -- a claim inside a declared payload path is invisible"
+  },
+  {
+   "gate": "attack_outcome_variable_declared",
+   "rc": 0,
+   "wall_s": 3.0,
+   "msg": "  silence about the gold head, not silence about proxies in general."
+  },
+  {
+   "gate": "attack_scope_reaches_the_reader",
+   "rc": 0,
+   "wall_s": 0.12,
+   "msg": "  caught entry 57 would be decoration."
+  },
+  {
+   "gate": "attack_the_suite",
+   "rc": 1,
+   "wall_s": 539.13,
+   "msg": "[LIVE-DEBT] OK     registries_are_satisfied         live=0 empty=1 (want 1) restored=0   (empty registry is a DETECTED FAILURE: FROZ"
+  },
+  {
+   "gate": "backfilled_findings_are_rederivable",
+   "rc": -1,
+   "wall_s": 90.09,
+   "msg": "TIMEOUT after 90s"
+  },
+  {
+   "gate": "code_states_a_bound_the_reader_never_sees",
+   "rc": 0,
+   "wall_s": 5.77,
+   "msg": "\u26a0 AND THE CONTROL THAT DECIDES WHETHER A FAILURE IS READABLE. If the features cannot separate the"
+  },
+  {
+   "gate": "comparator_scope",
+   "rc": 0,
+   "wall_s": 0.15,
+   "msg": "  PASS \u2014 every DECLARED difference names its comparator."
+  },
+  {
+   "gate": "consistency",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "         68 vs 67   |diff| 1.00000  tol 2"
+  },
+  {
+   "gate": "corrections_propagated",
+   "rc": 0,
+   "wall_s": 0.14,
+   "msg": "  here is invisible to this check, so registering is part of correcting."
+  },
+  {
+   "gate": "definition_matches_the_record",
+   "rc": 0,
+   "wall_s": 0.45,
+   "msg": "  PASS: every locatable claim in DEFINITION.md is re-derived from a committed artifact."
+  },
+  {
+   "gate": "donor_numbers_carry_their_draw_scope",
+   "rc": 2,
+   "wall_s": 0.19,
+   "msg": "  Exit 2 \u2014 an empty population never passes. GATE 1's result above still holds."
+  },
+  {
+   "gate": "every_round_is_committed",
+   "rc": 0,
+   "wall_s": 0.12,
+   "msg": "  PASS -- every round directory is tracked."
+  },
+  {
+   "gate": "every_round_reaches_the_readme",
+   "rc": 1,
+   "wall_s": 2.97,
+   "msg": "[LIVE-DEBT] A round that ran and is never mentioned is a result nobody has."
+  },
+  {
+   "gate": "frozen_frame_verifies",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "the frozen frame verifies: every hash matches its text and the manifest is intact."
+  },
+  {
+   "gate": "interval_is_centred_on_its_point",
+   "rc": 0,
+   "wall_s": 3.2,
+   "msg": "    which is a different thing and the one this ordering cannot help with."
+  },
+  {
+   "gate": "kill_is_wired_into_the_branch",
+   "rc": 0,
+   "wall_s": 0.12,
+   "msg": "     upper bound, never a rate."
+  },
+  {
+   "gate": "markdown_tables_are_well_formed",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "every table row matches its header's cell count."
+  },
+  {
+   "gate": "next_gradient_is_new",
+   "rc": 0,
+   "wall_s": 0.74,
+   "msg": "    subject exists under words nobody thought to search."
+  },
+  {
+   "gate": "next_gradient_labels_its_hypotheses",
+   "rc": 1,
+   "wall_s": 0.02,
+   "msg": "[LIVE-DEBT] FAIL: 1 NEW unlabelled causal NEXT block(s): ['de7ad6ac']"
+  },
+  {
+   "gate": "next_line_quantifiers_are_computed",
+   "rc": 1,
+   "wall_s": 0.05,
+   "msg": "[LIVE-DEBT] \u26d4 HEAD (9dc87e3d) has NO extractable NEXT paragraph. This gate examined NOTHING for"
+  },
+  {
+   "gate": "no_withdrawn_framings",
+   "rc": 0,
+   "wall_s": 0.77,
+   "msg": "  This is NOT a certificate that no withdrawn framing is asserted -- the check is sound only in the flagging direction ("
+  },
+  {
+   "gate": "null_is_informative",
+   "rc": 0,
+   "wall_s": 0.11,
+   "msg": ""
+  },
+  {
+   "gate": "outcome_variable_declared",
+   "rc": 1,
+   "wall_s": 0.41,
+   "msg": "[LIVE-DEBT] Add a scope string naming the outcome as model-scored. Entry 50 is what happens when a reader meets the number without i"
+  },
+  {
+   "gate": "point_and_interval_share_a_source",
+   "rc": 0,
+   "wall_s": 1.46,
+   "msg": "<unknown>:159: SyntaxWarning: invalid escape sequence '\\d'"
+  },
+  {
+   "gate": "readme_agrees_with_results",
+   "rc": 0,
+   "wall_s": 3.64,
+   "msg": "  matches the artifact it was read from, which has happened twice (entries 18, 42)."
+  },
+  {
+   "gate": "readme_row_carries_the_verdict",
+   "rc": 0,
+   "wall_s": 0.19,
+   "msg": "  weakened paraphrase is the likelier failure and this instrument cannot see it."
+  },
+  {
+   "gate": "register_requirements",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  PASS \u2014 12 DECLARED entries, all well-formed; 88 remain undeclared (not passes)."
+  },
+  {
+   "gate": "registries_are_satisfied",
+   "rc": 0,
+   "wall_s": 2.79,
+   "msg": "  Carried is not correct, and not prominent -- this flags omission only."
+  },
+  {
+   "gate": "release_names_resolve_to_one_set",
+   "rc": 0,
+   "wall_s": 1.4,
+   "msg": "<unknown>:159: SyntaxWarning: invalid escape sequence '\\d'"
+  },
+  {
+   "gate": "residue_debt",
+   "rc": 0,
+   "wall_s": 0.05,
+   "msg": "  Measured base rate from earlier triage: about 1 in 3 of these carries a conclusion that has since moved, so the expect"
+  },
+  {
+   "gate": "results_are_not_degenerate",
+   "rc": 0,
+   "wall_s": 0.94,
+   "msg": "  not the one that switched on and lied."
+  },
+  {
+   "gate": "results_match_their_code",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  this fail a build would push those edits toward not being made at all."
+  },
+  {
+   "gate": "retired_framing_in_assertion_positions",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  be asserted in a full sentence and no instrument would see it."
+  },
+  {
+   "gate": "retired_framing_in_emittable_source",
+   "rc": 1,
+   "wall_s": 2.58,
+   "msg": "[LIVE-DEBT] <unknown>:159: SyntaxWarning: invalid escape sequence '\\d'"
+  },
+  {
+   "gate": "retraction_reaches_the_artifact",
+   "rc": 0,
+   "wall_s": 0.03,
+   "msg": "  PASS -- debt is 17, unchanged. Known gaps still open, as documented."
+  },
+  {
+   "gate": "round_links_resolve",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  is the SENTENCE, so the unit it checks and the unit it claims are the same."
+  },
+  {
+   "gate": "scope_reaches_the_reader",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "  Present is not the same as legible or prominent -- this check flags omission only."
+  },
+  {
+   "gate": "seed_filter_is_disclosed",
+   "rc": 1,
+   "wall_s": 1.8,
+   "msg": "[LIVE-DEBT] <unknown>:19: SyntaxWarning: invalid escape sequence '\\s'"
+  },
+  {
+   "gate": "source_stamp_is_current",
+   "rc": 0,
+   "wall_s": 0.27,
+   "msg": "  no new drift; the frozen debt of 30 is unchanged and contains nothing already fixed."
+  },
+  {
+   "gate": "statement_provenance",
+   "rc": 0,
+   "wall_s": 0.23,
+   "msg": "R696  \u26d4\u26d4\u26d4 THE AGREEMENT IS FORCED, AND THE SATURATED STATISTIC IS THE TELL. R3"
+  },
+  {
+   "gate": "synthesis_cites_recent_work",
+   "rc": 2,
+   "wall_s": 0.02,
+   "msg": "none of the 5 named sections was found -- the README was restructured and this check is looking for something that no lo"
+  },
+  {
+   "gate": "the_clustered_estimator_is_sound",
+   "rc": 0,
+   "wall_s": 0.08,
+   "msg": "\u26d4 a suite that passes on the broken copy is decoration, and this file exits 1 if"
+  },
+  {
+   "gate": "token_boundaries",
+   "rc": 0,
+   "wall_s": 0.02,
+   "msg": "PASS -- every boundary case behaves"
+  },
+  {
+   "gate": "tree_survives_the_sweep",
+   "rc": 0,
+   "wall_s": 0.05,
+   "msg": "  present and corrupted, which this does not test and does not claim to."
+  },
+  {
+   "gate": "verdict_cites_its_own_contrasts",
+   "rc": 2,
+   "wall_s": 0.11,
+   "msg": "OBSERVED NOTHING: rounds carrying both a verdict and a significant contrast is empty. This is exit 2, not success -- a c"
+  },
+  {
+   "gate": "what_did_each_check_actually_read",
+   "rc": -1,
+   "wall_s": 90.09,
+   "msg": "TIMEOUT after 90s"
+  }
+ ],
+ "unit_check": {
+  "printed_denominator": 64,
+  "recorded_members": 64,
+  "equal": true
+ }
+}

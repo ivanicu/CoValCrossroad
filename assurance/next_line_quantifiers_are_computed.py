@@ -59,7 +59,30 @@ ARTIFACT = re.compile(r"\b(rounds?|retractions?|entries|claims?|arms?|gates?|cel
                       # than by taste, with both numbers reported.
                       r"reports?|checks?|sentences?)\b", re.I)
 WINDOW = 60
-BARE_COUNT = re.compile(r"\b(\d+)\s+(rounds?|retractions?|entries|claims?|arms?|gates?|cells?|items?)\b", re.I)
+# ⛔ R974: THIS REGEX WAS BLIND TO ITS OWN GAUGE, AND THE COMMIT THAT PROVED IT WAS MINE.
+#    R973's NEXT paragraph read "R961's red list had sixteen entries and three are now resolved".
+#    That is precisely the failure this file exists for -- a count over my own work, uncomputed,
+#    written last -- and the gate said nothing, because `sixteen` is not `\d+`.
+#    GAUGE TEST, three lines and zero compute: spelling a numeral in words leaves the CLAIM
+#    identical. Measured on the two forms of that same sentence: digits -> BARE_COUNT True,
+#    words -> False. Measurement not invariant, property invariant => the measurement was blind.
+#    Both positive controls behaved (a known-bad line fires, a known-good line with provenance does
+#    not), so the False is a measurement of blindness rather than silence.
+#    SCOPE, over 1,380 NEXT paragraphs from the whole log: 174 carry a word-numeral beside an
+#    artifact noun, 166 invisible to the digit form, 157 of those also lacking provenance, and 94
+#    not already flagged for another reason. Flag rate 25.2% -> 32.0%.
+#    ⚠ `one` IS DELIBERATELY EXCLUDED, and that is a measurement, not caution. It adds 11
+#    paragraphs and I read ALL ELEVEN rather than sampling: every one is an indefinite or a named
+#    singular -- "planting one round", "the one arm the definition was written from", "holds
+#    exactly one arm, topvar_k4" (which names it, so it is computed). 11 of 11 false positives.
+#    ⚠ AND THE RULE STILL REQUIRES ADJACENCY. "four of the five predate the current format" carries
+#    a count this pattern cannot see, because no artifact noun follows the numeral. The blindness is
+#    narrowed here, not closed, and that residue is stated rather than implied by a green run.
+WORD_COUNT = ("two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|"
+              "fifteen|sixteen|seventeen|eighteen|nineteen|twenty")
+BARE_COUNT = re.compile(
+    rf"\b(\d+|{WORD_COUNT})\s+(rounds?|retractions?|entries|claims?|arms?|gates?|cells?|items?)\b",
+    re.I)
 # A citation of WHERE the number came from discharges the quantifier.
 PROVENANCE = re.compile(r"(assurance/\w+\.py|run\s+\w+\.py|computed by|measured in R\d{3}|see R\d{3})", re.I)
 

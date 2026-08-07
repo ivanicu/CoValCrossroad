@@ -1,0 +1,54 @@
+{
+ "source_sha": "12538c371d409f7b",
+ "head": "9dc87e3d",
+ "n_next_paragraphs": 1380,
+ "base_flagged": 442,
+ "gauge": {
+  "words": true,
+  "digits": true
+ },
+ "specification_curve": {
+  "one..twenty": {
+   "word_numeral_hits": 174,
+   "uncited": 165,
+   "recovers_R973_commit": true
+  },
+  "two..twenty": {
+   "word_numeral_hits": 145,
+   "uncited": 138,
+   "recovers_R973_commit": true
+  },
+  "three..twenty": {
+   "word_numeral_hits": 114,
+   "uncited": 110,
+   "recovers_R973_commit": true
+  }
+ },
+ "controls": {
+  "positive_recovers_known_sha": true,
+  "negative_non_artifact_noun": true,
+  "g0_clean_line_stays_clean": true,
+  "g0_indefinite_one_alarms": 0
+ },
+ "kill": {
+  "threshold": 20,
+  "observed": 138,
+  "verdict": "WORLD B"
+ },
+ "r960_named_at_head": {
+  "a_share_carries_its_counts": "FAIL",
+  "arm_population_is_derived": "FAIL",
+  "outcome_variable_declared": "FAIL",
+  "verdict_cites_its_own_contrasts": "UNRUNNABLE",
+  "next_line_quantifiers_are_computed": "FAIL",
+  "a_commit_body_names_its_own_round": "FAIL"
+ },
+ "r973_claimed_at_head": {
+  "outcome_variable_declared": "FAIL",
+  "attack_outcome_variable_declared": "PASS",
+  "a_published_number_is_named": "PASS"
+ },
+ "n_named_resolved": 0,
+ "n_r960_reds_never_named": 10,
+ "delta_refused": "R960's population excluded attack_the_suite; this one includes it"
+}
