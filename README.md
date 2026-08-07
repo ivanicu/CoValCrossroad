@@ -73,6 +73,20 @@ from it. This repository rebuilds that layer locally and then asks what the rubr
 
 ## Where the definition of a "core" stands (R327–R347)
 
+> ⚠ **THIS SECTION IS DATED R327–R347 AND THE ARC HAS RUN TO R1006.** It is kept because its
+> measurements stand (L81: annotate, never rewrite) — but **it is not the current status of the
+> definition**, and reading it as such is the error this note exists to prevent.
+> ⭐ **The current statement, with every clause's scope attached, is
+> `E05_the_space_of_compilers/DEFINITION.md`** — and it is the only home for it, so nothing from it
+> is copied here to drift out of step.
+> ⛔ **Why this went stale unnoticed:** the currency gate
+> (`assurance/a_statement_is_current_with_the_arc.py`) checks that measured facts reach
+> **DEFINITION.md's statement region** and **does not look at this file at all**. So the project's
+> most-read document has no currency guard, and a section header carrying a round range ages
+> silently. The same class of defect was fixed at the README **head** in R995; **this is the
+> second instance, which makes it a gap in coverage rather than a slip.**
+
+
 ⛔ **Clause ① has never excluded anything clause ② admits.** Over all **41** judged arms the cell
 (① fails, ② passes) is **empty**; ② excludes **8** that ① admits. The mechanism: the clause-② reference scores **0.5462**
 against **0.4922** for a random draw from *this prompt's own rubric* — **+0.0540, minimum +0.0470,
