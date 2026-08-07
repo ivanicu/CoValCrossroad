@@ -46,16 +46,27 @@ WORLDS          A · the blind set is non-empty and some of its members publish 
                 B · the blind set is empty, or none of it publishes -> the five tokens happen to
                     cover every proxy route in this corpus, the hole is theoretical, and the gate's
                     recall is 1 on the population that matters
-KILL            CONDITIONAL — the classifier is checked on two cases whose answers are already known
-                from OTHER rounds' measurements, one in each direction:
-                  ⭐ ① POSITIVE / USE SIDE: `R422` and `R425` must classify as USE. The gate flags
-                     them at HEAD and R942 read them out of the FLAG channel. If the AST pass calls a
-                     genuinely gold-scored round a mention, it is broken toward under-counting.
-                  ⭐ ② POSITIVE / MENTION SIDE: `R942` must classify as MENTION. R942 measured that
-                     its only occurrence is `SRC = "gold_fresh = 1\\n"`, a literal written into a
-                     fixture. If the AST pass calls it a use, it is broken toward over-counting.
-                     **Two known answers in opposite directions; one of them alone would only
-                     validate the direction I expect.**
+⛔ **AND MY FIRST TWO CONTROLS WERE CIRCULAR, WHICH READING THE OBJECT CAUGHT BEFORE THE RUN.** They
+asserted `R422` and `R425` must classify as USE *because the gate flags them* — i.e. the classifier
+was to be validated against the instrument it is auditing. Reading the two files kills the premise:
+R422's only occurrence is at `run.py:113`, inside its docstring; R425's are docstring prose plus
+`GOLD = re.compile(...)` at `:112`, a string literal in a round whose job is to CLASSIFY other
+rounds' gold usage. **Neither loads the file. All three rounds the gate flags at HEAD are mentions.**
+A control whose ground truth comes from the thing under test cannot fail in the direction that
+matters — so both positives are now PLANTED, where the answer is known by construction.
+
+KILL            CONDITIONAL — the classifier is checked on PLANTED sources with known ground truth,
+                in both directions, because corpus cases inherit the gate's own verdict:
+                  ⭐ ① POSITIVE / USE SIDE, PLANTED: a source with a module-level `np.load` of the
+                     gold file must classify USE. ⚠ AND IT MUST FAIL AT g=0: the identical source
+                     with that one line deleted must have NO match outside strings and comments.
+                     A positive control that passes before the plant is the failure mode this file
+                     opens with.
+                  ⭐ ② POSITIVE / MENTION SIDE, PLANTED AND REAL: a source carrying the token only in
+                     a docstring, a comment and a string constant must classify MENTION — and the
+                     real `R942` must too, whose answer R942 measured independently: its only
+                     occurrence is a literal it writes into a fixture and never executes.
+                     **Two directions, and the plant's ground truth does not come from the gate.**
                   ⭐ ③ POPULATION CLOSED: matched + route-only + neither must equal the file count,
                      and unparseable files must be COUNTED and NAMED, never silently dropped. A gate
                      that examines nothing passes; so does an audit that drops what it cannot read.
