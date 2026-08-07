@@ -1,0 +1,221 @@
+{
+  "Q1_multi_home": 4,
+  "Q2_disagreeing_homes": 3,
+  "Q3_first_home_disagrees_with_artifact": 0,
+  "controls": {
+    "GAUGE prepending a number-free paragraph leaves the gate green": true,
+    "NEGATIVE a repeated home is n=2 but distinct=1": true,
+    "NEGATIVE the gate is green on mere repetition, correctly": true,
+    "PLACEBO fewer than a tenth of patterns fire on a foreign document": true,
+    "POSITIVE the GATE stays green on the contradicted document": true,
+    "POSITIVE the counter sees the planted second home": true,
+    "POSITIVE the planted home carries a DIFFERENT value": true,
+    "SHAM a home without the number does not count as a home": true,
+    "g=0 the gate is green on the unmodified document": true,
+    "g=0 the unplanted copy reproduces the real count": true
+  },
+  "gate_module": "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable/assurance/definition_matches_the_record.py",
+  "gate_read_site": "definition_matches_the_record.read_claims -> re.search(pat, text)",
+  "green_by_order": {
+    "published_ref_pctile": {
+      "any_agrees": true,
+      "artifact": 93.7,
+      "distinct": [
+        93.7,
+        96.0
+      ],
+      "first": 93.7,
+      "first_agrees": true,
+      "n": 2
+    },
+    "r432_floor": {
+      "any_agrees": true,
+      "artifact": "0.0084",
+      "distinct": [
+        0.0084,
+        0.2117
+      ],
+      "first": 0.0084,
+      "first_agrees": true,
+      "n": 2
+    },
+    "r485_oracle": {
+      "any_agrees": true,
+      "artifact": 0.6282,
+      "distinct": [
+        0.2791,
+        0.6282
+      ],
+      "first": 0.6282,
+      "first_agrees": true,
+      "n": 2
+    }
+  },
+  "kill": {
+    "anchors_that_flip": [
+      "published_ref_pctile",
+      "r432_floor",
+      "r485_oracle"
+    ],
+    "gate_open": true,
+    "world_C_admitted": false,
+    "world_C_retraction": "the pre-registered world C asked whether the document states ONE quantity twice with different values. This instrument's unit is a regex match capturing a number; that claim's unit is a statement of the same quantity. They are not equal, so C is UNVERIFIED, never ADMITTED and never OVERTURNED. Read from the object, the three hits are three different quantities.",
+    "world_D_order_bound": true
+  },
+  "multi_home_anchors": {
+    "n_arms_r301": {
+      "distinct": [
+        41.0
+      ],
+      "n": 4
+    },
+    "published_ref_pctile": {
+      "distinct": [
+        93.7,
+        96.0
+      ],
+      "n": 2
+    },
+    "r432_floor": {
+      "distinct": [
+        0.0084,
+        0.2117
+      ],
+      "n": 2
+    },
+    "r485_oracle": {
+      "distinct": [
+        0.2791,
+        0.6282
+      ],
+      "n": 2
+    }
+  },
+  "order_dependence": {
+    "published_ref_pctile": {
+      "PINNED_gate_exit_code": 1,
+      "REPAIRED_gate_exit_code": 0,
+      "artifact": 93.7,
+      "first_value_after_prepending": 96.0,
+      "gate_still_agrees": false
+    },
+    "r432_floor": {
+      "PINNED_gate_exit_code": 1,
+      "REPAIRED_gate_exit_code": 0,
+      "artifact": "0.0084",
+      "first_value_after_prepending": 0.2117,
+      "gate_still_agrees": false
+    },
+    "r485_oracle": {
+      "PINNED_gate_exit_code": 1,
+      "REPAIRED_gate_exit_code": 0,
+      "artifact": 0.6282,
+      "first_value_after_prepending": 0.2791,
+      "gate_still_agrees": false
+    }
+  },
+  "pinned_revision": "e0f433c1",
+  "population": {
+    "anchors": 343,
+    "evaluable_against_an_artifact": 343
+  },
+  "prior_art": {
+    "R1044": "measured this gate's NARROWNESS; not its attribution.",
+    "R1049": "measured this defect class in the CURRENCY gate: 16 of 63 facts multi-home. The repair never crossed to this gate.",
+    "R1066/R1067/R1068": "artifact-coupling and coverage; not attribution."
+  },
+  "question": "does the anchoring gate's first-match read hide a second, disagreeing home?",
+  "repair": {
+    "anchors": [
+      "published_ref_pctile",
+      "r432_floor",
+      "r485_oracle"
+    ],
+    "pinned_gate_fails_the_prepended_document": [
+      "published_ref_pctile",
+      "r432_floor",
+      "r485_oracle"
+    ],
+    "repaired_gate_fails_the_prepended_document": [],
+    "what": "three promiscuous anchors were tightened with unique surrounding context"
+  },
+  "reproducible": true,
+  "round": "R1082",
+  "source_sha256": "5ccc069a967809e84fce2c6893877c05ee9408d00396b915ec00af0e198e4671",
+  "specification_curve": [
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": true,
+      "overlap": false,
+      "region": "whole_document",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": false,
+      "overlap": false,
+      "region": "whole_document",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": true,
+      "overlap": true,
+      "region": "whole_document",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": false,
+      "overlap": true,
+      "region": "whole_document",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": true,
+      "overlap": false,
+      "region": "from_first_clause_home",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": false,
+      "overlap": false,
+      "region": "from_first_clause_home",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": true,
+      "overlap": true,
+      "region": "from_first_clause_home",
+      "unmatched": 0
+    },
+    {
+      "anchors": 343,
+      "disagreeing": 3,
+      "multi_home": 4,
+      "normalise": false,
+      "overlap": true,
+      "region": "from_first_clause_home",
+      "unmatched": 0
+    }
+  ],
+  "verdict": "world D (ORDER-BOUND) \u2014 4 of 343 anchors are multi-home and 3 of them bind to a DIFFERENT number once the second home is moved above the first: ['published_ref_pctile', 'r432_floor', 'r485_oracle']. The gate's agreement with the artifact is a fact about document LAYOUT. World C (the document contradicting itself) is NOT admitted \u2014 reading the hits from the object shows three different quantities, and this instrument's unit was never the claim's unit.",
+  "wrong_first": {}
+}

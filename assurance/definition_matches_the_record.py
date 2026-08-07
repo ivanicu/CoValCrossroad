@@ -1192,7 +1192,10 @@ ASSERTIONS = {
     # the clauses rather than an absence in the release.
     "r485_best_adm": r"prompt-AWARE arm is `gen` at\s*\n(\d\.\d{4}), a gap of",
     "r485_gap":      r"a gap of −(\d\.\d{4}), inside the",
-    "r485_oracle":   r"`oracle_k4` \*\*(\d\.\d{4})\*\*",
+    # ⛔ R1082: this matched TWICE — `oracle_k4`'s SCORE and its mean selection POSITION. The
+    #    gate agreed with the artifact only because `re.search` reached the score first, and
+    #    prepending the other sentence made the whole gate exit 1. Anchored on its own clause.
+    "r485_oracle":   r"clears the ceiling is one ③ excludes\.\*\*[\s\S]{0,80}?`oracle_k4` \*\*(\d\.\d{4})\*\*",
     "r485_core":     r"`coval_core`\s*\n\*\*(\d\.\d{4})\*\*",
     # R481 -- the aggregation sweep. Anchored because it DOWNGRADED a committed correlation and
     # because the blindness thresholds are what make the 2-of-3 denominator defensible.
@@ -1267,7 +1270,9 @@ ASSERTIONS = {
     "admitted_2B":           r"\*\*(\d+)\*\* arms admitted at Qwen3\.5-2B-Base",
     "admitted_08B":          r"\*\*(\d+)\*\* at\s*\n?\s*Qwen3\.5-0\.8B-Base",
     "n_arms_r301":           r"on all (\d+) arms",
-    "published_ref_pctile":  r"\*\*(\d+\.\d)th percentile\*\*",
+    # ⛔ R1082: this matched R348's POOL[0:k] percentile AND R812's POOL[0:4] percentile. Two
+    #    different rounds, two different sets, one pattern. Anchored on R348's own sentence.
+    "published_ref_pctile":  r"chosen by \*\*file order\*\*[\s\S]{0,40}?\*\*(\d+\.\d)th percentile\*\*",
     "sweep_levels":          r"Across all \*\*(\d+)\*\* reference levels",
     "label_users_min":       r"never falls below (\d+)",
     "five_at_strongest":     r"published five fall to \*\*(\d+)\*\*",
@@ -1564,7 +1569,9 @@ ASSERTIONS = {
     "r432_best": r"ranks the human.s choice first on \*\*([\d.]+)\*\* of interactions",
     "r432_oracle": r"while \*some\* arm does on \*\*([\d.]+)\*\*",
     "r432_head": r"headroom \*\*([+\-][\d.]+)\*\* against a floor",
-    "r432_floor": r"against a floor of \*\*([\d.]+)\*\*",
+    # ⛔ R1082: `against a floor of **X**` is generic prose and it also matched an unrelated
+    #    token-Jaccard p90. Anchored on R432's own headroom sentence.
+    "r432_floor": r"headroom \*\*\+[\d.]+\*\* against a floor of \*\*([\d.]+)\*\*",
     "r432_over": r"length rule \(0\.5096\) by ([+\-][\d.]+)\*\*",
     "r431_maxgap":           r"at \*\*at most ([\d.]+)\*\* across all ten pairs",
     "r431_surv":             r"\*\*(\d+) of 30\*\*\s*\n?within-stratum size-association cells",

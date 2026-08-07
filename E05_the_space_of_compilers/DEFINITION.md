@@ -1681,6 +1681,33 @@ of stored values — not that displayed precision specifically is what is requir
 still coarsens, and it rescued 7 pairs against a control demanding zero. The repair was to sweep the
 dose, not to loosen the threshold: `dp=325 → 0` rounds, `dp=2 → 387`, real `381`.
 
+⛔⛔ **AND R1082 TURNS THE INSTRUMENT ON THE GATE THAT GUARDS THIS DOCUMENT: 3 OF 343 ANCHORS WERE
+green because of document ORDER.** `definition_matches_the_record.read_claims` is `re.search(pat,
+text)` — the **first** match, over the whole 11,902-line document, once per anchor. **4** anchors
+matched more than once and **3** captured more than one distinct value. Prepending the second home's
+own sentence made the committed gate **exit 1 on all three**, while prepending a number-free
+paragraph changed nothing. **Its agreement with the record was a fact about layout.**
+⭐ **The invariant nobody had named:** *an anchor identifies a SENTENCE, and a pattern that matches
+two sentences has identified nothing.* R1049 measured this defect class in the **currency** gate —
+16 of 63 facts multi-home — and **the repair never crossed to the sibling gate.**
+⛔ **The pre-registered kill was mis-specified and its verdict is WITHHELD.** World C — *the document
+states one quantity twice with different values* — fires on `Q2 = 3` as written, and as written it
+is wrong: **the instrument's unit is a regex match capturing a number; the claim's unit is a
+statement of the same quantity.** Read from the object the three hits are three DIFFERENT quantities
+— R348's `POOL[0:k]` percentile then R812's `POOL[0:4]`; R432's headroom floor then an unrelated
+token-Jaccard floor; `oracle_k4`'s SCORE then its mean selection POSITION. **C is UNVERIFIED: never
+admitted, never overturned.**
+⭐ **Repaired and guarded in the same commit.** The three patterns now carry context unique to their
+intended sentence, and `assurance/an_anchor_binds_to_one_number.py` is wired into `preflight.py` so
+the next anchor cannot reintroduce it. It was **attacked six ways** before being trusted, including
+the production scenario that broke the old gate — prepending all three rival sentences, under which
+the repaired gate holds at `rc=0`. It fails on `distinct > 1` and only **warns** on a same-value
+repeat, and that leniency's admitted world is named rather than hidden: **1 anchor (`n_arms_r301`)
+sits in it today.**
+⚠ **The measurement is pinned to `e0f433c1`** and loads its anchor set from that revision, because
+reading the live file would regenerate the artifact from the repaired gate and **the finding would
+vanish from its own evidence.** The specification curve is `4 / 3 / 0` in all 8 cells.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

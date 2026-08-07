@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1082_*/results/first_home_only.json")
+    if d:
+        facts.append(("R1082", "three anchors were green because of document order, now repaired",
+                      f"multi-home {d['Q1_multi_home']}, disagreeing {d['Q2_disagreeing_homes']}, "
+                      f"pinned at {d.get('pinned_revision')}",
+                      [r"green\s+because\s+of\s+document\s+ORDER",
+                       r"an\s+anchor\s+identifies\s+a\s+SENTENCE"]))
+
     d = load("A27_*/R1081_*/results/occasion_by_execution.json")
     if d:
         h = d["headline_cell"]

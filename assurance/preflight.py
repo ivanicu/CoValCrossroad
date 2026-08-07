@@ -42,6 +42,10 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 GATES = [
     ("currency", "assurance/a_statement_is_current_with_the_arc.py"),
     ("anchoring", "assurance/definition_matches_the_record.py"),
+    # R1082: the anchoring gate reads `re.search` -- the FIRST home. Three of its 343 anchors bound
+    # to a second, unrelated sentence, and were green only because of document ORDER. This gate
+    # enforces the invariant that repair rests on, so the next anchor cannot reintroduce it.
+    ("one-home", "assurance/an_anchor_binds_to_one_number.py"),
 ]
 
 
