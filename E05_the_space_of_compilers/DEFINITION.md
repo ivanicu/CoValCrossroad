@@ -1386,6 +1386,25 @@ statement get updated*, which is a real question and the one it answers well. **
 reading its PASS as *the statement agrees with what was measured* — which is how every round in this
 window has been reading it.**
 
+⭐⭐⭐ **AND R1066 ATTACKS THE ANCHORING GATE FROM THE SAME SIDE AND GETS THE OPPOSITE ANSWER: IT IS
+ARTIFACT-COUPLED, SO THE TWO GATES DIFFER IN KIND.** Mutating one JSON number in
+`R444_clause_three_reconciled`'s artifact — `clause3_excludes_before`, `4 -> 7781`, **statement
+untouched** — turns it **RED (exit 1)**, while the **sham** (adding a key it asserts nothing about)
+leaves it **green**. ⭐ **That intervention/sham pair is what carries the finding**: coupling to *that
+value*, not sensitivity to any file edit. **Currency certifies that words were written; anchoring
+certifies that the words match a measurement.** R1065's result stands and is now **scoped to one
+gate**, a materially different conclusion from the one its own NEXT anticipated.
+⛔ **TWO OF MY OWN CONTROLS WERE MALFORMED AND BOTH FAILURES WERE THEIR OWN.** ① The target resolver
+searched `load(...)` globs under `E05` when the gate's globs are **round-directory** patterns resolved
+against arc directories — and the round **refused to run** rather than reporting *no artifact found* as
+a result. ② The first positive control replaced the **first `"4"` anywhere in a 2,400-line document**,
+an arbitrary digit rather than the asserted one, and its green said nothing. ⚠ **Its repair is blunt
+and that is stated rather than hidden**: `4` occurs **933** times as a standalone number, so mutating
+all of them licenses only *the gate can return red at all* — **the artifact side is what isolates the
+asserted value.**
+⚠ **And R1044's ceiling still binds**: anchoring covers **2.7-7.8%** of this document, so
+**artifact-coupled WITHIN ITS COVERAGE** is the entire claim — never *the statement is anchored*.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

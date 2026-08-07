@@ -1,0 +1,21 @@
+{
+  "round": "R1066",
+  "target": "E05_the_space_of_compilers/A24_what_the_definition_costs/R444_clause_three_reconciled/results/r444_decision.json",
+  "mutated_key": "clause3_excludes_before",
+  "exits": {
+    "baseline": 0,
+    "document_mutated": 1,
+    "artifact_mutated": 1,
+    "sham": 0,
+    "placebo_restored": 0
+  },
+  "artifact_coupled": true,
+  "world": "\u2b50 A ANCHORING IS ARTIFACT-COUPLED \u2014 mutating the artifact turned it RED (exit 1). **The two gates differ in kind**: currency certifies that words were written; anchoring certifies that the words match a measurement. R1065's finding is about ONE gate, not about the discipline.",
+  "controls": {
+    "positive_document_mutation_reds": true,
+    "negative_baseline_green": true,
+    "sham_equals_baseline": true,
+    "placebo_restore": true
+  },
+  "limitation": "measures behaviour, not intent; and only for a value inside the gate's declared 2.7-7.8% coverage"
+}
