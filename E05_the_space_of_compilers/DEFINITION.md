@@ -741,8 +741,23 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > Thirteen rounds bound a comparator and a criterion to every clause below. **Two clauses survive.**
 >
 > > **A CORE is a criterion set of size > 1 that ③ consumes no prompt-specific labels and
-> > ② beats a prompt-blind comparator — WITH THE COMPARATOR AND THE ADMISSIBILITY CRITERION
-> > NAMED.**
+> > ② beats a NAMED prompt-blind comparator by a RESOLVABLY POSITIVE margin — its bootstrap
+> > CI lower bound above zero.**
+> >
+> > ⚠ **On this release that admits 28 arms** *(including the core)*, **of which 25 are
+> > procedurally distinct**; the admitted set spans **1.6 effective dimensions** against **3.6**
+> > for a random 25, and its **closest member clears the boundary by 0.28 MDE**.
+> >
+> > ⛔ **CORRECTED R886.** This read *"WITH THE COMPARATOR AND THE ADMISSIBILITY CRITERION
+> > NAMED"* — as though the criterion were irreducible. **R881 measured that criterion B's BH
+> > correction binds for 0 of 28 admitted arms while the CI condition binds for all 28**, so the
+> > criterion is **one condition, not two**. That finding reached this file as an annotation ~200
+> > lines below and never reached the sentence a reader actually quotes — *a correction that did
+> > not reach the artifact it was about.* The breadth and the marginality are now **in** the
+> > statement for the same reason.
+> > ⚠ **Units, because six rounds just failed on them:** `28` and `25` are **arms**, `1.6` and
+> > `3.6` are **effective dimensions**, `0.28` is **MDE**. ⚠ And unchanged: *the definition
+> > describes the instance* stays live — one release, one core.
 >
 > | clause | verdict | comparator | criterion |
 > |---|---|---|---|

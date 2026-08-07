@@ -1,0 +1,23 @@
+  ① R881: BH binds 0 · CI binds 28: True  PASS
+  ② R881: closest admitted arm at 0.2792 MDE < 1.0: True  PASS
+  ③ R876: 25 arms, PR 1.6368: True  PASS
+  ④ the headline does NOT already carry the reduction: True  PASS
+
+  ⭐ WORLD B: the headline is behind its own evidence — the corrected statement is below
+
+  ⭐⭐ THE CORRECTED HEADLINE:
+
+     A CORE is a criterion set of size > 1 that ③ consumes no prompt-specific labels and ② be
+     ats a NAMED prompt-blind comparator by a resolvably positive margin — its bootstrap CI l
+     ower bound above zero. ⚠ On this release that admits 28 arms including the core, of whic
+     h 25 are procedurally distinct; the set spans 1.6 effective dimensions against 3.6 for a
+      random 25, and its closest member clears the boundary by 0.28 MDE.
+
+  ⭐ what changed and why:
+     · 'a NAMED admissibility criterion' -> 'its bootstrap CI lower bound above zero'
+       because BH binds for 0 of 28 (R881). The criterion is not two conditions.
+     · the breadth and the marginality are now IN the statement rather than 200 lines
+       below it, because a reader quotes the headline and not the annotations.
+     ⚠ unchanged: `the definition describes the instance` stays live. One release.
+
+  artifact: results/headline_debt.json @ 03c1f00b

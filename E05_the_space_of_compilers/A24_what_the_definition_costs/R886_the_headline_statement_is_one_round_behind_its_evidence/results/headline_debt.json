@@ -1,0 +1,20 @@
+{
+  "commit": "03c1f00b79bf025798f2d842e3adf0cc1271b2d8",
+  "world": "B",
+  "owed": true,
+  "corrected_headline": "A CORE is a criterion set of size > 1 that \u2462 consumes no prompt-specific labels and \u2461 beats a NAMED prompt-blind comparator by a resolvably positive margin \u2014 its bootstrap CI lower bound above zero. \u26a0 On this release that admits 28 arms including the core, of which 25 are procedurally distinct; the set spans 1.6 effective dimensions against 3.6 for a random 25, and its closest member clears the boundary by 0.28 MDE.",
+  "evidence": {
+    "binds_BH": 0,
+    "binds_CI": 28,
+    "closest_in_mdes": 0.27918356132918576,
+    "n_admitted_excl_aliases": 25,
+    "pr_observed": 1.6368089597757096
+  },
+  "unit_note": {
+    "28": "arms including the core",
+    "25": "arms, distinct, excl aliases",
+    "1.6368": "effective dimensions",
+    "0.28": "MDE"
+  },
+  "live_limitation": "the definition describes the instance; one release"
+}
