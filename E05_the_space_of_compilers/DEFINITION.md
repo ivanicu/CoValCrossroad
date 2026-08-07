@@ -9510,3 +9510,51 @@ construction** — no inversion could exist and control ② failed on its own de
 *control that cannot PASS* in a form the entry does not yet name: **not a threshold above the
 ceiling, but a plant too weak to reach the threshold.** The remedy is the same shape — compute what
 the design can return under the plant *before* running it.
+
+---
+
+## ⛔ R923 · EVERY PUBLISHED NUMBER WAS CALIBRATED AGAINST THE WEAKER COMPARATOR
+
+R922 left two admissible calibrations: `genericpool16` → cut **0.5514**, 28 admitted; `generic` →
+cut **0.5593**, 24 admitted. **Clause ② already has a procedure for deciding whether one arm
+resolvably beats another, and both comparators are arms.** So the round turns the definition on
+itself.
+
+⚠ **AND MY OWN NEXT PROPOSED THE WRONG COMPARISON.** It said to check the 0.0080 cut gap against
+R860's MDE of 0.0103. **R860's MDE is for a paired difference between two arms; the cut is a
+threshold on mean A2** — different statistics, different scales. That is §4's *"the control targets
+a different statistic than the one being reported"*, and an inherited MDE is another design's
+resolution, never this one's.
+
+⭐⭐⭐ **CLAUSE ② TURNED ON ITS OWN COMPARATORS:**
+
+| contrast | margin | 95% CI | admits? |
+|---|---|---|---|
+| `generic` − `genericpool16` | **+0.009103** | **[+0.005730, +0.012488]** | **YES** |
+| `genericpool16` − `generic` | −0.009103 | [−0.012488, −0.005730] | no |
+
+**`generic` resolvably beats `genericpool16` by the definition's own bar.** So the two calibrations
+are genuinely different — and **every published number in this arc used the weaker one.** Under the
+stronger admissible comparator the admitted count is **24**, not 28.
+
+**CONTROLS.** ① R922's cuts and counts reproduced exactly at the same seed (0.559311/24,
+0.551354/28). ② **resolution measured for THIS estimand, not inherited**: the half-width of an
+arm's margin CI vs `genericpool16` has median **0.009956**, IQR **[0.008227, 0.011842]** over 99
+arms. ③ dose-response on the arm nearest the bar, **with its forced part labelled** — `lo(d) =
+lo(0) + d` exactly, verified once against a real bootstrap, so linearity and the flip at `d = −lo(0)`
+are derivations; what is measured is that `|lo(0)| = 0.005730` falls **inside** the 0.009956 band.
+④ placebo `lo(X − X) = 0.0` for both comparators.
+
+⭐⭐ **BOUNDARY CENSUS — and this is the number the deliverable turns on.** Against `genericpool16`
+at resolution **0.009956**, **5 of the 28 admitted arms sit within the resolution of the bar**:
+`generic`, `generic_reprov`, `greedy_k12_fit1`, `topw_k2`, `topw_k8`. Seven arms in total are inside
+the band on either side. **Their admission is a coin this design cannot call.**
+
+**CONSEQUENCE FOR THE DEFINITION.** Two of the five — `generic_reprov` and `topw_k2` — are exactly
+the arms R921 found flipping between comparators, and now with a mechanism: they are within one
+resolution of the cut. **So the twelve is not twelve.** It is **9 arms admitted by a margin the
+design can resolve**, plus a boundary layer whose membership depends on which admissible comparator
+is named.
+
+⚠ **The definition must therefore state the comparator AND the resolution**, and quote the admitted
+set as a resolved core plus a named boundary layer — not as a count.
