@@ -1,0 +1,65 @@
+{
+  "round": "R1059",
+  "prompts": 968,
+  "nboot": 2000,
+  "rows": [
+    {
+      "optimiser": "varmax (target-free)",
+      "k": 2,
+      "admitted": 0,
+      "sham_admitted": 0,
+      "mean_agreement": 0.4772295881937172,
+      "sham_mean_agreement": 0.4678129936040744
+    },
+    {
+      "optimiser": "heldout (fit half, judged on the other)",
+      "k": 2,
+      "admitted": 0,
+      "sham_admitted": null
+    },
+    {
+      "optimiser": "varmax (target-free)",
+      "k": 3,
+      "admitted": 0,
+      "sham_admitted": 0,
+      "mean_agreement": 0.4847492746866777,
+      "sham_mean_agreement": 0.48511695990709225
+    },
+    {
+      "optimiser": "heldout (fit half, judged on the other)",
+      "k": 3,
+      "admitted": 0,
+      "sham_admitted": null
+    },
+    {
+      "optimiser": "varmax (target-free)",
+      "k": 4,
+      "admitted": 0,
+      "sham_admitted": 0,
+      "mean_agreement": 0.48629078185423447,
+      "sham_mean_agreement": 0.4877854932341871
+    },
+    {
+      "optimiser": "heldout (fit half, judged on the other)",
+      "k": 4,
+      "admitted": 0,
+      "sham_admitted": null
+    }
+  ],
+  "comparator_mean_agreement": 0.5513543391990778,
+  "world": "\u26d4 UNVERIFIED AGAIN, AND NOW WITH THE MECHANISM MEASURED \u2014 NOT World A, NOT World B. Neither optimiser is admitted, but the best core built here scores 0.4863 against the comparator's 0.5514, a gap of 0.0651. **Non-admission is fully explained by quality**, so R1058's provenance-vs-quality confound is NOT resolved \u2014 it is reproduced with better-built objects. \u2b50 And the sham says one of my two optimisers is not one: reversing varmax's ranking moves mean agreement by at most 0.0094, so its target-free objective contributes nothing and it is a size-matched selection rule wearing an optimiser's name. Only `heldout` is a real optimiser, and one optimiser is n=1.",
+  "quality_gap": 0.06506355734484337,
+  "best_synthetic_mean": 0.48629078185423447,
+  "objective_inert": true,
+  "quality_explains": true,
+  "controls": {
+    "positive_known_arm": true,
+    "negative_self": true,
+    "sham_gaps": [
+      0.00941659458964278,
+      -0.00036768522041452645,
+      -0.0014947113799526068
+    ]
+  },
+  "limitation": "independent means shares no named design choice, not built by someone else"
+}

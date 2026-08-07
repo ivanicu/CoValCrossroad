@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1059_*/results/second_optimiser.json")
+    if d:
+        facts.append(("R1059", "the confound reproduces; the quality gap sustains it",
+                      f"gap {d['quality_gap']:.4f}, best {d['best_synthetic_mean']:.4f}, "
+                      f"inert {d['objective_inert']}",
+                      [r"0\.0651",
+                       r"0\.4863[^.]{0,60}0\.5514|size-matched selection rule"]))
+
     d = load("A27_*/R1058_*/results/never_seen_cores.json")
     if d:
         facts.append(("R1058", "whether the clause defines or describes is UNIDENTIFIED here",

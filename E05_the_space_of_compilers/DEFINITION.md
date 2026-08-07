@@ -1240,6 +1240,26 @@ would be silence); a comparator's own vector is **not**; the empty selection adm
 so the operator returns the `q=100` answer **and emits no signal** — silent degradation, already
 measured. Re-running it would have been a third derivation reported as an experiment.
 
+⛔⛔ **AND R1059 BUILDS THE SECOND OPTIMISER R1058 CALLED THE BINDING CONSTRAINT — THE CONFOUND
+REPRODUCES, AND NOW ITS SIZE IS MEASURED.** Two optimisers were built on axes the released
+`greedy_*`/`topw_*` family shares and these do not: **`varmax`**, which never sees the human target
+and ranks criteria by how much they discriminate among the four responses, and **`heldout`**, which
+fits a global criterion ranking on **half** the prompts and is judged **only on the other half**.
+**Neither is admitted at any k** (0/3 seeds, k = 2, 3, 4) while released arms pass at `0.247`.
+⭐ **But the verdict is UNVERIFIED, not World B, and two controls say why.** ① **The sham condition I
+wrote could only fire if the optimiser was admitted** — a check that cannot fail in the case that
+occurred. Read on the **continuous score**, reversing `varmax`'s ranking moves mean agreement by
+**`[+0.0094, −0.0004, −0.0015]`**: **the target-free objective contributes nothing**, so `varmax` is a
+size-matched selection rule wearing an optimiser's name and **only `heldout` is a real optimiser —
+n = 1**. ② **The quantity that decides the round is the one I almost did not look at**: the best
+synthetic core scores **`0.4863`** against comparator `generic`'s **`0.5514`**, a gap of **`+0.0651`**.
+**Non-admission is fully explained by QUALITY**, so R1058's provenance-vs-quality confound is not
+resolved — it is **reproduced with better-built objects**.
+⭐⭐ **WHAT THIS ESTABLISHES IS A SPECIFICATION, NOT AN ASPIRATION.** R1058 could say only *"the
+comparison is confounded"*. This says **how far anything must travel to break it: `0.0651` of mean
+agreement, against a comparator at `0.5514`.** Any future attempt — a second team, a second release —
+must close that gap before its rejection or admission carries information about provenance at all.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
