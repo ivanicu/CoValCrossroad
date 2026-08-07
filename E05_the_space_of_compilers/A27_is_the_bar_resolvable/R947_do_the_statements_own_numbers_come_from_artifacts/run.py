@@ -134,17 +134,25 @@ def main() -> int:
             numerals.append({"numeral": s, "line": i, "context": l.strip()[:110]})
     print(f"\n  {len(numerals)} distinct numerals with >=3 decimal places in the statement region")
 
+    # ⛔ EXCLUDE THIS ROUND'S OWN RESULTS. Measured, not anticipated: the first run wrote
+    # numbers_trace.json -- which lists every numeral it had just failed to find -- into the very
+    # tree it searches, and the identical second run returned 145/145 with the pool grown by 158
+    # floats. A measurement that writes into its own population improves on re-run, silently and
+    # in the flattering direction, and nothing in the output says so.
     pool = []
     nfiles = 0
     for f in sorted(ROOT.glob("E0*/A*/R*/results/**/*.json")):
         if PROVISIONAL.search(f.name) or "_smoke_archive" in f.parts:
+            continue
+        if OUT in f.parents:
             continue
         try:
             floats(json.loads(f.read_text()), pool)
         except Exception:
             continue
         nfiles += 1
-    print(f"  {len(pool):,} float values harvested from {nfiles:,} committed results files")
+    print(f"  {len(pool):,} float values harvested from {nfiles:,} committed results files "
+          f"(this round's OWN results excluded -- see the note at the loop)")
 
     # index once per decimal precision -- a linear scan per numeral would be tens of millions of
     # comparisons across the perturbation seeds, and the cost meter runs before the loop, not after
@@ -187,6 +195,14 @@ def main() -> int:
     print(f"     real {real_rate:.3f} vs floor [{fl_lo:.3f}, {fl_hi:.3f}]: {c2}  "
           f"{'PASS — the search is not a coincidence engine' if c2 else 'FAIL — perturbed numerals trace as often; the instrument measures float density'}")
 
+    fl_mean = sum(floor) / len(floor)
+    power = 1.0 - fl_mean
+    c6 = power >= 0.5
+    print(f"\n  ⑥ THE INSTRUMENT'S OWN DETECTION POWER — a deliberately WRONG numeral traces "
+          f"{fl_mean:.3f} of the time, so this test would catch a fabricated number with "
+          f"probability {power:.3f}: {c6}")
+    print(f"     {'PASS — a non-trace is informative' if c6 else 'FAIL — the corpus holds ' + f'{len(pool):,}' + ' floats and matches almost any numeral of the right shape. `144 of 145 trace` is very nearly VACUOUS: the count is what a fabricated statement would also produce. Only the NON-tracers carry information, and even they are weak.'}")
+
     if not (c1 and c3):
         print("\n  UNVERIFIED: a control failed for its own reasons. Exit 2, never 0.")
         json.dump({"verdict": "UNVERIFIED", "c1": c1, "c3": c3},
@@ -203,9 +219,16 @@ def main() -> int:
         f"[{fl_lo:.3f}, {fl_hi:.3f}]. The statement is sourced."
         if world == "A" else
         f"{len(hit)} of {len(numerals)} numerals trace ({real_rate:.3f}) against a coincidence floor "
-        f"of [{fl_lo:.3f}, {fl_hi:.3f}]. **{len(miss)} do not**, and they are named above. The "
-        f"currency gate passes 7/7 while never looking at them, because they are not among the seven "
-        f"facts it was told to check — the gate's coverage is its author's list, not the statement."
+        f"of [{fl_lo:.3f}, {fl_hi:.3f}]. **{len(miss)} do not**, and they are named above. "
+        + (f"⛔ BUT READ ⑥ BEFORE READING THAT COUNT: a wrong numeral traces {fl_mean:.3f} of the "
+           f"time, so the test's power against a fabricated number is only {power:.3f}. "
+           f"**`{len(hit)} of {len(numerals)} trace` is very nearly vacuous** — a fabricated "
+           f"statement would score about the same. The informative content of this round is the "
+           f"{len(miss)} non-tracer, not the {len(hit)} tracers, and the sourcing question is "
+           f"therefore NOT answered by a rate at this precision."
+           if not c6 else
+           f"The currency gate passes 7/7 while never looking at them, because they are not among "
+           f"the seven facts it was told to check.")
         if world == "B" else
         f"perturbed numerals trace at [{fl_lo:.3f}, {fl_hi:.3f}] against a real rate of "
         f"{real_rate:.3f}. The search is a coincidence engine at this precision and NEITHER the "
@@ -224,8 +247,20 @@ def main() -> int:
                "region_lines": nlines, "n_numerals": len(numerals),
                "n_float_values": len(pool), "n_results_files": nfiles,
                "trace_rate": real_rate, "coincidence_floor": [fl_lo, fl_hi],
+               "detection_power": {"wrong_numeral_traces": fl_mean, "power": power,
+                                   "reading": ("a non-trace is informative" if c6 else
+                                               "the corpus matches almost any numeral of the right "
+                                               "shape; the TRACE COUNT is nearly vacuous and only "
+                                               "the non-tracers carry information")},
                "floor_per_seed": floor,
                "non_tracing": miss, "tracing": [r["numeral"] for r in hit],
+               "self_contamination": {
+                   "observed": "the first run wrote its artifact into the tree it searches; the "
+                               "identical second run returned 145/145 instead of 144/145 with 158 "
+                               "more floats in the pool",
+                   "fix": "this round's own results directory is excluded from the pool",
+                   "general": "a measurement that writes into its own population improves on "
+                              "re-run, in the flattering direction, and says nothing"},
                "prior_art_gate": "the cross-judge question was checked FIRST and is not a gap: "
                                  "DEFINITION.md:2959 and :4157 (R536) already settle it",
                "three_valued": "a non-tracing numeral is UNVERIFIED, never fabricated",
