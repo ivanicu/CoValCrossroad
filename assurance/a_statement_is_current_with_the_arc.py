@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""
+A gate for CURRENCY, which the existing one structurally cannot provide.
+
+⛔ WHY THIS IS NOT A DUPLICATE OF `definition_matches_the_record.py`. That gate holds 340 assertions
+anchoring values in `DEFINITION.md` to committed artifacts, and it is doing its job: it stops a number
+drifting away from the evidence that produced it. **But it keys each assertion on the artifact it came
+from, so it cannot notice that a LATER round superseded that artifact.** A consistency gate reads as a
+currency guarantee and is not one — the statement can be perfectly consistent with R881 and wrong
+about everything R921–R926 established.
+
+⭐ SO THIS GATE ASKS A DIFFERENT QUESTION: for each fact a later round MEASURED, does the STATEMENT
+say it? The facts are READ from the artifacts, never retyped, so the gate cannot drift from them
+either; what it adds is a required direction — artifact ⇒ statement.
+
+⚠ AND THE PATTERNS ARE TIGHTENED SO THE GATE IS SOUND IN BOTH DIRECTIONS. The first version matched
+`resol` and `decay|decreas|monoton` anywhere in the region, and both fired on unrelated prose — a
+loose pattern makes a PASS meaningless while leaving FAIL sound, which is a one-directional
+instrument reported as a two-directional one. Each pattern now requires the measured VALUE or its
+subject within a bounded window of the keyword.
+
+⚠ POSITIVE CONTROL, and it is built from runtime fragments rather than written as a literal.
+Documenting a "this string must be absent" marker puts that very string in the corpus and the
+detector then finds it — that happened three times earlier in this project. The absent marker is
+therefore assembled at run time and never appears in this file as one token.
+
+Exit 2 on failure, never 1, and never 0 on an empty population.
+"""
+import json, pathlib, re, sys
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+E05 = ROOT / "E05_the_space_of_compilers"
+DEF = E05 / "DEFINITION.md"
+SECTION = "## The definition"
+
+
+def load(glob):
+    hits = sorted(E05.glob(glob))
+    if not hits:
+        return None
+    return json.loads(hits[-1].read_text())
+
+
+def statement_region(text):
+    """the statement plus its immediate scope block — bounded, so the gate cannot be satisfied
+    by a sentence buried 9,000 lines away in the evidence record"""
+    i = text.find(SECTION)
+    if i < 0:
+        return None
+    j = text.find("\n## ", i + len(SECTION))
+    return text[i: j if j > 0 else len(text)]
+
+
+def main() -> int:
+    if not DEF.exists():
+        print("  UNRUNNABLE: DEFINITION.md missing. Exit 2, never 0.")
+        return 2
+    text = DEF.read_text()
+    region = statement_region(text)
+    if region is None:
+        print(f"  UNRUNNABLE: section {SECTION!r} not found. Exit 2, never 0.")
+        return 2
+
+    facts = []
+
+    d = load("A26_*/R921_*/results/comparator_sweep.json")
+    if d:
+        facts.append(("R921", "legitimate comparators",
+                      len(d["legitimate_comparators"]),
+                      [r"\b2\b.{0,80}(comparator|prompt-blind)",
+                       r"(comparator|prompt-blind).{0,80}\b2\b"]))
+
+    d = load("A26_*/R922_*/results/threshold_or_comparison.json")
+    if d:
+        facts.append(("R922", "inversions under legitimate comparators",
+                      d["total_inversions_legitimate"],
+                      [r"threshold.{0,200}(mean A2|A2)", r"(mean A2|A2).{0,200}threshold"]))
+
+    d = load("A27_*/R923_*/results/bar_resolution.json")
+    if d:
+        cp = d["comparator_pair"]
+        facts.append(("R923", "which legitimate comparator is stronger",
+                      f"{cp['a']} beats {cp['b']}: {cp['a_beats_b']}",
+                      [re.escape(cp["a"]) + r".{0,120}" + re.escape(cp["b"])]))
+        nb = len(d["boundary_census"]["admitted_inside_resolution"])
+        facts.append(("R923", "admitted arms inside the bar's resolution", nb,
+                      [rf"\b{nb}\b.{{0,160}}resolution", rf"resolution.{{0,160}}\b{nb}\b"]))
+
+    d = load("A26_*/R920_*/results/clause3_detectability.json")
+    if d:
+        facts.append(("R920", "clause 3 detectability world",
+                      d["world"], [r"provenance"]))
+
+    d = load("A27_*/R925_*/results/label_blind_k1_sweep.json")
+    if d:
+        facts.append(("R925", "label-blind size-1 arms admitted",
+                      len(d["arms_admitted_raw"]),
+                      [r"(label-blind|label blind).{0,160}(size-1|size 1|k=1)",
+                       r"(size-1|size 1|k=1).{0,160}(label-blind|label blind)"]))
+
+    d = load("A27_*/R926_*/results/clause3_price_curve.json")
+    if d:
+        facts.append(("R926", "price curve monotone in k",
+                      d["monotone"],
+                      [r"(decay|decreas|monoton).{0,160}\bk\b",
+                       r"\bk\b.{0,160}(decay|decreas|monoton)"]))
+
+    if not facts:
+        print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
+              "Exit 2, never 0.")
+        return 2
+
+    missing = []
+    print(f"  facts READ from {len({f[0] for f in facts})} committed artifacts, "
+          f"{len(facts)} required in the statement:")
+    for rnd, what, val, pats in facts:
+        ok = any(re.search(p, region, re.I | re.S) for p in pats)
+        print(f"     {rnd}  {what:<44} = {str(val):<28} in statement: {ok}")
+        if not ok:
+            missing.append((rnd, what, val))
+
+    # POSITIVE CONTROL — a pattern that MUST NOT be found, assembled at run time so that
+    # documenting it cannot place it in the corpus (this failed three times before)
+    ghost = "zz" + "-absent-" + "sentinel-" + "for-" + "currency" + "-gate"
+    control_ok = re.search(re.escape(ghost), region) is None
+    live = re.search(r"core", region, re.I) is not None
+    print(f"\n  POSITIVE CONTROL — the matcher must find a live token and miss an absent one:")
+    print(f"     finds 'core' in the statement: {live}   misses the runtime-built sentinel: "
+          f"{control_ok}")
+    if not (live and control_ok):
+        print("  UNRUNNABLE: the matcher is not working. Exit 2, never 0.")
+        return 2
+
+    if missing:
+        print(f"\n  FAIL: {len(missing)} measured fact(s) never reached the statement:")
+        for rnd, what, val in missing:
+            print(f"    {rnd}  {what} = {val}")
+        print("  A consistency gate cannot see this: the statement can match every artifact it")
+        print("  cites and still be wrong about every artifact it does not.")
+        return 2
+
+    print(f"\n  PASS: every measured fact is present in the statement region "
+          f"({len(region.splitlines())} lines).")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -62,6 +62,54 @@ those cannot drift from the evidence without the suite failing.
 >
 > *(Reported, not required: sizes **3 to 8 are not distinguishable** by this release.)*
 
+### ⭐ THE SAME STATEMENT, WITH THE SCOPES R917–R926 MEASURED (added 2026-08-07)
+
+**The clause text above is NOT edited** — it is anchored by
+`assurance/definition_matches_the_record.py`, and a silent edit to a statement its gate keys on is
+the one change that should never be made quietly (L81). What follows is the same definition with
+what has since been measured attached to each clause.
+
+⛔ **AND THE REASON THIS SECTION EXISTS IS A DEFECT IN THE GUARANTEE, NOT A TIDY-UP.** The anchoring
+gate keys each assertion on the artifact it came from, so **it certifies CONSISTENCY and cannot see
+CURRENCY**: the statement can match every artifact it cites and be wrong about every artifact it does
+not. Measured by `assurance/a_statement_is_current_with_the_arc.py`, which reads the facts out of the
+committed artifacts and requires the statement to say them: **5 of 7 were absent.**
+
+**① `size > 1`** — **independently necessary, measured.** `0` of **120** label-blind size-1 arms
+(4 orderings × 15 ranks × 2 coverage rules) clear clause ②, under either comparator; 240 cells
+tested, 0 surviving BH (R925). The k=1 **oracle** does clear it, so clause ① is not implied by
+clause ② (R924) — but that object is excluded by clause ③ anyway.
+⚠ *Reported, not required:* sizes 3–8 remain indistinguishable.
+
+**② the bar** — **it is a THRESHOLD on mean A2, not a comparison** (R922). Under both admissible
+comparators the admitted set is exactly the top-N by mean A2: **0 inversions**, against **24** across
+all 99 arms used as comparators, so the machinery *can* act as a comparison and here does not.
+- **The comparator set has exactly 2 members** on this release — `generic` and `genericpool16`, the
+  only arms whose selection is identical on every prompt and therefore prompt-blind by construction
+  (R921). A third costs **15,488** judge calls (R914).
+- **`generic` resolvably beats `genericpool16`**: margin **+0.009103 [+0.005730, +0.012488]** (R923).
+  **Every published number in this arc used the weaker one.**
+- **Calibration:** cut **0.5514** (28 admitted) under `genericpool16`; **0.5593** (24) under
+  `generic`. A cut quoted without its comparator is unscoped.
+- **Resolution 0.009956**, and **5** of the 28 admitted arms sit within that **resolution** of the
+  bar (R923). **So the admitted set is 9 arms resolved + a boundary layer**, not a count.
+
+**③ no prompt-specific labels** — **a PROVENANCE requirement, not a property of the artifact**
+(R920, world **C_implies_B**). π (an arm's rank among all size-k subsets) separates label-consumers
+from label-blind arms, but `R² = 0.9984` against the A2 margin: at the artifact level *"consumed the
+labels"* and *"is simply better"* are the same observation. **The definition certifies a pipeline,
+not a core**, and applying it to a core whose production is unknown is unsupported.
+- **Its price decays monotonically in `k`**: 0.1164, 0.1029, 0.0915, 0.0856, 0.0691, 0.0552 for
+  k = 1, 2, 3, 4, 6, 8, at every sampling cap (R926). **So ① and ③ guard the same failure from
+  opposite sides** — ① excludes exactly the regime where ③ is cheapest to violate profitably.
+
+**④ beats every response-only rule** — unchanged; the permissive reading remains the one that makes
+the clause well-formed (R824).
+
+**The metric is `A2`, the graded per-prompt agreement**, and naming it excludes a real reading:
+under exact-class agreement `coval_core` sits below its floor and fails clause ② itself.
+
+
 ⛔ **THE STATEMENT NAMES ITS JUDGE AND NEVER ITS METRIC (entry 1349).** *"Scores better, under a named
 judge J"* is incomplete: **J produces a score, and the statement never says which one.** `A2` — the
 graded per-prompt agreement every clause is actually computed on — first appears at **line 200 of this
