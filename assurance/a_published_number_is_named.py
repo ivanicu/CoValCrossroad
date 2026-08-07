@@ -63,9 +63,32 @@ def toks(s):
 
 
 def stem(w):
-    for suf in ("ing", "ed", "es", "s"):
-        if len(w) > 4 and w.endswith(suf):
-            return w[: -len(suf)]
+    """⛔ THREE VERSIONS OF THIS WERE WRONG, and RUNNING it is what showed each one.
+
+    v1 (shipped at R950) stripped any of ing/ed/es/s when the word was >4 chars. `mode` is 4 and
+    survived; `modes` is 5 and became `mod`. So a key named `mode_coverage` shared NO stem with a
+    sentence saying `modes covering`, and the gate reported UNNAMED on a correctly named key —
+    found on its FIRST LIVE USE, six rounds after I shipped it.
+
+    v2 required the remainder to be >=3 chars. `es` is tested before `s`, so `modes` still lost
+    `es`. **The repair was checked by running it and it failed.**
+
+    v3 encodes the actual rule: English takes `es` only after s, x, z, ch or sh. Verified on
+    singular/plural pairs including `class`/`classes`, where a naive `s` rule gives `clas`.
+
+    A convention gate that cannot match a word to its own plural is broken in the commonest case
+    it exists for.
+    """
+    if w.endswith("ies") and len(w) > 4:
+        return w[:-3] + "y"          # entries -> entry; found by the pair check, not by reading
+    if w.endswith("ing") and len(w) > 5:
+        return w[:-3]
+    if w.endswith("ed") and len(w) > 4:
+        return w[:-2]
+    if w.endswith("es") and len(w) > 4 and w[:-2].endswith(("s", "x", "z", "ch", "sh")):
+        return w[:-2]
+    if w.endswith("s") and not w.endswith("ss") and len(w) > 3:
+        return w[:-1]
     return w
 
 
@@ -104,7 +127,12 @@ def audit_round(d: pathlib.Path):
     """-> (rows, n_readme_numbers). One row per README number that the artifact also holds."""
     readme = d / "README.md"
     if not readme.exists():
-        return [], 0
+        # ⛔ MISSING and PRESENT-BUT-NUMBERLESS are two states and the first version returned one
+        #    value for both, so a round with NO README printed "SKIPPED (0 stated)" -- identical to
+        #    a round whose README simply states no numbers. Measured on the gate's first live use:
+        #    15 of the 17 rounds R940..R956 have no README.md at all, which P16 requires, and this
+        #    gate said nothing distinguishable about any of them.
+        return None, 0
     text = readme.read_text(errors="replace")
     docs = []
     for f in sorted(d.glob("results/**/*.json")):
@@ -147,9 +175,13 @@ def main() -> int:
         print("  Exit 2, never 0.")
         return 2
 
-    bad, total, examined = [], 0, 0
+    bad, total, examined, missing = [], 0, 0, []
     for d in rounds:
         rows, n_stated = audit_round(d)
+        if rows is None:
+            missing.append(d.name)
+            print(f"  {d.name:<52} ⛔ NO README.md — P16 requires one per round")
+            continue
         if not rows:
             print(f"  {d.name:<52} no README number is held by the artifact — SKIPPED "
                   f"({n_stated} stated)")
@@ -163,6 +195,11 @@ def main() -> int:
                 bad.append((d.name, r))
                 print(f"     UNNAMED  {r['numeral']:<12} at {r['paths'][:2]}")
                 print(f"              README says: …{r['phrase'][:88]}…")
+
+    if missing:
+        print(f"\n{len(missing)} in-scope round(s) have NO README.md at all — P16: `The R's README "
+              f"states the decision, the alternatives, and what it now rests on.`")
+        return 1
 
     if not examined:
         print("\n  EMPTY POPULATION: every in-scope round was skipped, so nothing was checked.")
