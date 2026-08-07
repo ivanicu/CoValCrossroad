@@ -1,0 +1,52 @@
+{
+ "source_sha": "0a25c41d298fe500",
+ "head": "650f781e",
+ "card_quotes": {
+  "cap": "up to four rubric items with the highest average ratings",
+  "properties": "highly rated, non-redundant, and non-conflicting rubric items",
+  "size_distribution": "Most prompts end up with four core rubric items (about 95%)",
+  "purpose": "Core is a proof of concept"
+ },
+ "card_quotes_verified": {
+  "cap": true,
+  "properties": true,
+  "size_distribution": true,
+  "purpose": true
+ },
+ "cap": 4,
+ "n_arms": 96,
+ "n_over_cap": 28,
+ "n_admitted_over_cap": 4,
+ "admitted_over_cap": [
+  {
+   "arm": "greedy_k8_fit1",
+   "nominal_size": 8
+  },
+  {
+   "arm": "indep_k8_fit1",
+   "nominal_size": 8
+  },
+  {
+   "arm": "topw_k6",
+   "nominal_size": 6
+  },
+  {
+   "arm": "topw_k8",
+   "nominal_size": 8
+  }
+ ],
+ "n_admitted_at_or_below": 20,
+ "controls": {
+  "positive_admits_below_cap": 20,
+  "negative_random_k4_rejected": true,
+  "placebo_self_zero": true,
+  "all_ok": true
+ },
+ "world": "B THE DEFINITION ADMITS WHAT THE CARD WOULD NOT \u2014 4 admitted arms exceed the card's cap of 4: greedy_k8_fit1 (size 8), indep_k8_fit1 (size 8), topw_k6 (size 6), topw_k8 (size 8)",
+ "r986_downgrade": "R986's claim that coval_core's per-prompt size runs 2 to 4 is a VERIFICATION of the dataset card, which states 'about 95%' have four and 'the remainder two or three'. Its decomposition across 96 arms stands.",
+ "not_measured": [
+  "non-redundancy",
+  "non-conflict"
+ ],
+ "would_require": "criterion text plus a semantic-similarity and weight-compatibility instrument, neither of which this round builds"
+}
