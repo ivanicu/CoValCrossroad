@@ -616,6 +616,15 @@ def main() -> int:
                       [r"(4 of 7|seed[- ]dependent).{0,300}(exact|withdraw)",
                        r"(q\s*=?\s*95|>= q%).{0,300}(stable|seed-identical)"]))
 
+    # ⛔⛔ R1036: scale-stability SELECTS q (withdrawing R1035's closing sentence), and it is not
+    #    binary — the onset family size grows with q and never arrives at q=100.
+    d = load("A27_*/R1036_*/results/scale_free_q.json")
+    if d:
+        facts.append(("R1036", "scale-stability selects q; onset grows with q",
+                      f"scale-free {d['scale_free_q']}, max never stabilises",
+                      [r"(onset).{0,300}(grows with q|never)",
+                       r"(scale[- ]stab\w+|scale[- ]free).{0,300}(select|withdraw)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")

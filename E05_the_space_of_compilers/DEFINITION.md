@@ -884,6 +884,24 @@ curve for ②′.
 ⚠ **N/A** — whether a quantile bound is the *right* clause is construct validity, needing an external
 criterion this release does not carry.
 
+⭐⭐ **AND R1036 SELECTS q, WITHDRAWING R1035's CLOSING SENTENCE.** R1035 asserted the curve *cannot*
+choose among q ∈ {50…99}. It can — by **scale-stability**, the device R848 already used for clause ④
+(its bar rose **0.0074 per ln(n)**, the signature of a **maximum**). A quantile has no such drift, so
+sweeping **family size** selects q where sweeping q alone cannot.
+
+⭐ **And scale-freeness is not binary — it has an ONSET family size that grows with q:**
+
+| q | 50 | 75 | 90 | 95 | 99 | 100 |
+|---|---:|---:|---:|---:|---:|---|
+| onset n | 100 | 100 | 100 | 300 | 2000 | **never** |
+| \|ext\| | 12 | 12 | 11 | 9 | 8 | — |
+
+**The clause's cost is therefore not a threshold but how much family you must enumerate to state it**,
+and **q=100 cannot be stated at any size reached here** — the max-over-search seen as a rate rather
+than a cliff. ⚠ q=0 is excluded as **degenerate**: it imposes no requirement and admits 73 arms.
+⚠ **Scale-stability is necessary, not sufficient** — a size-independent q can still be the wrong bar,
+and deciding that needs an external criterion for what the comparator family represents. **N/A.**
+
 | | |
 |---|---:|
 | extension under `generic` alone | 9 |
