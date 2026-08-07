@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1076_*/results/membership_tests.json")
+    if d:
+        facts.append(("R1076", "the precision-blind comparison is a pattern; the helper is shipped",
+                      f"impls {d['implementations']}, blind {d['precision_blind']}, "
+                      f"aware {d['precision_aware']}",
+                      [r"38\s+independent\s+value-membership\s+implementations",
+                       r"assurance/valuematch\.py"]))
+
     d = load("A27_*/R1075_*/results/produced_or_consumed.json")
     if d:
         facts.append(("R1075", "the unstored-values chain is void: they are stored at full precision",

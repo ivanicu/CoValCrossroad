@@ -1552,6 +1552,25 @@ R981's source), `0.559311` and `0.551354` PRODUCED — agreeing with R1074's ind
 position-based classification. **Two instruments converged; they answer a question that no longer
 needs asking.**
 
+⭐⭐⭐ **AND R1076 SETTLES WHETHER THAT WAS A LAPSE OR A PATTERN, AND SHIPS THE ONE PLACE THE FIX CAN
+LIVE: `38 independent value-membership implementations` IN THIS REPOSITORY, `34` OF THEM
+PRECISION-BLIND against 4 precision-aware.** So every round re-makes the choice and R1075's collapse
+was waiting to happen again. **The remedy is `assurance/valuematch.py`** — *when one side of a
+comparison is a value read from PROSE, match at that value's own displayed precision* — and its
+acceptance test is not its own green: it **finds the three values R1070's exact test missed** and
+**still rejects an unrelated value**.
+⛔ **THREE CLASSIFIER REPAIRS, EACH FORCED BY A CONTROL, AND THE COUNT FELL FROM `132` TO `38`.**
+① `main` was classified as a membership test, because any long function contains ` in `, `==` and
+`abs(` — **length became part of the definition**. ② `cls`, `agree`, `top1`, `rank_obs` were counted —
+scoring helpers, not membership tests — and ⭐ **the positive control passed anyway, because it only
+checks that KNOWN cases are FOUND, never that what is found is the thing being claimed**; §4's row
+verbatim. ③ `agree` survived even that: it iterates and compares but **returns a number**, and a
+membership test returns a **verdict**. **The negative control — a named list of helpers that must NOT
+appear — is what made repairs ② and ③ possible at all.**
+⚠ **38 is a LOWER bound**: the classifier recognises membership tests by shape. **And a precision-blind
+test is not thereby wrong** — exactness is correct when both sides come from the same computation, and
+fails only when one side is a displayed value.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`
