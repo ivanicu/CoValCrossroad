@@ -1,0 +1,114 @@
+{
+ "source_sha": "d7dd7d3294a755eb",
+ "head": "every candidate wording of clause \u2463 on one ruler, one protocol",
+ "n_prompts": 968,
+ "n_usable": 968,
+ "nsplit": 8,
+ "seed": 825,
+ "population": 96,
+ "bar_lexical": 0.48173774682302206,
+ "bar_lexical_spread": [
+  0.4709722996373306,
+  0.488678243952398
+ ],
+ "bar_witness": 0.5725512224689451,
+ "bar_rise_from_one_witness": 0.09081347564592301,
+ "chance": 0.13973550392754175,
+ "core_a2": 0.5664774811929548,
+ "r849_selected_rule": "+mean_word_len+uppercase",
+ "r849_rule_median_rank": 1.0,
+ "controls": {
+  "positive_core_a2_matches_r825": true,
+  "positive_r849_rule_top_decile": true,
+  "positive_r922_wiring": true,
+  "negative_constant_at_chance": true,
+  "placebo_single_rule_class": true
+ },
+ "classes": [
+  {
+   "name": "lexical-394 (R849's class)",
+   "bar": 0.48173774682302206
+  },
+  {
+   "name": "lexical-394 \u222a {char-ngram witness}",
+   "bar": 0.5725512224689451
+  },
+  {
+   "name": "the witness alone (permissive)",
+   "bar": 0.5725512224689451
+  }
+ ],
+ "rows": [
+  {
+   "class": "lexical-394 (R849's class)",
+   "bar": 0.48173774682302206,
+   "comparator": "generic",
+   "clause4_admits": 58,
+   "conjunction": 9,
+   "clause4_unique": 0,
+   "core_in": true,
+   "vacuous": true,
+   "empties": false
+  },
+  {
+   "class": "lexical-394 (R849's class)",
+   "bar": 0.48173774682302206,
+   "comparator": "genericpool16",
+   "clause4_admits": 58,
+   "conjunction": 12,
+   "clause4_unique": 0,
+   "core_in": true,
+   "vacuous": true,
+   "empties": false
+  },
+  {
+   "class": "lexical-394 \u222a {char-ngram witness}",
+   "bar": 0.5725512224689451,
+   "comparator": "generic",
+   "clause4_admits": 14,
+   "conjunction": 0,
+   "clause4_unique": 9,
+   "core_in": false,
+   "vacuous": false,
+   "empties": true
+  },
+  {
+   "class": "lexical-394 \u222a {char-ngram witness}",
+   "bar": 0.5725512224689451,
+   "comparator": "genericpool16",
+   "clause4_admits": 14,
+   "conjunction": 0,
+   "clause4_unique": 12,
+   "core_in": false,
+   "vacuous": false,
+   "empties": true
+  },
+  {
+   "class": "the witness alone (permissive)",
+   "bar": 0.5725512224689451,
+   "comparator": "generic",
+   "clause4_admits": 14,
+   "conjunction": 0,
+   "clause4_unique": 9,
+   "core_in": false,
+   "vacuous": false,
+   "empties": true
+  },
+  {
+   "class": "the witness alone (permissive)",
+   "bar": 0.5725512224689451,
+   "comparator": "genericpool16",
+   "clause4_admits": 14,
+   "conjunction": 0,
+   "clause4_unique": 12,
+   "core_in": false,
+   "vacuous": false,
+   "empties": true
+  }
+ ],
+ "world": "B NONE SURVIVES \u2014 every class is vacuous, or empties the definition, or excludes the instance, so clause \u2463 cannot be stated as a FILTER on this release",
+ "comparator_flips": [],
+ "not_measured": "the witness's per-split bars; the union class uses max of two means",
+ "would_require": "R825 persisting its per-split bar values",
+ "limitation": "asks which wording is coherent on THIS release, not which defines a core"
+}

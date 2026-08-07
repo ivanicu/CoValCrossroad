@@ -120,6 +120,52 @@ property of the DESIGN rather than of the clause.
 - **Not established:** whether φ\* also depends on the corpus. Subsampling varies N only; the closed
   form needs no corpus term to predict the table, which is weaker than having measured a second one.
 
+### ⛔⛔⛔ CLAUSE ④ HAS NO VIABLE SETTING AS A FILTER — every class is either vacuous or empties the definition (added 2026-08-07, R1003)
+
+Every prior verdict on clause ④ was reached in a **different unit system** — R849 on annotator parity
+halves, R825/R826 on prompt splits, R847 on 1,078 prompts — and comparing across them is this arc's
+recurring error. **Rebuilt on ONE ruler** (A2, 968 prompts) under **one protocol** (R825's own: select
+on the fit half, score on the eval half, 8 splits):
+
+| class | bar | ④ admits | conjunction | ④'s unique removals | `coval_core` in |
+|---|---:|---:|---:|---:|---|
+| lexical-394 (R849's class) | 0.481738 | 58 | 9 / 12 | **0 — vacuous** | yes |
+| lexical-394 ∪ {char-n-gram witness} | 0.572551 | 14 | **0 — empty** | 9 / 12 | **no** |
+| the witness alone (permissive) | 0.572551 | 14 | **0 — empty** | 9 / 12 | **no** |
+
+⭐⭐⭐ **So clause ④ cannot be stated as a filter on this release: at every setting it either does
+nothing or admits nothing.** There is no class between them, because the third row is the second row
+— once the witness is in, it *is* the max.
+
+### ⭐ THE DEBT R1002 REFUSED TO PAY, NOW LEGITIMATE
+
+R1002 declined to say how far the bar moves when the witness is admitted, because the two numbers
+were on different splits. On one ruler and one protocol:
+
+```
+admitting ONE admissible rule:   0.481738  ->  0.572551      = +0.090813
+coval_core's margin over R849's class:                          +0.084740
+```
+
+⭐⭐ **The released core's entire margin under the surviving wording is SMALLER than what a single
+admissible rule adds to the bar.** That is R1002's closure failure with a magnitude attached, and it
+is why "name the class" cannot rescue the clause: the verdict is decided by one membership decision,
+not by the object.
+
+**Controls.** `coval_core`'s A2 reproduces **0.566477**, the value R825 compared its bar to — so the
+imported bar sits on the same ruler. R849's own selected rule `+mean_word_len+uppercase` comes back at
+**median rank 1 of 394** on the fit halves, so this re-implementation picks exactly the rule R849
+picked. A constant rule lands at **0.139736**, far below the bar. A one-rule class's max equals that
+rule. R922's cut and count reproduce at 1e-9.
+
+⚠ **Corroboration, not reproduction:** B(lexical) here is **0.481738** against R849's committed
+**0.482016** — agreement to ~3e-4 across **different split protocols** (prompt vs annotator parity).
+That is convergent evidence, and it is not the same measurement.
+
+⚠ **The union bar is a max of two MEANS.** R826 committed the witness's bar as a mean over its splits,
+not per split, so the union class's variance is understated. Its point value — the quantity used — is
+unaffected.
+
 ### ⛔⛔⛔ THE SURVIVING REPAIR'S REFERENCE CLASS IS NOT CLOSED UNDER ITS OWN CLAUSE (added 2026-08-07, R1002)
 
 R1001 left exactly one wording standing: entry 1368's repair — *"exceeds, by a margin reported with

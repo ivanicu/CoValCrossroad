@@ -263,6 +263,19 @@ def main() -> int:
                        r"(reference class|named class).{0,300}"
                        r"(not closed|convenience family|boundary we drew|proper subset)"]))
 
+    # ⛔ R1003: clause ④ has NO viable setting as a filter — every class is vacuous or empties the
+    #    definition — and the core's whole margin is smaller than what ONE admissible rule adds.
+    #    A statement still presenting ④ as a filter is presenting a setting that does not exist.
+    d = load("A27_*/R1003_*/results/wording_grid.json")
+    if d:
+        facts.append(("R1003", "clause ④ has no viable setting as a filter, and the margin is "
+                               "smaller than one rule's contribution",
+                      f"rise {d['bar_rise_from_one_witness']:.6f} vs core margin "
+                      f"{d['core_a2'] - d['bar_lexical']:.6f}",
+                      [r"(0\.0908|\+0\.09).{0,300}(0\.0847|margin|one rule|single)",
+                       r"(no viable setting|cannot be stated as a filter|either vacuous or "
+                       r"empt).{0,200}(④|clause four|filter)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
