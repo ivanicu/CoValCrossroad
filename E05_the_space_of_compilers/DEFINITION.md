@@ -926,6 +926,25 @@ retraction of a working gate**. Both are now verified to break what the gate key
 verdict is read.
 ⚠ **Detection is necessary, not sufficient** — a firing gate may still check the wrong property.
 
+⛔⛔ **AND R1044 RETRACTS R1043's HEADLINE ONE ROUND LATER: THE ANCHORING GATE IS NARROW, NOT BLIND.**
+Two errors, both mine. ① The value R1043 corrupted, `0.0098`, is **not inside any assertion span** —
+it appears in the gate's source and in this document, but its located-assertion set does not cover it,
+so *"a value it explicitly asserts"* was **false**. ② The gate had been **printing its own coverage
+all along** — `2.7%–7.8% of this document depending on what counts as a claim`, followed by *"A PASS
+certifies the anchored numbers, never the document"* — and I read its **exit code**, never its output.
+**That is door ①, a description instead of the object, inside a round about whether instruments can be
+trusted.**
+
+Split by the gate's **own** coverage: corrupting a **covered** value (`0.034722`) turns it **RED**;
+the **uncovered** one stays **GREEN**, reproducing R1043's observation exactly — which makes this a
+**scoping correction, not a contradiction**. ⭐ **The gate detects within its declared scope**;
+**343 assertions, 349 located spans, 2.7%–7.8% coverage.**
+⚠ **What R1043 got right and stands**: `attack_the_suite` tests the empty-input floor and not
+detection; **currency** and **next** do detect; and the mutation is itself an instrument needing its
+own control — the discipline that caught this.
+⚠ **Coverage is a denominator, not a verdict on the remainder**: whether the 92–97% the gate does not
+cover contains an error is untested.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

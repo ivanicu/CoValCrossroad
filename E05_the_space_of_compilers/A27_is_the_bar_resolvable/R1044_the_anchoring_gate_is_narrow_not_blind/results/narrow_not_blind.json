@@ -1,0 +1,28 @@
+{
+  "round": "R1044",
+  "retracts": "R1043's 'anchoring is blind'",
+  "assertions": 343,
+  "located_spans": 349,
+  "r1043_value": {
+    "value": "0.0098",
+    "covered": false
+  },
+  "mutation": {
+    "uncovered": {
+      "value": "0.0098",
+      "rc": 0
+    },
+    "covered": {
+      "value": "0.034722",
+      "rc": 1
+    }
+  },
+  "gate_printed_coverage": [
+    "bold_any     142 of  1831 numeric claims covered      7.8%",
+    "decimal      182 of  5767 numeric claims covered      3.2%",
+    "sig2plus     157 of  5333 numeric claims covered      2.9%",
+    "all_number   317 of 11647 numeric claims covered      2.7%"
+  ],
+  "world": "\u2b50 A NARROW BUT SOUND \u2014 corrupting a COVERED value turns the gate RED (rc=1) while an UNCOVERED one stays GREEN (rc=0). The gate detects within its declared scope. \u26d4 R1043's headline \u2014 'one of the three commit gates is blind' \u2014 is WITHDRAWN. What stands is the gate's OWN published coverage: a PASS certifies the anchored numbers, never the document.",
+  "limitation": "coverage is a denominator, not a verdict on the 92-97% remainder"
+}

@@ -694,6 +694,16 @@ def main() -> int:
                       [r"(mutation).{0,300}(blind|anchoring)",
                        r"(anchoring).{0,200}(passes|blind).{0,200}(corrupt|assert)"]))
 
+    # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
+    #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1044_*/results/narrow_not_blind.json")
+    if d:
+        mm = d["mutation"]
+        facts.append(("R1044", "the anchoring gate is narrow, not blind",
+                      f"covered rc {mm['covered']['rc']}, uncovered rc {mm['uncovered']['rc']}",
+                      [r"(narrow).{0,200}(not blind|rather than blind)",
+                       r"(2\.7%|7\.8%).{0,300}(coverage|covered)"]))
+
     if not facts:
         print("  UNRUNNABLE: no artifacts found — an empty population must not pass. "
               "Exit 2, never 0.")
