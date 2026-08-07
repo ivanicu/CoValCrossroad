@@ -748,6 +748,28 @@ a direction and not a value, but the opposite of what "a larger class is a stron
 > > **The TWO-clause definition admits 12 arms.** Clause ② admits 29 (R856's committed `c2`);
 > > **clause ③ then excludes 16 of them — 57.1%** *(⛔ R889: was `17 of 29 — 58.6%`;
 > > R888 ran on a SUPERSEDED population, see below)* — because their generator opens
+> >
+> > ⭐ **WHAT CLAUSE ③ BUYS, MEASURED (R892–R895).** Its cheating-prevention half is now priced.
+> > Over **8 cells matched on (rule, k, JUDGE)**, a leaky arm — fitted on all annotators, scored
+> > against annotators it saw — beats its held-out twin by **+0.0097, bootstrap CI
+> > [+0.0068, +0.0127], sign-flip p = 0.0073** (floor 0.0078). All 8 gaps positive, range
+> > +0.0042…+0.0158 — **no k-dependence.**
+> > ⚠ **Resolution, stated precisely:** +0.0097 is BELOW R860's *per-cell* MDE of 0.0103, so **no
+> > single cell is individually resolvable.** What carries the result is CONSISTENCY across 8
+> > cells, which is what the sign-flip test measures and all it claims. Comparing a pooled
+> > estimate to a per-cell MDE would mix resolutions.
+> > ⭐⭐ **CROSS-MODEL COMES OFF THE IMPOSSIBILITY REGISTER.** Every round in this arc listed it as
+> > structurally impossible — *"more than one site"*. The release ships `oracle_k4_08b` and
+> > `oracle_k4_fit1_08b`: **a complete leakage cell under the 0.8B judge.** It gives **+0.0042**,
+> > **agreeing in sign**, and is reported apart — never pooled, because a 0.8B gap and a 2B gap
+> > measure one construct with two instruments.
+> > ⛔ **THREE NUMBERS WITHDRAWN ON THE WAY HERE.** `+0.0190` (k-confounded: leaky arms were all
+> > k=4 while held-out spanned k=2,4,8,12) → `+0.0378` (judge-MIXED: a prefix regex swept the
+> > 0.8B `_08b`/`_08bR` rebuilds into the held-out side of every k=4 cell) → **+0.0097**. Each was
+> > overturned by a better instrument, never by a better argument.
+> > ⚠ **AND ONLY HALF OF CLAUSE ③ IS PRICED.** `held-out − label-free` stays UNIDENTIFIED:
+> > `oracle_k`/`indep_k`/`greedy_k` consume labels by construction and have no label-free twin,
+> > so rule and label-access cannot be varied separately on this release.
 > > `data/comparisons.jsonl` and parses human rankings. Read from the object, not the name:
 > > `corebench/select_core.py:102` branches on `a.rule in ("oracle_k", "indep_k", "greedy_k")`,
 > > and **those three rules, and only those three, consume the labels clause ③ forbids.**
