@@ -1626,6 +1626,46 @@ census**: it needs to be the thing reached for at the **point of use**. Enumerat
 expensive path; **making the next comparison correct is the cheap one, and it was available from R1076
 onward without any of this.**
 
+⛔⛔ **AND R1080 KILLS THE REASON R1079 GAVE FOR WHY IT WAS NOT REACHED FOR.** R1079 closed by proposing
+that a helper needing a path fiddle gets re-implemented rather than reused. **It needs no fiddle.** The
+helper is reachable from every depth this repository contains — a probe placed at component counts
+2·3·4·5·6·8, run in three invocation modes, imports it in **18 of 18** in-repo cells using the landmark
+idiom this repository already commits **262** times, and **139** committed files already reach into
+`assurance/`. All three pre-registered kill conditions fired together.
+
+⭐ **What the grid measured versus what it derived, kept apart.** The `parents[3]` row fails at every
+non-canonical depth, and that is a **DERIVATION**: `parents[3]` of a file at component count *d* lands
+at *d−3*, which is the root only at *d = 4*. It was executed and it could not have come out otherwise,
+so it is the negative control's evidence and **not a finding**. Only the landmark row could have gone
+either way, which is why the confound below had to be run at all.
+
+⚠ **The confound, controlled in the same iteration.** A landmark search is depth-robust but would be
+**ambiguous** if any directory beneath the root held its own marker. Measured: exactly **1** directory
+in this checkout holds a `covalx` child, the root itself — and a **planted decoy** marker does capture
+the search, so that uniqueness is a measurement rather than an instrument that never fires.
+
+⭐⭐ **THE FINDING THE ROUND DID NOT GO LOOKING FOR: THE HELPER HAS ZERO STATIC IMPORTERS.** Four rounds
+after it shipped, `assurance/valuematch.py` is imported by **no** committed file. The single mechanical
+reader is **R1076**, its own author, via `import_module` while verifying it loads. **R1077, R1079 and
+R1080 each name it in prose only** — and R1077 and R1079 each *wrote a sentence saying it needs adopting
+rather than merely existing*. **The rounds that diagnosed the adoption problem are the population of
+non-adopters, and this one joins them.**
+
+⛔ **What is NOT settled, stated as the fork rather than resolved by preference.** World A (mechanical
+barrier) is dead. *Unknown to its callers* is already weak — all three non-adopting rounds name the file
+by path. *Rounds are conventionally self-contained* is untested. **The discriminator is deliberately not
+a fourth syntactic classifier**: asking "did this round have an occasion to use it?" is the same
+semantic question that failed three controls in R1076·R1078·R1079. It needs an instrument that finds an
+occasion by **execution** — running a comparison both ways and observing a disagreement — not by
+parsing.
+
+⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
+first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
+`"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
+`other`. Had the control not existed, `k2` would have read **False** and this round would have
+concluded that world A survived. **Matching a serialisation of a tree is a text scan wearing an AST's
+clothes** — R1077's lesson one level up.
+
 ⛔⛔ **THE CLAUSE TEXT ITSELF IS REPAIRED HERE (R1032), NOT ANNOTATED BESIDE.** It read *"resolvably
 beats **EVERY** comparator in the certified prompt-blind set"* until R1032 measured that the
 as-written reading and the repaired one **compute different extensions**: identical under `A2`

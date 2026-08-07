@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1080_*/results/reachable_or_unknown.json")
+    if d:
+        facts.append(("R1080", "the helper is reachable from every depth and has zero static importers",
+                      f"world_A_killed {d['kill']['world_A_killed']}, "
+                      f"landmark statements {d['census_Q2']['statements'].get('landmark')}, "
+                      f"static importers {len(d['adoption_Q3']['static_import'])}",
+                      [r"zero\s+static\s+importers",
+                       r"reachable\s+from\s+every\s+depth"]))
+
     d = load("A27_*/R1079_*/results/closure_membership.json")
     if d:
         facts.append(("R1079", "three classifiers failed; the population is not mechanically enumerable",

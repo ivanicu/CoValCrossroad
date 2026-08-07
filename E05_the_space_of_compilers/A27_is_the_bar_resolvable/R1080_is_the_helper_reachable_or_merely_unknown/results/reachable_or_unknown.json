@@ -1,0 +1,1128 @@
+{
+  "adoption_Q3": {
+    "dynamic_import": [
+      "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1076_one_place_to_fix_it/run.py"
+    ],
+    "names_it_only": [
+      "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1077_which_blind_sites_are_exposed/run.py",
+      "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1079_membership_or_scoring_for_closures/run.py",
+      "E05_the_space_of_compilers/A27_is_the_bar_resolvable/R1080_is_the_helper_reachable_or_merely_unknown/run.py"
+    ],
+    "note": "adoption is measured by MECHANISM, not by intent. Whether any of these rounds HAD an occasion to use it is a semantic question and R1076/78/79 measured that this repository's semantic questions do not survive syntactic classification. It is left UNRESOLVED here, with the discriminator named in the README.",
+    "rounds_committed_after_R1076": 4,
+    "static_import": []
+  },
+  "cells": [
+    {
+      "depth": -1,
+      "err": "IndexError: 3",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": -1,
+      "err": "IndexError: 3",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": -1,
+      "err": "IndexError: 3",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "parents3",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-dominant"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "committed-robust"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "committed-robust"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "landmark",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "committed-robust"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 2,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 3,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 4,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 5,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 6,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_root",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "rel_from_own_dir",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": 8,
+      "err": "",
+      "idiom": "namespace",
+      "mode": "abs_from_far",
+      "ok": true,
+      "role": "candidate-remedy"
+    },
+    {
+      "depth": -1,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": -1,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": -1,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch'",
+      "idiom": "bare",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "PLACEBO"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 2,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 2,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 2,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 3,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 3,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 3,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 4,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 4,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 4,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 5,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 5,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 5,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 6,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 6,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 6,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 8,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 8,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": 8,
+      "err": "StopIteration",
+      "idiom": "sham",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "SHAM"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": -1,
+      "err": "StopIteration",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 2,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 3,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 4,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 5,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 6,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_root",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "rel_from_own_dir",
+      "ok": false,
+      "role": "g=0 GUARD"
+    },
+    {
+      "depth": 8,
+      "err": "ModuleNotFoundError: No module named 'valuematch_this_module_does_not_exist'",
+      "idiom": "nonexistent",
+      "mode": "abs_from_far",
+      "ok": false,
+      "role": "g=0 GUARD"
+    }
+  ],
+  "census_Q2": {
+    "distinct_files_with_any_root_assignment": 1003,
+    "files": {
+      "landmark": 262,
+      "level_counted": 719,
+      "other": 73
+    },
+    "files_scanned": 1087,
+    "instruments_agree": true,
+    "second_instrument_lines": 1054,
+    "statements": {
+      "landmark": 262,
+      "level_counted": 719,
+      "other": 73
+    },
+    "statements_total": 1054,
+    "unparsable": 0
+  },
+  "controls": {
+    "CROSS-INSTRUMENT census statement total agrees with a line scan": true,
+    "NEGATIVE parents3 fails at every non-canonical in-repo depth": true,
+    "PLACEBO bare import succeeds nowhere": true,
+    "POSITIVE parents3 succeeds at canonical depth 4, all modes": true,
+    "SHAM landmark for an absent marker succeeds nowhere": true,
+    "census classifier controls": {
+      "NEGATIVE a constant path is neither": true,
+      "NEGATIVE a parents-search with no dir test is NOT a landmark": true,
+      "POSITIVE .parent chain labelled level_counted": true,
+      "POSITIVE landmark search labelled landmark": true,
+      "POSITIVE level-counted subscript labelled level_counted": true,
+      "REGRESSION the committed landmark form, verbatim": true,
+      "g=0 a comment and a string contribute no rows": true
+    },
+    "g=0 correct path + absent module succeeds nowhere": true,
+    "two-run byte-identical grid": true
+  },
+  "derivations_not_measurements": [
+    "the `parents3` row is FORCED: parents[3] of a file at component count d lands at component count d-3, which equals the repository root only at d=4. The row was executed, but it could not have come out otherwise. It is reported as the NEGATIVE control's evidence, not as a finding.",
+    "the `bare` and `nonexistent` rows are forced given an empty PYTHONPATH and no installed package; they are recorded because the assumption (empty PYTHONPATH) is the thing being asserted, and it is checked rather than assumed."
+  ],
+  "grid": {
+    "canonical_depth": 4,
+    "cells_reaching": 39,
+    "cells_tested": 126,
+    "depths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      -1
+    ],
+    "idioms": [
+      "parents3",
+      "landmark",
+      "namespace",
+      "bare",
+      "sham",
+      "nonexistent"
+    ],
+    "modes": [
+      "abs_from_root",
+      "rel_from_own_dir",
+      "abs_from_far"
+    ]
+  },
+  "importers": {
+    "assurance": {
+      "files_importing_valuematch": [],
+      "files_naming_dir": 139
+    },
+    "corebench_files_naming_dir": 363
+  },
+  "kill": {
+    "gate_open": true,
+    "k1_landmark_reaches_every_in_repo_depth": true,
+    "k2_landmark_statements_ge_100": true,
+    "k3_a_round_script_already_reaches_assurance": true,
+    "world_A_killed": true
+  },
+  "off_tree_boundary": {
+    "bare": false,
+    "landmark": false,
+    "namespace": false,
+    "nonexistent": false,
+    "parents3": false,
+    "sham": false
+  },
+  "python": "3.14.4",
+  "pythonpath_inherited": "",
+  "question": "is assurance/valuematch.py unreachable, or merely unknown?",
+  "round": "R1080",
+  "source_sha256": "88efff34c99583fcf32f68a7f7fde9eb49dbb3847771eedc1938bfd22e429280",
+  "strongest_confound": {
+    "decoy_resolution": "/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable/_r1080_decoy_tmp/decoy_root",
+    "dirs_holding_a_marker": [
+      "."
+    ],
+    "marker_is_unique": true,
+    "search_stops_at_nearest_marker": true
+  },
+  "verdict": "world A (MECHANICAL BARRIER) is KILLED \u2014 the landmark idiom reaches the helper from every depth this repository contains, it is already adopted at scale, and 139 committed round script(s) already reach into assurance/. The re-implementation was not caused by unreachability."
+}
