@@ -18,3 +18,4 @@ in `E05/DEFINITION.md`.
 | `R925` can any label-blind size-1 selector clear the bar | sweeping 4 orderings × 15 ranks × 2 coverage rules — does clause ① exclude an admissible core, or an inadmissible one? |
 | `R926` the price of clause ③ across k | does label access decay with set size, or is the curve my sampling cap? |
 | `R929` the point and its interval are different objects | are R141's out-of-interval point estimates an arithmetic slip, or an estimand mismatch? |
+| `R930` does rebuilding the matching inside the replicate repair it | UNVERIFIED — the synthetic world never reproduced R141's symptom, so nothing transfers; by-product: the matcher under-fills strata silently |
