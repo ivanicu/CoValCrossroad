@@ -1,0 +1,115 @@
+{
+ "R1105_committed": {
+  "2B": 9,
+  "8B_rescored": 0
+ },
+ "clause3_leakage": {
+  "n_refit_after_leakage": 0,
+  "refit_after_leakage_exclusion": [],
+  "rescored_after_leakage_exclusion": [],
+  "why": "arms that return by REFITTING TO THE TARGET are exactly the ones clause \u2462 removes, so a recovery made only of leaky arms is technically world B and practically empty"
+ },
+ "controls": {
+  "INSTRUMENT the analytic inner bound equals the 4000-draw bootstrap on the 2B world": true,
+  "NEGATIVE the refit world differs from the re-scored world": true,
+  "PLACEBO `_08b` == `_08bR` byte-for-byte on every satisfaction-blind arm": true,
+  "POSITIVE the 2B world reproduces R1105's committed 9-arm set by name": true,
+  "REBUILD two committed `_08b` cells are reproduced byte-for-byte": true
+ },
+ "kill": {
+  "gate_open": true,
+  "observed_refit": 4,
+  "observed_refit_after_clause3": 0,
+  "recovery_is_legitimate": false,
+  "threshold": 4,
+  "world_A_killed": true
+ },
+ "population": {
+  "common": 43,
+  "not_rebuildable": [
+   "coval_core",
+   "coval_core_sham",
+   "full_sham",
+   "gen",
+   "gen_sham",
+   "generic",
+   "genericpool16",
+   "promptecho",
+   "promptecho_sham",
+   "topw_k4_sham"
+  ],
+  "rebuildable": [
+   "full",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "random_k12_s0",
+   "random_k12_s1",
+   "random_k12_s2",
+   "random_k2_s0",
+   "random_k2_s1",
+   "random_k2_s2",
+   "random_k3_s0",
+   "random_k3_s1",
+   "random_k3_s2",
+   "random_k4_s0",
+   "random_k4_s1",
+   "random_k4_s2",
+   "random_k6_s0",
+   "random_k6_s1",
+   "random_k6_s2",
+   "random_k8_s0",
+   "random_k8_s1",
+   "random_k8_s2",
+   "topabs_k4",
+   "topvar_k4",
+   "topw_k1",
+   "topw_k12",
+   "topw_k2",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8",
+   "topwvar_k4"
+  ],
+  "why_not_rebuildable": "fixed criterion texts \u2014 `select_core.py` does not produce them and re-running IS re-scoring for an arm that fits nothing"
+ },
+ "question": "is the definition judge-dependent or fitting-protocol-dependent?",
+ "round": "R1108",
+ "sets": {
+  "2B": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "8B_refit": [
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1"
+  ],
+  "8B_rescored": []
+ },
+ "sizes": {
+  "2B": 9,
+  "8B_refit": 4,
+  "8B_rescored": 0
+ },
+ "source_sha256": "8d1dfdb2b8948aaf0d18ddf4a42af1baf4d0011425b0299c2ad04dafda759e9c",
+ "verdict": "\u26d4 WORLD A IS KILLED: refitting every rebuildable candidate under the judge it is evaluated under gives an admitted set of 4 against R1105's 0 re-scored and 9 under the 2B judge, threshold 4. \u26d4 BUT AFTER CLAUSE \u2462's LEAKAGE EXCLUSION IT IS 0 ([]), so the recovery is MADE OF ARMS THE DEFINITION ALREADY EXCLUDES: refitting recovers admission by fitting harder to the target, which is the one thing \u2462 forbids.",
+ "yardsticks": {
+  "R1103_sampling_interval_on_size": [
+   17.0,
+   26.0
+  ],
+  "R978_band": 4,
+  "note": "sampling and instrument are separate axes and are never subtracted"
+ }
+}

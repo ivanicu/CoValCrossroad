@@ -696,6 +696,24 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔⛔ R1108 CLOSED THE JUDGE LINE. Two facts must reach the statement and the SECOND is the
+    #      one that matters, which is why the first cannot travel alone: 4 arms return under the
+    #      refit protocol (the kill, clearing by exactly its threshold), and 0 of them survive
+    #      clause ③. A reader given only `4 return` would conclude the definition is repairable by
+    #      a protocol clause. It is not — the repair is a no-op for every arm ③ admits, and that is
+    #      a derivation the round verified byte-for-byte.
+    d = load("A27_*/R1108_*/results/refit_admitted.json")
+    if d:
+        sz, c3 = d["sizes"], d["clause3_leakage"]
+        facts.append(("R1108", "refitting recovers only the arms clause ③ excludes",
+                      f"2B {sz['2B']}, rescored {sz['8B_rescored']}, refit {sz['8B_refit']}, "
+                      f"after ③ {c3['n_refit_after_leakage']}, legitimate "
+                      f"{d['kill']['recovery_is_legitimate']}",
+                      [r"PROTOCOL\s+REPAIR\s+IS\s+AVAILABLE\s+ONLY\s+TO\s+ARMS\s+CLAUSE\s+③\s+EXCLUDES|"
+                       r"protocol\s+repair\s+is\s+available\s+only\s+to\s+arms\s+clause\s+③\s+excludes",
+                       r"REPAIR\s+IS\s+A\s+NO-OP\s+BY\s+CONSTRUCTION|"
+                       r"repair\s+is\s+a\s+no-op\s+by\s+construction"]))
+
     # ⛔⛔ R1107 WITHDREW R1106's `set structure` LABEL: the dose does not exist and the gap peaks at
     #     the one k R1106 looked at. Two facts must reach the statement because a reader given only
     #     the kill would conclude the cross-judge deficit is not real — it IS real, at every dose;

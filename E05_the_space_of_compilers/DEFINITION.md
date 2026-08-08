@@ -2065,6 +2065,25 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔⛔ **AND R1108 CLOSES THE LINE: THE PROTOCOL REPAIR IS AVAILABLE ONLY TO ARMS CLAUSE ③ EXCLUDES.**
+Refitting every rebuildable candidate under the judge it is EVALUATED under — the repair R1107's
+negative control proposed — gives an admitted set of **4** against R1105's **0** re-scored and **9**
+under the 2B judge. ⚠ **The kill clears by exactly its pre-registered threshold of 4**, so on its own
+it would be a boundary call; **the second column, pre-registered in the same breath, is what decides.**
+⭐⭐ **All four returning arms are TARGET-FITTING rules** — `greedy_k4_fit1`, `indep_k4_fit1`,
+`oracle_k4`, `oracle_k4_fit1` — and **after clause ③'s leakage exclusion the refit set is 0 AGAIN.**
+**Refitting recovers admission by fitting HARDER to the target, which is the one thing ③ forbids**, so
+the protocol reading is technically true and practically empty.
+⭐ **And the reason no legitimate arm CAN return is a DERIVATION, verified byte-for-byte:** `_08b` and
+`_08bR` are **byte-identical on all 27 satisfaction-blind arms** (`meta` and `sat` both
+`array_equal`), exactly as `select_core.py`'s help states. **So for `topw`, `topabs`, `random` and
+`full` the protocol repair is a NO-OP by construction**, and `coval_core`, `gen`, `promptecho` and the
+comparators are fixed criterion texts for which re-running IS re-scoring. **The definition's
+legitimate candidates are precisely the ones for which refitting changes nothing.**
+⚠ **That identity check also RETRO-VALIDATES the axis R1105, R1106 and R1107 all rest on** — the
+`_08b`/`_08bR` distinction is exactly where the release says it is: nowhere for blind rules,
+somewhere for fitted ones.
+
 ⛔⛔ **AND R1107 WITHDRAWS `SET STRUCTURE` AS THE NAME: THERE IS NO DOSE.** Sweeping `greedy` (set-
 aware) against `indep` (independent) at k ∈ {2,4,8,12} under both judges, residuals taken against the
 compression line fitted on R1106's **42 HELD-OUT** arms: `gap(k)` = **+0.0175, +0.0452, +0.0391,
