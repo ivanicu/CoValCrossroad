@@ -1,0 +1,330 @@
+{
+  "controls": {
+    "NEGATIVE breaking the arm-comparator pairing MOVES the distribution": true,
+    "NEGATIVE relabelling comparators leaves both distributions identical": true,
+    "PLACEBO each variant against itself is 0 everywhere": true,
+    "POSITIVE a planted arm that only the relaxed variant admits is recovered": true,
+    "POSITIVE resolvability BINDS somewhere in the family space": true,
+    "SHAM a family of k copies of one comparator equals its k=1 value": true,
+    "g=0 ablating nothing gives 0 on every sampled family": true,
+    "the blind subsets cover every prompt, so the mask is the arm's": true
+  },
+  "distributions": {
+    "coverage": {
+      "by_k": {
+        "1": {
+          "distinct": 1,
+          "families": 15,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "2": {
+          "distinct": 1,
+          "families": 105,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "3": {
+          "distinct": 1,
+          "families": 455,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "4": {
+          "distinct": 1,
+          "families": 1365,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "5": {
+          "distinct": 1,
+          "families": 3003,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "6": {
+          "distinct": 1,
+          "families": 5005,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "7": {
+          "distinct": 1,
+          "families": 6435,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "8": {
+          "distinct": 1,
+          "families": 6435,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "9": {
+          "distinct": 1,
+          "families": 5005,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "10": {
+          "distinct": 1,
+          "families": 3003,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "11": {
+          "distinct": 1,
+          "families": 1365,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "12": {
+          "distinct": 1,
+          "families": 455,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "13": {
+          "distinct": 1,
+          "families": 105,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "14": {
+          "distinct": 1,
+          "families": 15,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        },
+        "15": {
+          "distinct": 1,
+          "families": 1,
+          "max": -2,
+          "min": -2,
+          "mode": -2,
+          "mode_share": 1.0
+        }
+      },
+      "distinct_values": 1,
+      "families": 32767,
+      "max": -2,
+      "min": -2,
+      "over_all_families": {
+        "-2": 32767
+      },
+      "two_comparator_families": {
+        "-2": 105
+      }
+    },
+    "resolvability": {
+      "by_k": {
+        "1": {
+          "distinct": 9,
+          "families": 15,
+          "max": 14,
+          "min": 2,
+          "mode": 14,
+          "mode_share": 0.2
+        },
+        "2": {
+          "distinct": 8,
+          "families": 105,
+          "max": 14,
+          "min": 3,
+          "mode": 5,
+          "mode_share": 0.2381
+        },
+        "3": {
+          "distinct": 7,
+          "families": 455,
+          "max": 14,
+          "min": 4,
+          "mode": 5,
+          "mode_share": 0.3165
+        },
+        "4": {
+          "distinct": 6,
+          "families": 1365,
+          "max": 14,
+          "min": 5,
+          "mode": 5,
+          "mode_share": 0.3707
+        },
+        "5": {
+          "distinct": 6,
+          "families": 3003,
+          "max": 14,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.4033
+        },
+        "6": {
+          "distinct": 6,
+          "families": 5005,
+          "max": 14,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.4503
+        },
+        "7": {
+          "distinct": 6,
+          "families": 6435,
+          "max": 14,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.4993
+        },
+        "8": {
+          "distinct": 5,
+          "families": 6435,
+          "max": 11,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.552
+        },
+        "9": {
+          "distinct": 5,
+          "families": 5005,
+          "max": 11,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.609
+        },
+        "10": {
+          "distinct": 4,
+          "families": 3003,
+          "max": 10,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.67
+        },
+        "11": {
+          "distinct": 3,
+          "families": 1365,
+          "max": 8,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.7341
+        },
+        "12": {
+          "distinct": 3,
+          "families": 455,
+          "max": 8,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.8
+        },
+        "13": {
+          "distinct": 2,
+          "families": 105,
+          "max": 7,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.8667
+        },
+        "14": {
+          "distinct": 2,
+          "families": 15,
+          "max": 7,
+          "min": 5,
+          "mode": 7,
+          "mode_share": 0.9333
+        },
+        "15": {
+          "distinct": 1,
+          "families": 1,
+          "max": 7,
+          "min": 7,
+          "mode": 7,
+          "mode_share": 1.0
+        }
+      },
+      "distinct_values": 9,
+      "families": 32767,
+      "max": 14,
+      "min": 2,
+      "over_all_families": {
+        "2": 1,
+        "3": 2,
+        "4": 4,
+        "5": 12288,
+        "7": 17408,
+        "8": 2056,
+        "10": 512,
+        "11": 384,
+        "14": 112
+      },
+      "two_comparator_families": {
+        "3": 1,
+        "4": 2,
+        "5": 25,
+        "7": 24,
+        "8": 14,
+        "10": 9,
+        "11": 15,
+        "14": 15
+      }
+    }
+  },
+  "identification_limit": "R1055's own comparators (`generic`, `genericpool16`) are released arms and are NOT in the blind space, so this round measures the SHAPE of the two numbers over a comparable family space and cannot restate R1055's cell.",
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "noise_floor": {
+    "nboot": 2000,
+    "non_unanimous_by_variant": {
+      "(False, False)": 0,
+      "(False, True)": 0,
+      "(True, False)": 7,
+      "(True, True)": 7
+    },
+    "seeds": [
+      11,
+      23,
+      47
+    ]
+  },
+  "population": {
+    "arms": 99,
+    "blind_subsets": 15,
+    "families_enumerated": 32767,
+    "prompts": 968
+  },
+  "prior_art": {
+    "R1055": "the ablation table: resolvability 2, coverage 2, family 0, q 0.",
+    "R1086": "q's 2 spans 0..7 over 3003 families; 825 buy nothing."
+  },
+  "question": "do R1055's other two clause components vary with the comparator family?",
+  "round": "R1087",
+  "source_sha256": "ff376e2ced3e24eac1de43bab3419f196768159882953eb6cb65fe417ead0cd1",
+  "verdict": "world A (A VALUE) is KILLED for ['resolvability'] \u2014 over 32767 families the exclusion count spans resolvability [2, 14] and coverage [-2, -2]. R1086's finding for `q` is not special to `q`."
+}

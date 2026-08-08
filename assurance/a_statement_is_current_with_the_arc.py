@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1087_*/results/other_two_clauses.json")
+    if d:
+        r, c = d["distributions"]["resolvability"], d["distributions"]["coverage"]
+        facts.append(("R1087", "one row is a draw and the other is a genuine invariant",
+                      f"resolvability [{r['min']},{r['max']}] {r['distinct_values']} values, "
+                      f"coverage [{c['min']},{c['max']}] {c['distinct_values']} value",
+                      [r"coverage\s+is\s+a\s+genuine\s+invariant|invariant\s+across\s+all",
+                       r"refuted\s+by\s+its\s+own\s+instrument"]))
+
     d = load("A27_*/R1086_*/results/q_value_or_draw.json")
     if d:
         t = d["distribution_by_k"]["10"] if "10" in d["distribution_by_k"] else d["distribution_by_k"][10]

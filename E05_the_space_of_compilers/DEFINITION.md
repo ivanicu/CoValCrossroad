@@ -1816,6 +1816,25 @@ family of size k is invariant to relabelling the comparators — plus its comple
 gathers per seed to 114 gathers and 1485 subtractions. **The cost changed; the number did not**, and a
 control checks it against the direct computation.
 
+⭐⭐ **AND R1087 SPLITS THE OTHER TWO ROWS: resolvability is a draw, coverage is a genuine
+invariant.** Over **all 2¹⁵−1 = 32,767** families of the blind subsets, enumerated whole, the
+exclusion count for **resolvability spans [2, 14] across 9 distinct values** — `{2:1, 3:2, 4:4,
+5:12288, 7:17408, 8:2056, 10:512, 11:384, 14:112}` — while **coverage is −2 in every single family,
+at every size, 100% mode share.**
+⭐ **So the arc's emerging story is refuted by its own instrument.** After R1086 it was tempting to
+read "these numbers are all family draws". **Coverage is not.** One row varies and one does not, and
+the check that separated them is the same enumeration for both.
+⚠ **AND THE LEVEL IS NOT A CLAIM ABOUT R1055.** Its comparators `generic` and `genericpool16` are
+released arms, **not** blind subsets, so they lie outside this space and its cell cannot be restated
+here. A blind subset built from 4 universally-available criteria is a **weak** comparator, so more
+arms beat it and relaxing resolvability admits more — the span sitting above R1055's `2` is
+consistent with its comparators being **stronger objects**, not with its number being wrong.
+**The finding is the variability, not the level.**
+⭐ **What made the enumeration exact is checked rather than assumed**: R1055's coverage mask is
+`COV[i] & COV[j]`, and because the blind subsets are built from criteria present on every prompt,
+`COV[j]` is all-true and the mask collapses to the **arm's alone** — which factorises the bootstrap
+per arm and turns 32,767 families into lookups. That collapse is the round's first control.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
