@@ -1,0 +1,93 @@
+{
+  "cores_without_a_selection_file": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB"
+  ],
+  "evaluable_examples": {
+    "gen": {
+      "modal_share": 0.0145,
+      "n_distinct": 950,
+      "n_prompts": 968
+    },
+    "generic": {
+      "modal_share": 1.0,
+      "n_distinct": 1,
+      "n_prompts": 968
+    },
+    "genericpool16": {
+      "modal_share": 1.0,
+      "n_distinct": 1,
+      "n_prompts": 968
+    },
+    "greedy_k12_fit1": {
+      "modal_share": 0.001,
+      "n_distinct": 968,
+      "n_prompts": 968
+    },
+    "greedy_k2_fit1": {
+      "modal_share": 0.001,
+      "n_distinct": 968,
+      "n_prompts": 968
+    },
+    "greedy_k4_fit1": {
+      "modal_share": 0.001,
+      "n_distinct": 968,
+      "n_prompts": 968
+    },
+    "greedy_k4_fit1_08bR": {
+      "modal_share": 0.001,
+      "n_distinct": 968,
+      "n_prompts": 968
+    },
+    "greedy_k4_greedy_kA": {
+      "modal_share": 0.001,
+      "n_distinct": 968,
+      "n_prompts": 968
+    }
+  },
+  "index_route_rejected": "sat_<arm>.npz holds POSITIONAL indices, not criterion text: greedy_k12_fit1 has 968 distinct text selections and 9 distinct index patterns. The index count is not a blindness proxy and a cross-check caught it at 2 of 31 agreeing.",
+  "round": "R1091",
+  "source_sha256": "66139ff5a06803839ca89f7886f6eeef7de11fba6e71c30508137a349c175eb8",
+  "typable": [
+    "gen",
+    "generic",
+    "genericpool16",
+    "greedy_k12_fit1",
+    "greedy_k2_fit1",
+    "greedy_k4_fit1",
+    "greedy_k4_fit1_08bR",
+    "greedy_k4_greedy_kA",
+    "greedy_k4_greedy_kB",
+    "greedy_k8_fit1",
+    "indep_k12_fit1",
+    "indep_k2_fit1",
+    "indep_k4_fit1",
+    "indep_k4_fit1_08bR",
+    "indep_k4_indep_kA",
+    "indep_k4_indep_kB",
+    "indep_k8_fit1",
+    "oracle_k4",
+    "oracle_k4_08bR",
+    "oracle_k4_fit1",
+    "oracle_k4_oracle_kA",
+    "oracle_k4_oracle_kB",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+  ],
+  "untypable_named": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "generic_reprov"
+  ],
+  "verdict": "\u26d4 NOT EVALUABLE \u2014 clause \u2462's only sound proxy needs a committed criterion-TEXT selection (`core_<arm>.json`), and the released cores ['coval_core', 'coval_core_2bA', 'coval_core_2bB'] have none. The proxy works for the rest of the block; it cannot reach the objects the question is about. UNVERIFIED, never 'the clause does not separate'.",
+  "what_it_would_require": "a committed core_<arm>.json for each released core"
+}

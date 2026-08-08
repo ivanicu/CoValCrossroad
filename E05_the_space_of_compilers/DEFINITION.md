@@ -1896,6 +1896,22 @@ the certifier's choice"* — **the opposite of what the three real cores show.**
 instrument's unit and the claim's unit and require them equal*, in the round whose whole job was
 naming members. Fixed by splitting the populations, after which the sham became a control.
 
+⛔⛔ **AND R1091 FINDS CLAUSE ③ IS NOT EVALUABLE FOR THE RELEASED CORES — the record lacks the
+artifact.** Its only sound proxy is the arm's criterion-TEXT selection across the 968 prompts
+(`core_<arm>.json`), and **the three cores have no such file**: `core_coval_core_sham.json` exists,
+theirs do not. The proxy types **31 of the 35** `always` arms and cannot reach the objects the
+question is about. **UNVERIFIED — never "the clause does not separate."**
+⛔ **AND MY SUBSTITUTE MEASURED A DIFFERENT QUANTITY; the cross-check is what caught it.** Finding the
+file missing I substituted `sat_<arm>.npz`, which holds **positional indices**, not criterion text.
+`greedy_k12_fit1` has **968** distinct text selections — a different rubric on every prompt — and only
+**9** distinct index patterns, so **an arm that rewrites its selection on all 968 prompts looks nearly
+fixed under the index count**. The two routes **agreed on 2 of 31** arms, and that disagreement is the
+only reason a wrong number was not reported.
+⭐ **What does stand:** where the proxy reaches, it behaves — the two released comparators sit at
+**1** and `greedy_k12_fit1`, which shares the `always` block with the cores, sits at **968**. **So the
+block spans the full range of prompt-specificity and clause ②′ admits both ends of it.** Where the
+cores fall inside that range is what cannot be said.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

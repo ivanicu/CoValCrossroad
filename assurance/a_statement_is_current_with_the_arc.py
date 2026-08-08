@@ -696,6 +696,14 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1091_*/results/clause_separation.json")
+    if d and "cores_without_a_selection_file" in d:
+        facts.append(("R1091", "clause 3 is not evaluable for the cores; the artifact is absent",
+                      f"missing {d['cores_without_a_selection_file']}, "
+                      f"typable {len(d.get('typable', []))}",
+                      [r"NOT\s+EVALUABLE\s+for\s+the\s+released\s+cores",
+                       r"agreed\s+on\s+2\s+of\s+31"]))
+
     d = load("A27_*/R1090_*/results/named_blocks.json")
     if d:
         rc = d["released_core"]; sh = d["core_sham_control"]
