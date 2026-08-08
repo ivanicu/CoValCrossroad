@@ -1,0 +1,220 @@
+{
+ "P_axis_scope": {
+  "all_configs_move": true,
+  "measures": "does the arm consume the prompt's own rubric RECORD",
+  "placebo_random_k4_moves": true,
+  "separating_intervention": "derange the per-criterion human `scores` WITHIN each prompt's own rubric, leaving the texts and the index set untouched. `topw_k`, `topabs_k`, `topwvar_k` must move; `topvar_k`, `random_k`, `full` must not.",
+  "valid_as_an_authorship_instrument": false,
+  "why": "`random_k4` reads no criterion text, no human weight and no human label \u2014 it draws uniformly from the judged index set, and the only human-determined thing it touches is HOW MANY criteria the prompt has \u2014 so its movement under P is the candidate SET changing, not authorship being consumed. P therefore cannot be read as clause \u2462's AUTHORSHIP reading, and this round makes no authorship claim."
+ },
+ "controls": {
+  "NEGATIVE record counts are preserved by every intervention": true,
+  "NEGATIVE the derangements have zero fixed points": true,
+  "NEGATIVE the join size is identical across configs": true,
+  "PLACEBO random_k4 is unchanged on T": true,
+  "POSITIVE P full changes when the rubric pairing is deranged": true,
+  "POSITIVE T oracle_k4_fit1 changes when the rankings are deranged": true,
+  "SEEDS every verdict agrees across 3 seeds": true,
+  "SEEDS the seed flag CHANGES the draw: 3 distinct oracle emissions under T": true,
+  "g=0 the identity intervention changes NOTHING, every config": true
+ },
+ "grid": {
+  "P_selection_changed": 11,
+  "T_changed": 3,
+  "T_unchanged": 8,
+  "cells_tested": 22
+ },
+ "intervention_stats": {
+  "P_11": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "P_23": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "P_41": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "T_11": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "T_23": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "T_41": {
+   "fixed_points": 0,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "identity_11": {
+   "fixed_points": null,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "identity_23": {
+   "fixed_points": null,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  },
+  "identity_41": {
+   "fixed_points": null,
+   "n_comparisons": 1078,
+   "n_rubrics": 986
+  }
+ },
+ "kill": {
+  "disagreements": [],
+  "gate_open": true,
+  "status": "EVALUATED",
+  "world_A_killed": false
+ },
+ "per_arm": {
+  "full": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "greedy_k4_fit1": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": true,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": true,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "indep_k4_fit1": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": true,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": true,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "oracle_k4_fit1": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": true,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": true,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "random_k4_s0": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topabs_k4": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topvar_k4": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topw_k1": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topw_k12": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topw_k4": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  },
+  "topwvar_k4": {
+   "P_seed_agreement": true,
+   "P_selection_changed": true,
+   "P_texts_changed": true,
+   "T_changed": false,
+   "T_seed_agreement": true,
+   "identity_stable_across_seeds": true,
+   "in_R1094_leakage_excludes": false,
+   "join_identity": "join: {'role_canonical': 966, 'fuzzy>=0.95': 2, 'unmatched': 18}",
+   "n_prompts_identity": 968
+  }
+ },
+ "question": "is clause \u2462's leakage list a name list or a measurement?",
+ "refuses": {
+  "claim": "whether the three topw arms in the surviving slack are baselines too",
+  "derivation_not_measurement": true,
+  "round": "R1099 (its NEXT line)",
+  "status": "REFUSED AS FRAMED \u2014 bookkeeping, and the framing presupposes topw has one status",
+  "why": "R1098's committed released \u2461\u2032 set already contains ['topw_k3', 'topw_k4', 'topw_k4_detA', 'topw_k4_detB', 'topw_k6', 'topw_k8'] and excludes ['topw_k1', 'topw_k12', 'topw_k2']. Six topw arms DO resolvably beat both released comparators. `topw` is not a baseline or a candidate; k is."
+ },
+ "round": "R1100",
+ "seeds": [
+  11,
+  23,
+  41
+ ],
+ "source_sha256": "19b1833a7074ca9dc7356fdfbdc5dac0e1f8dc86fe3def2bf5aed7545052777f",
+ "unrunnable_configs": [],
+ "verdict": "\u2b50 EXECUTED: 3 of 11 configurations consume the human target. Disagreements with R1094's name list: 0 []. World A survives \u2014 the name list reproduces the executed verdict exactly, so clause \u2462's instrument is validated rather than merely asserted. \u26a0 AND THE P AXIS CARRIES NO AUTHORSHIP CLAIM: all 11 configurations move under it, INCLUDING the placebo `random_k4`, which reads no criterion text, no human weight and no human label \u2014 so P measures the record moving, not authorship being consumed."
+}

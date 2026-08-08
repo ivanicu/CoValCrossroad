@@ -696,6 +696,24 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔ R1100 EXECUTED clause ③'s instrument instead of reading it. R1094's `leakage_excludes` was a
+    #    NOMINATION (R1084: a static source read on this repo is precision 0.111) that this arc spent
+    #    as a decision. The intervention confirms it exactly — and the SAME run shows the authorship
+    #    axis has no valid instrument, because the placebo moves on it. Both must reach the statement:
+    #    the confirmation, so ③-scoped claims stop being unverified; the confound, so nobody builds an
+    #    authorship claim on an axis whose own placebo fires.
+    d = load("A27_*/R1100_*/results/leakage_executed.json")
+    if d:
+        g, pa = d["grid"], d["P_axis_scope"]
+        facts.append(("R1100", "the leakage list survives execution; the authorship axis does not",
+                      f"T consumes {g['T_changed']}/{g['T_changed'] + g['T_unchanged']}, "
+                      f"disagreements {len(d['kill']['disagreements'])}, "
+                      f"P moves {g['P_selection_changed']}, "
+                      f"P valid for authorship {pa['valid_as_an_authorship_instrument']}",
+                      [r"LEAKAGE\s+LIST\s+IS\s+A\s+MEASUREMENT|leakage\s+list\s+is\s+a\s+measurement",
+                       r"NO\s+AUTHORSHIP\s+CLAIM\s+IS\s+BUILT\s+ON\s+IT|"
+                       r"no\s+authorship\s+claim\s+is\s+built\s+on\s+it"]))
+
     d = load("A27_*/R1099_*/results/which_side.json")
     if d:
         sh = d["sham"]

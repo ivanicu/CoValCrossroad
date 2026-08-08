@@ -2065,6 +2065,34 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⭐⭐ **AND R1100 EXECUTES CLAUSE ③'S INSTRUMENT INSTEAD OF READING IT.** R1094's `leakage_excludes`
+is a list of **names**, built by READING `corebench/select_core.py` — and R1084 measured a static
+source read on this repo at **precision 0.111, recall 1.000**, ruling that the parse *can NOMINATE
+and cannot DECIDE*. **This arc has been spending that nomination as a decision.** Re-running the
+released generator against **deranged** inputs in **nine isolated roots**, 3 seeds each: **3 of 11**
+configurations consume the human target, **8 are blind**, and the executed verdict agrees with the
+name list on **11 of 11 — ZERO disagreements**. ⭐ **THE LEAKAGE LIST IS A MEASUREMENT.** So every
+③-scoped statement in this arc (R1094, R1095, R1099) rests on a property of the generator rather than
+on a string match. **This is Closure, and it is labelled Closure** — the definition did not change;
+a load-bearing instrument stopped being unverified.
+⛔ **AND THE AUTHORSHIP READING STILL HAS NO VALID INSTRUMENT, which the round's own placebo says.**
+`coval_full` is **crowd-written, human-authored, prompt-specific** with human-assigned signed weights
+(dataset card), so *"the arm moves when the prompt→rubric pairing is deranged"* is tempting to read
+as ③'s AUTHORSHIP reading — which would exclude **all 11** configurations, including the six `topw`
+arms the released ②′ set admits. ⚠ **It is invalid: `random_k4` moves on that axis too, and it reads
+no criterion text, no human weight and no human label** — only how many criteria the prompt has. The
+axis measures *the record moved*, not *authorship was consumed*, so **NO AUTHORSHIP CLAIM IS BUILT ON
+IT.** The separating intervention is named: derange the per-criterion human `scores` **within** each
+prompt's own rubric, leaving texts and index set intact.
+⛔ **And R1099's own NEXT was REFUSED as framed, by a table I had already committed.** Six `topw`
+arms — **k ∈ {3, 4, 6, 8}** — are in the released ②′ set, while **k ∈ {1, 2, 12}** are not. **`topw`
+is neither a baseline nor a candidate: `k` decides**, and the admitted region is a **BAND**, not a
+property of the rule. That is a DERIVATION off R1098's committed set, labelled, not a measurement.
+⚠ **And a gauge test caught the failure that would have made every answer `blind`:** `.resolve()`
+follows symlinks, so a symlinked generator reads the **real** data, every intervention becomes a
+silent no-op, and the round would have reported *"nothing consumes the target"* with the oracle
+itself among the acquitted.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
