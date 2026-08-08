@@ -1,0 +1,76 @@
+{
+  "SHAM_chance_survival_of_both_released_comparators": {
+    "authorship": 0.132,
+    "leakage": 0.201
+  },
+  "controls": {
+    "NEGATIVE the two extensions DIFFER, by exactly R1094's disagreement set": true,
+    "PLACEBO each extension against itself is identical": true,
+    "POSITIVE oracle_k4 is absent from both extensions": true,
+    "SHAM the chance rate is computed, so survival is priced rather than assumed": true,
+    "g=0 with \u2462 disabled the extension is the whole block": true
+  },
+  "derivation_not_reported_as_evidence": "R1090's `always` block IS the \u2461\u2032-admitted set, so '\u2462 removes 19 / 22 arms \u2461\u2032 admits' is the size of the exclusion list and nothing more. The measurement here is WHICH arms survive.",
+  "extensions": {
+    "authorship": [
+      "gen",
+      "generic",
+      "generic_reprov",
+      "genericpool16",
+      "topw_k1",
+      "topw_k12",
+      "topw_k2",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8"
+    ],
+    "leakage": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB",
+      "gen",
+      "generic",
+      "generic_reprov",
+      "genericpool16",
+      "topw_k1",
+      "topw_k12",
+      "topw_k2",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8"
+    ]
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "population": {
+    "always_block": 35
+  },
+  "question": "does either reading of \u2462 remove the generic baselines from the extension?",
+  "readings_differ_on": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB"
+  ],
+  "released_comparators_present": {
+    "authorship": [
+      "generic",
+      "genericpool16"
+    ],
+    "leakage": [
+      "generic",
+      "genericpool16"
+    ]
+  },
+  "round": "R1095",
+  "scope_warning": "the comparator family is the 15 SYNTHETIC blind subsets, not the released certified family of 2. Under the released family `generic` would be compared against itself, which is undefined.",
+  "source_sha256": "6bd07b1d2319eb5623ee1aab58ed48cac7a0221b29fd79540d1c630ec1048a8c",
+  "verdict": "world A (\u2462 SEPARATES) is KILLED \u2014 `generic` and `genericpool16` survive under BOTH readings. Leakage leaves 16 of 35 arms and authorship 13, and the two differ ONLY on ['coval_core', 'coval_core_2bA', 'coval_core_2bB']. **So the choice between readings decides whether the definition admits its own INSTANCE, and neither choice removes the objects a core is required to beat.** The separating work would have to come from the comparator family, not from \u2462. \u26a0 Scoped to the BLIND-SUBSET family; under the released family `generic` would be compared against itself."
+}

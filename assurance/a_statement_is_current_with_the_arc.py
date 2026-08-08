@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1095_*/results/baseline_survives.json")
+    if d:
+        e = d["extensions"]
+        facts.append(("R1095", "neither reading removes the generic baselines",
+                      f"leakage {len(e['leakage'])}, authorship {len(e['authorship'])}, "
+                      f"present {d['released_comparators_present']['leakage']}, "
+                      f"sham {d['SHAM_chance_survival_of_both_released_comparators']}",
+                      [r"neither\s+choice\s+removes\s+the\s+objects",
+                       r"decides\s+only\s+the\s+\*\*instance\*\*|decides\s+whether\s+the\s+definition\s+admits\s+its\s+own\s+INSTANCE"]))
+
     d = load("A27_*/R1094_*/results/two_readings.json")
     if d:
         r = d["readings"]

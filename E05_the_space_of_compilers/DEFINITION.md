@@ -1973,6 +1973,23 @@ both.** A control that both candidate readings pass is not a control between the
 definition's instance is admitted or excluded depending on a choice the definition never makes — and
 a definition whose text and whose test disagree on its own instance is not yet a definition.**
 
+⛔⛔⛔ **AND R1095 SHOWS THE CHOICE BETWEEN ③'S READINGS DECIDES ONLY THE INSTANCE: neither choice
+removes the objects a core is required to beat.** Over R1090's 35-arm `always` block the **leakage**
+reading leaves **16** arms and the **authorship** reading **13** — and **they differ on exactly
+`coval_core`, `coval_core_2bA`, `coval_core_2bB` and on nothing else**. `generic` and
+`genericpool16` — the released comparators — **survive under both**.
+⭐ **AND THAT IS NOT AUTOMATIC. The sham prices it:** a **random** exclusion of the same size spares
+both released comparators only **20.1%** (leakage-sized) and **13.2%** (authorship-sized) of the time.
+Their survival under ③ is informative, not a consequence of ③ removing a minority.
+⛔ **So the separating work would have to come from the COMPARATOR FAMILY, not from ③.**
+⛔ **AND THE COUNTS THAT LOOK LIKE THE ANSWER ARE A DERIVATION.** R1090's `always` block **is** the
+②′-admitted set, so *"③ removes 19 / 22 arms that ②′ admits"* is the size of the exclusion list and
+nothing more. The measurement is **which arms survive**, and it is reported as such.
+⚠ **SCOPE, and it is load-bearing: the comparator family here is the 15 SYNTHETIC blind subsets**, not
+the released certified family of 2. Under the released family an arm is compared against `generic`
+itself, which `generic` cannot beat. **Every statement in this block is scoped to the blind family** —
+which is why the result is as much about the family choice (R1089's certifier freedom) as about ③.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
