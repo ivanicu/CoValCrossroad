@@ -2065,6 +2065,29 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔ **AND R1102 DOWNGRADES R1011, THE DEEPEST CLAIM IN THIS ARC: ITS FIVE NULLS ARE SILENCE.**
+R1011 concluded *the definition contains the released core without singling it out* from five
+bootstrap intervals that straddle zero — reporting **no MDE**, and declaring a NOISE FLOOR that was
+the width of a **degenerate** twin interval, i.e. **0.000000**, which is §4's `floor == ceiling` and
+prices nothing. Measured on R1011's own estimator by dose-response over 300 resampled studies, 3
+seeds: **MDE = 0.008–0.010 per rival**, against unresolved effects of **+0.0023, +0.0023, +0.0023,
++0.0024, +0.0033** — **a factor of 2.4 under the resolution.** ⭐ **A NULL AT A QUARTER OF THE
+DESIGN'S RESOLUTION IS SILENCE**, and the statement the data support is an **INEQUALITY**: the core's
+A2 advantage over each unresolved admitted rival is **bounded above by +0.0079 to +0.0095**.
+⚠ **And the one RESOLVED row is underpowered too** — `topw_k8` at **+0.0072** sits below its own
+measured MDE of **0.010**, so its crossing is a cell at under 80% power. Not retracted; a crossing is
+a crossing. **What R1011 keeps unchanged:** its positive control, its sham, its coverage finding, and
+that the definition **contains** the core. **Only the RANKING claim loses its footing.**
+⛔ **AND MY OWN DERIVATION WAS OVERTURNED BY THE MEASUREMENT, IN THE FLATTERING DIRECTION.** From
+R1011's table — resolved at +0.0072, failed at +0.0033 — I derived `MDE ∈ (0.0033, 0.0072]` and
+concluded the design was not blind. **That rests on `a resolved cell lies above the MDE`, which is
+FALSE**: the MDE is an 80%-power threshold and a single study can cross at lower power. The
+derivation credited the design with resolution it does not have.
+⚠ **And two more of my own sentences failed here.** R1101's NEXT proposed work **R1011 had already
+run 91 rounds earlier**, and called those arms *"the rating-blind selectors"* when R1101's own
+measurement — one paragraph above — is that `topw` **ranks by human ratings**. One closing sentence,
+two errors, second consecutive round in which the NEXT line was the defect.
+
 ⭐⭐ **AND R1101 EXECUTES THE AUTHORSHIP READING, AND THE PRICE OF EXECUTING IT IS THE WHOLE SET.**
 Permuting **within each prompt** which criterion carries which annotator `scores` list — texts fixed,
 count fixed, judged index set fixed, satisfaction npz untouched, so the ONLY thing that moves is the

@@ -1,0 +1,251 @@
+{
+ "annotators_consumed": {
+  "note": "load_targets iterates EVERY assessment of every prompt; counted rather than assumed, because the release's own history contains a three-round error built on 3 of 16",
+  "per_prompt_ranking_records": 15593,
+  "prompts": 968
+ },
+ "controls": {
+  "DERIVATION the analytic 2.8*SE agrees with the measured MDE within one grid step": true,
+  "GAUGE prompt order moves retention no further than Monte-Carlo error": true,
+  "PLACEBO an all-zero template at g=0 returns retention exactly 0": true,
+  "POSITIVE at R1011's own core-vs-random effect the curve saturates (>= 0.99)": true,
+  "SEEDS the seed flag changes the resampling draws": true,
+  "SHAM removing per-prompt heterogeneity collapses the MDE to the grid floor": true,
+  "g=0 a zero-effect template does NOT resolve (retention <= 0.10)": true
+ },
+ "derivation": {
+  "from": "R1011's own committed rows",
+  "implied_MDE_bracket": [
+   0.003301212033453155,
+   0.0071664020043684315
+  ],
+  "is_a_derivation_not_a_measurement": true,
+  "largest_UNRESOLVED_delta": 0.003301212033453155,
+  "rests_on": "`a resolved cell lies above the MDE`. That is FALSE. The MDE is the 80%-power threshold; a single study can cross at lower power, and a bracket built from one crossing therefore bounds nothing. The measurement below is what shows it, and this is the flattering direction \u2014 the derivation credits the design with resolution it does not have.",
+  "smallest_RESOLVED_delta": 0.0071664020043684315,
+  "what_it_appeared_to_establish": "the design was NOT blind \u2014 it resolved an effect of 0.0071664020043684315 in the same family \u2014 so R1011's world B would be a statement about the arms, not the instrument"
+ },
+ "derivation_overturned_by_the_measurement": {
+  "derived_bracket": [
+   0.003301212033453155,
+   0.0071664020043684315
+  ],
+  "inside": false,
+  "measured_MDE_range": [
+   0.008,
+   0.01
+  ],
+  "resolved_cells_below_their_own_MDE": [
+   [
+    "topw_k8",
+    0.0071664020043684315,
+    0.01
+   ]
+  ],
+  "why": "the derivation assumed a resolved cell lies above the MDE. `topw_k8` resolved at \u0394=0.0071664020043684315 while its measured MDE is 0.01 \u2014 a crossing at under 80% power, which is a lucky cell and not a demonstration of resolution."
+ },
+ "downgrade": {
+  "claim": "the definition contains the released core without singling it out",
+  "round": "R1011",
+  "status": "DOWNGRADED \u2014 its five nulls are SILENCE, not measurements",
+  "to": "the design cannot resolve a core advantage below the measured MDE range [0.008, 0.01], and the observed unresolved advantages are [0.0023, 0.0023, 0.0023, 0.0024, 0.0033] \u2014 a factor of 2.4 under the resolution. What the data DO support is an inequality: the core's A2 advantage over each unresolved admitted rival is bounded above by {'topw_k3': 0.0095, 'topw_k4': 0.0084, 'topw_k4_detA': 0.0084, 'topw_k4_detB': 0.0084, 'topw_k6': 0.0079}.",
+  "what_still_stands": "R1011's positive control, sham and coverage findings are untouched; so is the fact that the definition CONTAINS the core. Only the ranking claim loses its footing."
+ },
+ "grid": {
+  "cells": 78,
+  "doses": 13,
+  "rivals": 6,
+  "seeds": 3
+ },
+ "kill": {
+  "gate_open": true,
+  "inside_derived_bracket": false,
+  "measured_MDEs": [
+   0.01,
+   0.01,
+   0.01,
+   0.01,
+   0.008,
+   0.01
+  ],
+  "world_A_killed": false
+ },
+ "nulls_are_silence": true,
+ "per_rival": {
+  "topw_k3": {
+   "MDE_analytic_2p8_SE": 0.00896,
+   "MDE_measured": 0.01,
+   "hi": 0.009548393075310508,
+   "lo": -0.002913804123541093,
+   "noise_floor_SE_of_study_means": 0.0032,
+   "observed_delta": 0.003301212033453155,
+   "resolvable_in_R1011": "no",
+   "retention_at_g0": 0.013333333333333334,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.009548393075310508
+  },
+  "topw_k4": {
+   "MDE_analytic_2p8_SE": 0.00852,
+   "MDE_measured": 0.01,
+   "hi": 0.008368215712523632,
+   "lo": -0.003684718207717126,
+   "noise_floor_SE_of_study_means": 0.00304,
+   "observed_delta": 0.0022968576533033557,
+   "resolvable_in_R1011": "no",
+   "retention_at_g0": 0.027777777777777776,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.008368215712523632
+  },
+  "topw_k4_detA": {
+   "MDE_analytic_2p8_SE": 0.00852,
+   "MDE_measured": 0.01,
+   "hi": 0.008368215712523632,
+   "lo": -0.003684718207717126,
+   "noise_floor_SE_of_study_means": 0.00304,
+   "observed_delta": 0.0022968576533033557,
+   "resolvable_in_R1011": "no",
+   "retention_at_g0": 0.027777777777777776,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.008368215712523632
+  },
+  "topw_k4_detB": {
+   "MDE_analytic_2p8_SE": 0.00852,
+   "MDE_measured": 0.01,
+   "hi": 0.008368215712523632,
+   "lo": -0.003684718207717126,
+   "noise_floor_SE_of_study_means": 0.00304,
+   "observed_delta": 0.0022968576533033557,
+   "resolvable_in_R1011": "no",
+   "retention_at_g0": 0.027777777777777776,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.008368215712523632
+  },
+  "topw_k6": {
+   "MDE_analytic_2p8_SE": 0.00786,
+   "MDE_measured": 0.008,
+   "hi": 0.007856488434076398,
+   "lo": -0.00319582057364249,
+   "noise_floor_SE_of_study_means": 0.00281,
+   "observed_delta": 0.0023601783138609616,
+   "resolvable_in_R1011": "no",
+   "retention_at_g0": 0.024444444444444446,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.007856488434076398
+  },
+  "topw_k8": {
+   "MDE_analytic_2p8_SE": 0.00853,
+   "MDE_measured": 0.01,
+   "hi": 0.013041790839015025,
+   "lo": 0.0013388701921547843,
+   "noise_floor_SE_of_study_means": 0.00305,
+   "observed_delta": 0.0071664020043684315,
+   "resolvable_in_R1011": "core BETTER",
+   "retention_at_g0": 0.022222222222222223,
+   "retention_at_positive_control": 1.0,
+   "upper_bound_on_core_advantage": 0.013041790839015025
+  }
+ },
+ "positive_control_effect_from_R1011": 0.07379048339598263,
+ "question": "what could R1011's design have resolved, and what do its intervals already bound?",
+ "refuses": {
+  "claim": "score coval_core against topw_k3/k4/k6/k8 as a comparator family",
+  "round": "R1101 (its NEXT)",
+  "second_error_in_the_same_sentence": "it called them `the rating-blind selectors`; R1101's own measurement is that topw RANKS BY human ratings",
+  "status": "REFUSED \u2014 PRIOR ART. R1011 ran exactly this at full coverage, 91 rounds ago."
+ },
+ "retention_curves": {
+  "topw_k3": {
+   "0.0": 0.0133,
+   "0.001": 0.0356,
+   "0.002": 0.0822,
+   "0.003": 0.1489,
+   "0.004": 0.2478,
+   "0.005": 0.35,
+   "0.006": 0.4778,
+   "0.007": 0.5978,
+   "0.008": 0.6956,
+   "0.01": 0.8744,
+   "0.012": 0.9556,
+   "0.015": 0.9978,
+   "0.0738": 1.0
+  },
+  "topw_k4": {
+   "0.0": 0.0278,
+   "0.001": 0.0578,
+   "0.002": 0.0878,
+   "0.003": 0.15,
+   "0.004": 0.2533,
+   "0.005": 0.37,
+   "0.006": 0.4867,
+   "0.007": 0.6289,
+   "0.008": 0.7378,
+   "0.01": 0.8967,
+   "0.012": 0.9644,
+   "0.015": 1.0,
+   "0.0738": 1.0
+  },
+  "topw_k4_detA": {
+   "0.0": 0.0278,
+   "0.001": 0.0578,
+   "0.002": 0.0878,
+   "0.003": 0.15,
+   "0.004": 0.2533,
+   "0.005": 0.37,
+   "0.006": 0.4867,
+   "0.007": 0.6289,
+   "0.008": 0.7378,
+   "0.01": 0.8967,
+   "0.012": 0.9644,
+   "0.015": 1.0,
+   "0.0738": 1.0
+  },
+  "topw_k4_detB": {
+   "0.0": 0.0278,
+   "0.001": 0.0578,
+   "0.002": 0.0878,
+   "0.003": 0.15,
+   "0.004": 0.2533,
+   "0.005": 0.37,
+   "0.006": 0.4867,
+   "0.007": 0.6289,
+   "0.008": 0.7378,
+   "0.01": 0.8967,
+   "0.012": 0.9644,
+   "0.015": 1.0,
+   "0.0738": 1.0
+  },
+  "topw_k6": {
+   "0.0": 0.0244,
+   "0.001": 0.0522,
+   "0.002": 0.09,
+   "0.003": 0.1722,
+   "0.004": 0.2889,
+   "0.005": 0.4378,
+   "0.006": 0.5833,
+   "0.007": 0.7133,
+   "0.008": 0.8144,
+   "0.01": 0.93,
+   "0.012": 0.9878,
+   "0.015": 0.9989,
+   "0.0738": 1.0
+  },
+  "topw_k8": {
+   "0.0": 0.0222,
+   "0.001": 0.0422,
+   "0.002": 0.0867,
+   "0.003": 0.1456,
+   "0.004": 0.2422,
+   "0.005": 0.3678,
+   "0.006": 0.5022,
+   "0.007": 0.6367,
+   "0.008": 0.7511,
+   "0.01": 0.9311,
+   "0.012": 0.9733,
+   "0.015": 0.9989,
+   "0.0738": 1.0
+  }
+ },
+ "round": "R1102",
+ "source_sha256": "0a6d29b3153e4efa4154ba3b15021ba32c6711bd7bcd37bca22d5b5d1c0ffdc4",
+ "verdict": "\u26d4 WORLD A SURVIVES: R1011's DESIGN WAS AT ITS LIMIT. Measured MDE 0.008\u20130.01 per rival, against the bracket (0.0033, 0.0072] the derivation forced \u2014 inside: False. \u26d4 SO THE DERIVATION IS OVERTURNED BY THE MEASUREMENT, in the flattering direction: it credited the design with resolution it does not have, because ['topw_k8'] crossed zero BELOW its own MDE \u2014 a cell at under 80% power. \u2b50 THE CONSEQUENCE: R1011's five unresolved \u0394 are [0.0023, 0.0023, 0.0023, 0.0024, 0.0033], a factor of 2.4 under the resolution, so those nulls are SILENCE and not measurements \u2014 nulls_are_silence=True. What the data support is an INEQUALITY: the core's A2 advantage over each unresolved admitted rival is bounded above by {'topw_k3': 0.0095, 'topw_k4': 0.0084, 'topw_k4_detA': 0.0084, 'topw_k4_detB': 0.0084, 'topw_k6': 0.0079}."
+}

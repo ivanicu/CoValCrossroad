@@ -27264,3 +27264,42 @@ should be pointed at, not another rule.
 ⚠ **The count is not the product.** Seven retractions bought one compression — *representation is
 not referent* — and four instruments. Reporting the count without the class would be the activity
 metric this project's own constitution opens by forbidding.
+
+---
+
+## R1102 · R1011's five nulls, and two of my own closing sentences
+
+**What was withdrawn.** R1011's headline — *the definition contains the released core without
+singling it out* — is **downgraded, not retracted**. Its five straddling intervals were published as
+a fact about the definition; measured, the design's MDE is **0.008–0.010** against unresolved effects
+of **+0.0023 to +0.0033**, a factor of **2.4** under the resolution. A null at a quarter of the
+design's resolution is silence. What survives is an **inequality**: the core's A2 advantage over each
+unresolved admitted rival is bounded above by **+0.0079 to +0.0095**.
+
+**What killed it.** R1011 reported **no MDE**, and its declared NOISE FLOOR was the width of a
+*degenerate* twin interval — **0.000000**. §4 already names that case: `floor == ceiling` means the
+statistic is degenerate and **no threshold is admissible**. The floor was in the artifact, correct,
+and read as a pass for 91 rounds.
+
+**And three errors in this round were mine, in the flattering direction each time.**
+- **The derivation.** From R1011's table I derived `MDE ∈ (0.0033, 0.0072]` and concluded the design
+  was not blind. It rests on *a resolved cell lies above the MDE*, which is **false** — the MDE is an
+  80%-power threshold and one study can cross at lower power. `topw_k8` crossed at +0.0072 against
+  its own MDE of 0.010.
+- **The NEXT line, twice in one sentence.** R1101 closed by proposing work **R1011 had run 91 rounds
+  earlier**, and called those arms *"the rating-blind selectors"* when R1101's own measurement, one
+  paragraph above, is that `topw` **ranks by human ratings**.
+- **The verdict string.** Its first version printed *"R1011's DESIGN WAS NOT BLIND"* while the branch
+  beside it had computed `in_bracket = False`. Fourth instance of this family in the project.
+
+⭐ **The class, and it is not the same one the last ledger entry named.** R1075–R1084 were all
+*representation read as referent*. **These are all: a QUANTITY reported without the RESOLUTION that
+decides whether it means anything.** R1011's null, my bracket, and — one level up — the arc's habit of
+reading a straddling interval as an object-level fact. The remedy is not *execute the thing*; it is
+**price the null before publishing it**, and the cheapest form is one dose-response sweep on the same
+estimator.
+
+⚠ **And the count is not the product.** This entry buys one instrument-level compression — *a null is
+inadmissible until its MDE is beside it* — and one surviving number: the bound on the core's
+advantage. R1011's positive control, sham and coverage findings are untouched, and so is the fact that
+the definition **contains** the core.

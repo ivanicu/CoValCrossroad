@@ -696,6 +696,23 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔ R1102 DOWNGRADED R1011, the deepest claim in this arc. R1011 declared five nulls with NO
+    #     MDE and a noise floor of width 0.000000 — a degenerate twin interval, which §4 names as the
+    #     case where no threshold is admissible. Measured, its MDE is 2.4x the effects it called
+    #     unresolved. Two facts must reach the statement: that the nulls are SILENCE, and the BOUND
+    #     the data actually support — because a downgrade that names no replacement leaves the reader
+    #     with the retracted sentence and nothing else.
+    d = load("A27_*/R1102_*/results/what_r1011_could_resolve.json")
+    if d:
+        ov = d["derivation_overturned_by_the_measurement"]
+        facts.append(("R1102", "R1011's five nulls are silence; the data support a bound",
+                      f"MDE {ov['measured_MDE_range']}, derived bracket {ov['derived_bracket']}, "
+                      f"inside {ov['inside']}, silence {d['nulls_are_silence']}",
+                      [r"NULL\s+AT\s+A\s+QUARTER\s+OF\s+THE\s+DESIGN'?S\s+RESOLUTION\s+IS\s+SILENCE|"
+                       r"null\s+at\s+a\s+quarter\s+of\s+the\s+design'?s\s+resolution\s+is\s+silence",
+                       r"ONLY\s+THE\s+RANKING\s+CLAIM\s+LOSES\s+ITS\s+FOOTING|"
+                       r"only\s+the\s+ranking\s+claim\s+loses\s+its\s+footing"]))
+
     # ⛔ R1101 EXECUTED the AUTHORSHIP reading that R1100's P axis could not reach, by deranging the
     #    human ratings WITHIN each prompt. Two facts must reach the statement and they are different
     #    kinds: the MEASUREMENT (`topw` ranks by human ratings, 11/11 as pre-registered) and the
