@@ -2009,6 +2009,31 @@ constructed comparator**, which the release does not ship and the rule would acc
 moves from **N/A** to **N/A in this release AS SHIPPED**, with the requirement named and shown to be
 sufficient.
 
+⛔⛔⛔ **AND R1097 RETRACTS R1096: `prompt-blind` has TWO REFERENTS, and this arc has been using
+both.** R1096 claimed a certifiable-and-disjoint comparator was one committed selection file away, on
+the strength of a sham that wrote `f"criterion {i}"` — **the same text on every prompt, a string I
+invented**. The real selection is not constant: an index-blind subset has **968** distinct
+criterion-TEXT selections over the 968 prompts, **indistinguishable from `full`**, against `generic`'s
+**1** and a strict cell of **≤ 1**. **Writing the file does not help — it would honestly record 968
+and the rule would refuse.** §4's *a control validated only against cases you invented*, committed one
+round earlier and caught by attempting the construction.
+⭐ **THE STRUCTURAL FACT, AND IT IS THE THIRD TERM IN THIS ARC TO CARRY TWO REFERENTS.**
+**INDEX-blind** = the same *positional* selection on every prompt (R1057's 15 subsets).
+**TEXT-blind** = the same criterion *strings* on every prompt (`generic`, `genericpool16`).
+**R1056's certification rule types TEXT**, so **the certified family (2) and the synthetic family (15)
+are blind in different senses**, and every cross-family statement in this arc carries that seam.
+R1094 found it in clause ③'s two readings, R1091→R1092 in a wall that was not a wall, and **in each
+case the control could not separate the referents.**
+⚠ **AND THE ID SPACES DO NOT JOIN:** `conversation_rubrics.jsonl` keys on a **conversation** id whose
+overlap with the 968 scored `prompt_id`s is **0**, while `comparisons.jsonl` overlaps at **968**. No
+join was needed here and **none is available by id** — recorded before someone attempts one.
+⚠ **IMPOSSIBILITY REGISTER, CORRECTED:** *a comparator that is TEXT-blind and NOT an arm* — **N/A in
+this release**. Text-blindness over prompt-specific rubrics means a **fixed external criterion set**,
+which is exactly what `generic` is — **and `generic` is an arm**. It would require a fixed external
+rubric committed as a comparator and excluded from candidacy.
+⭐ **What survives of R1096:** its derivation (the rule types arms, so the certified family is an arm
+subset) and its population measurement (0 of 15 blind subsets in the rule's population).
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

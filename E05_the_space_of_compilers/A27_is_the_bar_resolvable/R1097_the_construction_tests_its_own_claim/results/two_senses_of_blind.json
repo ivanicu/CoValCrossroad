@@ -1,0 +1,66 @@
+{
+  "controls": {
+    "NEGATIVE the result holds for MORE THAN ONE index set": true,
+    "PLACEBO re-reading a selection file returns an identical count": true,
+    "POSITIVE `generic` returns exactly 1 \u2014 R918's `fixed` set, the rule's anchor": true,
+    "SHAM the invented constant certifies and the real selection does not": true,
+    "g=0 `full` returns 968 \u2014 the maximally prompt-specific pole": true
+  },
+  "id_space_note": "`conversation_rubrics.jsonl` keys on a CONVERSATION id whose overlap with the 968 scored prompt_ids is 0; `comparisons.jsonl` overlaps at 968. No join was needed here, and none is available by id.",
+  "impossibility_corrected": {
+    "criterion": "a comparator that is TEXT-blind and NOT an arm",
+    "status": "N/A in this release",
+    "what_it_would_require": "a fixed external rubric committed as a comparator and excluded from candidacy; text-blindness over prompt-specific rubrics means a fixed external criterion set, which is what `generic` is \u2014 and `generic` is an arm"
+  },
+  "invented_selection": {
+    "(0, 1, 2)": {
+      "distinct_text_selections": 1,
+      "prompts": 200
+    },
+    "(0, 1, 2, 3)": {
+      "distinct_text_selections": 1,
+      "prompts": 200
+    },
+    "(0,)": {
+      "distinct_text_selections": 1,
+      "prompts": 200
+    }
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "poles": {
+    "full (maximally specific)": 968,
+    "generic (text-blind)": 1
+  },
+  "question": "does the real selection of an index-blind comparator certify?",
+  "real_selection": {
+    "(0, 1, 2)": {
+      "distinct_text_selections": 968,
+      "prompts": 968
+    },
+    "(0, 1, 2, 3)": {
+      "distinct_text_selections": 968,
+      "prompts": 968
+    },
+    "(0,)": {
+      "distinct_text_selections": 968,
+      "prompts": 968
+    }
+  },
+  "retracts": {
+    "claim": "a certifiable-and-disjoint family is one committed file away",
+    "round": "R1096",
+    "status": "headline RETRACTED; R1096's derivation and its population measurement (0 of 15 in the rule's population) stand",
+    "why": "its sham used an INVENTED constant string as the selection. The real selection of an index-blind subset is text-diverse, so the file would record 968 and the rule would refuse."
+  },
+  "round": "R1097",
+  "source_sha256": "333f1031c8317401a988cc015d201772304ab4ad6455ee03d106508166ffa1c5",
+  "two_senses": {
+    "INDEX_BLIND": "the same positional selection on every prompt \u2014 R1057's 15",
+    "TEXT_BLIND": "the same criterion strings on every prompt \u2014 `generic`",
+    "consequence": "R1056's rule types TEXT, so the certified family and the synthetic family are blind in different senses and every cross-family statement in this arc carries that seam"
+  },
+  "verdict": "\u26d4 R1096's 'one committed selection file away' is RETRACTED. An index-blind subset's REAL selection has 968 distinct criterion-text selections \u2014 indistinguishable from `full`, and 968\u00d7 the rule's strict cell of 1. Writing the file does not help: it would honestly record 968, and the rule would refuse. R1096's sham certified only because I fed it a constant string I invented. \u2b50 **`prompt-blind` has two referents \u2014 INDEX-blind and TEXT-blind \u2014 and the certified family (2) and the synthetic family (15) are blind in different senses.** That is the third term in this arc to carry two referents whose control cannot separate them."
+}

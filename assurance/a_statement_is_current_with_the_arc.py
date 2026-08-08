@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1097_*/results/two_senses_of_blind.json")
+    if d:
+        r = d["real_selection"]; po = d["poles"]
+        facts.append(("R1097", "R1096 retracted: prompt-blind has an index sense and a text sense",
+                      f"generic {po['generic (text-blind)']}, index-blind "
+                      f"{[v['distinct_text_selections'] for v in r.values()]}",
+                      [r"blind\s+in\s+different\s+senses",
+                       r"validated\s+against\s+a\s+string\s+I\s+invented"]))
+
     d = load("A27_*/R1096_*/results/certifiable_xor_disjoint.json")
     if d:
         q = d["Q2_blind_subsets"]
