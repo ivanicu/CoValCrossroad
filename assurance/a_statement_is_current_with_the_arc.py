@@ -696,6 +696,23 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔⛔⛔ R1109 MADE R1108's RESULT EXHAUSTIVE. Two facts must reach the statement, and the
+    #       second is what makes the first admissible at all: 0 of 42 candidate cells admit, AND the
+    #       repair was verified LIVE for the candidate at 7 of 7 k values before that zero was read.
+    #       A reader given only the zero cannot tell it from an intervention that never happened —
+    #       which is exactly what the first run of this round produced, and why it exited 2.
+    d = load("A27_*/R1109_*/results/protocol_beneficiary.json")
+    if d:
+        si = d["spec_identity"]
+        facts.append(("R1109", "no beneficiary; and the repair was verified live before the zero",
+                      f"admitted {d['kill']['admitted']}/{d['kill']['candidate_cells']}, cells "
+                      f"{d['kill']['cells_tested']}, topw 2B at {d['topw_2B_admitted_at_k']}, "
+                      f"repair live {si['repair_is_live_for_topvar']}",
+                      [r"NO\s+POSSIBLE\s+BENEFICIARY\s+IN\s*\n?\s*THIS\s+RELEASE|"
+                       r"no\s+possible\s+beneficiary\s+in\s+this\s+release",
+                       r"KILL\s+IS\s+A\s+MEASUREMENT,\s+NOT\s+A\s+CONSTRUCTION|"
+                       r"kill\s+is\s+a\s+measurement,\s+not\s+a\s+construction"]))
+
     # ⛔⛔⛔ R1108 CLOSED THE JUDGE LINE. Two facts must reach the statement and the SECOND is the
     #      one that matters, which is why the first cannot travel alone: 4 arms return under the
     #      refit protocol (the kill, clearing by exactly its threshold), and 0 of them survive

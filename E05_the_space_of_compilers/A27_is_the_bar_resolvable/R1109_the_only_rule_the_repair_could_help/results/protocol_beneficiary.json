@@ -1,0 +1,158 @@
+{
+ "candidate_cells_admitting": [],
+ "cells": {
+  "topvar_k|k=12|08b": false,
+  "topvar_k|k=12|08bR": false,
+  "topvar_k|k=12|2B": false,
+  "topvar_k|k=1|08b": false,
+  "topvar_k|k=1|08bR": false,
+  "topvar_k|k=1|2B": false,
+  "topvar_k|k=2|08b": false,
+  "topvar_k|k=2|08bR": false,
+  "topvar_k|k=2|2B": false,
+  "topvar_k|k=3|08b": false,
+  "topvar_k|k=3|08bR": false,
+  "topvar_k|k=3|2B": false,
+  "topvar_k|k=4|08b": false,
+  "topvar_k|k=4|08bR": false,
+  "topvar_k|k=4|2B": false,
+  "topvar_k|k=6|08b": false,
+  "topvar_k|k=6|08bR": false,
+  "topvar_k|k=6|2B": false,
+  "topvar_k|k=8|08b": false,
+  "topvar_k|k=8|08bR": false,
+  "topvar_k|k=8|2B": false,
+  "topw_k|k=12|08b": false,
+  "topw_k|k=12|08bR": false,
+  "topw_k|k=12|2B": false,
+  "topw_k|k=1|08b": false,
+  "topw_k|k=1|08bR": false,
+  "topw_k|k=1|2B": false,
+  "topw_k|k=2|08b": false,
+  "topw_k|k=2|08bR": false,
+  "topw_k|k=2|2B": false,
+  "topw_k|k=3|08b": false,
+  "topw_k|k=3|08bR": false,
+  "topw_k|k=3|2B": true,
+  "topw_k|k=4|08b": false,
+  "topw_k|k=4|08bR": false,
+  "topw_k|k=4|2B": true,
+  "topw_k|k=6|08b": false,
+  "topw_k|k=6|08bR": false,
+  "topw_k|k=6|2B": true,
+  "topw_k|k=8|08b": false,
+  "topw_k|k=8|08bR": false,
+  "topw_k|k=8|2B": true,
+  "topwvar_k|k=12|08b": false,
+  "topwvar_k|k=12|08bR": false,
+  "topwvar_k|k=12|2B": false,
+  "topwvar_k|k=1|08b": false,
+  "topwvar_k|k=1|08bR": false,
+  "topwvar_k|k=1|2B": false,
+  "topwvar_k|k=2|08b": false,
+  "topwvar_k|k=2|08bR": false,
+  "topwvar_k|k=2|2B": false,
+  "topwvar_k|k=3|08b": false,
+  "topwvar_k|k=3|08bR": false,
+  "topwvar_k|k=3|2B": false,
+  "topwvar_k|k=4|08b": false,
+  "topwvar_k|k=4|08bR": false,
+  "topwvar_k|k=4|2B": false,
+  "topwvar_k|k=6|08b": false,
+  "topwvar_k|k=6|08bR": false,
+  "topwvar_k|k=6|2B": false,
+  "topwvar_k|k=8|08b": false,
+  "topwvar_k|k=8|08bR": false,
+  "topwvar_k|k=8|2B": false
+ },
+ "controls": {
+  "COMPLETENESS every one of the 63 cells was actually built": true,
+  "INSTRUMENT the analytic bound equals the 4000-draw bootstrap on a live cell": true,
+  "NEGATIVE the repair is LIVE for `topvar_k` \u2014 its two specs differ at some k": true,
+  "PLACEBO `topw_k` `_08b` == `_08bR` at every k (satisfaction-blind)": true,
+  "POSITIVE `topw_k` is admitted under 2B at k in {3,4,6,8}, matching R1105": true,
+  "REBUILD `topw_k4` and `topvar_k4` `_08b` reproduce the committed npz byte-for-byte": true
+ },
+ "derivation_that_picks_the_candidate": {
+  "rows": {
+   "topvar_k": {
+    "consumes_human_ratings_R1101": false,
+    "consumes_target_R1100": false,
+    "in_authorship_excludes": false,
+    "in_leakage_excludes": false
+   },
+   "topw_k": {
+    "consumes_human_ratings_R1101": true,
+    "consumes_target_R1100": false,
+    "in_authorship_excludes": false,
+    "in_leakage_excludes": false
+   },
+   "topwvar_k": {
+    "consumes_human_ratings_R1101": true,
+    "consumes_target_R1100": false,
+    "in_authorship_excludes": false,
+    "in_leakage_excludes": false
+   }
+  },
+  "unique_candidate": [
+   "topvar_k"
+  ],
+  "why": "clean under both \u2462 readings (R1094's two lists) AND rating-blind (R1101's within-prompt weight derangement) AND target-blind (R1100). `topw_k` is satisfaction-blind so its repair is a no-op; `topwvar_k` consumes ratings"
+ },
+ "kill": {
+  "admitted": 0,
+  "candidate_cells": 42,
+  "cells_tested": 63,
+  "gate_open": true,
+  "world_A_killed": false
+ },
+ "n_candidate_cells": 42,
+ "question": "is there any object the fitting-protocol clause could help?",
+ "refit_only_admissions": [],
+ "round": "R1109",
+ "source_sha256": "2625d71e0c836930dd01b1575a2fe26d1a9a092e70351e257648dc8bacddfe57",
+ "spec_identity": {
+  "repair_is_live_for_topvar": true,
+  "topvar_k": {
+   "1": false,
+   "2": false,
+   "3": false,
+   "4": false,
+   "6": false,
+   "8": false,
+   "12": false
+  },
+  "topw_k": {
+   "1": true,
+   "2": true,
+   "3": true,
+   "4": true,
+   "6": true,
+   "8": true,
+   "12": true
+  },
+  "topwvar_k": {
+   "1": false,
+   "2": false,
+   "3": false,
+   "4": false,
+   "6": false,
+   "8": false,
+   "12": false
+  }
+ },
+ "topw_2B_admitted_at_k": [
+  3,
+  4,
+  6,
+  8
+ ],
+ "verdict": "\u2b50 WORLD A SURVIVES: of the 42 cells belonging to `topvar_k` and `topwvar_k` across k [1, 2, 3, 4, 6, 8, 12] and three worlds, 0 admit \u2014 []. The contrast `topw_k` admits under 2B at k = [3, 4, 6, 8], so the operator is not blind. \u2b50 AND THE KILL IS A MEASUREMENT, NOT A CONSTRUCTION: the repair is LIVE for `topvar_k` \u2014 its re-scored and re-run files DIFFER at 7 of 7 k values \u2014 so the intervention did happen and admitted nothing. **The fitting-protocol clause has no possible beneficiary in this release.**",
+ "yardsticks": {
+  "R1103_sampling_interval_on_size": [
+   17.0,
+   26.0
+  ],
+  "note": "reported beside these zeros, never subtracted from them"
+ }
+}

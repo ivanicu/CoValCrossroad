@@ -2065,6 +2065,26 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔⛔⛔ **AND R1109 MAKES IT EXHAUSTIVE: THE FITTING-PROTOCOL CLAUSE HAS NO POSSIBLE BENEFICIARY IN
+THIS RELEASE.** A derivation over three committed artifacts picks the one candidate — R1094's two
+exclusion lists contain neither `topvar_k` nor `topwvar_k`; R1101's weight derangement moves
+`topwvar_k` and NOT `topvar_k`; R1100's target derangement moves neither; and `topw_k` is
+satisfaction-blind so its repair is a no-op — **so `topvar_k` is the UNIQUE rule clean under BOTH
+readings of ③ with a LIVE repair.** It had only ever been built at **k = 4**.
+⭐ Swept across **k ∈ {1,2,3,4,6,8,12}** under three worlds: **0 of 42** candidate cells admit. The
+contrast `topw_k` admits under 2B at **k = 3, 4, 6, 8**, exactly R1105's committed set, so the
+operator is not blind and the zeros are measurements.
+⭐⭐ **AND THE KILL IS A MEASUREMENT, NOT A CONSTRUCTION**: `topvar_k`'s re-scored and re-run files
+**DIFFER at 7 of 7 k values** while `topw_k`'s are byte-identical at all seven. **The intervention
+genuinely happened and bought nothing.** A zero obtained because the intervention never occurred
+would not have been a zero.
+⛔ **And a control was added because the first run needed it.** My harness omitted the tag-suffix for
+the 2B world and then looked for a suffixed filename, so **all 21 2B cells silently failed to build
+and 14 candidate cells were counted as `does not admit` having never been written.** The round
+**exited 2** rather than publishing that zero, because the POSITIVE control could not find `topw_k`
+admitted under 2B. §4's *empty population passes* — caught by the gate, now its own COMPLETENESS
+control asserting all 63 cells were built.
+
 ⛔⛔⛔ **AND R1108 CLOSES THE LINE: THE PROTOCOL REPAIR IS AVAILABLE ONLY TO ARMS CLAUSE ③ EXCLUDES.**
 Refitting every rebuildable candidate under the judge it is EVALUATED under — the repair R1107's
 negative control proposed — gives an admitted set of **4** against R1105's **0** re-scored and **9**
