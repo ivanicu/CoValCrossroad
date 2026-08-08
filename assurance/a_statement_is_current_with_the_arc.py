@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1089_*/results/certifier_freedom.json")
+    if d:
+        r = d["resolvable"]; pt = r["partition"]
+        facts.append(("R1089", "28 of 99 arms are decided by who picks the comparators",
+                      f"gap {r['gap']}, always {pt['admitted_under_every_family']}, "
+                      f"never {pt['admitted_under_no_family']}, "
+                      f"arms-decided {pt['share_decided_by_the_arms']}",
+                      [r"decided\s+by\s+who\s+picks\s+the\s+comparators",
+                       r"71\.7%\s+is\s+the\s+arms|a\s+large\s+minority,\s+not\s+a\s+majority"]))
+
     d = load("A27_*/R1088_*/results/span_strength_or_composition.json")
     if d:
         q = d["Q2_correlation"]; pl = d["plants"]

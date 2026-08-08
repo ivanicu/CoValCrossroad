@@ -1,0 +1,70 @@
+{
+  "SHAM_point_estimate": {
+    "full_family": 42,
+    "gap": 23,
+    "max_singleton": 65
+  },
+  "controls": {
+    "NEGATIVE breaking the arm-comparator pairing MOVES the gap": true,
+    "PLACEBO a family against itself differs by 0": true,
+    "POSITIVE monotonicity holds on 200 nested pairs (the derivation, verified)": true,
+    "g=0 identical comparators give a gap of 0": true
+  },
+  "derivation": "admission is an INTERSECTION, so |admitted(F)| is monotone non-increasing in F; the max is at a singleton and the min at the full family, and nothing between needs searching. Verified, not assumed.",
+  "kill": {
+    "gate_open": true,
+    "world_B_admitted": true
+  },
+  "noise_floor": {
+    "non_unanimous_point": 0,
+    "non_unanimous_strict": 7,
+    "seeds": [
+      11,
+      23,
+      47
+    ]
+  },
+  "population": {
+    "arms": 99,
+    "prompts": 968,
+    "subsets": 15
+  },
+  "prior_art": {
+    "R1034": "the CLOSED set makes the extension empty \u2014 the strict endpoint.",
+    "R1056": "the certified family is 2 at every defensible threshold.",
+    "R1088": "a flip needs proximity; distant comparators flip nobody."
+  },
+  "question": "how much of clause 2's extension is decided by the choice of comparators?",
+  "resolvable": {
+    "full_family": 35,
+    "gap": 28,
+    "max_singleton": 63,
+    "partition": {
+      "admitted_under_every_family": 35,
+      "admitted_under_no_family": 36,
+      "decided_by_the_choice": 28,
+      "share_decided_by_the_arms": 0.7172
+    },
+    "per_singleton": {
+      "(0, 1)": 37,
+      "(0, 1, 2)": 37,
+      "(0, 1, 2, 3)": 35,
+      "(0, 1, 3)": 38,
+      "(0, 2)": 39,
+      "(0, 2, 3)": 37,
+      "(0, 3)": 42,
+      "(0,)": 46,
+      "(1, 2)": 42,
+      "(1, 2, 3)": 42,
+      "(1, 3)": 45,
+      "(1,)": 59,
+      "(2, 3)": 53,
+      "(2,)": 61,
+      "(3,)": 63
+    },
+    "share_of_arms": 0.2828
+  },
+  "round": "R1089",
+  "source_sha256": "7b30b4a2825a130496e27c17eaf62e3811b80394d93909afd0d2f3be9464dd9a",
+  "verdict": "world B (A KNOB) is ADMITTED, and the size is the finding: monotonicity partitions the 99 arms into 35 admitted under EVERY admissible family, 36 admitted under NONE, and 28 (28.3%) decided by the certifier's choice. So 71.7% of the extension is a fact about the arms and 28.3% is a fact about the choice \u2014 a large minority, not a majority, and the clause names both."
+}

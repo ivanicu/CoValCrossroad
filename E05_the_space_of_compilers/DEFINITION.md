@@ -1858,6 +1858,25 @@ and the leave-one-out decomposition is exact rather than estimated. **Labelled a
 "a strong plant does not raise the maximum" held whatever the plant was; and rebuilt as a solo
 comparison both extreme plants returned 0, which looked broken and **was** the mechanism.
 
+⭐⭐ **AND R1089 PUTS A NUMBER ON WHAT THE CERTIFIER DECIDES: 28 of 99 arms, and 71.7% is the arms.**
+Monotonicity partitions the extension exactly — **35** arms are admitted under **every** admissible
+blind family, **36** under **none**, and **28 (28.3%)** are decided purely by which family is chosen.
+The permissive end admits **63**, the strict end **35**, and nothing lies outside that bracket.
+⭐ **The derivation that removes the search, labelled and then verified:** admission under the
+every-comparator rule is an **intersection**, so `|admitted(F)|` is **monotone non-increasing** in
+`F` — the maximum is at a **singleton** and the minimum at the **full family**, with nothing between
+to search. Checked on 200 random nested pairs, no violation.
+⚠ **AND RESOLVABILITY WIDENS THE CERTIFIER'S FREEDOM RATHER THAN NARROWING IT.** The same range with
+resolvability removed has a gap of **23**, against **28** with it — the opposite of what reading it
+as a "strictness" requirement would predict.
+⛔ **My first verdict string said the extension is "MOSTLY a fact about who picks the comparators".
+Nobody computed "mostly", and it is false** — 28.3% is a **large minority**. §4's *the verdict string
+is not a computation*, caught by computing the partition the monotonicity argument already implied.
+⚠ **AND THIS IS NOT R1034's ENDPOINT.** R1034 measured the extension **empty** under closure over
+pool16's **65,535** subsets; this is the smaller space of **15** universally-available blind subsets,
+whose full family admits **35**, not 0. **Two different closures, two different objects — the numbers
+must not be pooled.**
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
