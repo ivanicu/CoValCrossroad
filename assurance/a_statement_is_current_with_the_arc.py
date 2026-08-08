@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1084_*/results/parse_vs_run.json")
+    if d:
+        c = d["confusion"]
+        facts.append(("R1084", "the parse nominates soundly and decides badly, over 47 of 88 scripts",
+                      f"recall {c['recall']}, precision {c['precision']}, "
+                      f"writers excluded {d['population']['writers_excluded']}",
+                      [r"sound\s+NOMINATOR\s+and\s+a\s+poor\s+DECIDER",
+                       r"reads\s+its\s+own\s+previous\s+run"]))
+
     d = load("A27_*/R1083_*/results/label_or_dependency.json")
     if d:
         c = d["cwd_invariance"]

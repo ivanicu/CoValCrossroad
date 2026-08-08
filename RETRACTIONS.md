@@ -27222,3 +27222,45 @@ headline as though the exclusion had happened. **The docstring is a claim about 
 that found it took one grep for `NSHUF`. **And no gate in `assurance/` checks declared-vs-implemented**
 — there is one for a control that *cannot fail* (`a_control_that_cannot_fail.py`), and none for a
 control that *never ran*.
+
+## ⛔⛔⛔ R1075–R1084 · SEVEN RETRACTIONS IN TEN ROUNDS, AND THEY ARE ONE ERROR (2026-08-07)
+
+**The ledger had not been written since R1007.** Seventy-seven rounds of gap, and the point of the
+file is that scattered retractions only become legible as a CLASS when they sit in one place. They
+did. Here they are, and they are not seven mistakes.
+
+| round | what was retracted | the representation I trusted | the referent it was not |
+|---|---|---|---|
+| R1075 | five rounds' premise | *"the value is unstored"* — an exact float test | the value, stored at full precision and displayed rounded |
+| R1076·R1078·R1079 | three classifiers, three counts withheld | the **shape** of a function's arguments | whether it is a membership test |
+| R1080 | `k2 = False`, caught by its own control | substrings of `ast.dump()` | the syntax tree it serialises |
+| R1081 | the sham's threshold | `dp=17` as *"rounding removed"* | `round(x, n)` is n places **after the point**, not n significant digits |
+| R1082 | world C, withheld as UNVERIFIED | a regex match capturing a number | a statement of the **same quantity** |
+| R1083 | my own verdict string | *"a literal in the gate"* | a read through a hard-coded relative path |
+| R1084 | my reading of the exposure | the name `ROOT` | in `run_all.py` it is `assurance/`, not the repository root |
+
+⭐ **THE ONE ERROR, and it is the same one every time: I read a REPRESENTATION as evidence about
+its REFERENT.** A dump of a tree for the tree. A label for a provenance. A regex hit for a claim. A
+displayed decimal for a stored value. A parameter name for the thing it names. Every retraction in
+this arc is that substitution, and none of them is a computation error — the arithmetic was right
+in all seven.
+
+⭐ **AND THE REMEDY THAT WORKED WAS THE SAME ONE EVERY TIME: EXECUTE THE THING.** Not a better rule
+— a *run*. R1080's reachability, R1081's occasion, R1082's order-dependence, R1083's coverage,
+R1084's runners: every one was settled by running the object and reading what came back, and every
+one had first been attacked with a rule that failed. **Three successive classifiers (R1076·78·79)
+could not recover a semantic distinction from syntax; one execution settled the question they were
+circling.**
+
+⛔ **WHAT THIS SAYS ABOUT THE LOOP, WHICH IS THE QUESTION A LEDGER IS SUPPOSED TO ANSWER.** It did
+NOT stall: the ten rounds produced four shipped instruments (`valuematch.py`,
+`an_anchor_binds_to_one_number.py`, `a_gate_is_cwd_invariant.py`, and the eight-site path repair),
+three of them wired into `preflight.py` and each attacked five or six ways before being trusted. So
+this is not a hundred rounds of no progress. **But six of the seven retractions were caught by a
+control I had written in the same round**, which is the loop working — and the seventh (R1084's
+`ROOT`) was caught only because I stopped to read the object. The class above is what the next round
+should be pointed at, not another rule.
+
+⚠ **The count is not the product.** Seven retractions bought one compression — *representation is
+not referent* — and four instruments. Reporting the count without the class would be the activity
+metric this project's own constitution opens by forbidding.

@@ -1737,6 +1737,32 @@ comparator makes its own POSITIVE control fail and it exits 2. ⚠ It cannot say
 agreeing runs share is *correct*, and it does **not** make `UNEVALUABLE` fatal — that is a policy
 change and is not smuggled in.
 
+⭐⭐ **AND R1084 PRICES BOTH HALVES OF R1083's INSTRUCTION ACROSS ALL 88 ASSURANCE SCRIPTS.** Propose
+by parse, confirm by execution: measured, the parse has **recall 1.000** and **precision 0.111** — it
+missed nothing and **8 of its 9 proposals are literals the run never reaches**. It is a **sound
+NOMINATOR and a poor DECIDER**, and the single script whose behaviour actually moves is
+`a_control_that_cannot_fail.py` (`rc 0 → 2`). A stricter proposer gives identical numbers, so the
+worry that the loose rule inflates the kill's own cell was unfounded and is now measured rather than
+carried as a caveat.
+⛔ **AND 41 OF THE 88 SCRIPTS ARE NOT IDENTIFIED FOR THIS INSTRUMENT AT ALL — learned by damaging the
+repository.** A script that writes **reads its own previous run's output**, so a two-run comparison
+measures the side effect and not the directory. The full-population pass truncated
+`assurance/ASSURANCE.md` to **22 of 111** lines, cut **395** from `DEFECTS.json` and churned **943**
+in `MANIFEST.json` (all restored) — and **the single FALSE NEGATIVE it produced was itself a
+writer**, so the cell that would have killed the finding was an artifact of my own concurrency.
+**N/A, with what it would require: one isolated copy of the repository per run.**
+⚠ **AND THE EXPOSURE OF R1083's DEFECT IS BOUNDED HERE: it was LATENT, never live.** All three
+programmatic runners pin the working directory to the repository root — `preflight.py:57`
+(`cwd=ROOT`), `run_all.py:67` (`cwd=ROOT.parent`, where *that file's* `ROOT` is `assurance/`), and
+`audit_the_auditors.py:276`. No shell, hook or Makefile caller exists. **I nearly reported the
+opposite**, reading `ROOT.parent` through the meaning `ROOT` carries in the other 87 files — the same
+error class as the rest of this arc, committed in my own analysis rather than in code.
+⭐ **The retraction ledger is written for the first time since R1007, and the entry is a CLASS, not a
+list.** Seven retractions in ten rounds — R1075's void premise, three failed classifiers, R1080's
+`ast.dump` substrings, R1081's `dp=17` sham, R1082's mismatched unit, R1083's typed verdict string,
+R1084's `ROOT` — are **one error: reading a REPRESENTATION as evidence about its REFERENT.** The
+remedy that worked every time was the same: **execute the thing.** Detail: `RETRACTIONS.md`.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

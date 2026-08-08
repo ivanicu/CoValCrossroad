@@ -32,11 +32,46 @@ ROOT = HERE.parent
 
 # gates whose coverage must not move. Each is (label, path, a token whose COUNT in stdout is the
 # coverage signal). A gate with no such token is still checked on its exit code.
-WATCHED = [
-    ("anchoring", ROOT / "assurance/definition_matches_the_record.py", "UNEVALUABLE"),
-    ("currency", ROOT / "assurance/a_statement_is_current_with_the_arc.py", "never reached"),
-    ("one-home", ROOT / "assurance/an_anchor_binds_to_one_number.py", "match nothing at all"),
-]
+#
+# ⭐ THE LIST IS DERIVED FROM `preflight.GATES`, NOT TYPED. R1083 shipped this watching three
+#    hard-coded names and said so as a limitation; a hard-coded watch list is the same defect as a
+#    hard-coded path -- it goes stale the moment a gate is added, and it goes stale silently.
+#    Reading preflight's own list means a new commit gate is watched the day it is wired.
+COVERAGE_TOKEN = {
+    "anchoring": "UNEVALUABLE",
+    "currency": "never reached",
+    "one-home": "match nothing at all",
+}
+
+
+def watched():
+    out, seen = [], set()
+    try:
+        import preflight                                     # same directory, on sys.path above
+        for name, rel in preflight.GATES:
+            p = ROOT / rel
+            if p.resolve() == pathlib.Path(__file__).resolve():
+                continue                                     # never recurse into this gate
+            # ⛔ A GATE WITH NO REGISTERED TOKEN IS COMPARED ON ITS WHOLE NORMALISED STDOUT, not on
+            #    a token that does not appear in it. The first version defaulted to "⛔", which
+            #    occurs 0 times in both runs and therefore matched every time -- so a newly wired
+            #    gate was watched on its EXIT CODE alone. Attacked immediately after shipping (P7)
+            #    by wiring a cwd-dependent gate into preflight: the list grew to 4 and the guard
+            #    still said GREEN. A silent default in the flattering direction.
+            out.append((name, p, COVERAGE_TOKEN.get(name)))
+            seen.add(p.resolve())
+    except Exception as e:                                    # noqa: BLE001 - reported, not hidden
+        print(f"  ⚠ preflight's gate list is unreadable ({e}); falling back to the named three.")
+        for name, rel in (("anchoring", "assurance/definition_matches_the_record.py"),
+                          ("currency", "assurance/a_statement_is_current_with_the_arc.py"),
+                          ("one-home", "assurance/an_anchor_binds_to_one_number.py")):
+            p = ROOT / rel
+            if p.resolve() not in seen:
+                out.append((name, p, COVERAGE_TOKEN.get(name)))
+    return out
+
+
+WATCHED = watched()
 
 
 def run_from(script: pathlib.Path, cwd: pathlib.Path):
@@ -78,14 +113,27 @@ def main() -> int:
 
         print(f"\n  {len(present)} gate(s), each run from the repository root and from {other}")
         print(f"    {'gate':<12}{'root rc':>9}{'other rc':>10}{'root n':>9}{'other n':>9}   token")
+        def scrub(s):
+            for q in (str(ROOT), str(other)):
+                s = s.replace(q, "<PATH>")
+            return s
+
         for name, path, tok in present:
             rc1, o1 = run_from(path, ROOT)
             rc2, o2 = run_from(path, other)
-            n1, n2 = o1.count(tok), o2.count(tok)
-            ok = (rc1 == rc2) and (n1 == n2)
+            if tok is None:
+                # no registered coverage token -> compare the WHOLE normalised output
+                n1, n2 = len(scrub(o1)), len(scrub(o2))
+                same_cov = scrub(o1) == scrub(o2)
+                shown = "<whole stdout>"
+            else:
+                n1, n2 = o1.count(tok), o2.count(tok)
+                same_cov = n1 == n2
+                shown = repr(tok)
+            ok = (rc1 == rc2) and same_cov
             if not ok:
-                bad.append((name, rc1, rc2, n1, n2, tok))
-            print(f"    {name:<12}{rc1:>9}{rc2:>10}{n1:>9}{n2:>9}   {tok!r}"
+                bad.append((name, rc1, rc2, n1, n2, shown))
+            print(f"    {name:<12}{rc1:>9}{rc2:>10}{n1:>9}{n2:>9}   {shown}"
                   f"   {'ok' if ok else '⛔ MOVES'}")
     finally:
         for f in other.glob("*"):

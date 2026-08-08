@@ -1,0 +1,633 @@
+{
+  "captures": {
+    "a_control_that_cannot_fail.py": {
+      "head_other": "  \u26d4 EMPTY POPULATION -- ['corebench', 'assurance'] contains no parseable module. The controls travel with the gate and must not be counted as coverage. Exit 2, never 0.\n",
+      "head_root": "  population: 108 modules parsed under ['corebench', 'assurance']\n  SYNTHETIC POSITIVE  a plant of `a / a is identically 1` -> flagged, reason named   PASS\n  SYNTHETIC POSITIVE  a plant of `a - a is i",
+      "rc": [
+        0,
+        2
+      ],
+      "sha_other": "439f98f8bed7a210",
+      "sha_root": "e4d88f6c3d7873f3"
+    },
+    "a_detector_marker_matches_something.py": {
+      "head_other": "  POSITIVE  a marker absent BY CONSTRUCTION is seen as dead: True  PASS\n     \u26a0 SYNTHETIC, and that is a WEAKNESS, stated rather than hidden. The real dead\n       literal 'CI'+'-lower' now occurs 6 tim",
+      "head_root": "  POSITIVE  a marker absent BY CONSTRUCTION is seen as dead: True  PASS\n     \u26a0 SYNTHETIC, and that is a WEAKNESS, stated rather than hidden. The real dead\n       literal 'CI'+'-lower' now occurs 6 tim",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "6772cd325081ad7f",
+      "sha_root": "6772cd325081ad7f"
+    },
+    "a_next_names_its_prior_art.py": {
+      "head_other": "  UNRUNNABLE: no NEXT text given; a blank line cannot be checked. Exit 2, never 0.\n",
+      "head_root": "  UNRUNNABLE: no NEXT text given; a blank line cannot be checked. Exit 2, never 0.\n",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_other": "589e1ed26f595dc1",
+      "sha_root": "589e1ed26f595dc1"
+    },
+    "a_published_number_is_named.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "a_registered_fact_must_load.py": {
+      "head_other": "  98 registered artifact glob(s) - resolving 98 - dead 0\n  PASS: every registered fact has an artifact on disk to load.\n",
+      "head_root": "  98 registered artifact glob(s) - resolving 98 - dead 0\n  PASS: every registered fact has an artifact on disk to load.\n",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "18173c5e861e4369",
+      "sha_root": "18173c5e861e4369"
+    },
+    "a_retraction_declares_its_class.py": {
+      "head_other": "a retraction declares its class \u2014 RETRACTIONS.md, binds from entry 1388 onward, 20 \u00a74 modes in vocabulary, 0 entr(y/ies) in scope\n  EMPTY POPULATION: no entry at or above the floor. A gate that examin",
+      "head_root": "a retraction declares its class \u2014 RETRACTIONS.md, binds from entry 1388 onward, 20 \u00a74 modes in vocabulary, 0 entr(y/ies) in scope\n  EMPTY POPULATION: no entry at or above the floor. A gate that examin",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_other": "27ccff38d387c979",
+      "sha_root": "27ccff38d387c979"
+    },
+    "a_scored_artifact_records_its_configuration.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "a_share_carries_its_counts.py": {
+      "head_other": "  POSITIVE  R872's REAL 0.4884 recomputes as 21/43, not flagged: True  PASS\n  g=0       a bare {'rate': 0.403} with no counts IS flagged: True  PASS\n    Both arms are the ones R883 used. This gate imp",
+      "head_root": "  POSITIVE  R872's REAL 0.4884 recomputes as 21/43, not flagged: True  PASS\n  g=0       a bare {'rate': 0.403} with no counts IS flagged: True  PASS\n    Both arms are the ones R883 used. This gate imp",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "b19e6ec76a87b04f",
+      "sha_root": "b19e6ec76a87b04f"
+    },
+    "a_statement_is_current_with_the_arc.py": {
+      "head_other": "  facts READ from 98 committed artifacts, 99 required in the statement:\n     R921  legitimate comparators                       = 2                            in statement: True\n     R922  inversions ",
+      "head_root": "  facts READ from 98 committed artifacts, 99 required in the statement:\n     R921  legitimate comparators                       = 2                            in statement: True\n     R922  inversions ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "34c33201a5f1abeb",
+      "sha_root": "34c33201a5f1abeb"
+    },
+    "a_verdict_threshold_is_named.py": {
+      "head_other": "  POSITIVE  R881's REAL branch `closest/mde_typ < 0.25` is flagged: True  PASS\n  g=0       a STRUCTURAL comparison `lo > 0` is not flagged: True  PASS\n  g=0       a NAMED threshold `r < FLOOR` is not ",
+      "head_root": "  POSITIVE  R881's REAL branch `closest/mde_typ < 0.25` is flagged: True  PASS\n  g=0       a STRUCTURAL comparison `lo > 0` is not flagged: True  PASS\n  g=0       a NAMED threshold `r < FLOOR` is not ",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "780a9fce3447f4b9",
+      "sha_root": "780a9fce3447f4b9"
+    },
+    "an_anchor_binds_to_one_number.py": {
+      "head_other": "  CONTROLS on this gate, before its own verdict:\n    PASS  POSITIVE a deliberately promiscuous anchor is caught\n    PASS  NEGATIVE an anchor matching nothing is not flagged\n    PASS  g=0 nothing is fl",
+      "head_root": "  CONTROLS on this gate, before its own verdict:\n    PASS  POSITIVE a deliberately promiscuous anchor is caught\n    PASS  NEGATIVE an anchor matching nothing is not flagged\n    PASS  g=0 nothing is fl",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "9e446b30da5ab1e4",
+      "sha_root": "9e446b30da5ab1e4"
+    },
+    "an_ear_label_matches_its_path.py": {
+      "head_other": "  positive control: fires on a planted `# A16` in A24 -> A16 != A24  PASS\n  population: 730 READMEs \u00b7 639 carry a self-label \u00b7 91 carry none and pass VACUOUSLY (not a clean bill -- see the proxy ledge",
+      "head_root": "  positive control: fires on a planted `# A16` in A24 -> A16 != A24  PASS\n  population: 730 READMEs \u00b7 639 carry a self-label \u00b7 91 carry none and pass VACUOUSLY (not a clean bill -- see the proxy ledge",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "9377f6d927ccca55",
+      "sha_root": "9377f6d927ccca55"
+    },
+    "an_impossibility_names_where_it_would_be_settled.py": {
+      "head_other": "  SELF-TEST \u2014 five constructed blocks whose answers are known:\n     no field            NO-DECLARATION              PASS\n     invented tag        INVALID-TAG:MAYBE           PASS\n     names nothing   ",
+      "head_root": "  SELF-TEST \u2014 five constructed blocks whose answers are known:\n     no field            NO-DECLARATION              PASS\n     invented tag        INVALID-TAG:MAYBE           PASS\n     names nothing   ",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e9909f5878486809",
+      "sha_root": "e9909f5878486809"
+    },
+    "an_mde_records_its_denominator.py": {
+      "head_other": "  an MDE over AGGREGATED UNITS must record how many units it averaged\n\n    POSITIVE CONTROL  an aggregated-unit estimator is FLAGGED: PASS\n    NEGATIVE CONTROL  a sample-size estimator is NOT flagged:",
+      "head_root": "  an MDE over AGGREGATED UNITS must record how many units it averaged\n\n    POSITIVE CONTROL  an aggregated-unit estimator is FLAGGED: PASS\n    NEGATIVE CONTROL  a sample-size estimator is NOT flagged:",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "dc65fbbbdc8d7cf5",
+      "sha_root": "dc65fbbbdc8d7cf5"
+    },
+    "arm_population_is_derived.py": {
+      "head_other": "  POSITIVE CONTROL \u2014 the rounds this check was built from:\n    R477_what_does_clause_three_actually_cost        want TYPED     got TYPED       ok\n    R485_is_the_definition_satisfiable_at_all        w",
+      "head_root": "  POSITIVE CONTROL \u2014 the rounds this check was built from:\n    R477_what_does_clause_three_actually_cost        want TYPED     got TYPED       ok\n    R485_is_the_definition_satisfiable_at_all        w",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "1edbffe601685e9e",
+      "sha_root": "1edbffe601685e9e"
+    },
+    "clause3_as_written.py": {
+      "head_other": "  POSITIVE  the two reader sets are disjoint: True   PASS\n    topw_k4          excluded=True  want=True  ok\n    topw_k4_sham     excluded=True  want=True  ok\n    topwvar_k4       excluded=True  want=T",
+      "head_root": "  POSITIVE  the two reader sets are disjoint: True   PASS\n    topw_k4          excluded=True  want=True  ok\n    topw_k4_sham     excluded=True  want=True  ok\n    topwvar_k4       excluded=True  want=T",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "d899c7da46e5af81",
+      "sha_root": "d899c7da46e5af81"
+    },
+    "code_states_a_bound_the_reader_never_sees.py": {
+      "head_other": "limitation-bearing source lines: 904\nbound phrases NOT present in the README's prose about their round: 902 of 904\n\n  E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_an",
+      "head_root": "limitation-bearing source lines: 904\nbound phrases NOT present in the README's prose about their round: 902 of 904\n\n  E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R02_label_an",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "22d558aa7830c5d0",
+      "sha_root": "22d558aa7830c5d0"
+    },
+    "comparator_scope.py": {
+      "head_other": "COMPARATOR SCOPE \u2014 every DIFFERENCE-based claim must NAME what it was measured against\n\n  POSITIVE CONTROL on the window mechanism (a window that passes everything is blind):\n    plant at   300 chars,",
+      "head_root": "COMPARATOR SCOPE \u2014 every DIFFERENCE-based claim must NAME what it was measured against\n\n  POSITIVE CONTROL on the window mechanism (a window that passes everything is blind):\n    plant at   300 chars,",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "6c54c50706fee7e8",
+      "sha_root": "6c54c50706fee7e8"
+    },
+    "corrections_propagated.py": {
+      "head_other": "  POSITIVE CONTROL: 11/11 patterns fire on their own plant   PASS\nwatched documents present: 5 of 5  (README.md, FROZEN.md, PREREGISTRATION.md, assurance/ASSURANCE.md, ADVERSARY_FORECAST.md)\nregistere",
+      "head_root": "  POSITIVE CONTROL: 11/11 patterns fire on their own plant   PASS\nwatched documents present: 5 of 5  (README.md, FROZEN.md, PREREGISTRATION.md, assurance/ASSURANCE.md, ADVERSARY_FORECAST.md)\nregistere",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "6224bc4a089ce158",
+      "sha_root": "6224bc4a089ce158"
+    },
+    "definition_matches_the_record.py": {
+      "head_other": "  CONTROL on this gate \u2014 duplicate anchor keys in the CLAIMS literal: none\n    332 anchors declared, 332 distinct. Python drops a duplicate\n    SILENTLY, so an anchor can be discarded and this gate pr",
+      "head_root": "  CONTROL on this gate \u2014 duplicate anchor keys in the CLAIMS literal: none\n    332 anchors declared, 332 distinct. Python drops a duplicate\n    SILENTLY, so an anchor can be discarded and this gate pr",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "a9bac830078ae8ec",
+      "sha_root": "a9bac830078ae8ec"
+    },
+    "donor_numbers_carry_their_draw_scope.py": {
+      "head_other": "rounds constructing a donor mapping: 20   registry entries: 20\n    R04_rebuild_satisfaction         idiom B\n    R103_consensus_conditioned       idiom A\n    R106_share_level_under_redraw    idiom A\n  ",
+      "head_root": "rounds constructing a donor mapping: 20   registry entries: 20\n    R04_rebuild_satisfaction         idiom B\n    R103_consensus_conditioned       idiom A\n    R106_share_level_under_redraw    idiom A\n  ",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_other": "0c9c2119552063a5",
+      "sha_root": "0c9c2119552063a5"
+    },
+    "frozen_frame_verifies.py": {
+      "head_other": "positive control: one character edited -> manifest CHANGES\n  cell sizes match declared          : True\n  prompts carrying their cell weight : 60/60\n  sum(weight x cell) = population    : 250.0  strata",
+      "head_root": "positive control: one character edited -> manifest CHANGES\n  cell sizes match declared          : True\n  prompts carrying their cell weight : 60/60\n  sum(weight x cell) = population    : 250.0  strata",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "5bf0ff172f521f8c",
+      "sha_root": "5bf0ff172f521f8c"
+    },
+    "interval_is_centred_on_its_point.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "next_gradient_is_new.py": {
+      "head_other": "  SELF-TEST \u2014 1880 files, 4 historical cases where the answer\n  is known, because a search with no positive control is not a measurement.\n\n    the line that was wrong           must find              ",
+      "head_root": "  SELF-TEST \u2014 1880 files, 4 historical cases where the answer\n  is known, because a search with no positive control is not a measurement.\n\n    the line that was wrong           must find              ",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "c477daf90b11d09d",
+      "sha_root": "c477daf90b11d09d"
+    },
+    "no_withdrawn_framings.py": {
+      "head_other": "  SYNTHETIC POSITIVE  7/7 registered patterns fire on their own plant   PASS\n  SYNTHETIC g=0       a clean sentence matches none   PASS\nscanned 1297 results files, 128136 strings\n  excluded 8932 paylo",
+      "head_root": "  SYNTHETIC POSITIVE  7/7 registered patterns fire on their own plant   PASS\n  SYNTHETIC g=0       a clean sentence matches none   PASS\nscanned 1297 results files, 128136 strings\n  excluded 8932 paylo",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "f4d461793ae9f1a6",
+      "sha_root": "f4d461793ae9f1a6"
+    },
+    "null_is_informative.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "outcome_variable_declared.py": {
+      "head_other": "rounds evaluating against the gold head: 12\n  R08_gold_preference                human_rankings=yes declared  <- a08_gold_08b.json:outcome_variable_scope\n  R09_overoptimization               human_ran",
+      "head_root": "rounds evaluating against the gold head: 12\n  R08_gold_preference                human_rankings=yes declared  <- a08_gold_08b.json:outcome_variable_scope\n  R09_overoptimization               human_ran",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "fa92b499c471c296",
+      "sha_root": "fa92b499c471c296"
+    },
+    "point_and_interval_share_a_source.py": {
+      "head_other": "  synthetic control: same-array flagged=0 (want 0), different-array flagged=1 (want 1) -> PASS\n  real control: the DIAGNOSED pair ('delta_mean' <- ds, 'ci' <- bs) in R141_verification is flagged -> PA",
+      "head_root": "  synthetic control: same-array flagged=0 (want 0), different-array flagged=1 (want 1) -> PASS\n  real control: the DIAGNOSED pair ('delta_mean' <- ds, 'ci' <- bs) in R141_verification is flagged -> PA",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "e84a105d0bc1a405",
+      "sha_root": "e84a105d0bc1a405"
+    },
+    "readme_agrees_with_results.py": {
+      "head_other": "rounds with results: 1044   stored values: 137,616\n\nround    unmatched   sample\nR21              6   0.8804, 0.7495, 97.85, 0.8927, 0.7495, +0.1432\nR24              1   1012\nR101             2   101, ",
+      "head_root": "rounds with results: 1044   stored values: 137,616\n\nround    unmatched   sample\nR21              6   0.8804, 0.7495, 97.85, 0.8927, 0.7495, +0.1432\nR24              1   1012\nR101             2   101, ",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "5520b705d9e2aa9d",
+      "sha_root": "5520b705d9e2aa9d"
+    },
+    "readme_row_carries_the_verdict.py": {
+      "head_other": "  \u26a0 11 results file(s) could not be parsed and were SKIPPED\nREADME rows: 31   rounds with a verdict string: 358\n  checkable (row AND verdict): 16\n  UNCHECKABLE (row, no verdict): 15  r4, r146, r171, r",
+      "head_root": "  \u26a0 11 results file(s) could not be parsed and were SKIPPED\nREADME rows: 31   rounds with a verdict string: 358\n  checkable (row AND verdict): 16\n  UNCHECKABLE (row, no verdict): 15  r4, r146, r171, r",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "594dc317b4a2ad81",
+      "sha_root": "594dc317b4a2ad81"
+    },
+    "register_requirements.py": {
+      "head_other": "REGISTER REQUIREMENTS \u2014 a requirement is an ENUM, never prose (HB8)\n\n  POSITIVE CONTROL \u2014 the gate must accept a valid tag and reject an invented one:\n    x REQUIRES: SECOND_JUDGE     -> REQUIRES    w",
+      "head_root": "REGISTER REQUIREMENTS \u2014 a requirement is an ENUM, never prose (HB8)\n\n  POSITIVE CONTROL \u2014 the gate must accept a valid tag and reject an invented one:\n    x REQUIRES: SECOND_JUDGE     -> REQUIRES    w",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "8158b6489bf9ed8f",
+      "sha_root": "8158b6489bf9ed8f"
+    },
+    "registries_are_satisfied.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "release_names_resolve_to_one_set.py": {
+      "head_other": "  POSITIVE CONTROL  a synthetic collision is detected: True\n  scanned 1010 run.py   release-asserting names: 1\n    PUBLISHED_FIVE: 2 distinct sets  (known)\n    PUBLISHED_FIVE: 7 member(s) the card nev",
+      "head_root": "  POSITIVE CONTROL  a synthetic collision is detected: True\n  scanned 1010 run.py   release-asserting names: 1\n    PUBLISHED_FIVE: 2 distinct sets  (known)\n    PUBLISHED_FIVE: 7 member(s) the card nev",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "8acae1054d4981fe",
+      "sha_root": "8acae1054d4981fe"
+    },
+    "residue_debt.py": {
+      "head_other": "  positive control: every pattern sees R925 in DEFINITION and R565 in STATEMENT\n\n  instrument                     DEFINITION STATEMENT   debt\n  tight   (R123) alone                  136       152     ",
+      "head_root": "  positive control: every pattern sees R925 in DEFINITION and R565 in STATEMENT\n\n  instrument                     DEFINITION STATEMENT   debt\n  tight   (R123) alone                  136       152     ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "4551ef3bac3886d5",
+      "sha_root": "4551ef3bac3886d5"
+    },
+    "results_are_not_degenerate.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "retired_framing_in_assertion_positions.py": {
+      "head_other": "assertion positions scanned: 149 across 3 documents\n  (headers, a bold line in the first four, and table cells; body prose is\n   NOT watched and remains the surface entry 65 fell through)\n\nNo retired ",
+      "head_root": "assertion positions scanned: 149 across 3 documents\n  (headers, a bold line in the first four, and table cells; body prose is\n   NOT watched and remains the surface entry 65 fell through)\n\nNo retired ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "619c07a623e7fef7",
+      "sha_root": "619c07a623e7fef7"
+    },
+    "retired_framing_in_emittable_source.py": {
+      "head_other": "source files parsed: 1091   emittable retired framings: 5\n\n  E05_the_space_of_compilers/A24_what_the_definition_costs/R622_how_much_of_the_definition_is_re_derived/run.py:172  'LAUNDERING'\n      -> ->",
+      "head_root": "source files parsed: 1091   emittable retired framings: 5\n\n  E05_the_space_of_compilers/A24_what_the_definition_costs/R622_how_much_of_the_definition_is_re_derived/run.py:172  'LAUNDERING'\n      -> ->",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "97d28cd50338a2eb",
+      "sha_root": "97d28cd50338a2eb"
+    },
+    "round_links_resolve.py": {
+      "head_other": "7 document(s), 98 relative links\n\nevery PREFIXED link resolves.\n  SCOPE, because the old wording overstated it: LINK only matches targets\n  beginning E##_/rounds/data/assurance/covalx/scripts. A bare ",
+      "head_root": "7 document(s), 98 relative links\n\nevery PREFIXED link resolves.\n  SCOPE, because the old wording overstated it: LINK only matches targets\n  beginning E##_/rounds/data/assurance/covalx/scripts. A bare ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "6973c7bbc17780c7",
+      "sha_root": "6973c7bbc17780c7"
+    },
+    "scope_reaches_the_reader.py": {
+      "head_other": "claims in manifest: 20   carrying a scope clause: 6\nreproduced verbatim in ASSURANCE.md: 20\n\nEvery claim statement reaches the document in full.\n  Present is not the same as legible or prominent -- th",
+      "head_root": "claims in manifest: 20   carrying a scope clause: 6\nreproduced verbatim in ASSURANCE.md: 20\n\nEvery claim statement reaches the document in full.\n  Present is not the same as legible or prominent -- th",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "557dd05f7326a1a8",
+      "sha_root": "557dd05f7326a1a8"
+    },
+    "seed_filter_is_disclosed.py": {
+      "head_other": "rounds applying the majority/seed filter: 21   registry: 18\n\nFINDING: 3 round(s) apply the filter and are not registered:\n    R754_only_one_document_can_separate_era_from_governance\n    R789_how_many_",
+      "head_root": "rounds applying the majority/seed filter: 21   registry: 18\n\nFINDING: 3 round(s) apply the filter and are not registered:\n    R754_only_one_document_can_separate_era_from_governance\n    R789_how_many_",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "131f8bcfd6b971ec",
+      "sha_root": "131f8bcfd6b971ec"
+    },
+    "statement_provenance.py": {
+      "head_other": "STATEMENT PROVENANCE \u2014 every citation must name a round that is not UNVERIFIED\n\n    round  world\n     R338  W-BLIND\n     R360  W_3_IRREPLACEABLE_MAXIMAL\n     R403  W_TRANSPORTS_PART\n     R424  W_NOT_O",
+      "head_root": "STATEMENT PROVENANCE \u2014 every citation must name a round that is not UNVERIFIED\n\n    round  world\n     R338  W-BLIND\n     R360  W_3_IRREPLACEABLE_MAXIMAL\n     R403  W_TRANSPORTS_PART\n     R424  W_NOT_O",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "ce5d23b66ce731e8",
+      "sha_root": "ce5d23b66ce731e8"
+    },
+    "synthesis_cites_recent_work.py": {
+      "head_other": "none of the 5 named sections was found -- the README was restructured and this check is looking for something that no longer exists\n",
+      "head_root": "none of the 5 named sections was found -- the README was restructured and this check is looking for something that no longer exists\n",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_other": "fc857c7c6b9a6fe4",
+      "sha_root": "fc857c7c6b9a6fe4"
+    },
+    "the_clause_is_anchored.py": {
+      "head_other": "  OK    certified family size        = 2\n  OK    q threshold family size      = 10\n  OK    k needed for q               = 10\n  OK    blind-comparator space cap   = 15\n  PASS: all 4 re-derivable clause",
+      "head_root": "  OK    certified family size        = 2\n  OK    q threshold family size      = 10\n  OK    k needed for q               = 10\n  OK    blind-comparator space cap   = 15\n  PASS: all 4 re-derivable clause",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "e5d601b947af552d",
+      "sha_root": "e5d601b947af552d"
+    },
+    "the_clustered_estimator_is_sound.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "token_boundaries.py": {
+      "head_other": "  ok  scores_2B.json                               expect True\n  ok  d2Bx                                         expect False\n  ok  0.8B                                         expect True\n  ok  publ",
+      "head_root": "  ok  scores_2B.json                               expect True\n  ok  d2Bx                                         expect False\n  ok  0.8B                                         expect True\n  ok  publ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "1b70138348ccacca",
+      "sha_root": "1b70138348ccacca"
+    },
+    "valuematch.py": {
+      "head_other": "",
+      "head_root": "",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_other": "e3b0c44298fc1c14",
+      "sha_root": "e3b0c44298fc1c14"
+    },
+    "verdict_cites_its_own_contrasts.py": {
+      "head_other": "population: dropped 0 dryrun-sourced row(s), collapsed 0 metric-variant repeat(s) of an already-counted (round, path)\n  \u26a0 8 results file(s) could not be parsed and were SKIPPED\nrounds with a verdict A",
+      "head_root": "population: dropped 0 dryrun-sourced row(s), collapsed 0 metric-variant repeat(s) of an already-counted (round, path)\n  \u26a0 8 results file(s) could not be parsed and were SKIPPED\nrounds with a verdict A",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_other": "460d589a9a755c0f",
+      "sha_root": "460d589a9a755c0f"
+    }
+  },
+  "confusion": {
+    "FN": [],
+    "FP": [
+      "a_published_number_is_named.py",
+      "a_scored_artifact_records_its_configuration.py",
+      "a_statement_is_current_with_the_arc.py",
+      "definition_matches_the_record.py",
+      "outcome_variable_declared.py",
+      "registries_are_satisfied.py",
+      "results_are_not_degenerate.py",
+      "statement_provenance.py"
+    ],
+    "TN_count": 38,
+    "TP": [
+      "a_control_that_cannot_fail.py"
+    ],
+    "precision": 0.1111111111111111,
+    "recall": 1.0
+  },
+  "controls": {
+    "NEGATIVE a ROOT-anchored read fires neither": true,
+    "PLACEBO the determinism floor is clean for the eligible set": true,
+    "POSITIVE a planted cwd-dependent read: parse fires": true,
+    "POSITIVE a planted cwd-dependent read: run confirms": true,
+    "SHAM an unreachable read call: the parse fires (its blind spot, measured)": true,
+    "SHAM an unreachable read call: the run does NOT move": true,
+    "g=0 the copied script alone fires neither": true
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": false
+  },
+  "moving_scripts": {
+    "a_control_that_cannot_fail.py": {
+      "rc_other": 2,
+      "rc_root": 0,
+      "verdict": "MOVED"
+    }
+  },
+  "plants": {
+    "g0": {
+      "confirmed": false,
+      "proposed": false
+    },
+    "neg": {
+      "confirmed": false,
+      "proposed": false
+    },
+    "pos": {
+      "confirmed": true,
+      "proposed": true
+    },
+    "sham": {
+      "confirmed": false,
+      "proposed": true
+    }
+  },
+  "population": {
+    "eligible_for_the_2x2": 47,
+    "non_deterministic": [],
+    "read_only_and_therefore_executable": 47,
+    "scripts_in_directory": 88,
+    "timed_out": [],
+    "what_it_would_require": "one isolated copy of the repository per run",
+    "why_excluded": "a script that writes into the repository reads its own previous run's output, so a two-run comparison measures the side effect and not the CWD. Measured: the first pass truncated ASSURANCE.md to 22 of 111 lines and cut 395 lines from DEFECTS.json.",
+    "writers": [
+      "DEFECTS.py",
+      "HEADLINES.py",
+      "_isolated.py",
+      "_one_home_per_claim_UNVALIDATED.py",
+      "_repair.py",
+      "a_commit_body_names_its_own_round.py",
+      "a_declared_control_reaches_the_artifact.py",
+      "a_gate_is_cwd_invariant.py",
+      "a_next_names_the_check_that_cleared_it.py",
+      "a_seed_must_be_stable.py",
+      "apply_freeze_status.py",
+      "apply_outcome_scope.py",
+      "artifacts_are_internally_coherent.py",
+      "attack_a_published_number_is_named.py",
+      "attack_a_retraction_declares_its_class.py",
+      "attack_every_check.py",
+      "attack_no_withdrawn_framings.py",
+      "attack_outcome_variable_declared.py",
+      "attack_scope_reaches_the_reader.py",
+      "attack_the_suite.py",
+      "audit_the_auditors.py",
+      "backfilled_findings_are_rederivable.py",
+      "consistency.py",
+      "declared_machinery_is_wired.py",
+      "every_round_is_committed.py",
+      "every_round_reaches_the_readme.py",
+      "generate_round_index.py",
+      "kill_is_wired_into_the_branch.py",
+      "manifest.py",
+      "markdown_tables_are_well_formed.py",
+      "next_gradient_labels_its_hypotheses.py",
+      "next_line_quantifiers_are_computed.py",
+      "preflight.py",
+      "preflight_receipts.py",
+      "pueue_wait.py",
+      "results_match_their_code.py",
+      "retraction_reaches_the_artifact.py",
+      "run_all.py",
+      "source_stamp_is_current.py",
+      "tree_survives_the_sweep.py",
+      "what_did_each_check_actually_read.py"
+    ],
+    "writers_excluded": 41
+  },
+  "proposed_counts": {
+    "a_control_that_cannot_fail.py": 1,
+    "a_published_number_is_named.py": 1,
+    "a_scored_artifact_records_its_configuration.py": 1,
+    "a_statement_is_current_with_the_arc.py": 98,
+    "definition_matches_the_record.py": 1,
+    "outcome_variable_declared.py": 1,
+    "registries_are_satisfied.py": 1,
+    "results_are_not_degenerate.py": 1,
+    "statement_provenance.py": 1
+  },
+  "proposer_variants": {
+    "loose_FN": [],
+    "loose_proposed": 9,
+    "strict_FN": [],
+    "strict_proposed": 9,
+    "why": "the loose rule suppresses a proposal whenever the call mentions .parent, .resolve() or next(, inflating FN -- the cell the kill reads."
+  },
+  "question": "across all assurance scripts, does the AST parse predict the executed behaviour?",
+  "round": "R1084",
+  "source_sha256": "5fea7a1704dba7ffc89cc8a942f8a46c175044b5de2c9268ee4f95f51f459943",
+  "specification_curve": [
+    {
+      "compare_on": "rc+stdout",
+      "moved": 1,
+      "normalise": true,
+      "scripts": 47
+    },
+    {
+      "compare_on": "rc+stdout",
+      "moved": 1,
+      "normalise": false,
+      "scripts": 47
+    },
+    {
+      "compare_on": "rc only",
+      "moved": 1,
+      "normalise": true,
+      "scripts": 47
+    },
+    {
+      "compare_on": "rc only",
+      "moved": 1,
+      "normalise": false,
+      "scripts": 47
+    }
+  ],
+  "tree_mutated_by_the_sweep": [],
+  "verdict": "world A survives ON THE READ-ONLY POPULATION \u2014 all 1 script(s) whose behaviour moves were proposed by the parse (recall 1.00), under BOTH the loose and the strict rule. But precision is 0.11: 8 of 9 proposals are literals the run never reaches. The parse is a sound NOMINATOR and a poor DECIDER. And it speaks for 47 of 88 scripts only -- 41 write into the repository and are NOT IDENTIFIED for a two-run comparison at all."
+}
