@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1086_*/results/q_value_or_draw.json")
+    if d:
+        t = d["distribution_by_k"]["10"] if "10" in d["distribution_by_k"] else d["distribution_by_k"][10]
+        facts.append(("R1086", "q buys a DISTRIBUTION, not a value; in 27.5% of families it buys 0",
+                      f"k=10 span [{t['min']},{t['max']}], {t['distinct_values']} values, "
+                      f"mode {t['mode']} at {t['mode_share']}",
+                      [r"cannot\s+be\s+stated\s+without\s+naming\s+the\s+family",
+                       r"27\.5%\s+of\s+families\s+it\s+buys\s+nothing|buys\s+0\s+in\s+825"]))
+
     d = load("A27_*/R1085_*/results/isolation_reaches_the_writers.json")
     if d:
         facts.append(("R1085", "isolation is a safety property, and it bought nothing statistical",

@@ -1,0 +1,159 @@
+{
+  "controls": {
+    "DERIVATION CHECK the fast bootstrap equals the direct one on sampled pairs": true,
+    "NEGATIVE breaking the arm-comparator pairing MOVES the distribution": true,
+    "NEGATIVE relabelling the comparators leaves the WHOLE distribution identical": true,
+    "PLACEBO both rules at q=100 give delta 0 everywhere": true,
+    "POSITIVE an arm beating EVERY comparator is admitted by both rules": true,
+    "POSITIVE an arm beating exactly ceil(0.9k) is admitted by q ONLY": true,
+    "SHAM a family of k copies of one comparator gives delta 0": true,
+    "g=0 delta is 0 for every family at k<=9 (the algebra, reproduced)": true
+  },
+  "distribution_by_k": {
+    "10": {
+      "distinct_values": 7,
+      "distribution": {
+        "0": 825,
+        "1": 144,
+        "2": 1974,
+        "3": 46,
+        "4": 10,
+        "5": 3,
+        "7": 1
+      },
+      "families": 3003,
+      "max": 7,
+      "min": 0,
+      "mode": 2,
+      "mode_share": 0.6573
+    },
+    "11": {
+      "distinct_values": 5,
+      "distribution": {
+        "0": 330,
+        "1": 31,
+        "2": 993,
+        "3": 10,
+        "4": 1
+      },
+      "families": 1365,
+      "max": 4,
+      "min": 0,
+      "mode": 2,
+      "mode_share": 0.7275
+    },
+    "12": {
+      "distinct_values": 4,
+      "distribution": {
+        "0": 88,
+        "1": 3,
+        "2": 363,
+        "3": 1
+      },
+      "families": 455,
+      "max": 3,
+      "min": 0,
+      "mode": 2,
+      "mode_share": 0.7978
+    },
+    "13": {
+      "distinct_values": 2,
+      "distribution": {
+        "0": 14,
+        "2": 91
+      },
+      "families": 105,
+      "max": 2,
+      "min": 0,
+      "mode": 2,
+      "mode_share": 0.8667
+    },
+    "14": {
+      "distinct_values": 2,
+      "distribution": {
+        "0": 1,
+        "2": 14
+      },
+      "families": 15,
+      "max": 2,
+      "min": 0,
+      "mode": 2,
+      "mode_share": 0.9333
+    },
+    "15": {
+      "distinct_values": 1,
+      "distribution": {
+        "2": 1
+      },
+      "families": 1,
+      "max": 2,
+      "min": 2,
+      "mode": 2,
+      "mode_share": 1.0
+    }
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "noise_floor": {
+    "arm_subset_decisions": 1500,
+    "bootstrap_seeds": [
+      11,
+      23,
+      47
+    ],
+    "nboot": 2000,
+    "not_unanimous_across_seeds": 7,
+    "rule": "a decision counts as a beat only if all three seeds agree"
+  },
+  "population": {
+    "arms": 100,
+    "blind_subsets": 15,
+    "families_enumerated": 4944,
+    "ks": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "prompts": 968
+  },
+  "prior_art": {
+    "R1055": "q is algebraically inert below |family| = 10 (a derivation).",
+    "R1056": "the CERTIFIED family is 2 at every defensible threshold -- q is inert here.",
+    "R1057": "built the synthetic world and reported q buys 2 at k=10 and 2 at k=15. Its family is `C[:k]`, the lexicographically first k subsets; its three seeds reseed the BOOTSTRAP, not the family. One cell on the composition axis."
+  },
+  "question": "is `q buys 2 arms` a fact about the family SIZE or about WHICH family?",
+  "r1057_cell_by_k": {
+    "10": {
+      "delta_of_the_first_k_family": 2,
+      "share_of_families_at_or_below": 0.98
+    },
+    "11": {
+      "delta_of_the_first_k_family": 0,
+      "share_of_families_at_or_below": 0.2418
+    },
+    "12": {
+      "delta_of_the_first_k_family": 0,
+      "share_of_families_at_or_below": 0.1934
+    },
+    "13": {
+      "delta_of_the_first_k_family": 0,
+      "share_of_families_at_or_below": 0.1333
+    },
+    "14": {
+      "delta_of_the_first_k_family": 0,
+      "share_of_families_at_or_below": 0.0667
+    },
+    "15": {
+      "delta_of_the_first_k_family": 2,
+      "share_of_families_at_or_below": 1.0
+    }
+  },
+  "round": "R1086",
+  "source_sha256": "2e8fe4d69dbc280236f6c2e4da712cc2668a3d4190b7da46dd0db752e122fede",
+  "verdict": "world A (A VALUE) is KILLED \u2014 over the 3003 enumerated families at k=10, delta takes 7 distinct values spanning [0, 7], mode 2 at 65.7% of families. R1057's `C[:k]` family gives 2. **`q buys N arms` cannot be stated without naming the family.**"
+}

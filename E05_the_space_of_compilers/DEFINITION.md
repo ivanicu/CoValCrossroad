@@ -1788,6 +1788,34 @@ commits changing the clause text.** Six rounds shipped four instruments and neve
 definition. Every round audits the guard the previous one shipped. **That is a basin, and the next
 gradient is the clause, not another guard.**
 
+⭐⭐ **AND R1086 RETURNS TO THE CLAUSE AND DOWNGRADES ITS NUMBER: `q buys 2 arms` is a DISTRIBUTION,
+and in 27.5% of families it buys nothing.** R1057 kept `q` on the strength of *"2 arms at k=10 and 2
+at k=15"*. Read from its code rather than its README, its family is `C[:k]` — the lexicographically
+**first** k of the 15 blind subsets — and its three seeds reseed the **bootstrap**, never the family.
+`itertools.combinations` orders by subset size, so `C[:10]` is the 4 singletons plus 6 pairs: the
+smallest comparators in the space. **At k=10 there are C(15,10)=3003 families and they enumerate
+whole; no sampling was ever needed.**
+⭐ **Over all 4944 families at k=10…15**, `delta` at k=10 takes **7 distinct values spanning [0, 7]**,
+mode **2** at **65.7%**, and the full distribution is `{0: 825, 1: 144, 2: 1974, 3: 46, 4: 10, 5: 3,
+7: 1}`. **825 of 3003 families admit nothing extra.** So **`q buys N arms` cannot be stated without
+naming the family.**
+⭐ **And R1057's cell is unrepresentative in a k-dependent direction**: it sits at the mode for k=10
+and k=15 — the two sizes it reported — and gives **0 where the mode is 2** at k=11, 12, 13 and 14.
+Its own README read "nothing at k=12" as a property of 12; it is a property of *that family*, matched
+or bettered by only 19.3% of families at that size.
+⭐ **THE DECISION SURVIVES AND THE POINT ESTIMATE DOES NOT.** The mode is 2 at every size where `q`
+can act, and at **k=15 — the single complete family, where there is nothing to choose — delta is
+exactly 2**. `q` remains a live parameter awaiting a live family. What the clause may no longer say
+is *"2"*: it must say **2 at the mode, 0 in 27.5% of families at k=10, spanning 0–7**.
+⛔ **The first NEGATIVE control failed for its own reasons, the fifth time in this arc.** I asserted
+both rules "depend only on the count"; they depend on the count **within the family**, which a
+per-arm shuffle changes by construction. Replaced by the invariance that does hold — enumerating every
+family of size k is invariant to relabelling the comparators — plus its complement.
+⭐ **A derivation made the enumeration free and is labelled as one**: under the same resample indices
+`mean_b(V−C) = mean_b(V) − mean_b(C)`, so R1057's per-pair resampling collapses from 99×15×2000×968
+gathers per seed to 114 gathers and 1485 subtractions. **The cost changed; the number did not**, and a
+control checks it against the direct computation.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
