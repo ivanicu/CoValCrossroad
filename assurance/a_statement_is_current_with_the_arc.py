@@ -696,6 +696,21 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔ R1107 WITHDREW R1106's `set structure` LABEL: the dose does not exist and the gap peaks at
+    #     the one k R1106 looked at. Two facts must reach the statement because a reader given only
+    #     the kill would conclude the cross-judge deficit is not real — it IS real, at every dose;
+    #     what died is the explanation. And the refit reversal is the surviving mechanism, so it has
+    #     to travel with the withdrawal rather than behind it.
+    d = load("A27_*/R1107_*/results/set_structure_dose.json")
+    if d:
+        g, gr = d["gap_08b"], d["gap_08bR_negative_control"]
+        facts.append(("R1107", "no dose; the gap peaks at k=4 and the refit reverses it",
+                      f"gap {g}, monotone {d['monotone']}, ci {d['gap_high_minus_low']['ci']}, "
+                      f"refit {gr}, placebo ratio {d['placebo_detail']['ratio']}",
+                      [r"THE\s+GAP\s+PEAKS\s+AT\s+k\s*=\s*4|the\s+gap\s+peaks\s+at\s+k\s*=\s*4",
+                       r"REVERSES\s+the\s+deficit\s+at\s+4\s+of\s+4\s+doses|"
+                       r"reverses\s+the\s+deficit\s+at\s+4\s+of\s+4\s+doses"]))
+
     # ⭐⭐ R1106 SEPARATED THE TWO MECHANISMS BEHIND R1105's COLLAPSE. Two facts must reach the
     #     statement and they are in tension, which is why neither can stand alone: compression is
     #     REAL and large (slope 0.71, R^2 0.91) yet world A is KILLED by the rank correlation

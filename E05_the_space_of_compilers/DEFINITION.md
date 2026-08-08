@@ -2065,6 +2065,27 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔ **AND R1107 WITHDRAWS `SET STRUCTURE` AS THE NAME: THERE IS NO DOSE.** Sweeping `greedy` (set-
+aware) against `indep` (independent) at k ∈ {2,4,8,12} under both judges, residuals taken against the
+compression line fitted on R1106's **42 HELD-OUT** arms: `gap(k)` = **+0.0175, +0.0452, +0.0391,
++0.0224** — **not monotone**, and `gap(12) − gap(2)` has a bootstrap CI of **[−0.0027, +0.0124]**
+which straddles zero. ⭐ **THE GAP PEAKS AT k = 4, WHICH IS THE SINGLE DOSE R1106 OBSERVED** — the
+shape of a cell selected by where it was looked at. ⚠ **What survives is the DIRECTION**: the gap is
+positive at all four k, so `greedy` transfers worse than `indep` at every dose; what dies is *more
+set structure ⇒ less transfer*.
+⭐⭐ **AND THE NEGATIVE CONTROL IS THE ROUND'S REAL FINDING: refitting under the second judge REVERSES
+the deficit at 4 of 4 doses** (`_08bR` gap = **−0.0123, −0.0189, −0.0107, −0.0044**). Refitting does
+not merely collapse `greedy`'s deficit — it makes `greedy` the BETTER transferrer. **So the deficit
+is an artifact of being fitted under the FIRST judge, not a property of set-aware fitting.** ⚠ Its
+limit, stated: this round's CI is on the DOSE CONTRAST only, so the reversal is four point estimates
+with a consistent direction and **no interval**.
+⛔ **AND THE PLACEBO FAILED — after passing for the wrong reason.** v1 tested only INCREASING
+monotonicity; `topw_k`, which fits nothing, drifts monotone DECREASING at **0.509 of the gap's own
+span** (0.0141 vs 0.0277). **So even had the gap been monotone, this design could not have called it
+a fitting effect** — the trend would belong to k. The gate was made ASYMMETRIC: the kill needs only
+the rebuild control (verified byte-identical against two committed cells), a SURVIVAL would also have
+needed a flat placebo.
+
 ⭐⭐ **AND R1106 SEPARATES THE TWO MECHANISMS BEHIND THAT COLLAPSE: IT IS BOTH, AND THEY SPLIT THE
 CASUALTIES 5 / 4.** Compression is real and large — the margin regression has slope **0.7142
 [0.6907, 0.7353]**, so every margin shrinks **29%**, and it explains **R² = 0.9063 [0.8897, 0.9176]**

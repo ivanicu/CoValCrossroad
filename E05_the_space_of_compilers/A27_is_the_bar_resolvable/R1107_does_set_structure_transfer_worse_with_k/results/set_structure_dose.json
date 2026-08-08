@@ -1,0 +1,208 @@
+{
+ "cells": {
+  "greedy_k|k=12|08b": {
+   "m2": 0.00336,
+   "m8": -0.05245,
+   "pred": -0.02269,
+   "residual": -0.02976
+  },
+  "greedy_k|k=12|08bR": {
+   "m2": 0.00336,
+   "m8": -0.0203,
+   "pred": -0.02269,
+   "residual": 0.00239
+  },
+  "greedy_k|k=2|08b": {
+   "m2": 0.06088,
+   "m8": -0.01205,
+   "pred": 0.0184,
+   "residual": -0.03045
+  },
+  "greedy_k|k=2|08bR": {
+   "m2": 0.06088,
+   "m8": 0.08409,
+   "pred": 0.0184,
+   "residual": 0.06569
+  },
+  "greedy_k|k=4|08b": {
+   "m2": 0.05927,
+   "m8": -0.02897,
+   "pred": 0.01725,
+   "residual": -0.04621
+  },
+  "greedy_k|k=4|08bR": {
+   "m2": 0.05927,
+   "m8": 0.06928,
+   "pred": 0.01725,
+   "residual": 0.05203
+  },
+  "greedy_k|k=8|08b": {
+   "m2": 0.03642,
+   "m8": -0.04082,
+   "pred": 0.00093,
+   "residual": -0.04175
+  },
+  "greedy_k|k=8|08bR": {
+   "m2": 0.03642,
+   "m8": 0.02218,
+   "pred": 0.00093,
+   "residual": 0.02126
+  },
+  "indep_k|k=12|08b": {
+   "m2": -0.00522,
+   "m8": -0.03621,
+   "pred": -0.02882,
+   "residual": -0.0074
+  },
+  "indep_k|k=12|08bR": {
+   "m2": -0.00522,
+   "m8": -0.03087,
+   "pred": -0.02882,
+   "residual": -0.00205
+  },
+  "indep_k|k=2|08b": {
+   "m2": 0.05214,
+   "m8": -0.00083,
+   "pred": 0.01215,
+   "residual": -0.01298
+  },
+  "indep_k|k=2|08bR": {
+   "m2": 0.05214,
+   "m8": 0.06559,
+   "pred": 0.01215,
+   "residual": 0.05344
+  },
+  "indep_k|k=4|08b": {
+   "m2": 0.04271,
+   "m8": 0.00437,
+   "pred": 0.00542,
+   "residual": -0.00105
+  },
+  "indep_k|k=4|08bR": {
+   "m2": 0.04271,
+   "m8": 0.0386,
+   "pred": 0.00542,
+   "residual": 0.03318
+  },
+  "indep_k|k=8|08b": {
+   "m2": 0.02123,
+   "m8": -0.01262,
+   "pred": -0.00993,
+   "residual": -0.00269
+  },
+  "indep_k|k=8|08bR": {
+   "m2": 0.02123,
+   "m8": 0.0006,
+   "pred": -0.00993,
+   "residual": 0.01053
+  },
+  "topw_k|k=12|08b": {
+   "m2": -0.01333,
+   "m8": -0.04185,
+   "pred": -0.03461,
+   "residual": -0.00725
+  },
+  "topw_k|k=2|08b": {
+   "m2": 0.00221,
+   "m8": -0.01666,
+   "pred": -0.02351,
+   "residual": 0.00685
+  },
+  "topw_k|k=4|08b": {
+   "m2": 0.01283,
+   "m8": -0.01218,
+   "pred": -0.01593,
+   "residual": 0.00374
+  },
+  "topw_k|k=8|08b": {
+   "m2": 0.00796,
+   "m8": -0.0243,
+   "pred": -0.0194,
+   "residual": -0.00489
+  }
+ },
+ "compression_line": {
+  "fitted_on_n_arms": 42,
+  "intercept": -0.02509,
+  "note": "the swept arms are HELD OUT of this fit",
+  "slope": 0.7142
+ },
+ "controls": {
+  "GATE the rebuild control alone licenses the KILL; survival would also need the placebo": true,
+  "NEGATIVE refitting under 8B (`_08bR`) collapses the gap": true,
+  "PLACEBO `topw_k`, which fits nothing, shows no comparable trend in k": false,
+  "POSITIVE the rebuild reproduces two committed `_08b` cells byte-identically": true
+ },
+ "cost_meter": {
+  "corroborating_point": "oracle_k4, already committed, residual \u22120.0582",
+  "oracle_k_at_k8_k12": "REFUSED \u2014 20,000-combination cap makes it tens of minutes per cell per judge; greedy_k is the other set-aware rule and costs ~3s"
+ },
+ "gap_08b": {
+  "12": 0.02236,
+  "2": 0.01747,
+  "4": 0.04516,
+  "8": 0.03906
+ },
+ "gap_08bR_negative_control": {
+  "12": -0.00444,
+  "2": -0.01225,
+  "4": -0.01885,
+  "8": -0.01073
+ },
+ "gap_high_minus_low": {
+  "ci": [
+   -0.00268,
+   0.01242
+  ],
+  "k_hi": 12,
+  "k_lo": 2,
+  "resolved": false
+ },
+ "grid": {
+  "cells_tested": 20,
+  "ks": [
+   2,
+   4,
+   8,
+   12
+  ],
+  "rules": [
+   "greedy_k",
+   "indep_k",
+   "topw_k"
+  ]
+ },
+ "kill": {
+  "gate_open": true,
+  "requires": "strictly increasing over 2->4->8->12 AND CI lower bound above 0",
+  "survival_would_be_admissible": false,
+  "world_A_killed": true
+ },
+ "monotone": false,
+ "placebo_detail": {
+  "gap_span": 0.02769,
+  "ratio": 0.509,
+  "reading": "the placebo DOES drift, monotone decreasing, at about half the gap's own span. That vetoes any POSITIVE dose claim \u2014 the trend would belong to k, not to fitting \u2014 and does not touch the kill, which is that no monotone trend exists to attribute",
+  "topw_monotone_either_direction": true,
+  "topw_residual_span": 0.0141
+ },
+ "placebo_topw_residual": {
+  "12": -0.00725,
+  "2": 0.00685,
+  "4": 0.00374,
+  "8": -0.00489
+ },
+ "question": "does set-structure fitting transfer worse across judges as k grows?",
+ "rebuild_control": {
+  "greedy_k4_fit1_08b": true,
+  "indep_k4_fit1_08b": true
+ },
+ "round": "R1107",
+ "seeds": [
+  1107,
+  2214,
+  3321
+ ],
+ "source_sha256": "c554e6cc4c45c47bf3c540274494c3fd245a69754d10907744fb16f62fcce316",
+ "verdict": "\u26d4 WORLD A IS KILLED: gap(k) = {'2': 0.01747, '4': 0.04516, '8': 0.03906, '12': 0.02236}, monotone False, gap(12) \u2212 gap(2) CI [-0.00268, +0.01242], resolved False. PLACEBO `topw_k` residual {'2': 0.00685, '4': 0.00374, '8': -0.00489, '12': -0.00725}. NEGATIVE the re-run specification gives {'2': -0.01225, '4': -0.01885, '8': -0.01073, '12': -0.00444}, collapse True. \u26d4 SO `set structure` IS NOT ESTABLISHED AS THE NAME: R1106's ordering does not extend into a dose, and the gap PEAKS at k=4 \u2014 the single dose R1106 observed. \u26a0 AND THE PLACEBO WOULD HAVE VETOED A POSITIVE FINDING ANYWAY: `topw_k`, which fits nothing, drifts monotonically at 0.509 of the gap's own span, so a dose in k could not have been attributed to fitting."
+}
