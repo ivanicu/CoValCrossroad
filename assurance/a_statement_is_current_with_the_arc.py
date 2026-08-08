@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1092_*/results/the_wall_retracted.json")
+    if d:
+        facts.append(("R1092", "R1091's wall is retracted; the file was in the release",
+                      f"conversations {d['population']['conversations']}, "
+                      f"with_core {d['population']['with_coval_core']}, "
+                      f"distinct {d['coval_core']['distinct_text_selections']}",
+                      [r"R1091's\s+wall\s+is\s+RETRACTED",
+                       r"caught\s+one\s+round\s+later"]))
+
     d = load("A27_*/R1091_*/results/clause_separation.json")
     if d and "cores_without_a_selection_file" in d:
         facts.append(("R1091", "clause 3 is not evaluable for the cores; the artifact is absent",

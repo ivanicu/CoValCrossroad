@@ -1912,6 +1912,27 @@ only reason a wrong number was not reported.
 block spans the full range of prompt-specificity and clause ②′ admits both ends of it.** Where the
 cores fall inside that range is what cannot be said.
 
+⛔⛔⛔ **AND R1092 RETRACTS R1091'S WALL: the file was in the release the whole time.**
+`data/conversation_rubrics.jsonl` carries a top-level `coval_core` key on **986 of 986**
+conversations, holding the core's criterion TEXTS. R1091 searched `corebench/results/core_<arm>.json`
+— a **derived** directory — declared the artifact absent, and stopped. **R1091's own NEXT named the
+gap** (*"a wall checked in one directory is not a wall checked in the release"*), and it was right.
+§4's *a wall never checked*, committed by me and **caught one round later by the sentence I wrote
+warning about it**. **RETRACTED, not downgraded** — the claim was a universal negative and one file
+refutes it.
+⭐ **What the file says: the core rewrites its rubric on every conversation.** **986 distinct TEXT
+selections** across 986 conversations, sizes `{4: 942, 3: 43, 2: 1}`, and **0 criteria shared by the
+first fifty**. Its `k` is 4 on 942 of 986 — which is where the retired *"four criteria"* clause came
+from.
+⚠ **AND CLAUSE ③ IS STILL NOT SETTLED, FOR A DIFFERENT REASON THAN R1091 GAVE. The units are not
+equal:** `n_distinct` measures **prompt-specificity**, while ③ names **human-label consumption**. A
+*generated* per-prompt rubric is maximally prompt-specific and consumes **no human labels at all**, so
+986 selections neither establishes nor refutes ③. **What would settle it: a record of which criteria
+came from a human, which the rubric file does not carry.**
+⭐ **So ③ moves from *"not evaluable — the artifact is missing"* to *"not settled — the proxy measures
+a different property."* Both are UNVERIFIED and they are not the same UNVERIFIED**, and the
+difference decides what a next round would have to build.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

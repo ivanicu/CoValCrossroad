@@ -1,0 +1,41 @@
+{
+  "SHAM_coval_full": {
+    "distinct_text_selections": 986
+  },
+  "clause_three_still_not_settled": "\u26a0 the units are NOT equal: n_distinct measures PROMPT-SPECIFICITY while \u2462 names HUMAN-LABEL CONSUMPTION. A generated per-prompt rubric is maximally prompt-specific and consumes no human labels at all, so this count neither establishes nor refutes \u2462. Settling it needs a record of which criteria came from a human.",
+  "controls": {
+    "NEGATIVE annotators.jsonl is not reported as a selection table": true,
+    "PLACEBO re-reading the file returns identical counts": true,
+    "POSITIVE a known per-prompt criterion-text file is found (core_generic.json)": true,
+    "g=0 a key that does not exist yields 0 conversations, not a default": true
+  },
+  "coval_core": {
+    "criteria_shared_by_first_50": 0,
+    "distinct_text_selections": 986,
+    "sizes": {
+      "2": 1,
+      "3": 43,
+      "4": 942
+    }
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "population": {
+    "conversations": 986,
+    "missing_core": 0,
+    "with_coval_core": 986,
+    "with_coval_full": 986
+  },
+  "question": "is clause \u2462's artifact absent, or was R1091 looking in the wrong directory?",
+  "retracts": {
+    "claim": "the released cores have no committed criterion-TEXT selection",
+    "round": "R1091",
+    "status": "RETRACTED, not downgraded",
+    "why_it_was_wrong": "it searched corebench/results/core_<arm>.json, a DERIVED directory, and stopped. The release itself carries the key. R1091's own NEXT named this gap."
+  },
+  "round": "R1092",
+  "source_sha256": "69f6bd841cefa18578425999ab95be6f5261a555598da4ab379384fefbd8084b",
+  "verdict": "\u26d4 R1091's WALL IS RETRACTED. `data/conversation_rubrics.jsonl` carries a `coval_core` key on 986 of 986 conversations, holding the core's criterion TEXTS. The artifact R1091 declared absent is in the release, one directory from where it looked. Measured: 986 distinct text selections across 986 conversations, sizes {4: 942, 3: 43, 2: 1}, and 0 criteria shared by the first 50 \u2014 the core rewrites its rubric per conversation."
+}
