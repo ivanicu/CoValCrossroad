@@ -1,0 +1,122 @@
+{
+  "bookkeeping_label": "crossing R1094's exclusion lists with R1098's slack is a set intersection over committed artifacts; the finding is the consequence for R1095's headline, not the intersection",
+  "controls": {
+    "NEGATIVE the 9 recomputed here equal R1098's blind_only": true,
+    "PLACEBO the slack against itself is empty": true,
+    "POSITIVE the fitted arms among the 9 are in R1094's LEAKAGE list": true,
+    "SHAM the chance rate is computed, so the slack's composition is priced": true,
+    "g=0 the three released cores are NOT in the slack": true
+  },
+  "downgrade": {
+    "claim": "neither reading of \u2462 removes the generic baselines",
+    "round": "R1095",
+    "status": "SCOPE-CORRECTED: true under the blind family; for `gen` and `generic_reprov` it does NOT transfer, because the released \u2461\u2032 set excludes them without \u2462. UNDEFINED for `generic` and `genericpool16`, which are comparators there."
+  },
+  "generic_variants_surviving_both_readings": [
+    "gen",
+    "generic_reprov"
+  ],
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "of_those_absent_from_the_released_set": [
+    "gen",
+    "generic_reprov"
+  ],
+  "per_arm": {
+    "gen": {
+      "authorship": "survives",
+      "in_released_2prime": false,
+      "is_generic_variant": true,
+      "leakage": "survives"
+    },
+    "generic_reprov": {
+      "authorship": "survives",
+      "in_released_2prime": false,
+      "is_generic_variant": true,
+      "leakage": "survives"
+    },
+    "greedy_k12_fit1": {
+      "authorship": "EXCLUDED",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "EXCLUDED"
+    },
+    "greedy_k4_fit1_08bR": {
+      "authorship": "EXCLUDED",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "EXCLUDED"
+    },
+    "indep_k12_fit1": {
+      "authorship": "EXCLUDED",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "EXCLUDED"
+    },
+    "indep_k4_fit1_08bR": {
+      "authorship": "EXCLUDED",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "EXCLUDED"
+    },
+    "topw_k1": {
+      "authorship": "survives",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "survives"
+    },
+    "topw_k12": {
+      "authorship": "survives",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "survives"
+    },
+    "topw_k2": {
+      "authorship": "survives",
+      "in_released_2prime": false,
+      "is_generic_variant": false,
+      "leakage": "survives"
+    }
+  },
+  "question": "which side of the family bound do the 9 extra arms sit on?",
+  "round": "R1099",
+  "sham": {
+    "chance_band_95": [
+      3.0,
+      8.0
+    ],
+    "draws": 2000,
+    "observed_excluded_by_leakage": 4
+  },
+  "slack": [
+    "gen",
+    "generic_reprov",
+    "greedy_k12_fit1",
+    "greedy_k4_fit1_08bR",
+    "indep_k12_fit1",
+    "indep_k4_fit1_08bR",
+    "topw_k1",
+    "topw_k12",
+    "topw_k2"
+  ],
+  "source_sha256": "66727acff67afbd8f41603fa253976d7c62704a3343e76b56961e0fd65623f19",
+  "survivors": {
+    "authorship": [
+      "gen",
+      "generic_reprov",
+      "topw_k1",
+      "topw_k12",
+      "topw_k2"
+    ],
+    "leakage": [
+      "gen",
+      "generic_reprov",
+      "topw_k1",
+      "topw_k12",
+      "topw_k2"
+    ]
+  },
+  "verdict": "world B \u2014 THE SLACK IS BASELINE-SHAPED. Of the 9 arms the blind family admits and the released one does not, \u2462 removes 4 under both readings (against a chance band of (3.0, 8.0)). Of the 5 survivors, ['gen', 'generic_reprov'] are GENERIC VARIANTS that the RELEASED \u2461\u2032 set does not contain. **So R1095's 'neither reading removes the generic baselines' is a BLIND-FAMILY artifact for these arms \u2014 under the released family \u2461\u2032 excludes them by itself.** \u26a0 It stays UNDEFINED for `generic` and `genericpool16`, which are that family's comparators and are excluded from candidacy: absence there is not exclusion."
+}

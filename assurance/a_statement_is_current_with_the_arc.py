@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1099_*/results/which_side.json")
+    if d:
+        sh = d["sham"]
+        facts.append(("R1099", "the slack is baseline-shaped; the count is inside its chance band",
+                      f"slack {len(d['slack'])}, removed {sh['observed_excluded_by_leakage']}, "
+                      f"band {sh['chance_band_95']}, "
+                      f"generic absent {d['of_those_absent_from_the_released_set']}",
+                      [r"slack\s+is\s+\*\*baseline-shaped\*\*|THE\s+SLACK\s+IS\s+BASELINE-SHAPED",
+                       r"finding\s+rests\s+on\s+the\s+IDENTITY|the\s+finding\s+is\s+the\s+IDENTITY"]))
+
     d = load("A27_*/R1098_*/results/families_nest.json")
     if d:
         st = d["sets"]; m = d["Q2_mechanism"]

@@ -2050,6 +2050,21 @@ changes the block by exactly the two removed arms — bookkeeping, not a finding
 ⭐ **And the SHAM shows the nesting is not about family SIZE:** cutting the released family from two
 comparators to one changes its admitted set by **0**, on R1055's own committed ablation row.
 
+⭐⭐ **AND R1099 SCOPE-CORRECTS R1095: the bound's slack is BASELINE-SHAPED.** Of the **9** arms the
+blind family admits and the released one does not, ③ removes **4** under both readings and **5**
+survive — and **two of the survivors, `gen` and `generic_reprov`, are generic variants the RELEASED
+②′ set does not contain.** **So R1095's *"neither reading of ③ removes the generic baselines"* is a
+BLIND-FAMILY artifact for those arms: under the released family, ②′ excludes them by itself.**
+⚠ **AND IT STAYS UNDEFINED FOR `generic` AND `genericpool16`** — they are that family's comparators
+and are excluded from candidacy. **Absence there is not exclusion**, and reading it as such would be
+the false-acquittal direction.
+⛔ **AND THE SHAM DISQUALIFIES THE COUNT, WHICH IS THE HONEST PART.** ③ removing **4 of 9** sits
+**inside** a chance band of **(3, 8)** over 2000 same-size random draws — so *"③ removes 4 of the
+extras"* says nothing; ③ removes roughly its usual share of anything. **The finding rests on the
+IDENTITY of the survivors, which the band cannot speak to**, not on how many there are.
+⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
+committed, so crossing them is arithmetic. What is new is the consequence for R1095.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
