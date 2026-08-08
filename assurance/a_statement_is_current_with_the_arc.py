@@ -696,6 +696,23 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔⛔ R1104 PRICED THE DERIVED COUNTS and they split three ways. Two facts must reach the
+    #      statement, and they pull in OPPOSITE directions, which is why neither can stand alone:
+    #      the slack is a point estimate in a range twice its width, and the ladder's terminal zero
+    #      was forced by construction. A statement carrying only the first reads as `the numbers
+    #      moved a bit`; carrying only the second reads as `one step was arithmetic`. Together they
+    #      say what a reader has to know: some composed counts are measurements and some are not.
+    d = load("A27_*/R1104_*/results/derived_counts.json")
+    if d:
+        sl, tz = d["slack"], d["terminal_zero"]
+        facts.append(("R1104", "the slack is a point in a range; the ladder's terminal zero is forced",
+                      f"slack {sl['mean']} [{sl['p2.5']}, {sl['p97.5']}] vs point {sl['point']}, "
+                      f"nesting {d['nesting']['share_of_resamples_with_released_only_0']}, "
+                      f"terminal nonempty {tz['resamples_with_nonempty_terminal']}/{tz['of']}",
+                      [r"SLACK\s+DOES\s+NOT\s+SURVIVE|slack\s+does\s+not\s+survive",
+                       r"TERMINAL\s+ZERO\s+IS\s+STRUCTURALLY\s+FORCED|"
+                       r"terminal\s+zero\s+is\s+structurally\s+forced"]))
+
     # ⛔⛔⛔ R1103 RESAMPLED THE PROMPT POPULATION and found the admitted set is a DRAW, not an object.
     #      R1055's committed noise floor (`0 unstable`) varies the INNER bootstrap seed at a fixed
     #      prompt sample — determinism read as currency. This round reproduces that control as its

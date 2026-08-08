@@ -2065,6 +2065,29 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔⛔ **AND R1104 PRICES THE COUNTS DERIVED FROM THAT SET: THEY SPLIT THREE WAYS.** Over 750
+resamples, 3 seeds, both families rebuilt per draw: **R1098's NESTING SURVIVES** — `released_only`
+is **0 in 750/750**, max 0 — but ⚠ **a perfect share is the shape of a DERIVATION**, and it was
+labelled as one before the run: R1098 already measured that all 15 blind subsets score **below the
+weaker released comparator**, so an arm beating the strong pair beats the weak fifteen on any
+resample. **The resampling confirms the MECHANISM, not the claim.**
+⛔ **R1099's SLACK DOES NOT SURVIVE: 10.48 [7, 17]**, min 6, **max 23**, against a published **9** —
+span **10** against R978's yardstick of 4. And the mean sits **above** the point estimate, the
+opposite direction from `|admitted|`, because the blind family sheds fewer arms than the released one
+under resampling. **So *"the bound's slack is 9 arms"* is one draw from a distribution reaching 17 at
+the 97.5th percentile**, and R1099's per-arm classification of those 9 classifies one sample's 9.
+⛔⛔ **AND THE LADDER'S TERMINAL ZERO IS STRUCTURALLY FORCED, NOT MEASURED** — non-empty in **0 of
+750** resamples, because at the point estimate `released − authorship` contains **only** `topw` arms,
+so subtracting them empties it **by construction**. **R1101, which I committed three rounds ago,
+reported a DERIVATION as a measurement.** The ladder resampled: **24 → 9 → 6 → 0** becomes
+**22.86 [17, 26] → 7.94 [3, 10] → 5.22 [0, 7] → 0.00 [0, 0]**.
+⚠ **And the LEAKAGE step reaches 0 too**, in the tail below the 2.5th percentile. R1101 contrasted
+authorship (*admits nothing*) with leakage (*admits 9*): under resampling the leakage reading's set
+also falls to zero, just rarely. **The contrast is a matter of FREQUENCY, not of KIND.**
+⭐ **And R1055's seed control, applied one level up, is degenerate again:** fixed prompts, inner seed
+varied, returns `(released_only, blind_only) = (0, 9)` at all three seeds — a zero-width interval on
+quantities whose real intervals are `[0, 0]` and `[7, 17]`.
+
 ⛔⛔⛔ **AND R1103 SAYS THE ADMITTED SET IS NOT AN OBJECT. IT IS A DRAW.** R1055's committed NOISE
 FLOOR reads *"the admitted set at 3 seeds: 24 always in, 75 always out, **0 unstable**"* — but those
 are three **inner bootstrap seeds at a FIXED prompt sample**, which certifies the ESTIMATOR is

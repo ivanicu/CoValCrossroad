@@ -1,0 +1,138 @@
+{
+ "R1098_committed": {
+  "blind_minus_comparators": 33,
+  "blind_only": 9,
+  "intersection": 24,
+  "released": 24,
+  "released_only": 0
+ },
+ "control_repair": {
+  "control": "SEEDS the outer seed flag changes the draws",
+  "first_form": "compared the first ten `released_only` values across seeds",
+  "repair": "run the same check on `blind_only`, which varies across resamples",
+  "why_it_failed": "`released_only` is 0 in every resample \u2014 the round's own finding \u2014 so all three seeds were identical and the control declared the seed flag dead. It presupposed a non-null quantity, on the one quantity this round measures as null."
+ },
+ "controls": {
+  "INSTRUMENT the analytic inner bound equals the 4000-draw bootstrap on both families": true,
+  "NEGATIVE a family minus itself is empty in every resample": true,
+  "PLACEBO the identity draw returns exactly the point estimate": true,
+  "POSITIVE the point estimate reproduces R1098's committed sets BY NAME": true,
+  "SEEDS the outer seed flag changes the draws (checked on `blind_only`, which varies)": true,
+  "SHAM R1055's inner-seed control gives a DEGENERATE interval": true
+ },
+ "grid": {
+  "arms": 99,
+  "blind_subsets": 15,
+  "outer_draws": 750,
+  "seeds": 3
+ },
+ "instrument_validation": {
+  "analytic_equals_boot_both_families": true
+ },
+ "kill": {
+  "gate_open": true,
+  "share_nested": 1.0,
+  "slack_span": 10.0,
+  "thresholds": {
+   "share_nested_min": 0.95,
+   "slack_span_max": 4
+  },
+  "world_A_killed": true
+ },
+ "ladder": {
+  "step0": {
+   "max": 26,
+   "mean": 22.86,
+   "min": 14,
+   "p2.5": 17.0,
+   "p97.5": 26.0,
+   "point": 24
+  },
+  "step1": {
+   "max": 10,
+   "mean": 7.94,
+   "min": 0,
+   "p2.5": 3.0,
+   "p97.5": 10.0,
+   "point": 9
+  },
+  "step2": {
+   "max": 7,
+   "mean": 5.22,
+   "min": 0,
+   "p2.5": 0.0,
+   "p97.5": 7.0,
+   "point": 6
+  },
+  "step3": {
+   "max": 0,
+   "mean": 0.0,
+   "min": 0,
+   "p2.5": 0.0,
+   "p97.5": 0.0,
+   "point": 0
+  }
+ },
+ "nesting": {
+  "MC_SE": 0.0,
+  "R1098_claim": "the families NEST (released_only = 0)",
+  "reading": "a share at 1.000 is not evidence that nesting is robust to resampling so much as that R1098's uniform-weakness mechanism holds under it",
+  "released_only_max": 0,
+  "released_only_mean": 0.0,
+  "share_of_resamples_with_released_only_0": 1.0
+ },
+ "point_estimate": {
+  "blind_minus_comparators": 33,
+  "blind_only": 9,
+  "ladder": [
+   24,
+   9,
+   6,
+   0
+  ],
+  "released": 24,
+  "released_only": 0
+ },
+ "question": "do the counts DERIVED from the admitted set survive R1103's interval?",
+ "round": "R1104",
+ "seeds": [
+  1104,
+  2208,
+  3312
+ ],
+ "sham_R1055_inner_seed": {
+  "cells": [
+   [
+    0,
+    9
+   ],
+   [
+    0,
+    9
+   ],
+   [
+    0,
+    9
+   ]
+  ],
+  "degenerate": true
+ },
+ "slack": {
+  "R1099_claim": "a 9-arm slack",
+  "max": 23,
+  "mean": 10.48,
+  "min": 6,
+  "p2.5": 7.0,
+  "p97.5": 17.0,
+  "point": 9,
+  "span": 10.0
+ },
+ "source_sha256": "2ba639d33cb9ae9daa2f8d16ec04725052a269c3929a83df026989843468473b",
+ "terminal_zero": {
+  "is_structurally_forced": true,
+  "of": 750,
+  "resamples_with_nonempty_terminal": 0,
+  "why_it_matters": "at the point estimate `released \u2212 authorship` contains only `topw` arms, so subtracting them empties it BY CONSTRUCTION. Counting the resamples where it is non-empty is the only way to tell a forced zero from a measured one \u2014 and R1101 reported it as a measurement."
+ },
+ "verdict": "\u26d4 WORLD A IS KILLED. NESTING holds in 1.000 of 750 resamples (MC SE 0.0000), threshold 0.95. SLACK is 10.48 [7, 17] against a point estimate of 9, span 10.0 against a threshold of 4. LADDER [24, 9, 6, 0] -> means [22.86, 7.94, 5.22, 0.0]. \u2b50 AND THE LADDER'S TERMINAL ZERO IS STRUCTURALLY FORCED: it is non-empty in 0 of 750 resamples, so R1101 reported a DERIVATION as a measurement."
+}
