@@ -1990,6 +1990,25 @@ the released certified family of 2. Under the released family an arm is compared
 itself, which `generic` cannot beat. **Every statement in this block is scoped to the blind family** —
 which is why the result is as much about the family choice (R1089's certifier freedom) as about ③.
 
+⭐⭐⭐ **AND R1096 TURNS R1095'S SCOPE CAVEAT INTO A REPAIR: a comparator family that is both
+CERTIFIABLE and DISJOINT from the candidates is one committed selection file away.**
+⛔ **Half of this is a derivation and is labelled first.** R1056's rule **types ARMS** — it reads
+`core_<arm>.json` — so the certified family is an **arm subset by construction** and
+`family ∩ arms = family` at every one of its **17** thresholds, minimum overlap **2**. *"Is the
+certified family disjoint from the candidates?"* **cannot come out yes**; that is the procedure, not
+evidence.
+⭐ **The measurement: 0 of the 15 blind subsets are in the certification population at any
+threshold** — **not certified-and-failed, but absent from the population the rule ranges over.** An
+absence and a verdict are different facts with different repairs, and folding one into the other is
+how a false acquittal is made.
+⭐⭐ **And the SHAM decides which repair.** Give one blind subset the artifact the rule reads, with a
+single fixed selection, and re-run: **it certifies.** So **the barrier is BOOKKEEPING, not the rule**
+— what a certifiable-and-disjoint comparator needs is **one committed per-prompt selection file for a
+constructed comparator**, which the release does not ship and the rule would accept.
+⚠ **IMPOSSIBILITY REGISTER, revised rather than repeated:** *a family both certifiable and disjoint*
+moves from **N/A** to **N/A in this release AS SHIPPED**, with the requirement named and shown to be
+sufficient.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

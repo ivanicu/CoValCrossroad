@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1096_*/results/certifiable_xor_disjoint.json")
+    if d:
+        q = d["Q2_blind_subsets"]
+        facts.append(("R1096", "certifiable xor disjoint; the barrier is bookkeeping",
+                      f"blind in population {q['in_certification_population']} of {q['built']}, "
+                      f"sham certifies "
+                      f"{d['Q3_sham_bookkeeping_or_rule']['a_subset_given_the_artifact_certifies']}",
+                      [r"certifiable\s+XOR\s+disjoint",
+                       r"one\s+committed\s+selection\s+file\s+away"]))
+
     d = load("A27_*/R1095_*/results/baseline_survives.json")
     if d:
         e = d["extensions"]

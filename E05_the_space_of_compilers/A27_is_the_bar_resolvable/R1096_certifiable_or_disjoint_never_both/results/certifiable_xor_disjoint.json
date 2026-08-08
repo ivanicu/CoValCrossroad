@@ -1,0 +1,119 @@
+{
+  "Q1_overlap_by_threshold": [
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 1"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 2"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 3"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 5"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 10"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 25"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 50"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 100"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "n_distinct <= 250"
+    },
+    {
+      "family": 4,
+      "overlap_with_arms": 4,
+      "rule": "n_distinct <= 500"
+    },
+    {
+      "family": 95,
+      "overlap_with_arms": 95,
+      "rule": "n_distinct <= 1000"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 1.0"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 0.95"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 0.9"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 0.75"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 0.5"
+    },
+    {
+      "family": 2,
+      "overlap_with_arms": 2,
+      "rule": "modal_share >= 0.25"
+    }
+  ],
+  "Q2_blind_subsets": {
+    "built": 15,
+    "in_certification_population": 0,
+    "reading": "absent from the population the rule ranges over \u2014 NOT certified-and-failed"
+  },
+  "Q3_sham_bookkeeping_or_rule": {
+    "a_subset_given_the_artifact_certifies": true,
+    "reading": "the barrier is the missing file, so the repair is a committed selection, not a new certification rule"
+  },
+  "controls": {
+    "NEGATIVE the blind subsets are absent at EVERY threshold, not one": true,
+    "PLACEBO re-reading the curve returns identical family sizes": true,
+    "POSITIVE the strictest threshold reproduces R918's `fixed` set": true,
+    "SHAM giving a subset the artifact makes it certifiable": true,
+    "g=0 a threshold of 0 yields an EMPTY family": true
+  },
+  "derivation": "R1056's rule types ARMS, so the certified family is an arm subset by construction and `family \u2229 arms = family` at every threshold. The overlap is not evidence; it is the procedure.",
+  "impossibility": {
+    "criterion": "a family both certifiable and disjoint",
+    "status": "N/A in this release as shipped",
+    "what_it_would_require": "a committed per-prompt selection file for a constructed comparator, which the release does not ship but which the SHAM shows the rule would accept"
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "question": "does a certified comparator family disjoint from the arm set exist here?",
+  "round": "R1096",
+  "source_sha256": "ea20f4f7e6666cfafae5487c55d8e5a6468031b147cbb1283e817619ebb73390",
+  "verdict": "world B \u2014 CERTIFIABLE XOR DISJOINT. The rule types ARMS, so every certified family is an arm subset and the overlap is never below 2 (a DERIVATION). And **0 of the 15 blind subsets are in the rule's population at any threshold** \u2014 not certified-and-failed, but absent from the population the rule ranges over. \u2b50 The SHAM decides the repair: giving a subset the artifact the rule reads makes it certify, so **the barrier is BOOKKEEPING, not the rule** \u2014 a comparator that is both certifiable and disjoint is one committed selection file away, and the release simply never wrote one."
+}
