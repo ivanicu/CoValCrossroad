@@ -1,0 +1,724 @@
+{
+ "controls": {
+  "INSTRUMENT the analytic inner bound equals the 4000-draw bootstrap, both judges": true,
+  "NEGATIVE the two judges are not the same instrument (cells differ)": true,
+  "PLACEBO each judge's set against itself is empty": true,
+  "POSITIVE the 2B run equals R1055's committed set restricted to the common population": true,
+  "POSITIVE the 8B judge can still ORDER \u2014 `generic` beats the random baseline resolvably": true,
+  "SHAM the same operation with the judge held FIXED moves nothing": true
+ },
+ "judge_can_order": {
+  "2B_generic_minus_random": {
+   "delta": 0.05867,
+   "lo": 0.04862,
+   "n": 968
+  },
+  "8B_generic_minus_random": {
+   "delta": 0.06833,
+   "lo": 0.05806,
+   "n": 968
+  },
+  "why": "without this, 9 -> 0 is silence: an instrument that orders nothing fails every arm for a reason unrelated to the definition"
+ },
+ "judge_disagreement": {
+  "per_cell_correlation": 0.4832,
+  "share_of_cells_differing": 0.9638
+ },
+ "kill": {
+  "gate_open": true,
+  "observed": 9,
+  "threshold": 4,
+  "world_A_killed": true
+ },
+ "mechanism_mean_A2_by_judge": {
+  "2B": {
+   "coval_core": 0.5665,
+   "generic": 0.5514,
+   "genericpool16": 0.5422,
+   "random_k4_s0": 0.4927,
+   "topw_k4": 0.5642
+  },
+  "8B": {
+   "coval_core": 0.4695,
+   "generic": 0.4767,
+   "genericpool16": 0.4655,
+   "random_k4_s0": 0.4084,
+   "topw_k4": 0.4646
+  }
+ },
+ "per_arm": {
+  "coval_core": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "coval_core_sham": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "full": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "full_sham": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "gen": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "gen_sham": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "generic": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "genericpool16": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "greedy_k4_fit1": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "indep_k4_fit1": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "oracle_k4": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "oracle_k4_fit1": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "promptecho": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "promptecho_sham": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k12_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k12_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k12_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k2_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k2_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k2_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k3_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k3_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k3_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k4_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k4_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k4_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k6_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k6_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k6_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k8_s0": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k8_s1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "random_k8_s2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topabs_k4": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topvar_k4": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topw_k1": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topw_k12": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topw_k2": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topw_k3": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "topw_k4": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "topw_k4_sham": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  },
+  "topw_k6": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "topw_k8": {
+   "in_2B": true,
+   "in_8B": false,
+   "moved": true
+  },
+  "topwvar_k4": {
+   "in_2B": false,
+   "in_8B": false,
+   "moved": false
+  }
+ },
+ "population": {
+  "common": [
+   "coval_core",
+   "coval_core_sham",
+   "full",
+   "full_sham",
+   "gen",
+   "gen_sham",
+   "generic",
+   "genericpool16",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "promptecho",
+   "promptecho_sham",
+   "random_k12_s0",
+   "random_k12_s1",
+   "random_k12_s2",
+   "random_k2_s0",
+   "random_k2_s1",
+   "random_k2_s2",
+   "random_k3_s0",
+   "random_k3_s1",
+   "random_k3_s2",
+   "random_k4_s0",
+   "random_k4_s1",
+   "random_k4_s2",
+   "random_k6_s0",
+   "random_k6_s1",
+   "random_k6_s2",
+   "random_k8_s0",
+   "random_k8_s1",
+   "random_k8_s2",
+   "topabs_k4",
+   "topvar_k4",
+   "topw_k1",
+   "topw_k12",
+   "topw_k2",
+   "topw_k3",
+   "topw_k4",
+   "topw_k4_sham",
+   "topw_k6",
+   "topw_k8",
+   "topwvar_k4"
+  ],
+  "excluded_for_want_of_an_8B_file": [
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "generic_reprov",
+   "greedy_k12_fit1",
+   "greedy_k2_fit1",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "greedy_k8_fit1",
+   "indep_k12_fit1",
+   "indep_k2_fit1",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "indep_k8_fit1",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB",
+   "provenance_probe",
+   "random_k4_s0_ctlS0",
+   "random_k4_s1_ctlS1",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "transport_gen",
+   "transport_gen_sham",
+   "transport_generic",
+   "transport_randblind_s0",
+   "transport_randblind_s1",
+   "transport_randblind_s2",
+   "transport_vacuous"
+  ],
+  "n_common": 43,
+  "n_excluded": 27
+ },
+ "question": "does the definition's extension survive a change of judge?",
+ "round": "R1105",
+ "sets": {
+  "R1055_full_population": 24,
+  "admitted_2B": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "admitted_8B": [],
+  "n_2B": 9,
+  "n_8B": 0,
+  "n_symmetric_difference": 9,
+  "only_2B": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "only_8B": [],
+  "symmetric_difference": [
+   "coval_core",
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "oracle_k4_fit1",
+   "topw_k3",
+   "topw_k4",
+   "topw_k6",
+   "topw_k8"
+  ]
+ },
+ "sign_or_resolution": {
+  "n_resolution_loss": 1,
+  "n_sign_flip": 8,
+  "per_arm": {
+   "coval_core": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.01512,
+      "lo": 0.00764,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.02424,
+      "lo": 0.01669,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.00721,
+      "lo": -0.01557,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.00399,
+      "lo": -0.00404,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.00721
+   },
+   "greedy_k4_fit1": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.05927,
+      "lo": 0.05125,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.0684,
+      "lo": 0.0601,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.02897,
+      "lo": -0.03833,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.01776,
+      "lo": -0.02687,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.02897
+   },
+   "indep_k4_fit1": {
+    "class": "RESOLUTION LOSS \u2014 still ahead on the point estimate, no longer resolvable",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.04271,
+      "lo": 0.03497,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.05183,
+      "lo": 0.04389,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": 0.00437,
+      "lo": -0.00473,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.01557,
+      "lo": 0.00665,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": 0.00437
+   },
+   "oracle_k4": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.07695,
+      "lo": 0.06945,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.08607,
+      "lo": 0.07817,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.02831,
+      "lo": -0.03804,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.01711,
+      "lo": -0.02644,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.02831
+   },
+   "oracle_k4_fit1": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.06281,
+      "lo": 0.05474,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.07193,
+      "lo": 0.06355,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.03247,
+      "lo": -0.04209,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.02127,
+      "lo": -0.03047,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.03247
+   },
+   "topw_k3": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.01182,
+      "lo": 0.0041,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.02094,
+      "lo": 0.01321,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.00877,
+      "lo": -0.0183,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.00243,
+      "lo": -0.00689,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.00877
+   },
+   "topw_k4": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.01283,
+      "lo": 0.00526,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.02195,
+      "lo": 0.01431,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.01218,
+      "lo": -0.02149,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.00098,
+      "lo": -0.01008,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.01218
+   },
+   "topw_k6": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.01276,
+      "lo": 0.00546,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.02188,
+      "lo": 0.01456,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.01719,
+      "lo": -0.02637,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.00599,
+      "lo": -0.01482,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.01719
+   },
+   "topw_k8": {
+    "class": "SIGN FLIP \u2014 the arm is now BEHIND a comparator",
+    "margins_2B": {
+     "generic": {
+      "delta": 0.00796,
+      "lo": 0.00045,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": 0.01708,
+      "lo": 0.00971,
+      "n": 968
+     }
+    },
+    "margins_8B": {
+     "generic": {
+      "delta": -0.0243,
+      "lo": -0.03343,
+      "n": 968
+     },
+     "genericpool16": {
+      "delta": -0.01309,
+      "lo": -0.02173,
+      "n": 968
+     }
+    },
+    "min_point_delta_8B": -0.0243
+   }
+  },
+  "why": "R1102 downgraded an entire round for reporting a null without asking this. A set difference cannot distinguish `the arm lost` from `the arm stopped resolving`."
+ },
+ "source_sha256": "94d62d74a53acceda1028e63d50eb501fada469df9f3620d963f8c64e26edf43",
+ "specification_curve": {
+  "arms_with_both": [
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4",
+   "topvar_k4",
+   "topwvar_k4"
+  ],
+  "derivation": "select_core.py's own help states the two specifications COINCIDE EXACTLY for the satisfaction-blind rules (random_k, topw_k, topabs_k, full), so no `_08bR` exists for them and none is expected \u2014 labelled as a derivation, not read as missing data",
+  "rows": {
+   "greedy_k4_fit1": {
+    "in_2B": true,
+    "in_8B_rerun": true,
+    "in_8B_rescored": false
+   },
+   "indep_k4_fit1": {
+    "in_2B": true,
+    "in_8B_rerun": true,
+    "in_8B_rescored": false
+   },
+   "oracle_k4": {
+    "in_2B": true,
+    "in_8B_rerun": true,
+    "in_8B_rescored": false
+   },
+   "topvar_k4": {
+    "in_2B": false,
+    "in_8B_rerun": false,
+    "in_8B_rescored": false
+   },
+   "topwvar_k4": {
+    "in_2B": false,
+    "in_8B_rerun": false,
+    "in_8B_rescored": false
+   }
+  },
+  "spec_08bR_means": "the rule RE-RUN under 8B \u2014 whole-pipeline sensitivity",
+  "spec_08b_means": "the 2B-selected criteria RE-SCORED by 8B \u2014 measurement sensitivity",
+  "spec_comparison_population": 18,
+  "symmetric_difference_between_specs": [
+   "greedy_k4_fit1",
+   "indep_k4_fit1",
+   "oracle_k4"
+  ]
+ },
+ "verdict": "\u26d4 WORLD A IS KILLED: the admitted set is 9 under the 2B judge and 0 under the 8B judge on the same 43 arms, symmetric difference 9 against a threshold of 4. Only-2B ['coval_core', 'greedy_k4_fit1', 'indep_k4_fit1', 'oracle_k4', 'oracle_k4_fit1', 'topw_k3', 'topw_k4', 'topw_k6', 'topw_k8']; only-8B []. The judges disagree on 96.4% of cells at correlation 0.483, so this is a second instrument and not a copy. \u2b50 AND THE FAILURES ARE CLASSIFIED rather than left as a set difference: 8 of 9 are SIGN FLIPS (the arm is now BEHIND a comparator) and 1 are RESOLUTION LOSSES (still ahead on the point estimate, no longer resolvable). \u26d4 AND THE FILES WERE COMMITTED THE WHOLE TIME: 32 selection arms already rebuilt under 8B plus 13 directly judged, zero further judge calls, while R1100 and R1101 printed the 8B axis as N/A in their impossibility registers.",
+ "wall_that_was_never_checked": {
+  "further_judge_calls_required": 0,
+  "n_selection_arms_already_rebuilt_under_8B": 32,
+  "registers_that_marked_the_8B_judge_N/A": [
+   "R1100",
+   "R1101"
+  ],
+  "what_was_on_disk": [
+   "coval_core",
+   "coval_core_sham",
+   "full",
+   "full_sham",
+   "gen",
+   "gen_sham",
+   "generic",
+   "genericpool16",
+   "promptecho",
+   "promptecho_sham",
+   "random_k4_s0",
+   "topw_k4",
+   "topw_k4_sham"
+  ]
+ },
+ "yardsticks": {
+  "R1103_sampling_interval_on_size": [
+   17.0,
+   26.0
+  ],
+  "R978_registered_band": 4,
+  "note": "the sampling interval is on the FULL 99-arm population and the gauge here is on 43 arms; they are reported side by side as two axes, never subtracted from one another"
+ }
+}

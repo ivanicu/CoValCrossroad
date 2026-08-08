@@ -696,6 +696,21 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔⛔⛔ R1105 PRICED THE INSTRUMENT AXIS, which no round had touched and two of my own
+    #       impossibility registers had marked N/A while the files sat committed in the same
+    #       directory. Two facts must reach the statement, and the second is what stops the first
+    #       being read as a power story: the collapse 9 -> 0, and that 8 of the 9 are SIGN FLIPS.
+    #       A reader given only the first will assume the intervals widened; they did not, the
+    #       ordering inverted.
+    d = load("A27_*/R1105_*/results/second_judge.json")
+    if d:
+        st, so = d["sets"], d["sign_or_resolution"]
+        facts.append(("R1105", "the definition admits 9 under the 2B judge and 0 under the 8B",
+                      f"2B {st['n_2B']}, 8B {st['n_8B']}, symdiff {st['n_symmetric_difference']}, "
+                      f"sign flips {so['n_sign_flip']}, resolution losses {so['n_resolution_loss']}",
+                      [r"NOT\s+ADMITTED\s+UNDER\s+THE\s+8B\s+JUDGE|not\s+admitted\s+under\s+the\s+8b\s+judge",
+                       r"8\s+of\s+9\s+are\s+SIGN\s+FLIPS|8\s+of\s+9\s+are\s+sign\s+flips"]))
+
     # ⛔⛔⛔ R1104 PRICED THE DERIVED COUNTS and they split three ways. Two facts must reach the
     #      statement, and they pull in OPPOSITE directions, which is why neither can stand alone:
     #      the slack is a point estimate in a range twice its width, and the ladder's terminal zero

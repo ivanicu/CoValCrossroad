@@ -2065,6 +2065,36 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔⛔⛔ **AND R1105 IS THE LARGEST AXIS AND IT WAS NEVER PRICED: THE DEFINITION ADMITS 9 ARMS UNDER
+THE 2B JUDGE AND 0 UNDER THE 8B JUDGE**, on the same 43 arms, symmetric difference **9** against a
+threshold of 4. ⛔⛔ **`coval_core` — the released core, the object this definition was written from —
+IS NOT ADMITTED UNDER THE 8B JUDGE.** And the failures are classified rather than left as a set
+difference: **8 of 9 are SIGN FLIPS** (the arm is genuinely BEHIND a comparator: `coval_core`
+−0.0072, `topw_k3` −0.0088, `topw_k4` −0.0122, `topw_k6` −0.0172, `topw_k8` −0.0243, `oracle_k4`
+−0.0283, `greedy_k4_fit1` −0.0290, `oracle_k4_fit1` −0.0325) and **1 is a resolution loss**
+(`indep_k4_fit1`, +0.0044, no longer resolvable).
+⭐ **THE MECHANISM IS AN INVERSION OF THE ORDERING ITSELF, measured:** mean A2 under 2B is
+`coval_core` **0.5665** > `generic` **0.5514**; under 8B it is `generic` **0.4767** > `coval_core`
+**0.4695**. **The prompt-specific core leads the fixed generic rubric under one judge and trails it
+under the other** — and `oracle_k4`, the release's own LEAKY upper bound, sits **0.0283 behind
+`generic`** under 8B.
+⛔ **AND THE WALL WAS NEVER CHECKED, AND I PRINTED IT TWICE.** `corebench/results/` holds
+`sat08_full.npz`, `sat08_generic.npz`, `sat08_genericpool16.npz`, `sat08_coval_core.npz` and **32
+selection arms already rebuilt under 8B — committed, zero further judge calls** — while **R1100 and
+R1101 each printed *the 8B judge npz — N/A — a different instrument axis*** in their impossibility
+registers. **A register line saying N/A is exactly what stops anyone looking.**
+⭐ **And the SPECIFICATION CURVE was on disk too:** `_08b` is the 2B-selected criteria RE-SCORED by
+8B (measurement sensitivity) and `_08bR` is the rule RE-RUN under 8B (pipeline sensitivity), verified
+by reading the criterion texts. **`greedy_k4_fit1`, `indep_k4_fit1` and `oracle_k4` are OUT under
+re-scoring and BACK IN under re-running** — a fixed arm does not survive the judge change, a pipeline
+allowed to refit partly does.
+⛔ **Without one control this would have been silence:** the 8B judge separates `generic` from the
+random baseline at **+0.0683 [lo +0.0581]**, *wider* than the 2B judge's **+0.0587**, so it orders at
+least as well and the collapse is a measurement rather than a broken instrument.
+⚠ **THE TWO AXES ARE REPORTED SIDE BY SIDE AND NEVER SUBTRACTED.** Sampling (R1103/R1104):
+|admitted| **22.77 [17, 26]**. Instrument (here): **9 → 0**. **The instrument axis is the larger one
+and it had no interval at all.**
+
 ⛔⛔⛔ **AND R1104 PRICES THE COUNTS DERIVED FROM THAT SET: THEY SPLIT THREE WAYS.** Over 750
 resamples, 3 seeds, both families rebuilt per draw: **R1098's NESTING SURVIVES** — `released_only`
 is **0 in 750/750**, max 0 — but ⚠ **a perfect share is the shape of a DERIVATION**, and it was

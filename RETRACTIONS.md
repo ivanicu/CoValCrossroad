@@ -27303,3 +27303,38 @@ estimator.
 inadmissible until its MDE is beside it* — and one surviving number: the bound on the core's
 advantage. R1011's positive control, sham and coverage findings are untouched, and so is the fact that
 the definition **contains** the core.
+
+---
+
+## R1105 · a wall I printed myself, and what it hid
+
+**What was withdrawn.** Nothing measured is retracted. What is **scope-corrected is every
+membership statement in this arc**: `②′ admits X` is a statement about the **(arm, judge) pair**, not
+about the arm. Under the 2B judge the definition admits **9** of the 43 comparable arms; under the 8B
+judge it admits **0**, and **8 of the 9 are sign flips** — the arms are genuinely behind the generic
+comparators, not merely unresolvable. **`coval_core`, the object the definition was written from, is
+among them.**
+
+**What killed it, and it was free.** `corebench/results/` holds `sat08_full.npz`, `sat08_generic.npz`,
+`sat08_genericpool16.npz`, `sat08_coval_core.npz` and **32 selection arms already rebuilt under the
+8B judge** — committed, **zero further judge calls**. **R1100 and R1101 each printed, in their own
+impossibility registers, *the 8B judge npz — N/A — a different instrument axis*.** I wrote that line
+twice, about a file in the same directory as the ones those rounds read.
+
+⛔ **The class this belongs to is NEW and it is the sharpest one yet: an impossibility register is a
+CLAIM, and it is the one kind of claim nobody audits.** Every other line in a round gets a control.
+The register is where a round says what it could not do — and a reader, including a later me, treats
+it as a fact about the world rather than as an assertion about the author's search. §4 already names
+*a wall never checked*; what is new is that **the wall came with a house style that made it look
+like rigour.** Writing `N/A · what it would require` reads as scrupulous, and it is — right up to the
+moment the requirement is already satisfied on disk.
+
+**The remedy, mechanical:** before writing `N/A` for a data-availability reason, **run the search that
+would find the data** and paste its output. An `N/A` justified by *"it would require a second judge"*
+is only admissible beside `ls` output showing there is not one.
+
+⚠ **And the count is not the product.** This entry buys one instrument-level compression — *the
+impossibility register needs a positive control like any other search* — and one surviving number
+with its scope: the definition's extension is **9 under a 2B judge, 0 under an 8B judge**, on the same
+arms, the same operator, the same 968 prompts. R1103's sampling interval (**22.77 [17, 26]**) and this
+gauge are **two axes and are never subtracted from one another**.

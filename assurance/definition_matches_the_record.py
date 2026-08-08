@@ -1196,7 +1196,14 @@ ASSERTIONS = {
     #    gate agreed with the artifact only because `re.search` reached the score first, and
     #    prepending the other sentence made the whole gate exit 1. Anchored on its own clause.
     "r485_oracle":   r"clears the ceiling is one ③ excludes\.\*\*[\s\S]{0,80}?`oracle_k4` \*\*(\d\.\d{4})\*\*",
-    "r485_core":     r"`coval_core`\s*\n\*\*(\d\.\d{4})\*\*",
+    # ⛔ REBOUND BY R1105 AND REPAIRED THE WAY R1082 PRESCRIBES. The bare pattern
+    #    "`coval_core`\n**d.dddd**" acquired a SECOND home the moment R1105's annotation wrote
+    #    "`generic` **0.4767** > `coval_core`\n**0.4695**" ABOVE R485's list — and because the gate
+    #    reads `re.search`, the anchor silently rebound to the newer sentence and the anchoring gate
+    #    went red on a document that had not drifted. The one-home gate caught it on the same run,
+    #    which is what it was built for. Remedy per R1082: give the anchor context unique to its
+    #    intended sentence — here, the arm that precedes it in R485's own list.
+    "r485_core":     r"`indep_k4_fit1`\s*\*\*[\d.]+\*\*,\s*`coval_core`\s*\n\*\*(\d\.\d{4})\*\*",
     # R481 -- the aggregation sweep. Anchored because it DOWNGRADED a committed correlation and
     # because the blindness thresholds are what make the 2-of-3 denominator defensible.
     "r481_ident":   r"\*\*2000/2000\s*\non random matrices, and (0\.00)e\+00 across 26",
