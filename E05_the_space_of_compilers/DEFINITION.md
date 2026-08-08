@@ -1877,6 +1877,25 @@ pool16's **65,535** subsets; this is the smaller space of **15** universally-ava
 whose full family admits **35**, not 0. **Two different closures, two different objects — the numbers
 must not be pooled.**
 
+⭐⭐ **AND R1090 NAMES THE MEMBERS R1089 ONLY COUNTED: the released core beats 15 of 15 and sits in
+`always`.** All three released cores — `coval_core`, `coval_core_2bA`, `coval_core_2bB` — are
+admitted under **every** admissible blind family, so **the certifier's 28-arm degree of freedom does
+not reach the object the definition was written from.** That was not guaranteed: 28 arms *are*
+choice-dependent and the core could have been one of them.
+⭐ **And the sham is a control obtained for free: `coval_core_sham` beats 4 of 15 and is MOVABLE.**
+The clause can tell the core from its sham, and the separation is **11 subsets** wide. A sham
+admitted under every family would have meant it cannot.
+⭐ **The block sizes reproduce R1089's counts exactly — 35 / 28 / 36 — from an independent route**,
+which is the check that the monotonicity derivation and the enumeration are the same object. `always`
+also contains both released comparators; `movable` contains every `random_k*` arm and `full`; `never`
+contains `promptecho` and every `*_08b` variant sampled. **0 arms change block across three
+bootstrap seeds**, so the 7 non-unanimous decisions never cross a boundary.
+⛔ **AND MY VERDICT STRING FIRED THE WRONG WORLD, ON A SHAM.** It matched `"coval_core" in name`,
+swept in `coval_core_sham`, and printed *"whether the definition admits its own instance depends on
+the certifier's choice"* — **the opposite of what the three real cores show.** §4's *name the
+instrument's unit and the claim's unit and require them equal*, in the round whose whole job was
+naming members. Fixed by splitting the populations, after which the sham became a control.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

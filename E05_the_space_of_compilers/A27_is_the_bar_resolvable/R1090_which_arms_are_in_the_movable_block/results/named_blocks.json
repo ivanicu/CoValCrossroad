@@ -1,0 +1,669 @@
+{
+  "SHAM_point_estimate_moves": [
+    "full",
+    "random_k12_s0",
+    "random_k12_s1",
+    "random_k12_s2",
+    "random_k8_s0",
+    "random_k8_s2",
+    "topw_k3_08b",
+    "topw_k4_08b",
+    "topwvar_k4"
+  ],
+  "block_sizes": {
+    "always": 35,
+    "movable": 28,
+    "never": 36
+  },
+  "blocks": {
+    "always": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB",
+      "gen",
+      "generic",
+      "generic_reprov",
+      "genericpool16",
+      "greedy_k12_fit1",
+      "greedy_k2_fit1",
+      "greedy_k4_fit1",
+      "greedy_k4_fit1_08bR",
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB",
+      "greedy_k8_fit1",
+      "indep_k12_fit1",
+      "indep_k2_fit1",
+      "indep_k4_fit1",
+      "indep_k4_fit1_08bR",
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB",
+      "indep_k8_fit1",
+      "oracle_k4",
+      "oracle_k4_08bR",
+      "oracle_k4_fit1",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB",
+      "topw_k1",
+      "topw_k12",
+      "topw_k2",
+      "topw_k3",
+      "topw_k4",
+      "topw_k4_detA",
+      "topw_k4_detB",
+      "topw_k6",
+      "topw_k8"
+    ],
+    "movable": [
+      "coval_core_sham",
+      "full",
+      "gen_sham",
+      "indep_k4_fit1_08b",
+      "random_k12_s0",
+      "random_k12_s1",
+      "random_k12_s2",
+      "random_k2_s0",
+      "random_k2_s1",
+      "random_k2_s2",
+      "random_k3_s0",
+      "random_k3_s1",
+      "random_k3_s2",
+      "random_k4_s0",
+      "random_k4_s0_ctlS0",
+      "random_k4_s1",
+      "random_k4_s1_ctlS1",
+      "random_k4_s2",
+      "random_k6_s0",
+      "random_k6_s1",
+      "random_k6_s2",
+      "random_k8_s0",
+      "random_k8_s1",
+      "random_k8_s2",
+      "topabs_k4",
+      "topvar_k4",
+      "topw_k4_sham",
+      "topwvar_k4"
+    ],
+    "never": [
+      "full_sham",
+      "greedy_k4_fit1_08b",
+      "oracle_k4_08b",
+      "oracle_k4_fit1_08b",
+      "promptecho",
+      "promptecho_sham",
+      "random_k12_s0_08b",
+      "random_k12_s1_08b",
+      "random_k12_s2_08b",
+      "random_k2_s0_08b",
+      "random_k2_s1_08b",
+      "random_k2_s2_08b",
+      "random_k3_s0_08b",
+      "random_k3_s1_08b",
+      "random_k3_s2_08b",
+      "random_k4_s0_08b",
+      "random_k4_s1_08b",
+      "random_k4_s2_08b",
+      "random_k6_s0_08b",
+      "random_k6_s1_08b",
+      "random_k6_s2_08b",
+      "random_k8_s0_08b",
+      "random_k8_s1_08b",
+      "random_k8_s2_08b",
+      "topabs_k4_08b",
+      "topvar_k4_08b",
+      "topvar_k4_08bR",
+      "topw_k12_08b",
+      "topw_k1_08b",
+      "topw_k2_08b",
+      "topw_k3_08b",
+      "topw_k4_08b",
+      "topw_k6_08b",
+      "topw_k8_08b",
+      "topwvar_k4_08b",
+      "topwvar_k4_08bR"
+    ]
+  },
+  "controls": {
+    "NEGATIVE permuting a row leaves its COUNT and so its block unchanged": true,
+    "PLACEBO recomputing from the same matrix gives identical blocks": true,
+    "POSITIVE planted counts 15 / 7 / 0 land in always / movable / never": true,
+    "SHAM the core's own sham is NOT admitted under every family": true,
+    "SHAM the point estimate gives a DIFFERENT partition": true,
+    "g=0 the three blocks PARTITION the arms": true
+  },
+  "core_sham_control": {
+    "coval_core_sham": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    }
+  },
+  "derivation": "monotonicity (R1089) makes the blocks a threshold on one integer per arm: always = beats all 15, never = beats 0, movable = 1..14. The partition is free; WHICH arm has which count is the measurement.",
+  "kill": {
+    "core_seed_unstable": [],
+    "gate_open": true
+  },
+  "per_arm": {
+    "coval_core": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "coval_core_2bA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "coval_core_2bB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "coval_core_sham": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "full": {
+      "beats": 14,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "full_sham": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "gen": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "gen_sham": {
+      "beats": 2,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "generic": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "generic_reprov": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "genericpool16": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k12_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k2_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k4_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k4_fit1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "greedy_k4_fit1_08bR": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k4_greedy_kA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k4_greedy_kB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "greedy_k8_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k12_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k2_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k4_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k4_fit1_08b": {
+      "beats": 2,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "indep_k4_fit1_08bR": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k4_indep_kA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k4_indep_kB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "indep_k8_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "oracle_k4": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "oracle_k4_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "oracle_k4_08bR": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "oracle_k4_fit1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "oracle_k4_fit1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "oracle_k4_oracle_kA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "oracle_k4_oracle_kB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "promptecho": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "promptecho_sham": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k12_s0": {
+      "beats": 14,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k12_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k12_s1": {
+      "beats": 10,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k12_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k12_s2": {
+      "beats": 11,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k12_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k2_s0": {
+      "beats": 1,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k2_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k2_s1": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k2_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k2_s2": {
+      "beats": 1,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k2_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k3_s0": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k3_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k3_s1": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k3_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k3_s2": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k3_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k4_s0": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k4_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k4_s0_ctlS0": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k4_s1": {
+      "beats": 6,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k4_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k4_s1_ctlS1": {
+      "beats": 6,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k4_s2": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k4_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k6_s0": {
+      "beats": 5,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k6_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k6_s1": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k6_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k6_s2": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k6_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k8_s0": {
+      "beats": 9,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k8_s0_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k8_s1": {
+      "beats": 6,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k8_s1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "random_k8_s2": {
+      "beats": 9,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "random_k8_s2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topabs_k4": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "topabs_k4_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topvar_k4": {
+      "beats": 3,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "topvar_k4_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topvar_k4_08bR": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k1": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k12": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k12_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k1_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k2": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k2_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k3": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k3_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k4": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k4_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k4_detA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k4_detB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k4_sham": {
+      "beats": 4,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "topw_k6": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k6_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topw_k8": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "topw_k8_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topwvar_k4": {
+      "beats": 9,
+      "block": "movable",
+      "seed_stable": true
+    },
+    "topwvar_k4_08b": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    },
+    "topwvar_k4_08bR": {
+      "beats": 0,
+      "block": "never",
+      "seed_stable": true
+    }
+  },
+  "population": {
+    "arms": 99,
+    "prompts": 968,
+    "subsets": 15
+  },
+  "question": "which arms are in each block, and where does the released core sit?",
+  "released_core": {
+    "coval_core": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "coval_core_2bA": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    },
+    "coval_core_2bB": {
+      "beats": 15,
+      "block": "always",
+      "seed_stable": true
+    }
+  },
+  "round": "R1090",
+  "seed_unstable_arms": [],
+  "source_sha256": "4537e03c572e8b0877b0eb0715c2aab3ac5f8f1b93de7b811cb65e7f4bd652b5",
+  "verdict": "world A \u2014 the released core(s) ['coval_core', 'coval_core_2bA', 'coval_core_2bB'] beat all 15 blind subsets and are admitted under EVERY admissible family. The definition admits the object it was written from whatever the certifier picks."
+}

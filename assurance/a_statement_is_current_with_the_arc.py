@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1090_*/results/named_blocks.json")
+    if d:
+        rc = d["released_core"]; sh = d["core_sham_control"]
+        facts.append(("R1090", "the released core is in `always`; its sham is movable",
+                      f"cores {sorted(rc)}, beats {[v['beats'] for v in rc.values()]}, "
+                      f"sham {[v['block'] for v in sh.values()]}",
+                      [r"beats\s+15\s+of\s+15\s+and\s+sits\s+in",
+                       r"sham\s+is\s+a\s+control\s+obtained\s+for\s+free"]))
+
     d = load("A27_*/R1089_*/results/certifier_freedom.json")
     if d:
         r = d["resolvable"]; pt = r["partition"]
