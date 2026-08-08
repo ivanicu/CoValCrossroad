@@ -1,0 +1,318 @@
+{
+ "consequence_if_world_B": {
+  "admitted_set_ladder": {
+   "after_authorship_extended_by_this_round": 0,
+   "after_authorship_reading_as_R1094_applied_it": 6,
+   "after_leakage_reading": 9,
+   "released_2prime": 24,
+   "survivors_authorship_R1094": [
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ],
+   "survivors_authorship_extended": [],
+   "survivors_leakage": [
+    "coval_core",
+    "coval_core_2bA",
+    "coval_core_2bB",
+    "topw_k3",
+    "topw_k4",
+    "topw_k4_detA",
+    "topw_k4_detB",
+    "topw_k6",
+    "topw_k8"
+   ]
+  },
+  "derivation_not_measurement": true,
+  "holds_only_if": "the annotators' signed importance ratings count as prompt-specific human labels under clause \u2462's AUTHORSHIP reading \u2014 a reading of the clause, which this round does not adjudicate",
+  "n_removed_if_authorship_reading": 6,
+  "topw_arms_in_released_2prime": [
+   "topw_k3",
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "vacuity": {
+   "authorship_extended_admits_nothing": true,
+   "not_an_adjudication": "vacuity is an argument, not a measurement, and it does not make the leakage reading TRUE -- it prices the alternative. R1094's finding stands: the clause's own control cannot separate its readings.",
+   "why_it_bites": "R1094's authorship list excludes arms that consume the human TARGET or the authored core, but NOT arms that consume the human RATINGS on the prompt's own criteria. This round measures that `topw` does exactly that. Applied consistently, the authorship reading therefore removes the six `topw` arms as well -- and the released \u2461\u2032 set is EMPTY. A definition whose admitted set is empty describes no object, so this is a cost the leakage reading does not carry."
+  }
+ },
+ "controls": {
+  "NEGATIVE criterion texts and counts are preserved by every intervention": true,
+  "NEGATIVE the within-prompt derangements have zero fixed points": true,
+  "PLACEBO random_k4 and full are exactly stable under W": true,
+  "POSITIVE reversal makes topw_k1 select the previously LOWEST-rated criterion": true,
+  "SEEDS every W verdict agrees across 3 seeds": true,
+  "SEEDS the seed flag CHANGES the draw: distinct emissions for a mover": true,
+  "SHAM the JSON round-trip alone moves NOTHING (else the round is void)": true,
+  "SHAM the round-trip's per-prompt change rate is exactly 0.000": true
+ },
+ "executed_move": [
+  "topabs_k4",
+  "topw_k1",
+  "topw_k12",
+  "topw_k4",
+  "topwvar_k4"
+ ],
+ "grid": {
+  "W_moved": 5,
+  "W_stable": 6,
+  "cells_tested": 33
+ },
+ "intervention_stats": {
+  "W_11": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  },
+  "W_23": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  },
+  "W_41": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  },
+  "identity_11": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  },
+  "reverse_11": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  },
+  "sham_11": {
+   "counts_preserved": true,
+   "fixed_points": 0,
+   "n_rubrics": 986,
+   "singletons": 0,
+   "texts_preserved": true
+  }
+ },
+ "kill": {
+  "gate_open": true,
+  "mismatch": [],
+  "world_B_killed": false
+ },
+ "mismatch": [],
+ "per_arm": {
+  "full": {
+   "R1100_T_consumes_target": false,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "greedy_k4_fit1": {
+   "R1100_T_consumes_target": true,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": true,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "indep_k4_fit1": {
+   "R1100_T_consumes_target": true,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": true,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "oracle_k4_fit1": {
+   "R1100_T_consumes_target": true,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": true,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "random_k4_s0": {
+   "R1100_T_consumes_target": false,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topabs_k4": {
+   "R1100_T_consumes_target": false,
+   "W_moved": true,
+   "W_rate_per_seed": [
+    0.9969,
+    0.9959,
+    0.9959
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": true,
+   "reverse_moved": true,
+   "reverse_rate": 0.8068,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topvar_k4": {
+   "R1100_T_consumes_target": false,
+   "W_moved": false,
+   "W_rate_per_seed": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": false,
+   "reverse_moved": false,
+   "reverse_rate": 0.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topw_k1": {
+   "R1100_T_consumes_target": false,
+   "W_moved": true,
+   "W_rate_per_seed": [
+    0.9814,
+    0.9762,
+    0.9824
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": true,
+   "reverse_moved": true,
+   "reverse_rate": 1.0,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topw_k12": {
+   "R1100_T_consumes_target": false,
+   "W_moved": true,
+   "W_rate_per_seed": [
+    0.6849,
+    0.687,
+    0.686
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": true,
+   "reverse_moved": true,
+   "reverse_rate": 0.688,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topw_k4": {
+   "R1100_T_consumes_target": false,
+   "W_moved": true,
+   "W_rate_per_seed": [
+    0.9938,
+    0.9969,
+    0.9948
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": true,
+   "prereg_move": true,
+   "reverse_moved": true,
+   "reverse_rate": 0.9969,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  },
+  "topwvar_k4": {
+   "R1100_T_consumes_target": false,
+   "W_moved": true,
+   "W_rate_per_seed": [
+    0.8988,
+    0.8967,
+    0.9101
+   ],
+   "W_seed_agreement": true,
+   "in_released_2prime": false,
+   "prereg_move": true,
+   "reverse_moved": true,
+   "reverse_rate": 0.845,
+   "sham_clean": true,
+   "sham_rate": 0.0
+  }
+ },
+ "prereg_move": [
+  "topabs_k4",
+  "topw_k1",
+  "topw_k12",
+  "topw_k4",
+  "topwvar_k4"
+ ],
+ "question": "does `topw` consume prompt-specific human ratings?",
+ "reversal_control": {
+  "identity_hits_argmin": 0.0,
+  "prompts_compared": 968,
+  "reverse_hits_argmin": 0.7748
+ },
+ "round": "R1101",
+ "seeds": [
+  11,
+  23,
+  41
+ ],
+ "source_sha256": "dd8b892f1eded039a3a796b9c6f25352139bfc6403e4d957a14c54b6df70d2ce",
+ "unrunnable_configs": [],
+ "verdict": "\u2b50 WORLD B HOLDS, EXACTLY. 5 of 11 configurations move when the human importance ratings are deranged WITHIN the prompt \u2014 ['topabs_k4', 'topw_k1', 'topw_k12', 'topw_k4', 'topwvar_k4'] \u2014 and the other 6, including the three arms R1100 measured as target-consuming, are byte-stable. **`topw` RANKS BY PROMPT-SPECIFIC HUMAN RATINGS.** Derivation, conditional on the authorship reading of \u2462 counting those ratings as human labels: it would remove 6 arms (['topw_k3', 'topw_k4', 'topw_k4_detA', 'topw_k4_detB', 'topw_k6', 'topw_k8']) from the released \u2461\u2032 set \u2014 taking it from 24 to 0, against 9 under the leakage reading. \u26d4 SO THE AUTHORSHIP READING, APPLIED CONSISTENTLY, ADMITS NOTHING \u2014 a definition whose admitted set is empty describes no object. That is a cost the leakage reading does not carry, and it is an argument, not an adjudication: R1094's finding that the clause's own control cannot separate its readings still stands."
+}

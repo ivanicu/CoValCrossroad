@@ -696,6 +696,26 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔ R1101 EXECUTED the AUTHORSHIP reading that R1100's P axis could not reach, by deranging the
+    #    human ratings WITHIN each prompt. Two facts must reach the statement and they are different
+    #    kinds: the MEASUREMENT (`topw` ranks by human ratings, 11/11 as pre-registered) and the
+    #    DERIVATION it forces (the authorship reading applied consistently admits NOTHING). The
+    #    second is the one a later round will act on, and vacuity is an argument rather than an
+    #    adjudication — so the statement must carry the caveat, not just the zero.
+    d = load("A27_*/R1101_*/results/weights_separate.json")
+    if d:
+        lad = d["consequence_if_world_B"]["admitted_set_ladder"]
+        facts.append(("R1101", "topw ranks by human ratings; the authorship reading admits nothing",
+                      f"moves {len(d['executed_move'])}/{d['grid']['W_moved'] + d['grid']['W_stable']}, "
+                      f"mismatch {len(d['mismatch'])}, ladder "
+                      f"{lad['released_2prime']}/{lad['after_leakage_reading']}/"
+                      f"{lad['after_authorship_reading_as_R1094_applied_it']}/"
+                      f"{lad['after_authorship_extended_by_this_round']}",
+                      [r"RANKS\s+BY\s+PROMPT-SPECIFIC\s+HUMAN\s+RATINGS|"
+                       r"ranks\s+by\s+prompt-specific\s+human\s+ratings",
+                       r"APPLIED\s+CONSISTENTLY,\s+ADMITS\s+NOTHING|"
+                       r"applied\s+consistently,\s+admits\s+nothing"]))
+
     # ⛔ R1100 EXECUTED clause ③'s instrument instead of reading it. R1094's `leakage_excludes` was a
     #    NOMINATION (R1084: a static source read on this repo is precision 0.111) that this arc spent
     #    as a decision. The intervention confirms it exactly — and the SAME run shows the authorship

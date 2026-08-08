@@ -2065,6 +2065,34 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⭐⭐ **AND R1101 EXECUTES THE AUTHORSHIP READING, AND THE PRICE OF EXECUTING IT IS THE WHOLE SET.**
+Permuting **within each prompt** which criterion carries which annotator `scores` list — texts fixed,
+count fixed, judged index set fixed, satisfaction npz untouched, so the ONLY thing that moves is the
+vector of human importance ratings — **5 of 11 configurations move and 6 are byte-stable, matching a
+pre-registration written from the source on 11 of 11 cells.** ⭐ **`topw` RANKS BY PROMPT-SPECIFIC
+HUMAN RATINGS**: `topw_k1` **0.981**, `topw_k4` **0.994**, `topw_k12` **0.685**, `topabs_k4`
+**0.997**, `topwvar_k4` **0.899** per-prompt change rate; `topvar_k4`, `random_k4`, `full` and all
+three LEAKY arms at **0.000**. The stable set deliberately held the leaky arms, so the prediction had
+both directions populated.
+⛔ **AND THE CONSEQUENCE IS A LADDER, computed over committed sets and labelled a DERIVATION.** The
+released ②′ set admits **24** with no clause · **9** under ③'s LEAKAGE reading · **6** under the
+AUTHORSHIP reading as R1094's list applied it · and **0** under the authorship reading extended by
+this measurement. **R1094's authorship list was internally incomplete** — it excluded arms consuming
+the human TARGET or the authored core, never arms consuming the human RATINGS on the prompt's own
+criteria, and `topw` does exactly that. ⛔ **SO THE AUTHORSHIP READING, APPLIED CONSISTENTLY, ADMITS
+NOTHING, AND A DEFINITION WHOSE ADMITTED SET IS EMPTY DESCRIBES NO OBJECT.** That is a cost the
+leakage reading does not carry. ⚠ **It is an argument, not an adjudication** — vacuity prices the
+alternative and does not make the leakage reading true. **R1094's finding stands: ③'s own control
+cannot separate its readings.**
+⭐ **And the SHAM is what makes the round readable, where a byte copy could not have been.** The
+intervention rewrites every rubric record through a JSON round-trip; if that round-trip alone
+re-formatted a float and shifted `w`, every verdict would be measuring **serialisation**. The sham is
+the *same* rewrite with the permutation set to the identity — one ingredient removed — and it moves
+**nothing, at rate 0.000**. ⭐ And the positive control demands a predicted **outcome**: reversing the
+rating order makes `topw_k1` select the previously **lowest**-rated criterion on **0.775** of 968
+prompts against **0.000** on the identity run, the residual being `ok` excluding unjudged criteria,
+stated in advance.
+
 ⭐⭐ **AND R1100 EXECUTES CLAUSE ③'S INSTRUMENT INSTEAD OF READING IT.** R1094's `leakage_excludes`
 is a list of **names**, built by READING `corebench/select_core.py` — and R1084 measured a static
 source read on this repo at **precision 0.111, recall 1.000**, ruling that the parse *can NOMINATE
