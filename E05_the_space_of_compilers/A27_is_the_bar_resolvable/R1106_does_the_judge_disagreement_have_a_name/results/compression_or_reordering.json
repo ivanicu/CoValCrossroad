@@ -1,0 +1,269 @@
+{
+ "bootstrap_ci": {
+  "r2": [
+   0.8897,
+   0.9176
+  ],
+  "rho": [
+   0.6358,
+   0.7722
+  ],
+  "slope": [
+   0.6907,
+   0.7353
+  ]
+ },
+ "controls": {
+  "NEGATIVE the 2B margins are not degenerate": true,
+  "PLACEBO 2B against itself is exact (rho=1, slope=1, R^2=1, residuals 0)": true,
+  "POSITIVE a planted swap is flagged by the two largest residual CHANGES": true,
+  "SYNTHETIC world A rebuilt from the 2B data IS recognised as compression": true
+ },
+ "kill": {
+  "gate_open": true,
+  "observed": {
+   "r2": 0.9063,
+   "spearman": 0.6631
+  },
+  "thresholds": {
+   "r2": 0.8,
+   "spearman": 0.9
+  },
+  "world_A_killed": true,
+  "world_B_killed": false
+ },
+ "labelled_derivation": "that the ordering changed SOMEWHERE is forced by R1105's committed table (coval_core leads generic under 2B, trails it under 8B). This round asks whether the change exceeds what a pure scale change produces \u2014 that is the part which could have come out otherwise.",
+ "largest_negative_residuals": {
+  "greedy_k4_fit1": -0.04621,
+  "oracle_k4": -0.05818,
+  "oracle_k4_fit1": -0.05225,
+  "promptecho": -0.02765,
+  "promptecho_sham": -0.0298
+ },
+ "placebo_2B_vs_2B": {
+  "r2": 1.0,
+  "slope": 1.0,
+  "spearman_levels": 1.0
+ },
+ "planted_reordering": {
+  "detected": true,
+  "separation_over_next_arm": 1.14,
+  "swapped": [
+   "promptecho_sham",
+   "indep_k4_fit1"
+  ],
+  "two_largest_residual_CHANGES": [
+   "indep_k4_fit1",
+   "promptecho_sham"
+  ],
+  "v1_failed_because": "it ranked by |residual| in the planted run and a real large residual (`promptecho`) outranked the plant; the change statistic separates"
+ },
+ "question": "is the judges' disagreement a scale compression or a reordering?",
+ "real": {
+  "intercept": -0.02509,
+  "kendall_levels": 0.4355,
+  "r2": 0.9063,
+  "resid": {
+   "coval_core": 0.00707,
+   "coval_core_sham": 0.00228,
+   "full": -0.00922,
+   "full_sham": 0.00493,
+   "gen": 0.0335,
+   "gen_sham": 0.03212,
+   "genericpool16": 0.0204,
+   "greedy_k4_fit1": -0.04621,
+   "indep_k4_fit1": -0.00105,
+   "oracle_k4": -0.05818,
+   "oracle_k4_fit1": -0.05225,
+   "promptecho": -0.02765,
+   "promptecho_sham": -0.0298,
+   "random_k12_s0": -0.00678,
+   "random_k12_s1": -0.00652,
+   "random_k12_s2": -0.00874,
+   "random_k2_s0": 0.01873,
+   "random_k2_s1": 0.01283,
+   "random_k2_s2": 0.01816,
+   "random_k3_s0": 0.00798,
+   "random_k3_s1": 0.00638,
+   "random_k3_s2": 0.00999,
+   "random_k4_s0": -0.00134,
+   "random_k4_s1": 0.00277,
+   "random_k4_s2": 0.00511,
+   "random_k6_s0": 0.0029,
+   "random_k6_s1": 0.00315,
+   "random_k6_s2": 0.00078,
+   "random_k8_s0": -0.00358,
+   "random_k8_s1": 0.00143,
+   "random_k8_s2": -0.00334,
+   "topabs_k4": 0.01179,
+   "topvar_k4": 0.01819,
+   "topw_k1": 0.00578,
+   "topw_k12": -0.00725,
+   "topw_k2": 0.00685,
+   "topw_k3": 0.00787,
+   "topw_k4": 0.00374,
+   "topw_k4_sham": 0.00579,
+   "topw_k6": -0.00122,
+   "topw_k8": -0.00489,
+   "topwvar_k4": 0.01749
+  },
+  "slope": 0.7142,
+  "spearman_levels": 0.6631
+ },
+ "round": "R1106",
+ "seeds": [
+  1106,
+  2212,
+  3318
+ ],
+ "source_sha256": "6c8fe3f082a94ea475f3cdbaa5037c18a3e9927f82d1a11c31e8596eff7d65f0",
+ "specification_curve": {
+  "baseline=genericpool16|normalised": {
+   "r2": 0.9057,
+   "slope": 0.7157
+  },
+  "baseline=genericpool16|raw": {
+   "kendall": 0.4332,
+   "r2": 0.9057,
+   "slope": 0.7157,
+   "spearman": 0.6619
+  },
+  "baseline=generic|normalised": {
+   "r2": 0.9063,
+   "slope": 0.7142
+  },
+  "baseline=generic|raw": {
+   "kendall": 0.4355,
+   "r2": 0.9063,
+   "slope": 0.7142,
+   "spearman": 0.6631
+  }
+ },
+ "specificity_measured": {
+  "distinct_criterion_sets": {
+   "coval_core": null,
+   "coval_core_sham": 968,
+   "full": 968,
+   "full_sham": 968,
+   "gen": 950,
+   "gen_sham": 949,
+   "generic": 1,
+   "genericpool16": 1,
+   "greedy_k4_fit1": 968,
+   "indep_k4_fit1": 968,
+   "oracle_k4": 968,
+   "oracle_k4_fit1": 968,
+   "promptecho": 398,
+   "promptecho_sham": 398,
+   "random_k12_s0": 968,
+   "random_k12_s1": 968,
+   "random_k12_s2": 968,
+   "random_k2_s0": 968,
+   "random_k2_s1": 968,
+   "random_k2_s2": 968,
+   "random_k3_s0": 968,
+   "random_k3_s1": 968,
+   "random_k3_s2": 968,
+   "random_k4_s0": 968,
+   "random_k4_s1": 968,
+   "random_k4_s2": 968,
+   "random_k6_s0": 968,
+   "random_k6_s1": 968,
+   "random_k6_s2": 968,
+   "random_k8_s0": 968,
+   "random_k8_s1": 968,
+   "random_k8_s2": 968,
+   "topabs_k4": 968,
+   "topvar_k4": 968,
+   "topw_k1": 968,
+   "topw_k12": 968,
+   "topw_k2": 968,
+   "topw_k3": 968,
+   "topw_k4": 968,
+   "topw_k4_sham": 968,
+   "topw_k6": 968,
+   "topw_k8": 968,
+   "topwvar_k4": 968
+  },
+  "n_fixed_arms": 2,
+  "why": "only `generic` and `genericpool16` have exactly one criterion set, so a fixed-vs-specific ARM contrast has n=2 and the unit had to be the prompt"
+ },
+ "synthetic_world_A": {
+  "noise_sd": 0.16736,
+  "r2": 0.9929,
+  "recovered": true,
+  "shrink_factor": 0.9531,
+  "spearman": 0.9379
+ },
+ "verdict": "\u2b50 REORDERING. Spearman on arm levels 0.6631 (CI [0.6358, 0.7722]), R^2 of the margin regression 0.9063 (CI [0.8897, 0.9176]), slope 0.7142 (CI [0.6907, 0.7353]), against thresholds rho>=0.9 and R^2>=0.8. World A killed: True; world B killed: False. The synthetic compression world built from the 2B data returns rho 0.9379 and R^2 0.9929, so the design CAN recognise compression when it is present. Largest negative residuals: {'oracle_k4': -0.05818, 'oracle_k4_fit1': -0.05225, 'greedy_k4_fit1': -0.04621, 'promptecho_sham': -0.0298, 'promptecho': -0.02765}. \u2b50 AND THE PRACTICAL QUESTION IS NARROWER THAN THE GLOBAL ONE: of R1105's 9 sign-flipped arms, 5 are already predicted to flip by the COMPRESSION LINE ALONE, so their loss is a scale effect and renormalising the comparator would recover them; 4 are not. So the two mechanisms split the casualties and neither repair is sufficient alone.",
+ "which_flips_compression_explains": {
+  "n_flipped": 9,
+  "n_predicted_by_compression_alone": 5,
+  "rows": {
+   "coval_core": {
+    "compression_alone_predicts_a_flip": true,
+    "margin_2B": 0.01512,
+    "observed_8B": -0.00721,
+    "predicted_8B_by_compression": -0.01429,
+    "residual": 0.00707
+   },
+   "greedy_k4_fit1": {
+    "compression_alone_predicts_a_flip": false,
+    "margin_2B": 0.05927,
+    "observed_8B": -0.02897,
+    "predicted_8B_by_compression": 0.01725,
+    "residual": -0.04621
+   },
+   "indep_k4_fit1": {
+    "compression_alone_predicts_a_flip": false,
+    "margin_2B": 0.04271,
+    "observed_8B": 0.00437,
+    "predicted_8B_by_compression": 0.00542,
+    "residual": -0.00105
+   },
+   "oracle_k4": {
+    "compression_alone_predicts_a_flip": false,
+    "margin_2B": 0.07695,
+    "observed_8B": -0.02831,
+    "predicted_8B_by_compression": 0.02987,
+    "residual": -0.05818
+   },
+   "oracle_k4_fit1": {
+    "compression_alone_predicts_a_flip": false,
+    "margin_2B": 0.06281,
+    "observed_8B": -0.03247,
+    "predicted_8B_by_compression": 0.01977,
+    "residual": -0.05225
+   },
+   "topw_k3": {
+    "compression_alone_predicts_a_flip": true,
+    "margin_2B": 0.01182,
+    "observed_8B": -0.00877,
+    "predicted_8B_by_compression": -0.01664,
+    "residual": 0.00787
+   },
+   "topw_k4": {
+    "compression_alone_predicts_a_flip": true,
+    "margin_2B": 0.01283,
+    "observed_8B": -0.01218,
+    "predicted_8B_by_compression": -0.01593,
+    "residual": 0.00374
+   },
+   "topw_k6": {
+    "compression_alone_predicts_a_flip": true,
+    "margin_2B": 0.01276,
+    "observed_8B": -0.01719,
+    "predicted_8B_by_compression": -0.01597,
+    "residual": -0.00122
+   },
+   "topw_k8": {
+    "compression_alone_predicts_a_flip": true,
+    "margin_2B": 0.00796,
+    "observed_8B": -0.0243,
+    "predicted_8B_by_compression": -0.0194,
+    "residual": -0.00489
+   }
+  },
+  "why": "compression and reordering can both be present; what decides whether the DEFINITION is repairable is which of the two produced R1105's sign flips"
+ }
+}

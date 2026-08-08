@@ -2065,6 +2065,31 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⭐⭐ **AND R1106 SEPARATES THE TWO MECHANISMS BEHIND THAT COLLAPSE: IT IS BOTH, AND THEY SPLIT THE
+CASUALTIES 5 / 4.** Compression is real and large — the margin regression has slope **0.7142
+[0.6907, 0.7353]**, so every margin shrinks **29%**, and it explains **R² = 0.9063 [0.8897, 0.9176]**
+of their variance. ⛔ **But WORLD A (pure compression) IS KILLED by the rank correlation:
+Spearman 0.6631 [0.6358, 0.7722]**, against **0.9379** for a synthetic compression world built from
+the 2B data itself — so the design can see compression when it is there and **0.663 is a real
+reordering**.
+⭐ **AND `coval_core`'s FLIP IS A SCALE EFFECT, WHICH NARROWS THE REPAIR.** Its residual is **+0.0071**
+— it did BETTER than compression predicted and still crossed zero, because the line already puts it
+at **−0.0143**. **Of R1105's 9 sign-flipped arms, 5 are predicted by the compression line alone and
+would be recovered by renormalising the comparator; 4 are not.**
+⭐⭐ **AND THE RESIDUAL HAS A SHAPE THE RELEASE'S OWN CODE NAMES.** The three arms falling furthest
+beyond compression are `oracle_k4` **−0.0582**, `oracle_k4_fit1` **−0.0522** and `greedy_k4_fit1`
+**−0.0462** — the rules that fit **SET STRUCTURE** to the human target under the 2B judge's
+satisfaction. `indep_k4_fit1`, which fits the same target **independently**, moves **−0.0011**, and
+every satisfaction-blind selector sits in **[−0.0092, +0.0118]**. `select_core.py` already draws that
+line in its own comment: *the oracle-minus-indep difference isolates SET STRUCTURE from mere
+fitting*. ⚠ **n = 2 rules, 3 arms — a PATTERN CONSISTENT WITH set-structure overfitting to the first
+judge, not a tested claim**, and corroborated from a different cell: R1105 measured that all three
+RETURN under `_08bR`, the rule re-run under 8B.
+⛔ **And the positive control failed on its first run, for its own reasons.** It ranked by |residual|
+in the planted run and flagged `promptecho` instead of the swapped `promptecho_sham`, because a plant
+laid on top of REAL structure cannot top an absolute list. Repaired to the residual **CHANGE**, which
+separates **0.2815 / 0.1717** for the swapped pair against **0.0591** for the next arm.
+
 ⛔⛔⛔⛔ **AND R1105 IS THE LARGEST AXIS AND IT WAS NEVER PRICED: THE DEFINITION ADMITS 9 ARMS UNDER
 THE 2B JUDGE AND 0 UNDER THE 8B JUDGE**, on the same 43 arms, symmetric difference **9** against a
 threshold of 4. ⛔⛔ **`coval_core` — the released core, the object this definition was written from —

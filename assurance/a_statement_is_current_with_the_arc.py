@@ -696,6 +696,24 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⭐⭐ R1106 SEPARATED THE TWO MECHANISMS BEHIND R1105's COLLAPSE. Two facts must reach the
+    #     statement and they are in tension, which is why neither can stand alone: compression is
+    #     REAL and large (slope 0.71, R^2 0.91) yet world A is KILLED by the rank correlation
+    #     (0.663 against 0.938 for a synthetic compression world). A statement carrying only the
+    #     first says `renormalise and it is fixed`; only the second says `nothing is repairable`.
+    #     The truth is 5 of 9 flips are scale and 4 are not.
+    d = load("A27_*/R1106_*/results/compression_or_reordering.json")
+    if d:
+        rl, fl = d["real"], d["which_flips_compression_explains"]
+        facts.append(("R1106", "compression is real and large, and world A is still killed",
+                      f"spearman {rl['spearman_levels']}, r2 {rl['r2']}, slope {rl['slope']}, "
+                      f"synthetic {d['synthetic_world_A']['spearman']}, flips by compression "
+                      f"{fl['n_predicted_by_compression_alone']}/{fl['n_flipped']}",
+                      [r"WORLD\s+A\s+\(pure\s+compression\)\s+IS\s+KILLED|"
+                       r"world\s+a\s+\(pure\s+compression\)\s+is\s+killed",
+                       r"`coval_core`'?s\s+FLIP\s+IS\s+A\s+SCALE\s+EFFECT|"
+                       r"coval_core'?s\s+flip\s+is\s+a\s+scale\s+effect"]))
+
     # ⛔⛔⛔⛔ R1105 PRICED THE INSTRUMENT AXIS, which no round had touched and two of my own
     #       impossibility registers had marked N/A while the files sat committed in the same
     #       directory. Two facts must reach the statement, and the second is what stops the first
