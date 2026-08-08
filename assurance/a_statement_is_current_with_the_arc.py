@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1098_*/results/families_nest.json")
+    if d:
+        st = d["sets"]; m = d["Q2_mechanism"]
+        facts.append(("R1098", "the two comparator families nest; blind is an upper bound",
+                      f"released {len(st['released'])}, blind {len(st['blind_minus_comparators'])}, "
+                      f"released_only {len(st['released_only'])}, weaker "
+                      f"{m['every_blind_subset_weaker_than_the_weakest_released']}",
+                      [r"families\s+\*\*NEST\*\*|THE\s+FAMILIES\s+NEST",
+                       r"upper\s+bound\s+on\s+released-family\s+membership"]))
+
     d = load("A27_*/R1097_*/results/two_senses_of_blind.json")
     if d:
         r = d["real_selection"]; po = d["poles"]

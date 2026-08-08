@@ -2034,6 +2034,22 @@ rubric committed as a comparator and excluded from candidacy.
 ⭐ **What survives of R1096:** its derivation (the rule types arms, so the certified family is an arm
 subset) and its population measurement (0 of 15 blind subsets in the rule's population).
 
+⭐⭐⭐ **AND R1098 REPAIRS THE ARC'S SCOPE PROBLEM: the two comparator families NEST, so every
+blind-family statement here is an UPPER BOUND on released-family membership.** The released-family
+②′ set is **24**; the blind-family one, comparators removed, is **33**; the intersection is **24** and
+**released-only is 0**. The synthetic scoping was **conservative in a nameable direction, not a
+different world** — **R1095's scope caveat is weaker than it reads.**
+⭐ **And the nesting is mechanistic, measured rather than assumed:** `generic` scores **0.5514** and
+`genericpool16` **0.5422**, while all **15** blind subsets fall in **[0.4622, 0.5023]** — **every one
+below the weaker released comparator.** The blind family is uniformly weaker, so it admits more,
+exactly as R1088's proximity result predicts, now confirmed at the family level.
+⛔ **TWO THINGS WERE REFUSED BEFORE THE ROUND BEGAN.** *Prior art:* R1055 **already** excludes
+comparators from candidacy (`if nm in comps: continue`), **so R1095's obstruction was never one for
+the released family.** *A derivation:* admission is **per-arm**, so removing `generic` from candidacy
+changes the block by exactly the two removed arms — bookkeeping, not a finding.
+⭐ **And the SHAM shows the nesting is not about family SIZE:** cutting the released family from two
+comparators to one changes its admitted set by **0**, on R1055's own committed ablation row.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches
