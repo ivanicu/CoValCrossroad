@@ -1933,6 +1933,25 @@ came from a human, which the rubric file does not carry.**
 a different property."* Both are UNVERIFIED and they are not the same UNVERIFIED**, and the
 difference decides what a next round would have to build.
 
+⛔⛔⛔ **AND R1093 SETTLES CLAUSE ③ AGAINST THE INSTANCE: clause ③ is FALSE of the released core,
+and the dataset card said so all along.** The card states CoVal-core is built by *"language-model-
+assisted synthesis and human review"* from the annotator-authored, annotator-rated CoVal-full items,
+selecting those with the *"highest average ratings"*. **CoVal-full is human-written with human
+weights; the core is a distillation of it. So the core CONSUMES prompt-specific human labels by
+construction.**
+⚠ **THIS IS A VERIFICATION, NOT A DISCOVERY, and it is flagged as one.** The answer is in
+`data/DATASET_CARD.md`; the paper template's `prior_art_in_card` column exists so a result restating
+the object's own documentation cannot be billed as a finding. **Its value is that the fact had never
+been read into this arc's record.**
+⭐ **AND THE PROVENANCE IS IN PROSE, NOT IN THE DATA.** Over all **986** conversations, `coval_full`
+items carry `rubric_item_id`, `criterion` and `scores` (**15,248** items) while `coval_core` items
+carry **`criterion` alone** (**3,899** items). **There is no per-item link from a core criterion back
+to the full items it was synthesised from**, so ③ can be read off the card and **cannot be audited
+from the data at all**.
+⚠ **WHY ELEVEN ROUNDS WENT AFTER ②′ AND NONE AT ③:** the clause table retains ③ as *"provenance, no
+bar"*, comparator and criterion both `invariant` — **which reads as *nothing to measure***. A clause
+with no threshold is not a clause with no truth value, and that reading is what kept it unexamined.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

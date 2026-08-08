@@ -1,0 +1,41 @@
+{
+  "Q1_schema": {
+    "coval_core_fields": {
+      "criterion": 3899
+    },
+    "coval_full_fields": {
+      "criterion": 15248,
+      "rubric_item_id": 15248,
+      "scores": 15248
+    },
+    "per_item_provenance_field_on_core": [],
+    "reading": "`coval_core` items carry ONLY `criterion`. `coval_full` carries `rubric_item_id` and `scores`. There is NO link from a core criterion back to the full items it was synthesised from, so the provenance is documented in prose and not recorded per item."
+  },
+  "Q2_card_quotes": {
+    "core caveat": "**CoVal-core rubrics are experimental**: CoVal-core rubrics are an experimental, LM-synthesized distillation of CoVal-full: we merge, negate, and select a small set of highly rated items, then enforce \u201cnon-conflicting/non-redundant.\u201d Each step is open to interpretation room so there are many plausible cores and our method can produce core rubrics that drift from the data. ",
+    "core construction": "**Core rubrics**:  In post-processing, for each prompt we keep only a small set of highly rated, non-redundant, and non-conflicting rubric items. We construct CoVal-core using a combination of language-model-assisted synthesis and human review. Our process first rewrites all rubric items to have positive weight and then merges semantically redundant rubric items while adjusting their scores. Then, it aims to select up to four rubric items with the highest average ratings that remain compatible with each other and do not repeat the same idea. Most prompts end up with four core rubric items (abo",
+    "rubric authoring": "**Rubric item authoring**: Finally, the annotator wrote down a few rubric items for this prompt. These are objective, specific criteria that one could use to score any response to the prompt, with an associated signed weight from \u201310 to +10 indicating how bad or good it is for a response to meet that criterion. (For example, an annotator might add a criterion \u201cContains factual errors (\u22128)\u201d if the prompt is one where accuracy is crucial.)"
+  },
+  "controls": {
+    "NEGATIVE the scan covers ALL conversations, not a sample": true,
+    "PLACEBO a second read returns identical field counts": true,
+    "POSITIVE the scan sees rubric_item_id and scores on coval_full": true,
+    "SHAM annotators.jsonl yields no rubric items rather than an error": true,
+    "g=0 a key that exists nowhere returns 0 items, not a default": true
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true
+  },
+  "population": {
+    "conversations": 986,
+    "coval_core_items": 3899,
+    "coval_full_items": 15248
+  },
+  "prior_art_in_card": true,
+  "prior_art_note": "the answer is in data/DATASET_CARD.md. A result restating the object's own card is a VERIFICATION, never a discovery.",
+  "question": "does the release record criterion provenance, and what does it say?",
+  "round": "R1093",
+  "source_sha256": "76bf95f7ad89ce38913c24444afa53aee7867a78a3a4bedc794cae4133bdeb42",
+  "verdict": "\u26d4 CLAUSE \u2462 IS FALSE OF THE RELEASED CORE, by the release's own card. CoVal-core is built by 'language-model-assisted synthesis and human review' from the annotator-authored, annotator-rated CoVal-full items, selecting those with the 'highest average ratings'. So it CONSUMES prompt-specific human labels. \u26a0 VERIFICATION, not a finding: this is stated in the object's own documentation and was never read into this arc's record, because the clause table retains \u2462 as 'provenance, no bar' \u2014 which reads as nothing to measure."
+}

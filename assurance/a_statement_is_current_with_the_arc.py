@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1093_*/results/provenance.json")
+    if d:
+        q = d["Q1_schema"]
+        facts.append(("R1093", "clause 3 is false of the released core, per the release's own card",
+                      f"core fields {sorted(q['coval_core_fields'])}, "
+                      f"provenance field {q['per_item_provenance_field_on_core']}, "
+                      f"prior_art_in_card {d['prior_art_in_card']}",
+                      [r"clause\s+③\s+is\s+FALSE\s+of\s+the\s+released\s+core",
+                       r"provenance\s+is\s+in\s+prose,\s+not\s+in\s+the\s+data"]))
+
     d = load("A27_*/R1092_*/results/the_wall_retracted.json")
     if d:
         facts.append(("R1092", "R1091's wall is retracted; the file was in the release",
