@@ -2065,6 +2065,31 @@ IDENTITY of the survivors, which the band cannot speak to**, not on how many the
 ⛔ **And the intersection itself is bookkeeping**: R1094's exclusion lists and R1098's slack are both
 committed, so crossing them is arithmetic. What is new is the consequence for R1095.
 
+⛔⛔⛔ **AND R1103 SAYS THE ADMITTED SET IS NOT AN OBJECT. IT IS A DRAW.** R1055's committed NOISE
+FLOOR reads *"the admitted set at 3 seeds: 24 always in, 75 always out, **0 unstable**"* — but those
+are three **inner bootstrap seeds at a FIXED prompt sample**, which certifies the ESTIMATOR is
+deterministic and never that the SET is a property of anything. Resampling the **prompt population**
+instead, 1,000 draws × 3 seeds through R1055's own operator: **|admitted| = 22.77 [17, 26]**, min 14,
+max 27, against a point estimate of **24** — and **11 of 99 arms sit in the band (0.05, 0.95) in
+every seed**, against R978's committed registered band of **4**.
+⭐ **AND R1055's CONTROL IS REPRODUCED AND SHOWN BLIND IN THE SAME RUN:** its inner-seed test returns
+**0** unstable, exactly as committed, while the outer resample returns **11**. Same operator, same
+data, two different questions — and this arc has quoted the wrong one as its noise floor.
+⛔⛔ **ALL SIX `topw` ARMS ARE IN THE BAND** — `topw_k6` 0.937, `topw_k4`/`detA`/`detB` 0.915,
+`topw_k3` 0.847, **`topw_k8` 0.552, a coin flip** — and those six are exactly the arms R1101's ladder
+removes. **SO THE LADDER 24 → 9 → 6 → 0 IS ARITHMETIC OVER A SET WHOSE MEMBERS ARE INDIVIDUALLY
+55–94% LIKELY**, and R1099's 9-arm slack and R1098's nesting inherit it. ⭐ **And the set GAINS
+members too**: `greedy_k12_fit1` (0.116) and `topw_k2` (0.079) are outside R1055's 24, so a
+`not admitted` is not a fact about those arms either. Monte-Carlo SE of a frequency: **0.016**.
+⚠ **`coval_core` itself is stable at 0.979** — the released core is one of the arms that does not
+move; its two twins are not (0.873), consistent with R1011's finding that they are scored on 200 of
+968 prompts.
+⚠ **The strongest confound, named rather than dismissed:** *the 968 prompts ARE the population, so
+there is no sampling variability.* That is a scope choice under which this round measures nothing —
+but it is not the scope this arc has used. Every published sentence is worded as a property of the
+DEFINITION. **If the counts are about these 968 rows, they must say so; if about the definition, they
+need this interval.**
+
 ⛔⛔ **AND R1102 DOWNGRADES R1011, THE DEEPEST CLAIM IN THIS ARC: ITS FIVE NULLS ARE SILENCE.**
 R1011 concluded *the definition contains the released core without singling it out* from five
 bootstrap intervals that straddle zero — reporting **no MDE**, and declaring a NOISE FLOOR that was

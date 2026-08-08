@@ -1,0 +1,610 @@
+{
+ "band": {
+  "R978_registered_band_at_968": 4,
+  "in_any_seed": [
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "greedy_k12_fit1",
+   "oracle_k4_08bR",
+   "topw_k2",
+   "topw_k3",
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "in_every_seed": [
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "greedy_k12_fit1",
+   "oracle_k4_08bR",
+   "topw_k2",
+   "topw_k3",
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "n_any": 11,
+  "n_every": 11,
+  "seeds_agree_on_count": true
+ },
+ "controls": {
+  "INSTRUMENT the analytic inner bound agrees with R1055's 4000-draw bootstrap on every arm": true,
+  "NEGATIVE an arm against itself is never admitted": true,
+  "PLACEBO the identity outer draw is deterministic": true,
+  "POSITIVE the point estimate reproduces R1055's committed 24 by name": true,
+  "SEEDS the outer seed flag changes the draws": true,
+  "SHAM R1055's inner-seed control returns ~0 unstable, a DIFFERENT quantity": true
+ },
+ "grid": {
+  "arms": 99,
+  "cells": 297,
+  "outer_draws_per_seed": 1000,
+  "seeds": 3
+ },
+ "instrument_validation": {
+  "analytic_vs_boot_disagreements": [],
+  "ok": true
+ },
+ "kill": {
+  "band_size_every_seed": 11,
+  "gate_open": true,
+  "world_A_killed": true
+ },
+ "noise_floor_MC_SE_of_a_frequency": 0.01581,
+ "per_arm": {
+  "coval_core": {
+   "class": "always",
+   "freq": 0.979,
+   "in_R1055_baseline": true
+  },
+  "coval_core_2bA": {
+   "class": "BAND",
+   "freq": 0.873,
+   "in_R1055_baseline": true
+  },
+  "coval_core_2bB": {
+   "class": "BAND",
+   "freq": 0.873,
+   "in_R1055_baseline": true
+  },
+  "coval_core_sham": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "full": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "full_sham": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "gen": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "gen_sham": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "generic": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "generic_reprov": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "genericpool16": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "greedy_k12_fit1": {
+   "class": "BAND",
+   "freq": 0.116,
+   "in_R1055_baseline": false
+  },
+  "greedy_k2_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "greedy_k4_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "greedy_k4_fit1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "greedy_k4_fit1_08bR": {
+   "class": "never",
+   "freq": 0.002,
+   "in_R1055_baseline": false
+  },
+  "greedy_k4_greedy_kA": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "greedy_k4_greedy_kB": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "greedy_k8_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "indep_k12_fit1": {
+   "class": "never",
+   "freq": 0.001,
+   "in_R1055_baseline": false
+  },
+  "indep_k2_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "indep_k4_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "indep_k4_fit1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "indep_k4_fit1_08bR": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "indep_k4_indep_kA": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "indep_k4_indep_kB": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "indep_k8_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "oracle_k4": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "oracle_k4_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "oracle_k4_08bR": {
+   "class": "BAND",
+   "freq": 0.7677,
+   "in_R1055_baseline": true
+  },
+  "oracle_k4_fit1": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "oracle_k4_fit1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "oracle_k4_oracle_kA": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "oracle_k4_oracle_kB": {
+   "class": "always",
+   "freq": 1.0,
+   "in_R1055_baseline": true
+  },
+  "promptecho": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "promptecho_sham": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k12_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k2_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k3_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s0_ctlS0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s1_ctlS1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k4_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k6_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s0": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s0_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s2": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "random_k8_s2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topabs_k4": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topabs_k4_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topvar_k4": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topvar_k4_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topvar_k4_08bR": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k1": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k12": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k12_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k1_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k2": {
+   "class": "BAND",
+   "freq": 0.0787,
+   "in_R1055_baseline": false
+  },
+  "topw_k2_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k3": {
+   "class": "BAND",
+   "freq": 0.8467,
+   "in_R1055_baseline": true
+  },
+  "topw_k3_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k4": {
+   "class": "BAND",
+   "freq": 0.9147,
+   "in_R1055_baseline": true
+  },
+  "topw_k4_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k4_detA": {
+   "class": "BAND",
+   "freq": 0.9147,
+   "in_R1055_baseline": true
+  },
+  "topw_k4_detB": {
+   "class": "BAND",
+   "freq": 0.9147,
+   "in_R1055_baseline": true
+  },
+  "topw_k4_sham": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k6": {
+   "class": "BAND",
+   "freq": 0.9367,
+   "in_R1055_baseline": true
+  },
+  "topw_k6_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topw_k8": {
+   "class": "BAND",
+   "freq": 0.5523,
+   "in_R1055_baseline": true
+  },
+  "topw_k8_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topwvar_k4": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topwvar_k4_08b": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  },
+  "topwvar_k4_08bR": {
+   "class": "never",
+   "freq": 0.0,
+   "in_R1055_baseline": false
+  }
+ },
+ "point_estimate": {
+  "arms": [
+   "coval_core",
+   "coval_core_2bA",
+   "coval_core_2bB",
+   "greedy_k2_fit1",
+   "greedy_k4_fit1",
+   "greedy_k4_greedy_kA",
+   "greedy_k4_greedy_kB",
+   "greedy_k8_fit1",
+   "indep_k2_fit1",
+   "indep_k4_fit1",
+   "indep_k4_indep_kA",
+   "indep_k4_indep_kB",
+   "indep_k8_fit1",
+   "oracle_k4",
+   "oracle_k4_08bR",
+   "oracle_k4_fit1",
+   "oracle_k4_oracle_kA",
+   "oracle_k4_oracle_kB",
+   "topw_k3",
+   "topw_k4",
+   "topw_k4_detA",
+   "topw_k4_detB",
+   "topw_k6",
+   "topw_k8"
+  ],
+  "equals_R1055": true,
+  "n_admitted": 24
+ },
+ "prior_art_refused": {
+  "R1055": "its NOISE FLOOR varies the INNER bootstrap seed at a fixed prompt sample; reproduced here as the SHAM to show what it cannot see",
+  "R978": "its N=968 row is 0 BY CONSTRUCTION \u2014 the corpus against itself, its own PLACEBO. Its `registered band` of 4 at N=968 is the pre-registration used here"
+ },
+ "question": "is the admitted set a stable object under resampling the prompt population?",
+ "round": "R1103",
+ "seeds": [
+  1103,
+  2206,
+  3309
+ ],
+ "set_size": {
+  "max": 27,
+  "mean": 22.77,
+  "min": 14,
+  "p2.5": 17.0,
+  "p97.5": 26.0,
+  "point_estimate": 24
+ },
+ "sham_R1055_rebuilt": {
+  "n": 0,
+  "unstable_arms": []
+ },
+ "source_sha256": "2a5b31c1e0e57f757804ee6e6a5995a1a3379f3ba755a0aaf7e6215a7919cd15",
+ "verdict": "\u26d4 WORLD A IS KILLED: 11 arm(s) sit in the band (0.05, 0.95) in every outer seed \u2014 ['coval_core_2bA', 'coval_core_2bB', 'greedy_k12_fit1', 'oracle_k4_08bR', 'topw_k2', 'topw_k3', 'topw_k4', 'topw_k4_detA', 'topw_k4_detB', 'topw_k6', 'topw_k8'] \u2014 against R978's committed registered band of 4 at N=968. |admitted| is 22.77 [17, 26] across 3000 resamples, point estimate 24. \u2b50 AND R1055's CONTROL IS REPRODUCED AND SHOWN BLIND: varying only the inner bootstrap seed at a fixed prompt sample gives 0 unstable arms, so its `0 unstable` certified the ESTIMATOR's determinism and never the SET."
+}

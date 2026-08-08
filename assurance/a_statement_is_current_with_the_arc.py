@@ -696,6 +696,23 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    # ⛔⛔⛔ R1103 RESAMPLED THE PROMPT POPULATION and found the admitted set is a DRAW, not an object.
+    #      R1055's committed noise floor (`0 unstable`) varies the INNER bootstrap seed at a fixed
+    #      prompt sample — determinism read as currency. This round reproduces that control as its
+    #      SHAM (0) beside the real one (11). Two facts must reach the statement: the interval on the
+    #      set, and that R1055's floor was blind — because a reader who takes `24` as a constant will
+    #      keep composing counts out of it, which is what R1098, R1099 and R1101 all did.
+    d = load("A27_*/R1103_*/results/set_stability.json")
+    if d:
+        sz, bd = d["set_size"], d["band"]
+        facts.append(("R1103", "the admitted set is a draw; R1055's noise floor was blind to it",
+                      f"|admitted| {sz['mean']} [{sz['p2.5']}, {sz['p97.5']}], point {sz['point_estimate']}, "
+                      f"band {bd['n_every']} vs R978 {bd['R978_registered_band_at_968']}, "
+                      f"sham {d['sham_R1055_rebuilt']['n']}",
+                      [r"ADMITTED\s+SET\s+IS\s+NOT\s+AN\s+OBJECT|admitted\s+set\s+is\s+not\s+an\s+object",
+                       r"R1055'?S\s+CONTROL\s+IS\s+REPRODUCED\s+AND\s+SHOWN\s+BLIND|"
+                       r"r1055'?s\s+control\s+is\s+reproduced\s+and\s+shown\s+blind"]))
+
     # ⛔⛔ R1102 DOWNGRADED R1011, the deepest claim in this arc. R1011 declared five nulls with NO
     #     MDE and a noise floor of width 0.000000 — a degenerate twin interval, which §4 names as the
     #     case where no threshold is admissible. Measured, its MDE is 2.4x the effects it called
