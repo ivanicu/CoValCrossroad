@@ -1,0 +1,223 @@
+{
+  "Q2_correlation": {
+    "CONFOUND_r_strength_vs_size": 0.839,
+    "MDE_for_r": 0.6689,
+    "SHAM_r_size_vs_flips": 0.0504,
+    "n": 15,
+    "permutation_band_95": [
+      -0.5344,
+      0.5173
+    ],
+    "r_strength_vs_flips": 0.3246,
+    "reading": "|r| below the MDE is UNRESOLVED at this n, never 'no relationship'. n_eff is 15 because every family is a subset of the same 15 objects.",
+    "resolved": false
+  },
+  "controls": {
+    "NEGATIVE the permutation band brackets zero": true,
+    "PLACEBO the strict variant against itself flips nobody": true,
+    "POSITIVE a NEAR plant flips arms; a FAR one flips none": true,
+    "POSITIVE the near plant lands inside the real subsets' flip range": true,
+    "g=0 adding a column never lowers the space maximum (a superset)": true,
+    "g=0 identical comparators give identical flip counts": true
+  },
+  "derivation": "under the every-comparator rule admission is an INTERSECTION over members, so d_res(F) = |\u2229 relaxed_j| - |\u2229 strict_j| is fully determined by the 15 per-subset columns. Labelled as a derivation: it is why the leave-one-out decomposition is exact rather than estimated.",
+  "full_space": {
+    "distinct": 9,
+    "families": 32767,
+    "max": 14,
+    "min": 2,
+    "mode": 7
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true,
+    "world_C": true
+  },
+  "leave_one_out": {
+    "(0, 1)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 8,
+      "strength": 0.4963
+    },
+    "(0, 1, 2)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 3,
+      "solo_flips": 5,
+      "strength": 0.4989
+    },
+    "(0, 1, 2, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 5,
+      "size": 4,
+      "solo_flips": 7,
+      "strength": 0.5023
+    },
+    "(0, 1, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 3,
+      "solo_flips": 7,
+      "strength": 0.4967
+    },
+    "(0, 2)": {
+      "distinct": 8,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 10,
+      "strength": 0.4934
+    },
+    "(0, 2, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 3,
+      "solo_flips": 5,
+      "strength": 0.4985
+    },
+    "(0, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 11,
+      "strength": 0.4898
+    },
+    "(0,)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 1,
+      "solo_flips": 14,
+      "strength": 0.4828
+    },
+    "(1, 2)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 14,
+      "strength": 0.4883
+    },
+    "(1, 2, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 3,
+      "solo_flips": 11,
+      "strength": 0.4901
+    },
+    "(1, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 14,
+      "strength": 0.4848
+    },
+    "(1,)": {
+      "distinct": 8,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 1,
+      "solo_flips": 4,
+      "strength": 0.4716
+    },
+    "(2, 3)": {
+      "distinct": 9,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 2,
+      "solo_flips": 8,
+      "strength": 0.4791
+    },
+    "(2,)": {
+      "distinct": 8,
+      "families": 16383,
+      "max": 14,
+      "min": 2,
+      "mode": 7,
+      "size": 1,
+      "solo_flips": 3,
+      "strength": 0.4646
+    },
+    "(3,)": {
+      "distinct": 8,
+      "families": 16383,
+      "max": 14,
+      "min": 3,
+      "mode": 7,
+      "size": 1,
+      "solo_flips": 2,
+      "strength": 0.4622
+    }
+  },
+  "n_eff_warning": "32,767 families are subsets of 15 objects; n_eff = 15. The exact route below is a decomposition of a deterministic quantity and needs no n.",
+  "noise_floor": {
+    "non_unanimous_relaxed": 0,
+    "non_unanimous_strict": 7,
+    "permutations": 2000,
+    "seeds": [
+      11,
+      23,
+      47
+    ]
+  },
+  "plants": {
+    "far_plant_solo_flips": 0,
+    "mechanism": "a flip needs the arm CLOSE to the comparator; extreme plants flip 0 in both directions, so proximity and not weakness is the driver, and world A's mechanism as first written was wrong",
+    "near_plant_solo_flips": 8,
+    "real_subset_flip_range": [
+      2,
+      14
+    ]
+  },
+  "population": {
+    "arms": 99,
+    "prompts": 968,
+    "subsets": 15
+  },
+  "question": "is resolvability's span a matter of comparator strength or of identity?",
+  "round": "R1088",
+  "source_sha256": "71707ea971d914498b5c7bf5c67d474471851d2e5aef38410a0c5d07c21e3827",
+  "span_carriers": [],
+  "verdict": "world C (NEITHER) \u2014 no single subset's removal lowers the maximum of 14; the span is a joint property of the space and no member explains it.",
+  "weakest_subset": {
+    "max_after_removal": 14,
+    "strength": 0.4622,
+    "subset": "(3,)"
+  }
+}

@@ -1835,6 +1835,29 @@ consistent with its comparators being **stronger objects**, not with its number 
 `COV[j]` is all-true and the mask collapses to the **arm's alone** — which factorises the bootstrap
 per arm and turns 32,767 families into lookups. That collapse is the round's first control.
 
+⭐⭐ **AND R1088 FINDS THE MECHANISM, AND IT IS NEITHER OF THE TWO I OFFERED: a flip requires
+PROXIMITY, not weakness.** An arm "flips" when the point estimate admits it and the 2.5th percentile
+does not — which needs the arm close enough that the bootstrap interval straddles zero. Measured with
+plants: a comparator far **below** every arm is beaten resolvably by all of them and flips **0**; one
+just below the arms' mean flips **8**. **"Weaker admits more" was never the mechanism**, and the
+plants are what showed it.
+⭐ **And no single subset carries the span.** Removing any one of the 15 leaves the maximum at **14**,
+because **three** subsets — `(0,)`, `(1,2)`, `(1,3)` — each reach 14 alone. **World A (strength) and
+world B (identity) are both KILLED; the span is a redundant joint property of the space.** Removing
+the weakest subset `(3,)` changes nothing at all.
+⛔ **THE REGRESSION R1087 PROPOSED IS A TRAP AND THE ROUND SAYS SO BEFORE RUNNING IT: n_eff is 15,
+not 32,767**, because every family is a subset of the same 15 objects. **MDE for |r| at n=15 is
+0.669**, stated first; the observed `r(strength, flips) = +0.3246` sits inside its own permutation
+band `[-0.5344, +0.5173]` and is **UNRESOLVED at this n, never "no relationship"**. Its **sign is
+positive** — stronger comparators associate with more flips, the opposite of the strength story and
+consistent with proximity. Strength and size are confounded at **+0.84**, measured rather than named.
+⭐ **The exact route needed no inference:** admission under the every-comparator rule is an
+INTERSECTION over members, so `d_res(F) = |∩relaxed| − |∩strict|` is deterministic in the 15 columns
+and the leave-one-out decomposition is exact rather than estimated. **Labelled as a derivation.**
+⛔ **Two controls could not fail as first written** — adding a column makes the space a superset, so
+"a strong plant does not raise the maximum" held whatever the plant was; and rebuilt as a solo
+comparison both extreme plants returned 0, which looked broken and **was** the mechanism.
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

@@ -696,6 +696,16 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1088_*/results/span_strength_or_composition.json")
+    if d:
+        q = d["Q2_correlation"]; pl = d["plants"]
+        facts.append(("R1088", "the driver is proximity, not strength, and no subset carries the span",
+                      f"near plant {pl['near_plant_solo_flips']} vs far {pl['far_plant_solo_flips']} "
+                      f"flips, r {q['r_strength_vs_flips']} vs MDE {q['MDE_for_r']}, "
+                      f"carriers {len(d['span_carriers'])}",
+                      [r"driver\s+is\s+\*\*proximity\*\*|requires\s+PROXIMITY",
+                       r"UNRESOLVED\s+at\s+this\s+n"]))
+
     d = load("A27_*/R1087_*/results/other_two_clauses.json")
     if d:
         r, c = d["distributions"]["resolvability"], d["distributions"]["coverage"]
