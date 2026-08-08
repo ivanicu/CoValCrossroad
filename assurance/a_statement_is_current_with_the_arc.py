@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1085_*/results/isolation_reaches_the_writers.json")
+    if d:
+        facts.append(("R1085", "isolation is a safety property, and it bought nothing statistical",
+                      f"floor dirty isolated {len(d['Q2_floor_dirty_even_isolated'])}, "
+                      f"sham {len(d['sham_no_isolation_floor_dirty'])}, "
+                      f"buys {d['isolation_buys']}",
+                      [r"isolation\s+is\s+a\s+safety\s+property",
+                       r"buys\s+\*\*0\*\*|Isolation\s+buys\s+0"]))
+
     d = load("A27_*/R1084_*/results/parse_vs_run.json")
     if d:
         c = d["confusion"]

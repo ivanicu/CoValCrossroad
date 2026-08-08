@@ -12,7 +12,11 @@ import pathlib
 import sys
 import tempfile
 
-ROOT = pathlib.Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable")
+# ⛔ R1085: this was a HARD-CODED ABSOLUTE PATH to one checkout. Two costs, both measured:
+#    it defeats isolation -- a clone cannot contain a script that names the original by
+#    absolute path, so this file could not enter R1085's population at all -- and it breaks
+#    the moment the repository is moved, renamed or cloned. Derived from __file__ now.
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 GATE = ROOT / "assurance/a_retraction_declares_its_class.py"
 
 spec = importlib.util.spec_from_file_location("gate", GATE)

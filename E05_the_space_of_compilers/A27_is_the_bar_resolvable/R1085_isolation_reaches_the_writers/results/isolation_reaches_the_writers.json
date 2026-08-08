@@ -1,0 +1,474 @@
+{
+  "Q1_moved_between_cwds": [
+    "kill_is_wired_into_the_branch.py",
+    "manifest.py"
+  ],
+  "Q2_floor_dirty_even_isolated": [
+    "attack_a_retraction_declares_its_class.py"
+  ],
+  "captures": {
+    "DEFECTS.py": {
+      "head_a": "CoVal DEFECT LIST -- 46 checks across five waves\n  6 blocking, 16 serious, 8 noted, 16 checked-clean\n\n\n=============================================================================",
+      "head_b": "CoVal DEFECT LIST -- 46 checks across five waves\n  6 blocking, 16 serious, 8 noted, 16 checked-clean\n\n\n=============================================================================",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "70856a83cbeb0c0b",
+      "sha_b": "70856a83cbeb0c0b"
+    },
+    "HEADLINES.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "_isolated.py": {
+      "head_a": "  SELFTEST \u2014 plant a subject whose only job is to DESTROY, and require the MAIN tree to\n  survive it. This is the exact event that deleted 1,075 files twice today; a harness\n  that",
+      "head_b": "  SELFTEST \u2014 plant a subject whose only job is to DESTROY, and require the MAIN tree to\n  survive it. This is the exact event that deleted 1,075 files twice today; a harness\n  that",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "2f8725eeba570ff8",
+      "sha_b": "2f8725eeba570ff8"
+    },
+    "_repair.py": {
+      "head_a": "assurance/_repair.py \u00b7 entry-time tree repair\n  tree is whole: 0 tracked paths missing.\n  \u26a0 21 orphaned attack_rounds_* stashes in /tmp (48137 entries). NOT deleted \u2014 R428 found 21",
+      "head_b": "assurance/_repair.py \u00b7 entry-time tree repair\n  tree is whole: 0 tracked paths missing.\n  \u26a0 21 orphaned attack_rounds_* stashes in /tmp (48137 entries). NOT deleted \u2014 R428 found 21",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "5d43bb164a7bebaa",
+      "sha_b": "5d43bb164a7bebaa"
+    },
+    "a_commit_body_names_its_own_round.py": {
+      "head_a": "  POSITIVE CONTROL  a body NOT naming its round is flagged: True  PASS\n  g=0               a body naming its round is not flagged: True  PASS\n    The positive arm uses the REAL off",
+      "head_b": "  POSITIVE CONTROL  a body NOT naming its round is flagged: True  PASS\n  g=0               a body naming its round is not flagged: True  PASS\n    The positive arm uses the REAL off",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "08db323f311ea091",
+      "sha_b": "08db323f311ea091"
+    },
+    "a_declared_control_reaches_the_artifact.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "a_gate_is_cwd_invariant.py": {
+      "head_a": "  CONTROLS on this gate, before its own verdict:\n    PASS  POSITIVE a cwd-dependent probe IS detected (29 vs 1 marks)\n    PASS  NEGATIVE a cwd-independent probe is NOT reported as ",
+      "head_b": "  CONTROLS on this gate, before its own verdict:\n    PASS  POSITIVE a cwd-dependent probe IS detected (29 vs 1 marks)\n    PASS  NEGATIVE a cwd-independent probe is NOT reported as ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "cdadb79761ba900a",
+      "sha_b": "cdadb79761ba900a"
+    },
+    "a_next_names_the_check_that_cleared_it.py": {
+      "head_a": "  POSITIVE CONTROL  an UNCITED NEXT is flagged: True  PASS\n  g=0               a CITED NEXT is not flagged: True  PASS\n  g=0               prose merely CONTAINING the word is not a",
+      "head_b": "  POSITIVE CONTROL  an UNCITED NEXT is flagged: True  PASS\n  g=0               a CITED NEXT is not flagged: True  PASS\n  g=0               prose merely CONTAINING the word is not a",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "7dacce9542d6aa56",
+      "sha_b": "7dacce9542d6aa56"
+    },
+    "a_seed_must_be_stable.py": {
+      "head_a": "  POSITIVE CONTROL  a hash()-seeded RNG is flagged: True  PASS\n  g=0               a crc32 seed and a COMMENT mentioning hash(p) are NOT flagged: True  PASS\n  g=0               a h",
+      "head_b": "  POSITIVE CONTROL  a hash()-seeded RNG is flagged: True  PASS\n  g=0               a crc32 seed and a COMMENT mentioning hash(p) are NOT flagged: True  PASS\n  g=0               a h",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "538d72c619a4de2b",
+      "sha_b": "538d72c619a4de2b"
+    },
+    "apply_freeze_status.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "apply_outcome_scope.py": {
+      "head_a": "\n0 file(s) updated, 15 checked (idempotent: a second run changes nothing)\n",
+      "head_b": "\n0 file(s) updated, 15 checked (idempotent: a second run changes nothing)\n",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "9e0fe52fe8635ade",
+      "sha_b": "9e0fe52fe8635ade"
+    },
+    "artifacts_are_internally_coherent.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "attack_a_published_number_is_named.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "attack_a_retraction_declares_its_class.py": {
+      "head_a": "a retraction declares its class \u2014 tmp3gktr8nk.md, binds from entry 1150 onward, 20 \u00a74 modes in vocabulary, 1 entr(y/ies) in scope\n  1150   ok\n\nAll 1 in-scope entries declare a clas",
+      "head_b": "a retraction declares its class \u2014 tmp3l3ni5bq.md, binds from entry 1150 onward, 20 \u00a74 modes in vocabulary, 1 entr(y/ies) in scope\n  1150   ok\n\nAll 1 in-scope entries declare a clas",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "36e7158d4be13156",
+      "sha_b": "99e64c47b72ba9fb"
+    },
+    "attack_every_check.py": {
+      "head_a": "check                                          fired?  detail\nevery_round_reaches_the_readme                INVALID  PLANT INVALID -- the mutation changed nothing\nretired_framing_i",
+      "head_b": "check                                          fired?  detail\nevery_round_reaches_the_readme                INVALID  PLANT INVALID -- the mutation changed nothing\nretired_framing_i",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "3db0e2b0297052f9",
+      "sha_b": "3db0e2b0297052f9"
+    },
+    "attack_no_withdrawn_framings.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "attack_outcome_variable_declared.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "attack_scope_reaches_the_reader.py": {
+      "head_a": "  restored: live package back to exit 0\n  OK     1 entry-57's exact bug (110-char cut)\n  OK     2 a single claim silently shortened\n  OK     3 reflowed whitespace (must NOT flag)\n ",
+      "head_b": "  restored: live package back to exit 0\n  OK     1 entry-57's exact bug (110-char cut)\n  OK     2 a single claim silently shortened\n  OK     3 reflowed whitespace (must NOT flag)\n ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "5ce0d86af5104405",
+      "sha_b": "5ce0d86af5104405"
+    },
+    "attack_the_suite.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        null,
+        null
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "audit_the_auditors.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        null,
+        null
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "backfilled_findings_are_rederivable.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        null,
+        null
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "consistency.py": {
+      "head_a": "cross-round consistency: 9/9 agree (1 not computable)\n\n  [skip] unserved rate: r144 residual/panel vs r145 row mean  -- a result file is missing\n  [ok  ] unserved rate: r145 vs r14",
+      "head_b": "cross-round consistency: 9/9 agree (1 not computable)\n\n  [skip] unserved rate: r144 residual/panel vs r145 row mean  -- a result file is missing\n  [ok  ] unserved rate: r145 vs r14",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "f5199afa2cc8fdc9",
+      "sha_b": "f5199afa2cc8fdc9"
+    },
+    "declared_machinery_is_wired.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "every_round_is_committed.py": {
+      "head_a": "  POSITIVE CONTROL  rounds with tracked files: 1053 of 1053 -> PASS\n  NEGATIVE CONTROL  an invented round reads as untracked: True -> PASS\n  POSITIVE CONTROL  dirty filter over ALL",
+      "head_b": "  POSITIVE CONTROL  rounds with tracked files: 1053 of 1053 -> PASS\n  NEGATIVE CONTROL  an invented round reads as untracked: True -> PASS\n  POSITIVE CONTROL  dirty filter over ALL",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "69b21cd3687e5bea",
+      "sha_b": "69b21cd3687e5bea"
+    },
+    "every_round_reaches_the_readme.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "generate_round_index.py": {
+      "head_a": "  coverage BEFORE: 896/1053  (85%)\n\n  arc                                                    rounds  created?  descriptions from\n    A01_can_this_release_be_analysed_at_all        ",
+      "head_b": "  coverage BEFORE: 896/1053  (85%)\n\n  arc                                                    rounds  created?  descriptions from\n    A01_can_this_release_be_analysed_at_all        ",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "2900ff03d09219c8",
+      "sha_b": "2900ff03d09219c8"
+    },
+    "kill_is_wired_into_the_branch.py": {
+      "head_a": "  population: 21 modules under ['corebench'] \u00b7 10 judgeable \u00b7 3 with flags but no locatable verdict chain\n  POSITIVE CONTROL synthetic_world.py flagged: True   PASS\n  NEGATIVE CONT",
+      "head_b": "  population: 0 modules under ['corebench'] \u00b7 0 judgeable \u00b7 0 with flags but no locatable verdict chain\n  POSITIVE CONTROL synthetic_world.py flagged: False   FAIL \u2014 the scan is bl",
+      "rc": [
+        0,
+        2
+      ],
+      "sha_a": "a0502daa9b0a4ca0",
+      "sha_b": "258ae6f4c12ca9e5"
+    },
+    "manifest.py": {
+      "head_a": "claims: 14/20 supported (11 HOLDS, 3 MARGINAL) \u00b7 6 FAIL\n  weakest supported claim clears its threshold by +12.5%\n  MARGINAL = clears by <= 25%. That cutoff was chosen AFTER seeing ",
+      "head_b": "BROKEN HARNESS -- these claims cannot be checked at all:\n    C1: missing E01_the_rubric_was_the_object/A01_can_this_release_be_analysed_at_all/R04_rebuild_satisfaction/results/a04_",
+      "rc": [
+        0,
+        1
+      ],
+      "sha_a": "7e71f0431514e410",
+      "sha_b": "5479ed2e738bae22"
+    },
+    "markdown_tables_are_well_formed.py": {
+      "head_a": "positive control: 1 table, 4 rows, flagged line(s) [4] -> PASS  (must flag the EXTRA-cell row, sparing the escaped and short ones)\n\n348 tables, 1318 body rows across 6 documents\n\ne",
+      "head_b": "positive control: 1 table, 4 rows, flagged line(s) [4] -> PASS  (must flag the EXTRA-cell row, sparing the escaped and short ones)\n\n348 tables, 1318 body rows across 6 documents\n\ne",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "0b53530b4bf05a73",
+      "sha_b": "0b53530b4bf05a73"
+    },
+    "next_gradient_labels_its_hypotheses.py": {
+      "head_a": "  19 commits carry a NEXT: block; 7 state a causal claim with\n  no round citation and no hypothesis label.\n\n       commit      status   subject\n     504f3076         NEW   [fix.res",
+      "head_b": "  19 commits carry a NEXT: block; 7 state a causal claim with\n  no round citation and no hypothesis label.\n\n       commit      status   subject\n     504f3076         NEW   [fix.res",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "4ac43fa167871827",
+      "sha_b": "4ac43fa167871827"
+    },
+    "next_line_quantifiers_are_computed.py": {
+      "head_a": "  NEXT lines in history: 293   commits with none extractable: 107\n  \u26d4 HEAD (bac5861f) has NO extractable NEXT paragraph. This gate examined NOTHING for\n     the commit under test, ",
+      "head_b": "  NEXT lines in history: 293   commits with none extractable: 107\n  \u26d4 HEAD (bac5861f) has NO extractable NEXT paragraph. This gate examined NOTHING for\n     the commit under test, ",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "ce9a923bdb91b92b",
+      "sha_b": "ce9a923bdb91b92b"
+    },
+    "preflight.py": {
+      "head_a": "  UNRUNNABLE: no paths given. Staging nothing and returning 0 would be an empty population passing. Exit 2, never 0.\n",
+      "head_b": "  UNRUNNABLE: no paths given. Staging nothing and returning 0 would be an empty population passing. Exit 2, never 0.\n",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_a": "7177a355d696405b",
+      "sha_b": "7177a355d696405b"
+    },
+    "preflight_receipts.py": {
+      "head_a": "  epoch: the first commit carrying a receipt is 1301dc4e\n  commits since (inclusive): 68\n    WITH a receipt       66\n    WITHOUT               2\n    receipt-only          0  (not e",
+      "head_b": "  epoch: the first commit carrying a receipt is 1301dc4e\n  commits since (inclusive): 68\n    WITH a receipt       66\n    WITHOUT               2\n    receipt-only          0  (not e",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "9e3e9f2738fff0d5",
+      "sha_b": "9e3e9f2738fff0d5"
+    },
+    "pueue_wait.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        2,
+        2
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "results_match_their_code.py": {
+      "head_a": "round                                code  results  status\n\n  excluded from staleness: SMOKE outputs, archived (_*) directories, and\n  .npz model weights, which are frozen INPUTS o",
+      "head_b": "round                                code  results  status\n\n  excluded from staleness: SMOKE outputs, archived (_*) directories, and\n  .npz model weights, which are frozen INPUTS o",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "5bfe375c2659b2d4",
+      "sha_b": "5bfe375c2659b2d4"
+    },
+    "retraction_reaches_the_artifact.py": {
+      "head_a": "  positive control: an un-annotated artifact is detected        PASS\n  negative control: R485 (annotated) is NOT detected            PASS\n\n  cited AND named as retracted party : 24",
+      "head_b": "  positive control: an un-annotated artifact is detected        PASS\n  negative control: R485 (annotated) is NOT detected            PASS\n\n  cited AND named as retracted party : 24",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "0c98cb06c9651651",
+      "sha_b": "0c98cb06c9651651"
+    },
+    "run_all.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        null,
+        null
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    },
+    "source_stamp_is_current.py": {
+      "head_a": "  planted control: matching -> FRESH (want FRESH); drifted -> STALE (want STALE); unattributable -> UNVERIFIED (want UNVERIFIED)  PASS\n  279 round(s) carry a stamp \u2014 FRESH 120, STA",
+      "head_b": "  planted control: matching -> FRESH (want FRESH); drifted -> STALE (want STALE); unattributable -> UNVERIFIED (want UNVERIFIED)  PASS\n  279 round(s) carry a stamp \u2014 FRESH 120, STA",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "b89f65419f6f890a",
+      "sha_b": "b89f65419f6f890a"
+    },
+    "tree_survives_the_sweep.py": {
+      "head_a": "  POSITIVE CONTROL  a file that vanishes is detected: True  PASS\n  g=0               a file that never existed is NOT reported as vanished: True  PASS\n    Both arms are required: a",
+      "head_b": "  POSITIVE CONTROL  a file that vanishes is detected: True  PASS\n  g=0               a file that never existed is NOT reported as vanished: True  PASS\n    Both arms are required: a",
+      "rc": [
+        0,
+        0
+      ],
+      "sha_a": "dd13130b6af1a543",
+      "sha_b": "dd13130b6af1a543"
+    },
+    "what_did_each_check_actually_read.py": {
+      "head_a": "",
+      "head_b": "",
+      "rc": [
+        1,
+        1
+      ],
+      "sha_a": "e3b0c44298fc1c14",
+      "sha_b": "e3b0c44298fc1c14"
+    }
+  },
+  "controls": {
+    "NEGATIVE an ABSOLUTE write ESCAPES the clone (why 6 are excluded)": true,
+    "NEGATIVE and it still did not touch the REAL repository": true,
+    "PLACEBO the isolated floor is clean for most of the population": true,
+    "POSITIVE a relative write dirties the CLONE": true,
+    "POSITIVE and leaves the REAL repository untouched": true,
+    "g=0 a plant that writes nothing dirties neither": true
+  },
+  "isolation_buys": 0,
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": false,
+    "world_C_aborted": false
+  },
+  "population": {
+    "excluded_absolute_self_reference": {
+      "_one_home_per_claim_UNVALIDATED.py": "unparsable"
+    },
+    "isolable": 40,
+    "measured": 40,
+    "timed_out": [
+      "attack_the_suite.py",
+      "audit_the_auditors.py",
+      "backfilled_findings_are_rederivable.py",
+      "run_all.py"
+    ],
+    "why_excluded": "a literal naming this repository escapes any clone; isolation cannot contain it. Demonstrated by the NEGATIVE control against a scratch sentinel.",
+    "writers_from_R1084": 41
+  },
+  "question": "does one clone per run make the 41 writing scripts measurable?",
+  "real_repository_unchanged_throughout": true,
+  "round": "R1085",
+  "sham_no_isolation_floor_dirty": [
+    "attack_a_retraction_declares_its_class.py"
+  ],
+  "source_sha256": "9c0a53c29750d4d59629856f3ff243cc39aed385b2626f67410454762f863d11",
+  "specification_curve": [
+    {
+      "compare_on": "rc+stdout",
+      "moved": 2,
+      "normalise": true,
+      "scripts": 35
+    },
+    {
+      "compare_on": "rc+stdout",
+      "moved": 3,
+      "normalise": false,
+      "scripts": 35
+    },
+    {
+      "compare_on": "rc only",
+      "moved": 2,
+      "normalise": true,
+      "scripts": 35
+    },
+    {
+      "compare_on": "rc only",
+      "moved": 2,
+      "normalise": false,
+      "scripts": 35
+    }
+  ],
+  "verdict": "world A survives \u2014 with a fresh clone per run the floor is clean for 35 of 40 writing scripts, and 2 of them move between working directories. Without isolation the SAME floor is dirty for 1 of 40, which is what the clone buys, in scripts."
+}

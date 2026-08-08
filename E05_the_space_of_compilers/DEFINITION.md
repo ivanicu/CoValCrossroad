@@ -1763,6 +1763,31 @@ list.** Seven retractions in ten rounds — R1075's void premise, three failed c
 R1084's `ROOT` — are **one error: reading a REPRESENTATION as evidence about its REFERENT.** The
 remedy that worked every time was the same: **execute the thing.** Detail: `RETRACTIONS.md`.
 
+⭐⭐ **AND R1085 DEFLATES ITS OWN PREMISE: isolation is a safety property, and it bought nothing
+statistical.** Running each of the 41 writing scripts in its own fresh `git clone`, the determinism
+floor is clean for **35 of 40**, **1** is dirty even isolated, **4** time out, and **2** move between
+working directories. **The SHAM — both arms in ONE clone, which is R1084's design — leaves the floor
+dirty for the same 1 of 40. Isolation buys 0 scripts of measurable floor.** For 39 of 40, running
+twice in place would have given the same answer.
+⭐ **What it does buy is measured by a different control and is not optional.** The POSITIVE control
+shows a relative write dirties the clone and leaves the real repository untouched, and R1084 measured
+the alternative — `ASSURANCE.md` cut to 22 of 111 lines, `DEFECTS.json` −395, `MANIFEST.json` +943.
+**The round had to build isolation to learn that its statistic never needed it.**
+⛔ **The first full run ABORTED on world C, and the cause was me.** It refused to report numbers
+because the real repository changed mid-run. Two candidates, both checked: a round script escaping by
+absolute path is **REFUTED** — **0 of 1012** `run.py` files carry a literal naming this repository —
+and my own five `attack_*.py` edits at **18:00:40** against an abort written at **18:02:20** is
+**CONFIRMED**. **The control fired for its own reasons for the fourth time in this arc and was still
+right to fire**; what it lacks is the diff, so the cause had to be reconstructed from timestamps.
+⚠ **And its timeout could not bind:** `subprocess.run(timeout=…)` kills the direct child while a
+**grandchild** holds the pipes open. `start_new_session=True` + `os.killpg` now kills the tree.
+⭐ **Five scripts repaired:** `ROOT = Path("/home/ivan/research…")` became `Path(__file__)`-derived —
+zero absolute literals remain and **every verdict is unchanged** (`1,0,1,1,0` before and after).
+⛔ **AND THE ARC-LEVEL NUMBER THIS ROUND OWES: 6 rounds, 144 lines added to this document, and 0
+commits changing the clause text.** Six rounds shipped four instruments and never moved the
+definition. Every round audits the guard the previous one shipped. **That is a basin, and the next
+gradient is the clause, not another guard.**
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

@@ -8,7 +8,11 @@ live one, so the attack cannot leave the package in a broken state.
 import json, shutil, subprocess, sys
 from pathlib import Path
 
-ROOT = Path("/home/ivan/research.trustworthy-ai.coval-deep-analysis.build.lg.private.editable")
+# ⛔ R1085: this was a HARD-CODED ABSOLUTE PATH to one checkout. Two costs, both measured:
+#    it defeats isolation -- a clone cannot contain a script that names the original by
+#    absolute path, so this file could not enter R1085's population at all -- and it breaks
+#    the moment the repository is moved, renamed or cloned. Derived from __file__ now.
+ROOT = Path(__file__).resolve().parent.parent
 DOC = ROOT / "assurance/ASSURANCE.md"
 PY = str(ROOT / ".venv/bin/python")
 
