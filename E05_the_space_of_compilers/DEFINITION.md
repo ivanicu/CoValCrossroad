@@ -1952,6 +1952,27 @@ from the data at all**.
 bar"*, comparator and criterion both `invariant` — **which reads as *nothing to measure***. A clause
 with no threshold is not a clause with no truth value, and that reading is what kept it unexamined.
 
+⛔⛔⛔ **AND R1094 RETRACTS R1093'S VERDICT: clause ③'s TEXT and its own CONTROL name different
+properties, and they disagree on exactly the three released cores.** Read from the generator rather
+than from a name — `corebench/select_core.py:19`, *"`oracle_k` — the k that best fit the human
+target. LEAKY BY CONSTRUCTION"*, with line 102 loading `data/comparisons.jsonl` for `greedy_k`,
+`indep_k`, `oracle_k` **and no other rule**. The definition's committed control is *"`oracle_k4`
+fails ③"*, which fixes ③ as a **LEAKAGE** clause: it excludes consuming the **evaluation target**,
+not "a human helped author the criteria".
+⛔ **So R1093's unit was wrong.** Its unit was *a human was involved in authoring*; the operative unit
+is *the arm consumes the evaluation target*. **Same words, different referents — this arc's one error
+class, committed one round earlier in the round whose whole point was quoting the card rather than
+inferring from it.** **RETRACTED: the verdict.** **STANDS: R1093's card quotes and its schema
+measurement** (`coval_core` items carry `criterion` alone over all 986; no per-item provenance link).
+⭐⭐ **THE FINDING THAT REPLACES IT.** Over R1090's 35-arm `always` block the **leakage** reading
+excludes **19** arms and the **authorship** reading **22** — and **they disagree on exactly 3:
+`coval_core`, `coval_core_2bA`, `coval_core_2bB`.** Under leakage the cores are **admitted**; under
+authorship they are **excluded**.
+⛔ **AND THE CLAUSE'S OWN CONTROL CANNOT SEPARATE ITS OWN READINGS, because `oracle_k4` fails under
+both.** A control that both candidate readings pass is not a control between them. **So the
+definition's instance is admitted or excluded depending on a choice the definition never makes — and
+a definition whose text and whose test disagree on its own instance is not yet a definition.**
+
 ⛔ **And one control earned the round.** The census classifier's POSITIVE control went **red on the
 first run**: it matched substrings of `ast.dump()`, which emits `Name(id='next', ctx=Load())`, so
 `"Call(func=Name(id='next')"` can never fire. It labelled **all 262** committed landmark searches

@@ -696,6 +696,15 @@ def main() -> int:
 
     # ⛔⛔ R1044 RETRACTS R1043's headline: the anchoring gate is NARROW, not blind — it detects a
     #    corrupted value inside its assertion spans and publishes its own 2.7%-7.8% coverage.
+    d = load("A27_*/R1094_*/results/two_readings.json")
+    if d:
+        r = d["readings"]
+        facts.append(("R1094", "R1093 retracted: the clause's text and its control differ",
+                      f"leakage {len(r['leakage_excludes'])}, authorship "
+                      f"{len(r['authorship_excludes'])}, disagree {r['disagree_on']}",
+                      [r"cannot\s+separate\s+its\s+own\s+readings",
+                       r"is\s+not\s+yet\s+a\s+definition"]))
+
     d = load("A27_*/R1093_*/results/provenance.json")
     if d:
         q = d["Q1_schema"]

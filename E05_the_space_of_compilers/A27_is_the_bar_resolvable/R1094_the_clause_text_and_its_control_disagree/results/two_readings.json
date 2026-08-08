@@ -1,0 +1,91 @@
+{
+  "controls": {
+    "NEGATIVE the two readings come from DIFFERENT sources": true,
+    "PLACEBO each reading against itself excludes an identical set": true,
+    "POSITIVE oracle_k4 is excluded under BOTH readings": true,
+    "POSITIVE the generator names the leaky rules and the target file": true,
+    "g=0 `generic` is admitted under both readings": true
+  },
+  "kill": {
+    "gate_open": true,
+    "world_A_killed": true,
+    "world_B_with_consequence": true
+  },
+  "question": "does clause \u2462's own control fix which of its two readings is operative?",
+  "readings": {
+    "authorship_excludes": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB",
+      "greedy_k12_fit1",
+      "greedy_k2_fit1",
+      "greedy_k4_fit1",
+      "greedy_k4_fit1_08bR",
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB",
+      "greedy_k8_fit1",
+      "indep_k12_fit1",
+      "indep_k2_fit1",
+      "indep_k4_fit1",
+      "indep_k4_fit1_08bR",
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB",
+      "indep_k8_fit1",
+      "oracle_k4",
+      "oracle_k4_08bR",
+      "oracle_k4_fit1",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ],
+    "disagree_on": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ],
+    "leakage_excludes": [
+      "greedy_k12_fit1",
+      "greedy_k2_fit1",
+      "greedy_k4_fit1",
+      "greedy_k4_fit1_08bR",
+      "greedy_k4_greedy_kA",
+      "greedy_k4_greedy_kB",
+      "greedy_k8_fit1",
+      "indep_k12_fit1",
+      "indep_k2_fit1",
+      "indep_k4_fit1",
+      "indep_k4_fit1_08bR",
+      "indep_k4_indep_kA",
+      "indep_k4_indep_kB",
+      "indep_k8_fit1",
+      "oracle_k4",
+      "oracle_k4_08bR",
+      "oracle_k4_fit1",
+      "oracle_k4_oracle_kA",
+      "oracle_k4_oracle_kB"
+    ],
+    "released_cores_in_disagreement": [
+      "coval_core",
+      "coval_core_2bA",
+      "coval_core_2bB"
+    ]
+  },
+  "retracts": {
+    "claim": "clause \u2462 is FALSE of the released core",
+    "round": "R1093",
+    "status": "verdict RETRACTED; the card quotes it reported remain correct",
+    "why": "its unit was `a human was involved in authoring the criteria`; the clause's operative unit, fixed by its own committed control `oracle_k4 fails \u2462`, is `the arm consumes the EVALUATION TARGET`. Same words, different referents \u2014 this arc's one error class."
+  },
+  "round": "R1094",
+  "source_sha256": "832a6194fd9a20eaf977646b29efe5c45ff042f89e33db5d12d1b7695f21ec4b",
+  "verdict": "\u26d4 R1093 IS RETRACTED, and world B holds. Clause \u2462's TEXT and its own CONTROL name different properties. The generator records that `greedy_k, indep_k, oracle_k` load `data/comparisons.jsonl` -- the held-out rankings -- so the committed control `oracle_k4 fails \u2462` fixes \u2462 as a LEAKAGE clause. Under that reading the released cores ['coval_core', 'coval_core_2bA', 'coval_core_2bB'] are ADMITTED. Under R1093's AUTHORSHIP reading they are EXCLUDED. The two disagree on exactly ['coval_core', 'coval_core_2bA', 'coval_core_2bB'], and the oracle fails under both, so **the clause's own control cannot separate its own readings.**",
+  "witness": {
+    "file": "corebench/select_core.py",
+    "leaky_rules": [
+      "greedy_k",
+      "indep_k",
+      "oracle_k"
+    ],
+    "line_19": "oracle_k  the k that best fit the human target. LEAKY BY CONSTRUCTION",
+    "target_file": "data/comparisons.jsonl"
+  }
+}
